@@ -1,7 +1,9 @@
 <template>
-  <div class="header-cubo-nav">
-    <h1 style="color:#06a5c1;">Paquete
-      Económico 2027</h1>
+  <div class="hero">
+    <div class="hero-title">
+      <h1>Paquete Económico 2027</h1>
+    </div>
+    <div class="hero-image">Hola</div>
 
   </div>
 </template>
@@ -13,7 +15,7 @@ import Mascota from './utils/Mascota.vue'
 </script>
 
 <style>
-.header-cubo-nav {
+.hero {
   position: relative;
   min-height: 80dvh;
   /* max-width: 1500px;
@@ -24,12 +26,22 @@ import Mascota from './utils/Mascota.vue'
   /* border: solid 2px red; */
 
   display: flex;
-  flex-direction: column;
 
   /* background-color: orange; */
 
   margin-top: 0.7rem;
   max-width: 1800px;
+}
+
+.hero-title {
+  flex: 1;
+  color: white;
+}
+
+.hero-image {
+  flex: 1;
+  color: white;
+  /* border: solid 2px blue; */
 }
 
 h1 {
