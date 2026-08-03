@@ -2,7 +2,7 @@
 /* import { RouterLink, RouterView } from 'vue-router' */
 import Footer from './components/footer/Footer.vue'
 import NavPlantilla from './components/navbar/NavPlantilla.vue'
-import Precriterios from './components/Precriterios.vue'
+import Precriterios from './components/PPEF.vue'
 /* import './css/cubo.css' */
 
 /* SECCIONES */

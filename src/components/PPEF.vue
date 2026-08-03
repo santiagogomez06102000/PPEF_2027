@@ -1,6 +1,7 @@
 <template>
   <div class="header-cubo-nav">
-    <h1 style="color:#06a5c1;">Pre-Criterios Generales de Política Económica 2027</h1>
+    <h1 style="color:#06a5c1;">Paquete
+      Económico 2027</h1>
 
   </div>
 </template>
