@@ -1,0 +1,3278 @@
+[
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "06F001",
+      "nombre": "Inclusión financiera para el bienestar",
+      "clave_nombre": "06F001 - Inclusión financiera para el bienestar"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2975.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 779.5,
+        "operacion": 2099.5,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2879
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 749.6,
+        "operacion": 2713.8,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3463.3
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 2355.8,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2355.8
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 339.4,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 339.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 321.4,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 321.4
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 309.8,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 309.8
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 476.6,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 476.6
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 460.5,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 460.5
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11E022",
+      "nombre": "Servicios de Educación Media Superior",
+      "clave_nombre": "11E022 - Servicios de Educación Media Superior"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 53138.9
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 48710.1,
+        "operacion": 2680.7,
+        "inversion": 0,
+        "subsidios": 20,
+        "otros": 0,
+        "monto": 51410.9
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 50352,
+        "operacion": 3334.8,
+        "inversion": 0,
+        "subsidios": 88.8,
+        "otros": 0,
+        "monto": 53775.5
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 53467.1,
+        "operacion": 3260.7,
+        "inversion": 0,
+        "subsidios": 340.3,
+        "otros": 0,
+        "monto": 57068.1
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 50243.3,
+        "operacion": 3390.5,
+        "inversion": 0,
+        "subsidios": 384,
+        "otros": 0,
+        "monto": 54017.9
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 47290.7,
+        "operacion": 2712.7,
+        "inversion": 0,
+        "subsidios": 375.5,
+        "otros": 0,
+        "monto": 50378.9
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 43724.6,
+        "operacion": 1942.1,
+        "inversion": 0,
+        "subsidios": 270.7,
+        "otros": 0,
+        "monto": 45937.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 42494.2,
+        "operacion": 1885.5,
+        "inversion": 0,
+        "subsidios": 382.1,
+        "otros": 0,
+        "monto": 44761.8
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 39261.8,
+        "operacion": 1824.8,
+        "inversion": 0,
+        "subsidios": 11,
+        "otros": 0,
+        "monto": 41097.5
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11E023",
+      "nombre": "Servicios de Educación Superior y Posgrado",
+      "clave_nombre": "11E023 - Servicios de Educación Superior y Posgrado"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 74471
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 56447.1,
+        "operacion": 13701.2,
+        "inversion": 0,
+        "subsidios": 164.4,
+        "otros": 0,
+        "monto": 70312.7
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 55616.8,
+        "operacion": 13302.1,
+        "inversion": 0,
+        "subsidios": 159.6,
+        "otros": 0,
+        "monto": 69078.5
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 54101.5,
+        "operacion": 12929,
+        "inversion": 0,
+        "subsidios": 185.2,
+        "otros": 0,
+        "monto": 67215.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 50821,
+        "operacion": 11870.9,
+        "inversion": 0,
+        "subsidios": 180.8,
+        "otros": 0,
+        "monto": 62872.7
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 48918.2,
+        "operacion": 10037.7,
+        "inversion": 0,
+        "subsidios": 967.9,
+        "otros": 0,
+        "monto": 59923.8
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 47503.3,
+        "operacion": 9409.7,
+        "inversion": 0,
+        "subsidios": 215.2,
+        "otros": 0,
+        "monto": 57128.2
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 45899.9,
+        "operacion": 8877.9,
+        "inversion": 0,
+        "subsidios": 222.3,
+        "otros": 0,
+        "monto": 55000.1
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 43960.2,
+        "operacion": 8903.4,
+        "inversion": 0,
+        "subsidios": 369.4,
+        "otros": 0,
+        "monto": 53233.1
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11E029",
+      "nombre": "Servicios de educación para Adultos (INEA)",
+      "clave_nombre": "11E029 - Servicios de educación para Adultos (INEA)"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1679.6
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 286.3,
+        "operacion": 589.4,
+        "inversion": 0,
+        "subsidios": 749.3,
+        "otros": 0,
+        "monto": 1625
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 274.6,
+        "operacion": 635.1,
+        "inversion": 0,
+        "subsidios": 821.2,
+        "otros": 0,
+        "monto": 1730.8
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 304.8,
+        "operacion": 592.8,
+        "inversion": 0,
+        "subsidios": 829.9,
+        "otros": 0,
+        "monto": 1727.5
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 285.4,
+        "operacion": 645.4,
+        "inversion": 0,
+        "subsidios": 711.8,
+        "otros": 0,
+        "monto": 1642.6
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 272.5,
+        "operacion": 600.8,
+        "inversion": 0,
+        "subsidios": 684,
+        "otros": 0,
+        "monto": 1557.2
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 263.5,
+        "operacion": 572.3,
+        "inversion": 0,
+        "subsidios": 665.9,
+        "otros": 0,
+        "monto": 1501.8
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 251.9,
+        "operacion": 817.7,
+        "inversion": 0,
+        "subsidios": 951.3,
+        "otros": 0,
+        "monto": 2020.9
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 241.2,
+        "operacion": 794,
+        "inversion": 0,
+        "subsidios": 944.3,
+        "otros": 0,
+        "monto": 1979.5
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11E030",
+      "nombre": "Servicios de educación Básica Comunitaria",
+      "clave_nombre": "11E030 - Servicios de educación Básica Comunitaria"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 5121.2
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 405.1,
+        "operacion": 812,
+        "inversion": 0,
+        "subsidios": 3737.6,
+        "otros": 0,
+        "monto": 4954.7
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 393.3,
+        "operacion": 988.4,
+        "inversion": 0,
+        "subsidios": 4617.4,
+        "otros": 0,
+        "monto": 5999
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 438.7,
+        "operacion": 965.2,
+        "inversion": 0,
+        "subsidios": 4432.7,
+        "otros": 0,
+        "monto": 5836.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 413,
+        "operacion": 1311.4,
+        "inversion": 0,
+        "subsidios": 3838,
+        "otros": 0,
+        "monto": 5562.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 392.6,
+        "operacion": 1355.9,
+        "inversion": 0,
+        "subsidios": 3520.2,
+        "otros": 0,
+        "monto": 5268.7
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 382.9,
+        "operacion": 1226.5,
+        "inversion": 0,
+        "subsidios": 2220.8,
+        "otros": 0,
+        "monto": 3830.3
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 370.8,
+        "operacion": 1266.5,
+        "inversion": 0,
+        "subsidios": 2865.9,
+        "otros": 0,
+        "monto": 4503.1
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 358.7,
+        "operacion": 1127.2,
+        "inversion": 0,
+        "subsidios": 3067.9,
+        "otros": 0,
+        "monto": 4553.8
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11Q007",
+      "nombre": "Investigación en ciencia, humanidades, tecnología e innovación",
+      "clave_nombre": "11Q007 - Investigación en ciencia, humanidades, tecnología e innovación"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 27938.4
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 16198.6,
+        "operacion": 3694.6,
+        "inversion": 0,
+        "subsidios": 571.4,
+        "otros": 0,
+        "monto": 20464.5
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 15705.6,
+        "operacion": 3589.3,
+        "inversion": 0,
+        "subsidios": 555.1,
+        "otros": 0,
+        "monto": 19849.9
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 15079.9,
+        "operacion": 3782.7,
+        "inversion": 0,
+        "subsidios": 81.6,
+        "otros": 0,
+        "monto": 18944.2
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 14110.9,
+        "operacion": 3802.2,
+        "inversion": 0,
+        "subsidios": 79.6,
+        "otros": 0,
+        "monto": 17992.7
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 13676.9,
+        "operacion": 3283.6,
+        "inversion": 0,
+        "subsidios": 10.7,
+        "otros": 0,
+        "monto": 16971.2
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 12941.3,
+        "operacion": 2942.8,
+        "inversion": 0,
+        "subsidios": 10.7,
+        "otros": 0,
+        "monto": 15894.8
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 12558.5,
+        "operacion": 2803.8,
+        "inversion": 0,
+        "subsidios": 0.1,
+        "otros": 0,
+        "monto": 15362.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 11764.3,
+        "operacion": 2598.6,
+        "inversion": 0,
+        "subsidios": 0.1,
+        "otros": 0,
+        "monto": 14363
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S072",
+      "nombre": "Beca Universal de Educación Básica Rita Cetina",
+      "clave_nombre": "11S072 - Beca Universal de Educación Básica Rita Cetina"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 134550.3
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 129386,
+        "otros": 0,
+        "monto": 129386
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 78840.7,
+        "otros": 0,
+        "monto": 78840.7
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 158.6,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 49711.1,
+        "otros": 0,
+        "monto": 49869.8
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 149.7,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 34772.5,
+        "otros": 0,
+        "monto": 34922.1
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 143.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 33067.4,
+        "otros": 0,
+        "monto": 33210.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 142.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 31794.1,
+        "otros": 0,
+        "monto": 31937
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 142.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 30332.2,
+        "otros": 0,
+        "monto": 30475.1
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S243",
+      "nombre": "Programa de Becas Elisa Acuña",
+      "clave_nombre": "11S243 - Programa de Becas Elisa Acuña"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1808.6
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1739.2,
+        "otros": 0,
+        "monto": 1739.2
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1688.6,
+        "otros": 0,
+        "monto": 1688.6
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2020.6,
+        "otros": 0,
+        "monto": 2020.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1927.6,
+        "otros": 0,
+        "monto": 1927.6
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4333.8,
+        "otros": 0,
+        "monto": 4333.8
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4164.3,
+        "otros": 0,
+        "monto": 4164.3
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4164.3,
+        "otros": 0,
+        "monto": 4164.3
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S269",
+      "nombre": "Programa de Cultura Física y Deporte",
+      "clave_nombre": "11S269 - Programa de Cultura Física y Deporte"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2129.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2047.4,
+        "otros": 0,
+        "monto": 2047.4
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1968.1,
+        "otros": 0,
+        "monto": 1968.1
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1967.2,
+        "otros": 0,
+        "monto": 1967.2
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1876.7,
+        "otros": 0,
+        "monto": 1876.7
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1777.2,
+        "otros": 0,
+        "monto": 1777.2
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2100,
+        "otros": 0,
+        "monto": 2100
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2100,
+        "otros": 0,
+        "monto": 2100
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1158.3,
+        "otros": 0,
+        "monto": 1158.3
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S282",
+      "nombre": "La Escuela es Nuestra",
+      "clave_nombre": "11S282 - La Escuela es Nuestra"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 27037.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 26000,
+        "otros": 0,
+        "monto": 26000
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 25000,
+        "otros": 0,
+        "monto": 25000
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 28358.3,
+        "otros": 0,
+        "monto": 28358.3
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 27052.9,
+        "otros": 0,
+        "monto": 27052.9
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 13964.3,
+        "otros": 0,
+        "monto": 13964.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 12280.3,
+        "otros": 0,
+        "monto": 12280.3
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 7280.3,
+        "otros": 0,
+        "monto": 7280.3
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S283",
+      "nombre": "Jóvenes Escribiendo el Futuro",
+      "clave_nombre": "11S283 - Jóvenes Escribiendo el Futuro"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 13154.9
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 12650,
+        "otros": 0,
+        "monto": 12650
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 12163.5,
+        "otros": 0,
+        "monto": 12163.5
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 11701.1,
+        "otros": 0,
+        "monto": 11701.1
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 11162.4,
+        "otros": 0,
+        "monto": 11162.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 10583.9,
+        "otros": 0,
+        "monto": 10583.9
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 10176.4,
+        "otros": 0,
+        "monto": 10176.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 7776.4,
+        "otros": 0,
+        "monto": 7776.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 44320,
+        "otros": 0,
+        "monto": 44320
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11S311",
+      "nombre": "Beca Universal de Educación Media Superior Benito Juárez",
+      "clave_nombre": "11S311 - Beca Universal de Educación Media Superior Benito Juárez"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 44257.7
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 42559,
+        "otros": 0,
+        "monto": 42559
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 40922.4,
+        "otros": 0,
+        "monto": 40922.4
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 39366.6,
+        "otros": 0,
+        "monto": 39366.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 37554.3,
+        "otros": 0,
+        "monto": 37554.3
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 34500,
+        "otros": 0,
+        "monto": 34500
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 33171.6,
+        "otros": 0,
+        "monto": 33171.6
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 28995.2,
+        "otros": 0,
+        "monto": 28995.2
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 17280,
+        "otros": 0,
+        "monto": 17280
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "11U083",
+      "nombre": "Universidades para el Bienestar Benito Juárez García",
+      "clave_nombre": "11U083 - Universidades para el Bienestar Benito Juárez García"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3213.3
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 3090,
+        "otros": 0,
+        "monto": 3090
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 3000,
+        "otros": 0,
+        "monto": 3000
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1547.6,
+        "otros": 0,
+        "monto": 1547.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1476.4,
+        "otros": 0,
+        "monto": 1476.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1024.5,
+        "otros": 0,
+        "monto": 1024.5
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 987.4,
+        "otros": 0,
+        "monto": 987.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 987.4,
+        "otros": 0,
+        "monto": 987.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1000,
+        "otros": 0,
+        "monto": 1000
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "12E031",
+      "nombre": "Servicios de atención a la salud",
+      "clave_nombre": "12E031 - Servicios de atención a la salud"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 612977.6
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 17071.4,
+        "operacion": 7850.1,
+        "inversion": 7475.9,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 32397.4
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 15560.7,
+        "operacion": 6791.4,
+        "inversion": 8158.3,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 30510.3
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 204436.6,
+        "operacion": 138773.6,
+        "inversion": 18630.3,
+        "subsidios": 1823.8,
+        "otros": 0,
+        "monto": 363664.4
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 211485.7,
+        "operacion": 109528.9,
+        "inversion": 31388.5,
+        "subsidios": 8521.2,
+        "otros": 0,
+        "monto": 360924.2
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 195493.1,
+        "operacion": 101556.9,
+        "inversion": 6049.9,
+        "subsidios": 8212.3,
+        "otros": 0,
+        "monto": 311312.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 190594.8,
+        "operacion": 97843.2,
+        "inversion": 0,
+        "subsidios": 8072.8,
+        "otros": 0,
+        "monto": 296510.8
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 176951.6,
+        "operacion": 82250.4,
+        "inversion": 0,
+        "subsidios": 1655.2,
+        "otros": 0,
+        "monto": 260857.2
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 163802.9,
+        "operacion": 73256,
+        "inversion": 0,
+        "subsidios": 1565,
+        "otros": 0,
+        "monto": 238623.8
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "12E032",
+      "nombre": "Servicios de atención a la salud mental y prevención de las adicciones",
+      "clave_nombre": "12E032 - Servicios de atención a la salud mental y prevención de las adicciones"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1580.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 1254,
+        "operacion": 110.7,
+        "inversion": 0,
+        "subsidios": 164,
+        "otros": 0,
+        "monto": 1528.7
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 1211.5,
+        "operacion": 114,
+        "inversion": 0,
+        "subsidios": 184.5,
+        "otros": 0,
+        "monto": 1510.1
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 1354.9,
+        "operacion": 109.8,
+        "inversion": 0,
+        "subsidios": 177.7,
+        "otros": 0,
+        "monto": 1642.4
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 1309.4,
+        "operacion": 104.8,
+        "inversion": 0,
+        "subsidios": 122,
+        "otros": 0,
+        "monto": 1536.2
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 1252.3,
+        "operacion": 99.1,
+        "inversion": 0,
+        "subsidios": 115.6,
+        "otros": 0,
+        "monto": 1467
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 1206.9,
+        "operacion": 95.5,
+        "inversion": 0,
+        "subsidios": 111.4,
+        "otros": 0,
+        "monto": 1413.8
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 1186.3,
+        "operacion": 92.7,
+        "inversion": 0,
+        "subsidios": 108.1,
+        "otros": 0,
+        "monto": 1387
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 1130.3,
+        "operacion": 118.4,
+        "inversion": 0,
+        "subsidios": 108.1,
+        "otros": 0,
+        "monto": 1356.8
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "12E033",
+      "nombre": "Servicios de vacunación",
+      "clave_nombre": "12E033 - Servicios de vacunación"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 4907.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 4708.7,
+        "inversion": 0,
+        "subsidios": 39.5,
+        "otros": 0,
+        "monto": 4748.2
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 4533.8,
+        "inversion": 0,
+        "subsidios": 38,
+        "otros": 0,
+        "monto": 4571.8
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 13914.9,
+        "inversion": 0,
+        "subsidios": 116.6,
+        "otros": 0,
+        "monto": 14031.5
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 13914.9,
+        "inversion": 0,
+        "subsidios": 106.9,
+        "otros": 0,
+        "monto": 14021.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 30213.1,
+        "inversion": 0,
+        "subsidios": 101.2,
+        "otros": 0,
+        "monto": 30314.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 2055.9,
+        "inversion": 0,
+        "subsidios": 97.6,
+        "otros": 0,
+        "monto": 2153.5
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 1994.7,
+        "inversion": 0,
+        "subsidios": 94.7,
+        "otros": 0,
+        "monto": 2089.3
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 1994.7,
+        "inversion": 0,
+        "subsidios": 136.3,
+        "otros": 0,
+        "monto": 2130.9
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "12P028",
+      "nombre": "Política de prevención y control de enfermedades",
+      "clave_nombre": "12P028 - Política de prevención y control de enfermedades"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2775.9
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 449.7,
+        "operacion": 599,
+        "inversion": 0,
+        "subsidios": 1636.9,
+        "otros": 0,
+        "monto": 2685.6
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 461.6,
+        "operacion": 586.8,
+        "inversion": 0,
+        "subsidios": 2004.3,
+        "otros": 0,
+        "monto": 3052.7
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 3901.1,
+        "operacion": 5736.4,
+        "inversion": 0,
+        "subsidios": 1935.4,
+        "otros": 0,
+        "monto": 11573
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 3902.9,
+        "operacion": 4675.2,
+        "inversion": 0,
+        "subsidios": 1350.3,
+        "otros": 0,
+        "monto": 9928.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 3851,
+        "operacion": 5087,
+        "inversion": 0,
+        "subsidios": 1271.7,
+        "otros": 0,
+        "monto": 10209.7
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 3515.5,
+        "operacion": 4393.5,
+        "inversion": 0,
+        "subsidios": 1217.1,
+        "otros": 0,
+        "monto": 9126.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 2891.9,
+        "operacion": 4467.4,
+        "inversion": 0,
+        "subsidios": 1525.3,
+        "otros": 0,
+        "monto": 8884.6
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 2791.5,
+        "operacion": 4338.8,
+        "inversion": 0,
+        "subsidios": 1489.1,
+        "otros": 0,
+        "monto": 8619.4
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "12Q008",
+      "nombre": "Investigación, desarrollo tecnológico y formación en salud",
+      "clave_nombre": "12Q008 - Investigación, desarrollo tecnológico y formación en salud"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 11065.5
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 7671.4,
+        "operacion": 818.7,
+        "inversion": 0,
+        "subsidios": 777.2,
+        "otros": 0,
+        "monto": 9267.3
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 7972.8,
+        "operacion": 766.5,
+        "inversion": 0,
+        "subsidios": 1554,
+        "otros": 0,
+        "monto": 10293.3
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 10023.5,
+        "operacion": 831.2,
+        "inversion": 0,
+        "subsidios": 1650,
+        "otros": 0,
+        "monto": 12504.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 9317,
+        "operacion": 831.3,
+        "inversion": 0,
+        "subsidios": 1150.5,
+        "otros": 0,
+        "monto": 11298.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 7405.9,
+        "operacion": 791,
+        "inversion": 0,
+        "subsidios": 984.4,
+        "otros": 0,
+        "monto": 9181.2
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 6729.6,
+        "operacion": 692,
+        "inversion": 0,
+        "subsidios": 1030,
+        "otros": 0,
+        "monto": 8451.6
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 5841.2,
+        "operacion": 663.6,
+        "inversion": 0,
+        "subsidios": 1004.7,
+        "otros": 0,
+        "monto": 7509.6
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 5408,
+        "operacion": 680.3,
+        "inversion": 0,
+        "subsidios": 807.6,
+        "otros": 0,
+        "monto": 6895.9
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "13A020",
+      "nombre": "Sistema Educativo Naval",
+      "clave_nombre": "13A020 - Sistema Educativo Naval"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2209.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 1773.7,
+        "operacion": 175.8,
+        "inversion": 0,
+        "subsidios": 187.8,
+        "otros": 0,
+        "monto": 2137.3
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 1710.6,
+        "operacion": 209.3,
+        "inversion": 0,
+        "subsidios": 218.3,
+        "otros": 0,
+        "monto": 2138.2
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 1818.4,
+        "operacion": 201.4,
+        "inversion": 0,
+        "subsidios": 210.2,
+        "otros": 0,
+        "monto": 2230
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 1558.5,
+        "operacion": 145.3,
+        "inversion": 0,
+        "subsidios": 200.5,
+        "otros": 0,
+        "monto": 1904.2
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 1541.3,
+        "operacion": 200,
+        "inversion": 0,
+        "subsidios": 189.7,
+        "otros": 0,
+        "monto": 1931
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 1124.2,
+        "operacion": 136.9,
+        "inversion": 0,
+        "subsidios": 182.9,
+        "otros": 0,
+        "monto": 1443.9
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 1499.2,
+        "operacion": 190.9,
+        "inversion": 0,
+        "subsidios": 177.3,
+        "otros": 0,
+        "monto": 1867.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 1802.5,
+        "operacion": 154.9,
+        "inversion": 0,
+        "subsidios": 176.6,
+        "otros": 0,
+        "monto": 2134
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "14S043",
+      "nombre": "Programa de Apoyo al Empleo (PAE)",
+      "clave_nombre": "14S043 - Programa de Apoyo al Empleo (PAE)"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 320.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 42.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 265,
+        "otros": 0,
+        "monto": 307.8
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 58.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 254.7,
+        "otros": 0,
+        "monto": 313.6
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 65.7,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 65.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 59.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 59.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 56.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 56.8
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 55.5,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 55.5
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 61,
+        "operacion": 41,
+        "inversion": 0,
+        "subsidios": 602.8,
+        "otros": 0,
+        "monto": 704.9
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 59.6,
+        "operacion": 60.5,
+        "inversion": 0,
+        "subsidios": 602.8,
+        "otros": 0,
+        "monto": 722.9
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "14S280",
+      "nombre": "Jóvenes Construyendo el Futuro",
+      "clave_nombre": "14S280 - Jóvenes Construyendo el Futuro"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 26177.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 25173,
+        "otros": 0,
+        "monto": 25173
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 24205,
+        "otros": 0,
+        "monto": 24205
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 24204.7,
+        "otros": 0,
+        "monto": 24204.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 23090.5,
+        "otros": 0,
+        "monto": 23090.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 21696.6,
+        "otros": 0,
+        "monto": 21696.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 20600.1,
+        "otros": 0,
+        "monto": 20600.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 24956.7,
+        "otros": 0,
+        "monto": 24956.7
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 44320,
+        "otros": 0,
+        "monto": 44320
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "15S177",
+      "nombre": "Programa de Vivienda Social",
+      "clave_nombre": "15S177 - Programa de Vivienda Social"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 34608.3
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 33280,
+        "otros": 0,
+        "monto": 33280
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 32000,
+        "otros": 0,
+        "monto": 32000
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 9.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4730.9,
+        "otros": 0,
+        "monto": 4740.2
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 8.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4513.2,
+        "otros": 0,
+        "monto": 4521.9
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 8.4,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4295.4,
+        "otros": 0,
+        "monto": 4303.8
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 8.4,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4140,
+        "otros": 0,
+        "monto": 4148.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 8.4,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1474.6,
+        "otros": 0,
+        "monto": 1483
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 8.4,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1717.7,
+        "otros": 0,
+        "monto": 1726.1
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20E048",
+      "nombre": "Servicios a grupos con necesidades especiales",
+      "clave_nombre": "20E048 - Servicios a grupos con necesidades especiales"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 254.4
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 235.5,
+        "operacion": 10.7,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 246.1
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 262.7,
+        "operacion": 49.2,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 312
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 290.9,
+        "operacion": 47.4,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 338.4
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 273.5,
+        "operacion": 45.2,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 318.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 259.5,
+        "operacion": 44.5,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 304.1
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 251.1,
+        "operacion": 42.9,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 294.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 240.4,
+        "operacion": 46.7,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 287.1
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 230.5,
+        "operacion": 115.5,
+        "inversion": 0,
+        "subsidios": 5.2,
+        "otros": 0,
+        "monto": 351.3
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20S174",
+      "nombre": "Programa de Apoyo para el Bienestar de las Niñas y Niños, Hijos de Madres Trabajadoras",
+      "clave_nombre": "20S174 - Programa de Apoyo para el Bienestar de las Niñas y Niños, Hijos de Madres Trabajadoras"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3444.2
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 3312,
+        "otros": 0,
+        "monto": 3312
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 3185,
+        "otros": 0,
+        "monto": 3185
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 3067.7,
+        "otros": 0,
+        "monto": 3067.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2926.5,
+        "otros": 0,
+        "monto": 2926.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2785.3,
+        "otros": 0,
+        "monto": 2785.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2684.5,
+        "otros": 0,
+        "monto": 2684.5
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 8.3,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2184.1,
+        "otros": 0,
+        "monto": 2192.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20S176",
+      "nombre": "Pensión para el Bienestar de las Personas Adultas Mayores",
+      "clave_nombre": "20S176 - Pensión para el Bienestar de las Personas Adultas Mayores"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 547523.2
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 526508,
+        "otros": 0,
+        "monto": 526508
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 483427.6,
+        "otros": 0,
+        "monto": 483427.6
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 465048.7,
+        "otros": 0,
+        "monto": 465048.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 339341.4,
+        "otros": 0,
+        "monto": 339341.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 238014.7,
+        "otros": 0,
+        "monto": 238014.7
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 135662.1,
+        "otros": 0,
+        "monto": 135662.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 101.1,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 129249.3,
+        "otros": 0,
+        "monto": 129350.3
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 101.1,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 99898.9,
+        "otros": 0,
+        "monto": 100000
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20S286",
+      "nombre": "Pensión para el Bienestar de las Personas con Discapacidad Permanente",
+      "clave_nombre": "20S286 - Pensión para el Bienestar de las Personas con Discapacidad Permanente"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 37713.5
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 36266,
+        "otros": 0,
+        "monto": 36266
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 28961.4,
+        "otros": 0,
+        "monto": 28961.4
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 27860.4,
+        "otros": 0,
+        "monto": 27860.4
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 26577.8,
+        "otros": 0,
+        "monto": 26577.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 20037.5,
+        "otros": 0,
+        "monto": 20037.5
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 16614,
+        "otros": 0,
+        "monto": 16614
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 14197.2,
+        "otros": 0,
+        "monto": 14197.2
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 8500,
+        "otros": 0,
+        "monto": 8500
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20S287",
+      "nombre": "Sembrando Vida",
+      "clave_nombre": "20S287 - Sembrando Vida"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 42287.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 40664,
+        "otros": 0,
+        "monto": 40664
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 39100,
+        "otros": 0,
+        "monto": 39100
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 38928.6,
+        "otros": 0,
+        "monto": 38928.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 37136.5,
+        "otros": 0,
+        "monto": 37136.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 29903.9,
+        "otros": 0,
+        "monto": 29903.9
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 28929.9,
+        "otros": 0,
+        "monto": 28929.9
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 28504.9,
+        "otros": 0,
+        "monto": 28504.9
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 15000,
+        "otros": 0,
+        "monto": 15000
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "20S317",
+      "nombre": "Salud Casa por Casa",
+      "clave_nombre": "20S317 - Salud Casa por Casa"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 4159.7
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 4000,
+        "otros": 0,
+        "monto": 4000
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 2000,
+        "otros": 0,
+        "monto": 2000
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "38S190",
+      "nombre": "Becas de posgrado y apoyos a la calidad",
+      "clave_nombre": "38S190 - Becas de posgrado y apoyos a la calidad"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 15473.4
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 14879.5,
+        "otros": 0,
+        "monto": 14879.5
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 14302.9,
+        "otros": 0,
+        "monto": 14302.9
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 13772.7,
+        "otros": 0,
+        "monto": 13772.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 13138.6,
+        "otros": 0,
+        "monto": 13138.6
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 12442.3,
+        "otros": 0,
+        "monto": 12442.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 11992.3,
+        "otros": 0,
+        "monto": 11992.3
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 10097.1,
+        "otros": 0,
+        "monto": 10097.1
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 10075.1,
+        "otros": 0,
+        "monto": 10075.1
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "38S191",
+      "nombre": "Sistema Nacional de Investigadoras e Investigadores",
+      "clave_nombre": "38S191 - Sistema Nacional de Investigadoras e Investigadores"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 9536
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 9170,
+        "otros": 0,
+        "monto": 9170
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 8814.7,
+        "otros": 0,
+        "monto": 8814.7
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 8487.9,
+        "otros": 0,
+        "monto": 8487.9
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 8097.1,
+        "otros": 0,
+        "monto": 8097.1
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 7277.6,
+        "otros": 0,
+        "monto": 7277.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 5554.7,
+        "otros": 0,
+        "monto": 5554.7
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 5389.2,
+        "otros": 0,
+        "monto": 5389.2
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 5086.2,
+        "otros": 0,
+        "monto": 5086.2
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "48E062",
+      "nombre": "Servicios de desarrollo cultural",
+      "clave_nombre": "48E062 - Servicios de desarrollo cultural"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 4455.9
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 2010,
+        "operacion": 2045.4,
+        "inversion": 0,
+        "subsidios": 255.7,
+        "otros": 0,
+        "monto": 4311
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 1955.2,
+        "operacion": 2037.6,
+        "inversion": 0,
+        "subsidios": 231.2,
+        "otros": 0,
+        "monto": 4224
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 5602.2,
+        "operacion": 2533,
+        "inversion": 0,
+        "subsidios": 222.6,
+        "otros": 0,
+        "monto": 8357.8
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 5306.2,
+        "operacion": 2406.7,
+        "inversion": 0,
+        "subsidios": 211.6,
+        "otros": 0,
+        "monto": 7924.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 5113.4,
+        "operacion": 2119.6,
+        "inversion": 0,
+        "subsidios": 788.6,
+        "otros": 0,
+        "monto": 8021.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 4601.4,
+        "operacion": 2004.5,
+        "inversion": 0,
+        "subsidios": 760.1,
+        "otros": 0,
+        "monto": 7366.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 4388.5,
+        "operacion": 2331.7,
+        "inversion": 0,
+        "subsidios": 1258.3,
+        "otros": 0,
+        "monto": 7978.5
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 4122.1,
+        "operacion": 2827.2,
+        "inversion": 0,
+        "subsidios": 1354.4,
+        "otros": 0,
+        "monto": 8303.8
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "48E063",
+      "nombre": "Servicios de protección y conservación del patrimonio cultural",
+      "clave_nombre": "48E063 - Servicios de protección y conservación del patrimonio cultural"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3653.3
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 2010.5,
+        "operacion": 586,
+        "inversion": 938,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3534.5
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 1954.5,
+        "operacion": 799.4,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2753.9
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 1548.1,
+        "operacion": 769.8,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2317.9
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 1376.1,
+        "operacion": 810.8,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2186.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 1271.4,
+        "operacion": 782.3,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2053.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 1206.4,
+        "operacion": 754,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1960.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 1075.2,
+        "operacion": 1002.2,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2077.4
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 985.7,
+        "operacion": 894.7,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1880.4
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "48S268",
+      "nombre": "Programas de apoyos a la cultura",
+      "clave_nombre": "48S268 - Programas de apoyos a la cultura"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 221.4
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 212.9,
+        "otros": 0,
+        "monto": 212.9
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 204.6,
+        "otros": 0,
+        "monto": 204.6
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 197.1,
+        "otros": 0,
+        "monto": 197.1
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 188,
+        "otros": 0,
+        "monto": 188
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 124.5,
+        "otros": 0,
+        "monto": 124.5
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 120,
+        "otros": 0,
+        "monto": 120
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 150,
+        "otros": 0,
+        "monto": 150
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 578.1,
+        "otros": 0,
+        "monto": 578.1
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "51U313",
+      "nombre": "La Clínica es Nuestra",
+      "clave_nombre": "51U313 - La Clínica es Nuestra"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 359.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 346,
+        "otros": 0,
+        "monto": 346
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "56U013",
+      "nombre": "Atención a la salud y medicamentos gratuitos para la población sin seguridad social laboral",
+      "clave_nombre": "56U013 - Atención a la salud y medicamentos gratuitos para la población sin seguridad social laboral"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 92396.8
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 8082,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 80768.4,
+        "otros": 0,
+        "monto": 88850.4
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 85845.7,
+        "otros": 0,
+        "monto": 85845.7
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 85845.7,
+        "otros": 0,
+        "monto": 85845.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 81914,
+        "otros": 0,
+        "monto": 81914
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 77572.7,
+        "otros": 0,
+        "monto": 77572.7
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 74766.7,
+        "otros": 0,
+        "monto": 74766.7
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 562.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 6071.2,
+        "otros": 0,
+        "monto": 6634
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 2,
+    "programa": {
+      "clave": "56U200",
+      "nombre": "Fortalecimiento a la atención médica",
+      "clave_nombre": "56U200 - Fortalecimiento a la atención médica"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 3843
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 3420,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 275.5,
+        "otros": 0,
+        "monto": 3695.5
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 2824.7,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 264.8,
+        "otros": 0,
+        "monto": 3089.4
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 1262.1,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 255,
+        "otros": 0,
+        "monto": 1517.1
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 413.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 469.3,
+        "otros": 0,
+        "monto": 882.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 418,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 444.4,
+        "otros": 0,
+        "monto": 862.4
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 484.1,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 428.3,
+        "otros": 0,
+        "monto": 912.4
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 470.3,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 415.6,
+        "otros": 0,
+        "monto": 885.9
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 425.4,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 424.5,
+        "otros": 0,
+        "monto": 849.9
+      }
+    ]
+  }
+]

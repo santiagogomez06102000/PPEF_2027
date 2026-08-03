@@ -1,0 +1,98 @@
+{
+  "colorActivo": "#339999",
+  "colorEncabezado":"#339999",
+  "textoCard": "#021f59",
+  "fondoCard": "#a6e0b8",
+  "fondoSeccion": "linear-gradient(90deg,rgba(228, 245, 234, 1) 0%, rgba(154, 245, 195, 1) 100%)",
+  "textoSeccion": "#1a1f59",
+  "tabs": [
+    {
+      "id": 0,
+      "titulo": "Crecimiento",
+      "lista": [
+        {
+          "id": 0,
+          "img": null,
+          "titulo": null,
+          "descripcion": "Entre 2026 y 2030 se estima que el Plan de Inversión en Infraestructura para el Desarrollo con Bienestar podría alcanzar los 5.6 billones de pesos. Estas inversiones se concentrarán en sectores estratégicos como energía, transporte, puertos, agua y salud.",
+          "fuente": "PCGPE 2027, Pág 4 y 24",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        },
+        {
+          "id": 1,
+          "img": null,
+          "titulo": null,
+          "descripcion": "Se estima que el Programa de Vivienda para el Bienestar edificará 400 mil viviendas. Esto generará un derrame económico y efectos multiplicadores sobre la construcción y los servicios inmobiliarios.",
+          "fuente": "PCGPE 2027, Pág 24",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        },
+        {
+          "id": 2,
+          "img": null,
+          "titulo": null,
+          "descripcion": "A lo largo del 2026 y con mayor claridad hacia 2027 el proceso de revisión del T-MEC facilitará el comercio digital, mejorará la conectividad de las cadenas de suministro y promoverá estándares laborales y ambientales más elevados. Lo cual contribuirá a sostener el dinamismo de la IED y los procesos de relocalización de empresas.",
+          "fuente": "PCGPE 2027, Pág 24",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        },
+        {
+          "id": 3,
+          "img": null,
+          "titulo": null,
+          "descripcion": "En 2026, Pemex elevará su inversión productiva a 425 mil millones de pesos debido al crecimiento de las actividades de refinación, lo cual fortalecerá la seguridad energética en un contexto de tensiones geopolíticas.",
+          "fuente": "PCGPE 2027, Pág 25",
+          "nacional": null,
+          "fuenteNacional":null,
+          "detalle": null
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "titulo": "Inflación y Tasa de interés",
+      "lista": [
+        {
+          "id": 8,
+          "img": null,
+          "titulo": null,
+          "descripcion": "El Banco de México disminuirá su tasa de referencia, ubicándose en 6.3% al cierre de 2026 y en 5.5% para 2027. Esto se debe a que la inflación gradualmente se está normalizando y acercando a los niveles deseados, lo cual genera confianza en que la economía se mantendrá estable y bajo control en los próximos años.",
+          "fuente": "PCGPE 2027, Pág 26",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        },
+        {
+          "id": 9,
+          "img": null,
+          "titulo": null,
+          "descripcion": "Se estima que el dólar cierre en 18.4 pesos en 2026, y en 18.6 para 2027. Lo cual representa una apreciación de 2.2% respecto a lo señalado en el Paquete Económico 2026. Esto se debe al debilitamiento del dólar, al interés internacional por invertir en economías emergentes y a que las tasas de interés en México generan más ganancias que en otros países, lo que atrae más dólares al mercado nacional. En este sentido, se espera que el proceso de renegociación del T-MEC, sea favorable y genere mayor confianza y certidumbre económica hacia 2027.",
+          "fuente": "PCGPE 2027, Pág 26",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Precio del petróleo",
+      "lista": [
+        {
+          "id": 11,
+          "img": null,
+          "titulo": null,
+          "descripcion": "Se estima que el precio de la Mezcla Mexicana de Exportación (MME) promediará 77.3 dpb (dólares por barril) en 2026, superior a lo proyectado en el Paquete Económico 2026 debido a incrementos de precio relacionados al conflicto armado en Medio Oriente. Esta estimación es cautelosa y contempla que dichas tensiones no excedan de dos meses, aunque se vigilan de cerca otros factores como la guerra en Ucrania, los cambios en la industria petrolera de Venezuela y la política arancelaria de EE. UU. Para 2027, se estima que el precio se estabilice en 54.7 dpb.",
+          "fuente": "PCGPE 2027, Pág 26",
+          "nacional": null,
+          "fuenteNacional": null,
+          "detalle": null
+        }
+      ]
+    }
+  ]
+}

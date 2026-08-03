@@ -1,0 +1,12 @@
+{
+  "media_object": {
+    "image": {
+      "src": "/secciones/programas/images/eje1_gobernanza.png",
+      "alt": "Cambiar",
+      "class": "media-img"
+    },
+    "body": {
+      "text": "Fortalece la legalidad, la seguridad, la transparencia y la rendición de cuentas, promoviendo la participación social en la toma de decisiones para consolidar un gobierno cercano al pueblo."
+    }
+  }
+}

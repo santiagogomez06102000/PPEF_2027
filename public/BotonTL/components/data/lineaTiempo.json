@@ -1,0 +1,49 @@
+{
+  "fondoPrimario": "rgb(59, 130, 246)",
+  "fondoSecundario": "#384e9e",
+  "fondoTerciario": "rgb(237, 242, 252)",
+  "colorPrimario": "#ffffff",
+  "colorSecundario": "#ffffff",
+  "colorTerciario": "#000000",
+  "etapas": [
+    {
+      "etapa": "Planeación",
+      "inicio": [1, 1],
+      "fin": [1, 4],
+      "subetapa": [
+        {
+          "titulo": "Pre-criterios Generales de Política Económica (PRECGPE)",
+          "inicio": [1, 1],
+          "fin": [1, 4]
+        }
+      ]
+    },
+    {
+      "etapa": "Programación",
+      "inicio": [2, 4],
+      "fin": [15, 11],
+      "subetapa": [
+        {
+          "titulo": "Paquete Económico (PPEF)",
+          "inicio": [2, 4],
+          "fin": [8, 9]
+        },
+        {
+          "titulo": "Iniciativa de Ley de Ingresos de la Federación (ILIF)",
+          "inicio": [9, 9],
+          "fin": [31, 10]
+        },
+        {
+          "titulo": "Proyecto de Presupuesto de egresos de la Federación (PPEF)",
+          "inicio": [1, 11],
+          "fin": [15, 11]
+        }
+      ]
+    },
+    {
+      "etapa": "Presupuestación",
+      "inicio": [16, 11],
+      "fin": [31, 12]
+    }
+  ]
+}

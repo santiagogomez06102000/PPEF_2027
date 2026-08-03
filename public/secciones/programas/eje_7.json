@@ -1,0 +1,548 @@
+[
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "33I017",
+      "nombre": "Fondo de Aportaciones para la Infraestructura Social de los Pueblos y Comunidades Indígenas y Afromexicanas (FAISPIAM)",
+      "clave_nombre": "33I017 - Fondo de Aportaciones para la Infraestructura Social de los Pueblos y Comunidades Indígenas y Afromexicanas (FAISPIAM)"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 13960
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "47P052",
+      "nombre": "Planeación y Articulación de la Acción Pública hacia los Pueblos Indígenas",
+      "clave_nombre": "47P052 - Planeación y Articulación de la Acción Pública hacia los Pueblos Indígenas"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1145.2
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 609.7,
+        "operacion": 422.7,
+        "inversion": 0,
+        "subsidios": 75.5,
+        "otros": 0,
+        "monto": 1108
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 572.1,
+        "operacion": 407.1,
+        "inversion": 0,
+        "subsidios": 71.9,
+        "otros": 0,
+        "monto": 1051.2
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 632.3,
+        "operacion": 392,
+        "inversion": 0,
+        "subsidios": 69.3,
+        "otros": 0,
+        "monto": 1093.6
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 594.8,
+        "operacion": 305,
+        "inversion": 0,
+        "subsidios": 135.1,
+        "otros": 0,
+        "monto": 1034.8
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 562.3,
+        "operacion": 288.8,
+        "inversion": 0,
+        "subsidios": 127.9,
+        "otros": 0,
+        "monto": 979
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 525.2,
+        "operacion": 278.4,
+        "inversion": 0,
+        "subsidios": 123.3,
+        "otros": 0,
+        "monto": 926.9
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 501.9,
+        "operacion": 353.3,
+        "inversion": 0,
+        "subsidios": 190.1,
+        "otros": 0,
+        "monto": 1045.3
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 425.1,
+        "operacion": 393.6,
+        "inversion": 0,
+        "subsidios": 172.9,
+        "otros": 0,
+        "monto": 991.6
+      }
+    ]
+  },
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "47S178",
+      "nombre": "Programa de Apoyo a la Educación Indígena",
+      "clave_nombre": "47S178 - Programa de Apoyo a la Educación Indígena"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 2129.4
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 74.3,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1973.4,
+        "otros": 0,
+        "monto": 2047.7
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 83.3,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1896.9,
+        "otros": 0,
+        "monto": 1980.2
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 94.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1826.6,
+        "otros": 0,
+        "monto": 1920.8
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 88.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1742.5,
+        "otros": 0,
+        "monto": 1831.4
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 21.1,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1650.2,
+        "otros": 0,
+        "monto": 1671.3
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 8.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1590.5,
+        "otros": 0,
+        "monto": 1598.7
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 8.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1590.5,
+        "otros": 0,
+        "monto": 1598.7
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 8.2,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1334.9,
+        "otros": 0,
+        "monto": 1343.1
+      }
+    ]
+  },
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "47S249",
+      "nombre": "Programa para el Bienestar Integral de los Pueblos Indígenas",
+      "clave_nombre": "47S249 - Programa para el Bienestar Integral de los Pueblos Indígenas"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 1772
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 25.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1678.1,
+        "otros": 0,
+        "monto": 1704
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 29,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1613.1,
+        "otros": 0,
+        "monto": 1642.1
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 32.9,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1071.8,
+        "otros": 0,
+        "monto": 1104.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 31,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 1022.5,
+        "otros": 0,
+        "monto": 1053.5
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 29.7,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 960.9,
+        "otros": 0,
+        "monto": 990.6
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 11.6,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 926.2,
+        "otros": 0,
+        "monto": 937.7
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 0
+      }
+    ]
+  },
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "48P056",
+      "nombre": "Política de educación y cultura indígena",
+      "clave_nombre": "48P056 - Política de educación y cultura indígena"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 66.9
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 30.1,
+        "operacion": 27.9,
+        "inversion": 0,
+        "subsidios": 6.7,
+        "otros": 0,
+        "monto": 64.7
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 29.3,
+        "operacion": 29.9,
+        "inversion": 0,
+        "subsidios": 7.3,
+        "otros": 0,
+        "monto": 66.5
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 32.6,
+        "operacion": 28.8,
+        "inversion": 0,
+        "subsidios": 7,
+        "otros": 0,
+        "monto": 68.4
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 30.5,
+        "operacion": 27.5,
+        "inversion": 0,
+        "subsidios": 6.7,
+        "otros": 0,
+        "monto": 64.7
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 29,
+        "operacion": 26.6,
+        "inversion": 0,
+        "subsidios": 6.3,
+        "otros": 0,
+        "monto": 62
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 28,
+        "operacion": 26,
+        "inversion": 0,
+        "subsidios": 6.1,
+        "otros": 0,
+        "monto": 60.1
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 27.8,
+        "operacion": 32.4,
+        "inversion": 0,
+        "subsidios": 7.6,
+        "otros": 0,
+        "monto": 67.9
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 26.9,
+        "operacion": 32.1,
+        "inversion": 0,
+        "subsidios": 7.5,
+        "otros": 0,
+        "monto": 66.6
+      }
+    ]
+  },
+  {
+    "eje_general": 7,
+    "programa": {
+      "clave": "48S057",
+      "nombre": "Programas del fondo nacional de fomento a las artesanías (FONART)",
+      "clave_nombre": "48S057 - Programas del fondo nacional de fomento a las artesanías (FONART)"
+    },
+    "anios": [
+      {
+        "anio": 2027,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 58.1
+      },
+      {
+        "anio": 2026,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 55.8,
+        "otros": 0,
+        "monto": 55.8
+      },
+      {
+        "anio": 2025,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 53.7,
+        "otros": 0,
+        "monto": 53.7
+      },
+      {
+        "anio": 2024,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 51.7,
+        "otros": 0,
+        "monto": 51.7
+      },
+      {
+        "anio": 2023,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 49.3,
+        "otros": 0,
+        "monto": 49.3
+      },
+      {
+        "anio": 2022,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 46.7,
+        "otros": 0,
+        "monto": 46.7
+      },
+      {
+        "anio": 2021,
+        "servicios_personales": 0,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 45,
+        "otros": 0,
+        "monto": 45
+      },
+      {
+        "anio": 2020,
+        "servicios_personales": 17.6,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 50,
+        "otros": 0,
+        "monto": 67.6
+      },
+      {
+        "anio": 2019,
+        "servicios_personales": 16.8,
+        "operacion": 0,
+        "inversion": 0,
+        "subsidios": 0,
+        "otros": 0,
+        "monto": 16.8
+      }
+    ]
+  }
+]

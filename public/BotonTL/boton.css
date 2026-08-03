@@ -1,0 +1,305 @@
+:host {
+  --color-fondo-boton: rgb(59, 130, 246);
+  --color-borde-boton: #707070;
+  --color-texto-boton: #ffffff;
+  --sombra: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@font-face {
+  font-family: 'Patria';
+  src: url('./components/assets/fonts/Patria_Regular.otf') format('opentype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Patria Bold';
+  src: url('./components/assets/fonts/Patria_Bold.otf') format('opentype');
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./components/assets/fonts/NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Bold';
+  src: url('./components/assets/fonts/NotoSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Black';
+  src: url('./components/assets/fonts/NotoSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+.contenedor-boton-timeline {
+  min-width: 3rem;
+  min-height: 3rem;
+  display: flex;
+}
+.boton-abrir-timeline {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 20rem;
+  cursor: pointer;
+  background-color: var(--color-fondo-boton);
+  color: var(--color-texto-boton);
+  animation: pulso 3s ease-out 5s infinite;
+  border: 0;
+
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+   transform-style: preserve-3d;
+  will-change: transform;
+}
+.boton-abrir-timeline::after {
+  border-radius: 50%;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  animation: onda 1s ease-out 0.65s infinite;
+  pointer-events: none;
+}
+
+.contenedor-tl {
+  max-width: 0px;
+  min-width: 0px;
+  opacity: 0;
+  transition:
+    max-width 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    min-width 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+}
+.contenedor-tl.mostrar-tl {
+  max-width: calc(100dvw - 8rem);
+  min-width: calc(100dvw - 8rem);
+  opacity: 1;
+  padding: 0 1rem;
+}
+.contenedor-item-tl {
+  height: 1rem;
+  border-radius: 20rem;
+  margin: 0;
+  padding: 0.25rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--fondo-secundario);
+  box-shadow: var(--sombra);
+}
+.contenedor-item-tl .etapa-contenedor {
+  font-family: Patria !important;
+  font-weight: bold;
+  font-size: larger;
+}
+.porcentaje-tl::after {
+  content: ' ';
+  height: 100%;
+  background-color: var(--fondo-primario);
+  width: 0px;
+  position: absolute;
+  border-radius: 20rem;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  max-width: 0px;
+  transition:
+    max-width 0.3s ease-in-out 0.8s,
+    opacity 0.3s ease-in-out 0.8s;
+}
+.porcentaje-tl::before {
+  content: ' ';
+  height: 100%;
+  background-color: var(--fondo-secundario);
+  width: 100%;
+  position: absolute;
+  border-radius: 20rem;
+  top: 0;
+  left: 0;
+}
+.contenedor-tl.mostrar-tl .contenedor-item-tl .porcentaje-tl::after {
+  max-width: var(--avance);
+  width: var(--avance);
+  opacity: 1;
+}
+.contenedor-subitems {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+  max-height: 0;
+  overflow: hidden;
+}
+.subitem-tl {
+  margin-left: var(--desface);
+  margin-right: var(--desface2);
+  border: 1px solid var(--fondo-terciario);
+  border-radius: 20rem;
+  padding: 0.25rem 1rem;
+  background-color: #ffffff;
+  display: flex;
+  gap: 1rem;
+  justify-content: start;
+  align-items: center;
+  box-shadow: var(--sombra);
+  font-family: Noto Sans;
+  color: var(--color-terciario);
+}
+.contenedor-tl.mostrar-tl .contenedor-subitems {
+  max-height: 100dvh;
+  width: 100%;
+  transition:
+    max-width 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    min-width 0.3s ease-in-out,
+    max-height 1s ease-in-out 0.5s,
+    padding 0.3s ease-in-out;
+}
+.fecha-tl {
+  font-size: large;
+  font-weight: bold;
+}
+.contenedor-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  z-index: 1;
+  gap: 1rem;
+  color: var(--color-primario);
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+.etapa-contenedor {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  55% {
+    transform: scale(1.02);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes onda {
+  0% {
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 0.15),
+      inset 0 0 1px rgba(0, 0, 0, 0.15);
+    transform: scale(1);
+  }
+
+  95% {
+    box-shadow:
+      0 0 50px transparent,
+      inset 0 0 30px transparent;
+  }
+  100% {
+    transform: scale(2.25);
+  }
+}
+@keyframes crecer-ancho {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: var(--avance);
+    opacity: 1;
+  }
+}
+@media (max-width: 1023px) {
+  .contenedor-boton-timeline {
+    flex-direction: column;
+    width: 100dvw;
+    align-items: end;
+  }
+  .contenedor-tl {
+    flex-direction: column-reverse;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .contenedor-tl.mostrar-tl {
+    width: 100%;
+    height: calc(70dvh);
+  }
+  .contenedor-item-tl {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    width: 100% !important;
+  }
+
+  .contenedor-subitems {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    max-height: 0;
+    overflow: auto;
+    width: 100dvw;
+  }
+  .contenedor-tl.mostrar-tl .contenedor-subitems {
+    max-height: var(--alto);
+  }
+}
+
+.mostrar-tl::before {
+  --blur:2px;
+  background-color: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  inset: 0;
+  content: '';
+  width: 100dvw;
+  height: 100dvh;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+    pointer-events: none;
+  
+}
+@supports (backdrop-filter: blur(var(--blur))) {
+  .mostrar-tl::before {
+    backdrop-filter: blur(var(--blur));
+  }
+}

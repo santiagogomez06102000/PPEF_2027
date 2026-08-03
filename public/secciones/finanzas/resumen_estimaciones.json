@@ -1,0 +1,96 @@
+{
+  "fondoCard": "#ffffff",
+  "textoCard": "#2a3573",
+  "bordeCard": "#3f42a0",
+  "filas": [
+    {
+      "id": 0,
+      "concepto": "Ingresos presupuestarios",
+      "titulo": 1,
+      "a2026Aprobado": 8721057.3,
+      "a2026Estimado": 8661739.3,
+      "a2027": 8831907.2,
+      "subfilas": [
+        {
+          "id": 1,
+          "concepto": "Petroleros",
+          "titulo": null,
+          "a2026Aprobado": 1204277.7,
+          "a2026Estimado": 1156955.8,
+          "a2027": 910868.5
+        },
+        {
+          "id": 2,
+          "concepto": "No petroleros",
+          "titulo": null,
+          "a2026Aprobado": 7516779.6,
+          "a2026Estimado": 7504783.6,
+          "a2027": 7921038.7
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "concepto": "Gasto neto pagado",
+      "titulo": 1,
+      "a2026Aprobado": 10114827.9,
+      "a2026Estimado": 10014692.6,
+      "a2027": 10023877.7,
+      "subfilas": [
+        {
+          "id": 4,
+          "concepto": "Programable pagado",
+          "titulo": null,
+          "a2026Aprobado": 7015853.1,
+          "a2026Estimado": 6956471.8,
+          "a2027": 6756361.8
+        },
+        {
+          "id": 5,
+          "concepto": "No programable",
+          "titulo": null,
+          "a2026Aprobado": 3098974.9,
+          "a2026Estimado": 3058220.8,
+          "a2027": 3267515.9
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "concepto": "Balance presupuestario",
+      "titulo": 1,
+      "a2026Aprobado": 1393770.6,
+      "a2026Estimado": 1352953.3,
+      "a2027": 1191970.5,
+      "subfilas": [
+        {
+          "id": 1,
+          "concepto": "Balance primario",
+          "titulo": null,
+          "a2026Aprobado": 178802.6,
+          "a2026Estimado": 171775.3,
+          "a2027": 451329.4
+        }
+      ]
+    },
+
+    {
+      "id": 8,
+      "concepto": "Balance público amplio (RFSP)",
+      "titulo": 1,
+      "a2026Aprobado": -1587349.9,
+      "a2026Estimado": -1539577.4,
+      "a2027": -1390632.3,
+      "subfilas": []
+    },
+    {
+      "id": 9,
+      "concepto": "Deuda pública (SHRFSP)",
+      "titulo": 1,
+      "a2026Aprobado": 20259590.7,
+      "a2026Estimado": 20419836.8,
+      "a2027": 21848685.1,
+      "subfilas": []
+    }
+  ]
+}

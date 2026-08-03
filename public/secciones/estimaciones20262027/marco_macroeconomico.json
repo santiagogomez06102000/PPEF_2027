@@ -1,0 +1,88 @@
+{
+   "fondoCard":"#ffffff",
+  "textoCard":"#2a3573",
+  "bordeColor":"#359891",
+  "tarjetas":[
+    {
+      "id":0,
+      "titulo":"Producto Interno Bruto",
+      "subtitulo":"Crecimiento % real (rango)",
+      "sube":true,
+      "datos":[
+        {
+          "etiqueta":"2026",
+          "valores":"[1.8,2.8]"
+        },
+        {
+          "etiqueta":"2027",
+          "valores":"[1.9,2.9]"
+        }
+      ]
+    },
+    {
+      "id":1,
+      "titulo":"Inflación %",
+      "subtitulo":null,
+      "sube":false,
+      "datos":[
+        {
+          "etiqueta":"2026",
+          "valores":"[1.8,2.8]"
+        },
+        {
+          "etiqueta":"2027",
+          "valores":"[1.9,2.9]"
+        }
+      ]
+    },
+    {
+      "id":2,
+      "titulo":"Tipo de cambio nominal (pesos por dólar)",
+      "subtitulo":null,
+      "sube":true,
+      "datos":[
+        {
+          "etiqueta":"2026",
+          "valores":"[1.8,2.8]"
+        },
+        {
+          "etiqueta":"2027",
+          "valores":"[1.9,2.9]"
+        }
+      ]
+      
+    },
+    {
+      "id":3,
+      "titulo":"Tasa de interés (Cetes 28 días, %)",
+      "subtitulo":null,
+      "sube":true,
+      "datos":[
+        {
+          "etiqueta":"2026",
+          "valores":"[1.8,2.8]"
+        },
+        {
+          "etiqueta":"2027",
+          "valores":"[1.9,2.9]"
+        }
+      ]
+    },
+    {
+      "id":4,
+      "titulo":"Cuenta Corriente",
+      "subtitulo":null,
+      "sube":true,
+      "datos":[
+        {
+          "etiqueta":"2026",
+          "valores":"[1.8,2.8]"
+        },
+        {
+          "etiqueta":"2027",
+          "valores":"[1.9,2.9]"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 0,
+    "concepto": "Tasa de interés internacional",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null
+  },
+  {
+    "id": 1,
+    "concepto": "Petróleo (canasta mexicana)",
+    "titulo": 2,
+    "a2026": null,
+    "a2027": null
+  },
+  {
+    "id": 2,
+    "concepto": "Precio promedio (dólares / barril)",
+    "titulo": null,
+    "a2026": "[1.8, 2.8]",
+    "a2027": "[1.9, 2.9]"
+  },
+  {
+    "id": 3,
+    "concepto": "Plataforma de producción crudo total (mbd*)",
+    "titulo": null,
+    "a2026": 37324.8,
+    "a2027": 39732.4
+  },
+  {
+    "id": 4,
+    "concepto": "Plataforma de exportación de crudo (mbd*)",
+    "titulo": null,
+    "a2026": 3.8,
+    "a2027": 4.0
+  },
+  {
+    "id": 5,
+    "concepto": "Gas natural",
+    "titulo": 2,
+    "a2026": null,
+    "a2027": null
+  },
+  {
+    "id": 6,
+    "concepto": "Precio promedio (dólares / MMBtu**)",
+    "titulo": null,
+    "a2026": 3.8,
+    "a2027": 3.8
+  }
+]

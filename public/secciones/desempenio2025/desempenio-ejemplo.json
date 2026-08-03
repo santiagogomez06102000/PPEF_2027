@@ -1,0 +1,147 @@
+{
+  "color": "#97ead1",
+  "fondoCard":"#2e3772",
+  "imagen": "",
+  "tabs": [
+    {
+      "id": 0,
+      "titulo": "Crecimiento",
+      "lista": [
+        {
+          "id": 0,
+          "titulo": "Industria",
+          "descripcion": "Nacional: El desempeño del PIB del cuarto trimestre de 2024 y el débil inicio de 2025 provocaron un efecto de arrastre negativo, lo que incidió en un crecimiento anual moderado. Particularmente en el sector manufacturero hubo una disminución en 1.3% anual de las actividades industriales en México.",
+          "fuente": "(PCGPE 2027, Pág 10-12)",
+          "detalle": [
+            {
+              "descripcion": "Internacional: En EE.UU. y Europa se registró mayor debilidad en el sector manufacturero, relacionado al aumento de los precios del acero, cobre y aluminio derivado de los anuncios arancelarios en EE.UU.",
+              "fuente": "(PCGPE 2027, Pág 6 y 9)"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "titulo": "Trabajo",
+          "descripcion": "Nacional: El nuevo marco legal en materia de subcontratación laboral derivó en un crecimiento del 11.5% en los servicios de apoyo en los negocios. Asimismo, el aumento de 1.6 millones de personas que reportó no estar disponible para trabajar por atender otras obligaciones (principalmente jóvenes en edad de estudiar y adultos mayores) generó una reducción en la participación laboral de 0.8 pp por debajo de 2024.",
+          "fuente": "(PCGPE 2027, Pág 11 y 13)",
+          "detalle": null
+        },
+        {
+          "id": 2,
+          "titulo": "Comercio",
+          "descripcion": "Nacional: Los cambios en la política arancelaria en EE.UU. provocaron que el comercio al por mayor en México disminuyera 4.5% anual, particularmente en los sectores de equipos de transporte y fabricación de productos metálicos, en donde se registraron contracciones anuales de 5.6% y 3.6%, respectivamente.",
+          "fuente": "(PCGPE 2027, Pág 11)",
+          "detalle": null
+        },
+        {
+          "id": 3,
+          "titulo": "Servicios",
+          "descripcion": "Nacional: El programa piloto de trabajadores en plataformas digitales incidió en el crecimiento de 217 mil puestos en los servicios de transporte, lo cual apoyó significativamente al aumento del número de puestos de trabajo registrados ante el IMSS.",
+          "fuente": "(PCGPE 2027, Pág 14)",
+          "detalle": [
+            {
+              "descripcion": "Internacional: La demanda global de servicios presentó mayor dinamismo, impulsada por los sectores tecnológico y financiero.",
+              "fuente": "(PCGPE 2027, Pág 6)"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "titulo": "Importaciones",
+          "descripcion": "Nacional: Los ajustes regulatorios en plataformas digitales y a importaciones de bajo valor, el fortalecimiento de las acciones de fiscalización y combate al contrabando de aduanas, así como la revisión del esquema arancelario de países sin tratado comercial en México fomentaron un crecimiento real anual de 21.4% en el Impuesto General a las Importaciones (IGI).",
+          "fuente": "(PCGPE 2027, Pág 19)",
+          "detalle": null
+        },
+        {
+          "id": 5,
+          "titulo": "Inversión",
+          "descripcion": "Nacional: La falta de claridad en la relación comercial entre México y EE.UU. derivó en la postergación de proyectos empresariales, lo cual posicionó a la inversión como el componente del gasto más afectado por el entorno de incertidumbre.",
+          "fuente": "(PCGPE 2027, Pág 12)",
+          "detalle": null
+        },
+        {
+          "id": 6,
+          "titulo": "Recaudación",
+          "descripcion": "Nacional: Las medidas implementadas para reducir los espacios de evasión y elusión fiscal, así como el fortalecimiento de las acciones de fiscalización, el uso de herramientas tecnológicas y el diseño de mecanismos para fomentar el cumplimiento voluntario de los contribuyentes aumentaron la recaudación a 4.1% real anual.",
+          "fuente": "(PCGPE 2027, Pág 18)",
+          "detalle": null
+        },
+        {
+          "id": 7,
+          "titulo": "Exportaciones",
+          "descripcion": "Nacional: México ha incrementado sus exportaciones relacionadas a la inteligencia artificial hacia EE.UU., logrando que representen el 4.7% del PIB.",
+          "fuente": "(PCGPE 2027, Pág 26)",
+          "detalle": [
+            {
+              "descripcion": "Internacional: El incremento al 80% en la proporción de exportaciones hacia EE. UU. que ingresaron libres de arancel bajo el T-MEC consolidó una ventaja competitiva frente a otros países. Esta tasa arancelaria preferencial impulsó un crecimiento de 7.0% en las exportaciones de bienes y servicios durante 2025.",
+              "fuente": "(PCGPE 2027, Pág 13 y 15)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "titulo": "Inflación",
+      "lista": [
+        {
+          "id": 0,
+          "titulo": "Condiciones climáticas",
+          "descripcion": "Nacional: Condiciones climáticas más favorables en comparación con el 2024 generaron una deflación en frutas y verduras, lo cual disminuyó 3.7 pp de inflación no subyacente y se vio reflejado en una reducción de 0.9 pp de la inflación general promedio anual con respecto a 2024.",
+          "fuente": "(PCGPE 2027, Pág 15)",
+          "detalle": null
+        },
+        {
+          "id": 1,
+          "titulo": "Ganadería",
+          "descripcion": "Nacional: Los brotes de gripe aviar en América del Norte y una menor producción de ganado en EE.UU. y Australia afectaron los precios de los productos pecuarios en México, los cuales ejercieron presiones al alza durante el 2025.",
+          "fuente": "(PCGPE 2027, Pág 15)",
+          "detalle": null
+        },
+        {
+          "id": 2,
+          "titulo": "Precios de los combustibles",
+          "descripcion": "Nacional: La contención de los precios de los combustibles mediante la Estrategia Nacional para Estabilizar el Precio de la Gasolina logró ubicar la inflación de energéticos 3 pp por debajo de 2024.",
+          "fuente": "(PCGPE 2027, Pág 15)",
+          "detalle": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Precio del petróleo",
+      "lista": [
+        {
+          "id": 0,
+          "titulo": "Ingresos petroleros",
+          "descripcion": "Nacional: Una menor plataforma de producción y una disminución de las ventas internas de productos derivados del petróleo fueron factores que contribuyeron a un menor dinamismo en los ingresos petroleros respecto a 2024.",
+          "fuente": "(PCGPE 2027, Pág 19)",
+          "detalle": [
+            {
+              "descripcion": "Internacional: La sobreoferta de crudo, ocasionada por una mayor producción de la OPEP+, y la apreciación del tipo de cambio redujeron los ingresos petroleros en México en 2 pp del PIB respecto a 2024. No obstante, el precio se mantuvo 3.2 dólares por barril (dpb) por encima de lo presupuestado, lo que ayudó a mitigar parte de las pérdidas.",
+              "fuente": "(PCGPE 2027, Pág 6 y 19)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Tasa de interés",
+      "lista": [
+        {
+          "id": 0,
+          "titulo": "Banco de México",
+          "descripcion": "Nacional: La reducción de la inflación y una economía con capacidad de crecimiento sin presiones contribuyeron a que el Banco de México redujera su tasa de referencia en 3 pp durante el año.",
+          "fuente": "(PCGPE 2027, Pág 17)",
+          "detalle": [
+            {
+              "descripcion": "Internacional: Ante el impacto del conflicto en Medio Oriente, la mayoría de los bancos centrales adoptó una postura monetaria menos restrictiva para estimular la economía. En este contexto el Banco de México redujo la tasa de referencia a 7% al cierre de 2025, lo que permitió disminuir el costo de los intereses en los créditos bancarios.",
+              "fuente": "(PCGPE 2027, Pág 17)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "id": 0,
+    "concepto": "Producto Interno Bruto",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null,
+    "sube": null
+  },
+  {
+    "id": 1,
+    "concepto": "Crecimiento % real (rango)",
+    "titulo": null,
+    "a2026": "[1.8, 2.8]",
+    "a2027": "[1.9, 2.9]",
+    "sube": true
+  },
+  {
+    "id": 2,
+    "concepto": "Nominal (miles de millones de pesos)",
+    "titulo": null,
+    "a2026": "37,324.8",
+    "a2027": "39,732.4",
+    "sube": true
+  },
+  {
+    "id": 3,
+    "concepto": "Deflactor del PIB (variación anual, % promedio)",
+    "titulo": null,
+    "a2026": "3.8",
+    "a2027": "4.0",
+    "sube": true
+  },
+  {
+    "id": 4,
+    "concepto": "Inflación (%)",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null,
+    "sube": null
+  },
+  {
+    "id": 5,
+    "concepto": "Dic. / dic.",
+    "titulo": null,
+    "a2026": "3.7",
+    "a2027": "3.0",
+    "sube": false
+  },
+  {
+    "id": 6,
+    "concepto": "Tipo de cambio nominal (pesos por dólar)",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null,
+    "sube": null
+  },
+  {
+    "id": 7,
+    "concepto": "Fin de periodo",
+    "titulo": null,
+    "a2026": "18.4",
+    "a2027": "18.6",
+    "sube": true
+  },
+  {
+    "id": 8,
+    "concepto": "Promedio",
+    "titulo": null,
+    "a2026": "18.0",
+    "a2027": "18.5",
+    "sube": true
+  },
+  {
+    "id": 9,
+    "concepto": "Tasa de interés (Cetes 28 días, %)",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null,
+    "sube": null
+  },
+  {
+    "id": 10,
+    "concepto": "Nominal fin de periodo",
+    "titulo": null,
+    "a2026": "6.3",
+    "a2027": "5.5",
+    "sube": false
+  },
+  {
+    "id": 11,
+    "concepto": "Nominal promedio",
+    "titulo": null,
+    "a2026": "6.7",
+    "a2027": "5.9",
+    "sube": false
+  },
+  {
+    "id": 12,
+    "concepto": "Real acumulada",
+    "titulo": null,
+    "a2026": "3.2",
+    "a2027": "3.0",
+    "sube": false
+  },
+  {
+    "id": 13,
+    "concepto": "Cuenta Corriente",
+    "titulo": 1,
+    "a2026": null,
+    "a2027": null,
+    "sube": null
+  },
+  {
+    "id": 14,
+    "concepto": "Millones de dólares",
+    "titulo": null,
+    "a2026": "-22,872.4",
+    "a2027": "-13,144.9",
+    "sube": true
+  },
+  {
+    "id": 15,
+    "concepto": "% del PIB",
+    "titulo": null,
+    "a2026": "-1.1",
+    "a2027": "-0.6",
+    "sube": true
+  }
+]
