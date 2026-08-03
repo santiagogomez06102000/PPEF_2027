@@ -1,0 +1,66 @@
+{
+  "titulo": "Ingreso",
+  "intro": "La Iniciativa de Ley de Ingresos de la Federación estima cuánto dinero ingresará al país durante el año. Para el ejercicio fiscal 2026, se proyecta que la Federación obtendrá ingresos por:",
+  "monto": "$11,000,000",
+  "unidad": "millones de pesos",
+  "descripcion": "El gobierno federal obtiene recursos de nueve tipos de ingresos. Cada uno tiene un origen distinto y juntos hacen posible financiar la provisión de bienes y servicios y obras públicas. A continuación, te explicamos cada tipo de ingreso para el ejercicio fiscal 2027:",
+  "items": [
+    {
+      "id": "impuestos",
+      "titulo": "Impuestos",
+      "monto": "$ 5,838,541.1 millones de pesos",
+      "contenido": [
+        "Definición: contribuciones establecidas en ley que deben pagar las personas físicas y morales que se encuentran en la situación jurídica o de hecho prevista por la misma ley.",
+        "Ejemplo: el Impuesto sobre la Renta (ISR), que es el pago que hacen las personas por los ingresos que reciben, como sueldos y salarios, y que también deben cubrir las empresas por las ganancias que obtienen."
+      ]
+    },
+    {
+      "id": "cuotas",
+      "titulo": "Cuotas y aportaciones de seguridad social",
+      "monto": "$641,782.1 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "contribuciones",
+      "titulo": "Contribuciones de mejoras",
+      "monto": "$39.6 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "derechos",
+      "titulo": "Derechos",
+      "monto": "$157,081.7 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "productos",
+      "titulo": "Productos",
+      "monto": "$16,488.3 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "aprovechamientos",
+      "titulo": "Aprovechamientos",
+      "monto": "$203,520.5 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "ventas",
+      "titulo": "Ingresos por ventas de bienes, prestación de servicios y otros ingresos",
+      "monto": "$1,630,973.6 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "transferencias",
+      "titulo": "Transferencias, asignaciones, subsidios y subvenciones y pensiones y jubilaciones",
+      "monto": "$232,630.4 millones de pesos",
+      "contenido": []
+    },
+    {
+      "id": "financiamientos",
+      "titulo": "Ingresos derivados de financiamientos",
+      "monto": "$1,472,626.4 millones de pesos",
+      "contenido": []
+    }
+  ]
+}

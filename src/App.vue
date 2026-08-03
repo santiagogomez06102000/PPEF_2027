@@ -8,6 +8,8 @@ import Precriterios from './components/PPEF.vue'
 /* SECCIONES */
 import Informacion from './components/secciones/Informacion.vue'
 import Fechas from './components/secciones/Fechas.vue'
+import EntornoEconomico from './components/secciones/EntornoEconomico.vue'
+import Ingreso from './components/secciones/Ingreso.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 
 </script>
@@ -24,6 +26,12 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     </div>
     <div>
       <Fechas />
+    </div>
+    <div style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px;">
+      <EntornoEconomico />
+    </div>
+    <div>
+      <Ingreso />
     </div>
   </div>
   <SustentoNormativo />
