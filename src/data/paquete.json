@@ -1,0 +1,14 @@
+{
+  "titulo": "Paquete Económico 2027",
+  "subtituloGasto": "Estima un gasto neto de:",
+  "monto": "$11,000,000",
+  "unidad": "millones de pesos",
+  "crecimiento": "4.0%",
+  "comparativa": "más que en 2026",
+  "nota": "en términos reales",
+  "mascota": {
+    "indice": 5,
+    "ancho": "30rem",
+    "alto": "auto"
+  }
+}

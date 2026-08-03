@@ -1,55 +1,179 @@
 <template>
   <div class="hero">
-    <div class="hero-title">
-      <h1>Paquete Económico 2027</h1>
-    </div>
-    <div class="hero-image">Hola</div>
+    <div class="hero-content">
+      <!-- Columna izquierda: Texto -->
+      <div class="hero-text">
+        <h1 class="titulo-principal">
+          <span class="linea">Paquete</span>
+          <span class="linea">Económico 2027</span>
+        </h1>
 
+        <div class="bloque-datos">
+          <p class="etiqueta">{{ datos.subtituloGasto }}</p>
+          <p class="monto">{{ datos.monto }}</p>
+          <p class="unidad">{{ datos.unidad }}</p>
+        </div>
+
+        <div class="bloque-crecimiento">
+          <p class="porcentaje">{{ datos.crecimiento }}</p>
+          <p class="comparativa">{{ datos.comparativa }}</p>
+          <p class="nota">{{ datos.nota }}</p>
+        </div>
+      </div>
+
+      <!-- Columna derecha: Mascota -->
+      <div class="hero-image">
+        <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, nextTick } from 'vue'
+import { ref } from 'vue'
 import Mascota from './utils/Mascota.vue'
+import datosJson from '../data/paquete.json'
 
+const datos = ref(datosJson)
 </script>
 
-<style>
+<style scoped>
 .hero {
   position: relative;
-  min-height: 80dvh;
-  /* max-width: 1500px;
-  margin: 0 auto; */
-
-  padding: 20px 0 0 0;
-  background-color: transparent;
-  /* border: solid 2px red; */
-
-  display: flex;
-
-  /* background-color: orange; */
-
-  margin-top: 0.7rem;
+  min-height: 70dvh;
   max-width: 1800px;
+  margin: 0 auto;
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.hero-title {
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  gap: 3rem;
+}
+
+/* ── Columna texto ── */
+.hero-text {
   flex: 1;
-  color: white;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-left: 6rem;
 }
 
+.titulo-principal {
+  margin: 0;
+  font-family: 'Noto Sans Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.titulo-principal .linea {
+  display: block;
+}
+
+/* ── Bloque monto ── */
+.bloque-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.etiqueta {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.95;
+  color: #ffffff;
+}
+
+.monto {
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  color: #a5f3fc;
+  /* cyan claro */
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.unidad {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ── Bloque crecimiento ── */
+.bloque-crecimiento {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.porcentaje {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.comparativa {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.nota {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+/* ── Columna imagen ── */
 .hero-image {
   flex: 1;
-  color: white;
-  /* border: solid 2px blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
 }
 
-h1 {
-  text-align: center;
-  margin: 0 0 1rem 0;
-  /*  border: solid 2px green; */
-  font-size: 3rem;
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
 
-  font-family: 'Noto Sans Black';
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    gap: 1.8rem;
+    align-items: center;
+  }
+
+  .hero-image {
+    max-width: 280px;
+  }
 }
 </style>
