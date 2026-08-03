@@ -10,6 +10,8 @@ import Informacion from './components/secciones/Informacion.vue'
 import Fechas from './components/secciones/Fechas.vue'
 import EntornoEconomico from './components/secciones/EntornoEconomico.vue'
 import Ingreso from './components/secciones/Ingreso.vue'
+import Gasto from './components/secciones/Gasto.vue'
+import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 
 </script>
@@ -32,6 +34,12 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     </div>
     <div>
       <Ingreso />
+    </div>
+    <div style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px;">
+      <Gasto />
+    </div>
+    <div>
+      <DistribucionGasto />
     </div>
   </div>
   <SustentoNormativo />
