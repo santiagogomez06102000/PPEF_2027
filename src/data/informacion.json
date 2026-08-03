@@ -1,0 +1,41 @@
+{
+  "introduccion": {
+    "parrafo1": "Cada año, el Ejecutivo Federal, a través de la Secretaría de Hacienda y Crédito Público (SHCP), envía al Congreso de la Unión la propuesta de cómo obtendrá y cómo destinará el dinero público durante el siguiente ejercicio fiscal.",
+    "parrafo2Inicio": "Esta propuesta se presenta en el ",
+    "resaltado": "Paquete Económico",
+    "parrafo2Fin": ", el cual está integrado por:"
+  },
+  "botones": [
+    {
+      "id": "cgpe",
+      "titulo": "Criterios Generales de Política Económica",
+      "abreviatura": "CGPE",
+      "imagenCirculo": "img_circle.png",
+      "tituloSeccion": "Criterios Generales de Política Económica (CGPE)",
+      "descripcion": [
+        "Es un documento que elabora la Secretaría de Hacienda y Crédito Público en el que se presentan las perspectivas sobre cómo se espera que se comporten la economía del país, las finanzas públicas y la deuda.",
+        "Su propósito es ofrecer a la ciudadanía, al H. Congreso de la Unión y a los mercados, información clara y transparente sobre la política económica del gobierno, sirviendo de base para la discusión y aprobación del Paquete Económico de cada año."
+      ]
+    },
+    {
+      "id": "ilif",
+      "titulo": "Iniciativa de Ley de Ingresos de la Federación",
+      "abreviatura": "ILIF",
+      "imagenCirculo": "img_circle.png",
+      "tituloSeccion": "Iniciativa de Ley de Ingresos de la Federación (ILIF)",
+      "descripcion": [
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ]
+    },
+    {
+      "id": "ppef",
+      "titulo": "Proyecto de Decreto de Presupuesto de Egresos de la Federación",
+      "abreviatura": "PPEF",
+      "imagenCirculo": "img_circle.png",
+      "tituloSeccion": "Proyecto de Decreto de Presupuesto de Egresos de la Federación (PPEF)",
+      "descripcion": [
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ]
+    }
+  ]
+}

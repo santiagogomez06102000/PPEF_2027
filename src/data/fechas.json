@@ -1,0 +1,26 @@
+{
+  "titulo": "Fechas clave",
+  "items": [
+    {
+      "id": "sep-8",
+      "fecha": "8 de septiembre",
+      "descripcion": "El Ejecutivo Federal, a través de la Secretaría de Hacienda y Crédito Público, entrega el Paquete Económico al H. Congreso de la Unión."
+    },
+    {
+      "id": "oct-20",
+      "fecha": "20 de octubre",
+      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "oct-31",
+      "fecha": "31 de octubre",
+      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "nov-15",
+      "fecha": "15 de noviembre",
+      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ],
+  "textoFinal": "Al finalizar este proceso, la Iniciativa se convierte en la Ley de Ingresos de la Federación (LIF) y el Proyecto se convierte en el Presupuesto de Egresos de la Federación (PEF)."
+}
