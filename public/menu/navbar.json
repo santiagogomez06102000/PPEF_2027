@@ -1,102 +1,50 @@
 [
   {
     "id": 0,
-    "descripcion": "Ciclo presupuestario",
-    "url": "/Ciclo-Presupuestario",
-    "texto": "#c71c51",
+    "descripcion": "Inicio",
+    "url": "#inicio",
+    "texto": "#fff",
     "submenu": [],
     "nivel": 1
   },
-  {
+    {
     "id": 1,
-    "descripcion": "Planeación",
-    "url": "/Planeacion-Nacional",
-    "texto": "#1c5b55",
+    "descripcion": "Entorno económico",
+    "url": "#entorno-economico",
+    "texto": "#fff",
     "submenu": [],
     "nivel": 1
   },
-  {
+    {
     "id": 2,
     "descripcion": "Ingreso",
-    "url": null,
-    "texto": "#9055a2",
-    "submenu": [
-      {
-        "id": 201,
-        "descripcion": "Ingresos federales",
-        "url": "/Ingresos-Federales",
-        "texto": "#9055a2",
-        "nivel": 2
-      },
-      {
-        "id": 202,
-        "descripcion": "Recaudación local",
-        "url": "/Recaudacion-Local",
-        "texto": "#7a4a8c",
-        "nivel": 2
-      }
-    ],
+    "url": "#ingreso",
+    "texto": "#fff",
+    "submenu": [],
     "nivel": 1
   },
-  {
+    {
     "id": 3,
     "descripcion": "Gasto",
-    "url": null,
-    "texto": "#267bd9",
-    "submenu": [
-      {
-        "id": 301,
-        "descripcion": "Programas",
-        "url": "/Programas",
-        "texto": "#267bd9",
-        "nivel": 2
-      },
-      {
-        "id": 302,
-        "descripcion": "Obra Pública Abierta",
-        "url": "/Obra-Publica-Abierta",
-        "texto": "#1e5fb0",
-        "nivel": 2
-      },
-      {
-        "id": 303,
-        "descripcion": "Entidades Federativas",
-        "url": "/Entidades-Federativas",
-        "texto": "#16458c",
-        "nivel": 2
-      },
-      {
-        "id": 304,
-        "descripcion": "Ramo 23",
-        "url": "/es/PTP/Seccion_Ramo_23",
-        "texto": "#16458c",
-        "nivel": 2
-      }
-    ],
-    "nivel": 1
-  },
-  {
-    "id": 4,
-    "descripcion": "Evaluación",
-    "url": "/Sistema-Evaluacion-Desempeno",
-    "texto": "#4a2335",
+    "url": "#gasto",
+    "texto": "#fff",
     "submenu": [],
     "nivel": 1
   },
-  {
+    {
+    "id": 4,
+    "descripcion": "Gasto federalizado",
+    "url": "#gasto-federalizado",
+    "texto": "#fff",
+    "submenu": [],
+    "nivel": 1
+  },
+    {
     "id": 5,
     "descripcion": "Datos abiertos",
-    "url": "/Datos-Abiertos",
-    "texto": "#312773",
+    "url": "#datos-abiertos",
+    "texto": "#fff",
     "submenu": [],
     "nivel": 1
-  },
-  {
-    "id": 6,
-    "descripcion": "Capacitación",
-    "url": "/Capacitacion",
-    "texto": "#b11948",
-    "submenu": [],
-    "nivel":1
   }
 ]

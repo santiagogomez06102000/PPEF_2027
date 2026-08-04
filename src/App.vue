@@ -15,14 +15,54 @@ import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
+const activeHash = ref(window.location.hash)
+
+const updateActiveSection = () => {
+  const sections = [...document.querySelectorAll('#secciones div[id]')]
+  const offset = 120
+
+  let currentSection = null
+
+  for (const section of sections) {
+    const top = section.getBoundingClientRect().top
+
+    if (top <= offset) {
+      currentSection = section
+    } else {
+      break
+    }
+  }
+
+  if (currentSection) {
+    const hash = `#${currentSection.id}`
+
+    if (activeHash.value !== hash) {
+      activeHash.value = hash
+      history.replaceState(null, '', hash)
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateActiveSection, {
+    passive: true
+  })
+
+  updateActiveSection()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateActiveSection)
+})
 </script>
 
 <template>
-  <div class="precriterios bg-white">
-    <NavPlantilla />
+  <div id="secciones" class="precriterios bg-white">
+    <NavPlantilla :active="activeHash"/>
 
-    <div style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px;">
+    <div id="inicio" style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px">
       <Precriterios />
     </div>
     <div>
@@ -31,13 +71,16 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     <div>
       <Fechas />
     </div>
-    <div style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px;">
+    <div
+      id="entorno-economico"
+      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px"
+    >
       <EntornoEconomico />
     </div>
-    <div>
+    <div id="ingreso">
       <Ingreso />
     </div>
-    <div style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px;">
+    <div id="gasto" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
       <Gasto />
     </div>
     <div>
@@ -46,9 +89,13 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     <div>
       <inversion />
     </div>
-    <div style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px;">
+    <div
+      id="gasto-federalizado"
+      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
+    >
       <Federalizado />
     </div>
+    <div id="datos-abiertos"></div>
   </div>
   <SustentoNormativo />
   <Footer />

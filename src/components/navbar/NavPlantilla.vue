@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import GobMxAccesibilidad_2 from './GobMxAccesibilidad_2.vue'
 import NavPlantillaItem from './NavPlantillaItem.vue'
+import GobMxAccesibilidad_2 from './GobMxAccesibilidad_2.vue'
+const props=defineProps<{
+  active:string
+}>()
 
 const menu = ref([])
-
-const urlBase = import.meta.env.BASE_URL
-
+const basePath = import.meta.env.BASE_URL;
 const getMenu = async () => {
   try {
-    const response = await fetch(`${urlBase}menu/navbar.json`)
+    //@ts-ignore
+    const response = await fetch(`${basePath}menu/navbar.json`)
     const data = await response.json()
     menu.value = data
   } catch (error) {
@@ -35,33 +37,23 @@ const handleResize = () => {
     toggleDropdown(0)
   }
 }
-const logo = ref(true)
-const ocultarAlScroll = () => {
-  if (window.scrollY > 80) {
-    logo.value = false
-  } else {
-    logo.value = true
-  }
-}
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
-  window.addEventListener('scroll', ocultarAlScroll)
   getMenu()
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
-  window.removeEventListener('scroll', ocultarAlScroll)
 })
 </script>
 <template>
-  <header class="header sticky top-0 z-20">
+  <header class="header sticky top-0 z-2000 bg-[#073441] shadow-sm">
     <div class="header-container">
-      <div class="logo" id="logo">
-        <a href="/" v-show="logo">
+      <div class="logo">
+        <a href="/">
           <img
-            :src="urlBase + 'menu/logo.png'"
+            :src="basePath + 'menu/logo.png'"
             alt="Transparencia Presupuestaria"
             class="block h-[42px] w-[37px]"
           />
@@ -71,7 +63,7 @@ onUnmounted(() => {
         <button
           @click="clickNavbar"
           type="button"
-          class="boton-hamburguesa inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-200 hover:text-[#1e69cb] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          class="boton-hamburguesa inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-200 hover:text-[#1e69cb] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           :aria-expanded="isOpen"
         >
           <span class="sr-only">Abrir menú</span>
@@ -124,15 +116,15 @@ onUnmounted(() => {
             :width="width"
             :toggleDropdown="toggleDropdown"
             :openDropdown="openDropdown"
+            :active="active"
           />
         </ul>
       </nav>
     </div>
-    <GobMxAccesibilidad_2 />
   </header>
+  <GobMxAccesibilidad_2/>
 </template>
-<style scoped>
-@import './navbar.css';
+<style>
 .logo {
   flex-shrink: 0;
   flex-grow: 1;
@@ -147,13 +139,6 @@ onUnmounted(() => {
 .header {
   width: 100%;
   max-width: 100dvw;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-}
-.header:has(.navbar.mostrar) {
-  padding: 0rem;
-}
-.header-container:has(.navbar.mostrar) {
-  border-radius: 0rem;
 }
 
 .header-container {
@@ -164,20 +149,6 @@ onUnmounted(() => {
   justify-content: end;
   padding: 0.5rem 1rem;
   flex-wrap: wrap;
-  /*background-color: #f5f5f5;*/
-
-  border-radius: 20rem;
-  transition:
-    border-radius ease 0.3s,
-    padding ease 0.3s;
-
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.15),
-    inset 0 4px 30px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .navbar {
@@ -212,9 +183,6 @@ onUnmounted(() => {
     flex-grow: 0;
     margin: 0.7rem 0;
   }
-  .header {
-    padding-top: 1rem;
-  }
 
   .header-container {
     max-width: 80rem;
@@ -223,13 +191,13 @@ onUnmounted(() => {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    padding: 0 3rem;
+    padding: 0;
+    padding-left: 4rem;
+    padding-right: 0rem;
 
     overflow: visible;
     flex-wrap: nowrap;
     margin: auto;
-
-    border-radius: 20rem;
   }
 
   .navbar {
@@ -245,8 +213,7 @@ onUnmounted(() => {
     align-items: stretch;
     justify-content: end;
     pointer-events: all;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
+    gap: 0;
   }
   .logo a {
     margin: 0;
@@ -268,10 +235,5 @@ onUnmounted(() => {
 .icon-leave-from {
   opacity: 1;
   transform: rotate(0deg) scale(1);
-}
-@supports (backdrop-filter: blur(10px)) {
-  .header-container {
-    backdrop-filter: blur(10px);
-  }
 }
 </style>

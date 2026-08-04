@@ -83,7 +83,7 @@ const WIDGET_CSS = `
      ══════════════════════════════════════════════════ */
   #accessibility {
     position: fixed !important;
-    top: calc(12px + 1rem) !important;
+    top: 14px;
     left: 18px !important;
     z-index: 10001 !important;
     display: block !important;
@@ -361,6 +361,11 @@ const WIDGET_CSS = `
   @media only screen and (max-width: 768px) {
     #accessibility .menu-container .menu-btn {
       left: 157px !important;               /* ← NUEVO: igual que el original */
+    }
+  }
+     @media only screen and (max-width: 1023px) {
+    #accessibility {
+      top:0.7rem;
     }
   }
 
