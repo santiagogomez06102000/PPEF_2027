@@ -14,6 +14,7 @@ import Gasto from './components/secciones/Gasto.vue'
 import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
+import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 
 </script>
@@ -48,6 +49,9 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     </div>
     <div style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px;">
       <Federalizado />
+    </div>
+    <div>
+      <demoModal />
     </div>
   </div>
   <SustentoNormativo />

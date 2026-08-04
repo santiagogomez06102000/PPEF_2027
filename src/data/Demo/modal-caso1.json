@@ -1,0 +1,21 @@
+{
+  "title": "Título del Modal",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "Primer párrafo con información relevante sobre el tema que se está presentando en este modal."
+    },
+    {
+      "type": "paragraph",
+      "content": "Segundo párrafo que complementa la información anterior y proporciona contexto adicional al usuario."
+    },
+    {
+      "type": "paragraph",
+      "content": "Este texto contiene <strong>negritas</strong> para resaltar conceptos importantes."
+    },
+    {
+      "type": "paragraph",
+      "content": "Este otro párrafo utiliza <em>cursivas</em> para dar énfasis a ciertas palabras clave."
+    }
+  ]
+}

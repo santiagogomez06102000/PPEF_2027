@@ -1,0 +1,64 @@
+{
+  "title": "Guía de Uso del Componente Modal",
+  "subtitle": "Documentación técnica",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "Este componente fue diseñado para ser completamente <strong>reutilizable</strong> y <em>desacoplado</em> del contenido específico. Cualquier componente padre puede invocarlo enviando los datos a través de props."
+    },
+    {
+      "type": "heading",
+      "content": "Características principales"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Apertura y cierre controlados por <strong>v-model</strong>.",
+        "Cierre por botón X, backdrop o tecla Escape.",
+        "Scroll bloqueado en el body mientras está abierto.",
+        "Soporte para múltiples tipos de bloques de contenido.",
+        "Preparado para integrar animaciones con GSAP."
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "Tipos de bloques soportados"
+    },
+    {
+      "type": "paragraph",
+      "content": "El sistema de bloques permite representar diferentes estructuras de contenido de forma declarativa."
+    },
+    {
+      "type": "subheading",
+      "content": "Párrafos"
+    },
+    {
+      "type": "paragraph",
+      "content": "Los párrafos admiten HTML básico para <strong>negritas</strong>, <em>cursivas</em> y enlaces."
+    },
+    {
+      "type": "subheading",
+      "content": "Listas"
+    },
+    {
+      "type": "paragraph",
+      "content": "Las listas se definen como un arreglo de strings, cada uno representando un ítem."
+    },
+    {
+      "type": "subheading",
+      "content": "Imágenes"
+    },
+    {
+      "type": "paragraph",
+      "content": "Soporte para bloques de imagen con src, alt y caption opcional."
+    },
+    {
+      "type": "heading",
+      "content": "Ejemplo de uso"
+    },
+    {
+      "type": "paragraph",
+      "content": "Simplemente importa tu JSON, selecciona el objeto a mostrar y pásalo al componente Modal. El modal nunca necesita saber de dónde vienen los datos."
+    }
+  ]
+}

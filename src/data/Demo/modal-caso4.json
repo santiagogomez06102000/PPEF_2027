@@ -1,0 +1,13 @@
+{
+  "title": "Aviso Importante",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "Este es un aviso breve con información concisa para el usuario."
+    },
+    {
+      "type": "paragraph",
+      "content": "No requiere subtítulo ni estructura compleja."
+    }
+  ]
+}

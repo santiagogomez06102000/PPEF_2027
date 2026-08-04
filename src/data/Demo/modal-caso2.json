@@ -1,0 +1,26 @@
+{
+  "title": "ODS 1",
+  "subtitle": "Fin de la pobreza",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "Erradicar la pobreza extrema para todas las personas en el mundo, actualmente medida como personas que viven con menos de 1.90 dólares al día."
+    },
+    {
+      "type": "heading",
+      "content": "Metas principales"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Para 2030, erradicar la pobreza extrema en todas partes.",
+        "Reducir al menos a la mitad la proporción de hombres, mujeres y niños que viven en la pobreza.",
+        "Implementar a nivel nacional sistemas y medidas de protección social apropiadas."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "La pobreza no es solo la falta de ingresos, sino también la carencia de <strong>derechos básicos</strong> como educación, salud y acceso a servicios."
+    }
+  ]
+}
