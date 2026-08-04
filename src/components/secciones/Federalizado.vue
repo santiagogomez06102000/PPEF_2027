@@ -40,13 +40,13 @@
         <p class="footer-text">{{ datos.footer }}</p>
 
         <div class="mapa-placeholder">
-            Aquí debe de ir un mapa
+            Aquí debe de ir otro mapa
         </div>
     </section>
 </template>
 
 <script setup>
-import datos from '@/data/gasto_inversion.json'
+import datos from '@/data/gasto_federalizado.json'
 // 🔴 IMPORTANTE: Asegúrate de que la ruta de importación coincida con tu proyecto
 import Mascota from '@/components/utils/Mascota.vue' 
 </script>
@@ -65,7 +65,7 @@ import Mascota from '@/components/utils/Mascota.vue'
     text-align: center;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #0a5a45;
+    color: #ffffff;
     /* Verde oscuro */
     margin-bottom: 1.5rem;
 }
@@ -74,7 +74,7 @@ import Mascota from '@/components/utils/Mascota.vue'
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #222;
+    color: #ffffff;
     margin: 0.5rem 0;
 }
 
@@ -90,8 +90,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .monto-principal {
     font-size: clamp(3.5rem, 8vw, 3.5rem);
     font-weight: 800;
-    color: #2bc0a3;
-    /* Verde menta claro */
+    color: #ccffff;
     line-height: 1;
     margin-bottom: 0.2rem;
 }
@@ -99,14 +98,13 @@ import Mascota from '@/components/utils/Mascota.vue'
 .unidad-principal {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #0a5a45;
-    /* Verde oscuro */
+    color: #fff;
 }
 
 /* ── Grid de Bloques ── */
 .grid-bloques {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 3rem 0 2rem;
 }
@@ -141,7 +139,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .porcentaje {
     font-size: clamp(2.5rem, 4vw, 3.2rem);
     font-weight: 800;
-    color: #b28d2e;
+    color: #ccffff;
     /* Dorado */
     margin: 0 0 0.4rem 0;
     line-height: 1;
@@ -150,7 +148,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .descripcion {
     font-size: 1rem;
     font-weight: 700;
-    color: #0a5a45;
+    color: #fff;
     /* Verde oscuro */
     margin: 0 0 1.2rem 0;
     line-height: 1.4;
@@ -167,7 +165,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .monto-bloque {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #0a5a45;
+    color: #ccffff;
     margin: 0;
     line-height: 1.2;
 }
@@ -175,7 +173,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .unidad-bloque {
     font-size: 0.95rem;
     font-weight: 500;
-    color: #757575;
+    color: #fff;
     /* Gris */
     margin: 0.1rem 0 0 0;
 }
@@ -184,7 +182,7 @@ import Mascota from '@/components/utils/Mascota.vue'
 .footer-text {
     text-align: left;
     font-size: 0.95rem;
-    color: #333;
+    color: #fff;
     line-height: 1.6;
     margin-top: 2rem;
     border-top: 1px solid #eee;
