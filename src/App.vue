@@ -12,6 +12,7 @@ import EntornoEconomico from './components/secciones/EntornoEconomico.vue'
 import Ingreso from './components/secciones/Ingreso.vue'
 import Gasto from './components/secciones/Gasto.vue'
 import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
+import inversion from './components/secciones/Inversion.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 
 </script>
@@ -40,6 +41,9 @@ import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
     </div>
     <div>
       <DistribucionGasto />
+    </div>
+    <div>
+      <inversion />
     </div>
   </div>
   <SustentoNormativo />

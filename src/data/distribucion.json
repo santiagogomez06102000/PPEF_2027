@@ -1,0 +1,131 @@
+{
+  "titulo": "Distribución del gasto programable",
+  "descripcion": "La distribución del gasto programable es la manera en que el gobierno federal organiza y reparte el dinero que se destina a programas y acciones para la población. Este gasto se enfoca en generar bienes y servicios públicos —como educación, salud, seguridad o infraestructura— y cada año, dentro del presupuesto, se clasifica en diferentes formas para entender mejor en qué se usa y a quién beneficia.",
+  "clasificaciones": [
+    {
+      "id": "funcional",
+      "pregunta": "¿Para qué se gasta?",
+      "subtitulo": "Clasificación funcional",
+      "barras": [
+        {
+          "id": "control-directo",
+          "nombre": "Desarrollo social",
+          "total": "$3,201,259.1",
+          "porcentajeTotal": 33,
+          "tendencia": "▼",
+          "respecto": "Respecto a 2025",
+          "segmentos": [
+            {
+              "ramo": "R20 Bienestar",
+              "monto": "$674,510.00",
+              "porcentaje": 27.6,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "R11 Educación Pública",
+              "monto": "$513,015.60",
+              "porcentaje": 21.0,
+              "tendencia": "▲"
+            },
+            { "ramo": "R18 Energía", "monto": "$267,439.10", "porcentaje": 10.9, "tendencia": "▼" },
+            {
+              "ramo": "R56 IMSS BIENESTAR",
+              "monto": "$172,492.40",
+              "porcentaje": 7.1,
+              "tendencia": "-"
+            },
+            {
+              "ramo": "R07 Defensa Nacional",
+              "monto": "$170,753.10",
+              "porcentaje": 7.0,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "R09 Infraestructura",
+              "monto": "$153,539.30",
+              "porcentaje": 6.3,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Otros ramos",
+              "monto": "$1,249,509.60",
+              "porcentaje": 20.1,
+              "tendencia": "▲"
+            }
+          ]
+        },
+        {
+          "id": "ramos-generales",
+          "nombre": "Desarrollo económico",
+          "total": "$2,836,246.2",
+          "porcentajeTotal": 37,
+          "tendencia": "▲",
+          "respecto": "Respecto a 2025",
+          "segmentos": [
+            {
+              "ramo": "R08 Agricultura",
+              "monto": "$75,195.50",
+              "porcentaje": 10,
+              "tendencia": "▼"
+            },
+            { "ramo": "R13 Marina", "monto": "$65,926.80", "porcentaje": 8, "tendencia": "▼" },
+            { "ramo": "R12 Salud", "monto": "$66,825.80", "porcentaje": 8, "tendencia": "▼" },
+            { "ramo": "R36 Seguridad", "monto": "$60,110.90", "porcentaje": 7, "tendencia": "▼" },
+            { "ramo": "Otros ramos", "monto": "$2,568,187.20", "porcentaje": 67, "tendencia": "▲" }
+          ]
+        },
+        {
+          "id": "ramos-administrativos",
+          "nombre": "Gobierno",
+          "total": "$2,445,888.9",
+          "porcentajeTotal": 28,
+          "tendencia": "▲",
+          "respecto": "Respecto a 2025",
+          "segmentos": [
+            { "ramo": "R14 Trabajo", "monto": "$28,441.90", "porcentaje": 5, "tendencia": "▼" },
+            { "ramo": "R06 Hacienda", "monto": "$26,792.10", "porcentaje": 5, "tendencia": "▲" },
+            { "ramo": "Otros ramos", "monto": "$2,390,654.90", "porcentaje": 90, "tendencia": "▲" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "administrativa",
+      "pregunta": "¿Quién gasta?",
+      "subtitulo": "Clasificación administrativa",
+      "barras": [
+        {
+          "id": "ejemplo-1",
+          "nombre": "Ejemplo Administrativo A",
+          "total": "$1,000,000.0",
+          "porcentajeTotal": 50,
+          "tendencia": "▲",
+          "respecto": "Respecto a 2025",
+          "segmentos": [
+            { "ramo": "Segmento 1", "monto": "$500,000", "porcentaje": 50, "tendencia": "▲" },
+            { "ramo": "Segmento 2", "monto": "$500,000", "porcentaje": 50, "tendencia": "▼" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "economica",
+      "pregunta": "¿En qué se gasta?",
+      "subtitulo": "Clasificación económica",
+      "barras": [
+        {
+          "id": "ejemplo-1",
+          "nombre": "Ejemplo Económico A",
+          "total": "$2,000,000.0",
+          "porcentajeTotal": 100,
+          "tendencia": "-",
+          "respecto": "Respecto a 2025",
+          "segmentos": [
+            { "ramo": "Segmento 1", "monto": "$1,000,000", "porcentaje": 50, "tendencia": "▲" },
+            { "ramo": "Segmento 2", "monto": "$1,000,000", "porcentaje": 50, "tendencia": "▼" }
+          ]
+        }
+      ]
+    }
+  ]
+}
