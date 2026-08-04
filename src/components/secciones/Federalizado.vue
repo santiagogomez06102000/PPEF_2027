@@ -47,7 +47,6 @@
 
 <script setup>
 import datos from '@/data/gasto_federalizado.json'
-// 🔴 IMPORTANTE: Asegúrate de que la ruta de importación coincida con tu proyecto
 import Mascota from '@/components/utils/Mascota.vue' 
 </script>
 
