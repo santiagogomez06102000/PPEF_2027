@@ -39,8 +39,9 @@
         <!-- Ejes Generales -->
         <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
         <div class="grid-botones grid-4">
-            <button v-for="btn in datos.ejesGenerales.botones" :key="btn.id" class="btn-eje">
-                <img :src="btn.imagen" :alt="btn.texto" class="img-eje" />
+            <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id" class="btn-eje"
+                @click="abrirModal(generales[index])">
+                <img src="@/assets/img_circle.png" :alt="btn.texto" class="img-eje" />
                 <span>{{ btn.texto }}</span>
             </button>
         </div>
@@ -48,17 +49,33 @@
         <!-- Ejes Transversales -->
         <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
         <div class="grid-botones grid-3">
-            <button v-for="btn in datos.ejesTransversales.botones" :key="btn.id" class="btn-eje">
-                <img :src="btn.imagen" :alt="btn.texto" class="img-eje" />
+            <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id" class="btn-eje"
+                @click="abrirModal(transversales[index])">
+                <img src="@/assets/img_circle.png" :alt="btn.texto" class="img-eje" />
                 <span>{{ btn.texto }}</span>
             </button>
         </div>
+        <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
     </section>
 </template>
 
 <script setup>
-import datos from '@/data/gasto.json'
+import datos from '@/data/Gasto/gasto.json'
 import Mascota from '@/components/utils/Mascota.vue'
+import Modal from '@/components/utils/Modal.vue'
+import { useModal } from '@/components/composables/useModal.js'
+
+// Importar JSONs de modales
+import generales from '@/data/Gasto/ejes_generales.json'
+import transversales from '@/data/Gasto/ejes_transversales.json'
+
+// Instancia del composable para el modal
+const modal = useModal()
+
+function abrirModal(data) {
+    modal.open(data)
+}
+
 </script>
 
 <style scoped>
@@ -217,10 +234,20 @@ import Mascota from '@/components/utils/Mascota.vue'
 }
 
 .btn-eje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* o center */
+    gap: 0.75rem;
+
     background-color: rgba(255, 255, 255, 0.12);
     border: 2px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     padding: 1.2rem 1rem;
+    min-height: 180px;
+    /* ajusta según necesites */
+
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
@@ -235,9 +262,18 @@ import Mascota from '@/components/utils/Mascota.vue'
     width: 64px;
     height: 64px;
     object-fit: contain;
+    flex-shrink: 0;
+
     border-radius: 12px;
     background-color: rgba(255, 255, 255, 0.15);
     padding: 8px;
+}
+
+.btn-eje span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 @media (max-width: 768px) {

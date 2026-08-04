@@ -23,14 +23,12 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const modalRef = ref(null)
-const bodyRef = ref(null)
 
-// Abrir / cerrar
+// Estado interno sincronizado con v-model
 const isOpen = ref(props.modelValue)
 
 watch(() => props.modelValue, (val) => {
     isOpen.value = val
-    toggleBodyScroll(val)
 })
 
 watch(isOpen, (val) => {
@@ -54,50 +52,41 @@ function onKeydown(e) {
     }
 }
 
-// Bloquear scroll del body
+// ── Gestión de scroll del body ──────────────────────────────
 let originalOverflow = ''
+let scrollLocked = false
+
+function lockBodyScroll() {
+    if (typeof document === 'undefined' || scrollLocked) return
+    originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    scrollLocked = true
+}
+
+function unlockBodyScroll() {
+    if (typeof document === 'undefined' || !scrollLocked) return
+    document.body.style.overflow = originalOverflow || ''
+    scrollLocked = false
+}
 
 function toggleBodyScroll(lock) {
-    if (typeof document === 'undefined') return
-    if (lock) {
-        originalOverflow = document.body.style.overflow
-        document.body.style.overflow = 'hidden'
-    } else {
-        document.body.style.overflow = originalOverflow || ''
-    }
+    if (lock) lockBodyScroll()
+    else unlockBodyScroll()
 }
 
 onMounted(() => {
     if (typeof document !== 'undefined') {
         document.addEventListener('keydown', onKeydown)
     }
-    if (props.modelValue) toggleBodyScroll(true)
+    if (props.modelValue) lockBodyScroll()
 })
 
 onUnmounted(() => {
     if (typeof document !== 'undefined') {
         document.removeEventListener('keydown', onKeydown)
-        document.body.style.overflow = originalOverflow || ''
+        unlockBodyScroll()
     }
 })
-
-// Renderizado dinámico de bloques
-function renderBlock(block) {
-    if (!block || !block.type) return null
-
-    const tagMap = {
-        paragraph: 'p',
-        heading: 'h3',
-        subheading: 'h4',
-        list: 'ul'
-    }
-
-    return {
-        tag: tagMap[block.type] || 'div',
-        class: `modal-block modal-block--${block.type}`,
-        content: block.content || block.text || block.items || []
-    }
-}
 </script>
 
 <template>
@@ -121,32 +110,26 @@ function renderBlock(block) {
                     <div class="modal-divider"></div>
 
                     <!-- Body -->
-                    <div ref="bodyRef" class="modal-body">
+                    <div class="modal-body">
                         <template v-for="(block, index) in content.blocks" :key="index">
-                            <!-- Párrafo -->
                             <p v-if="block.type === 'paragraph'" class="modal-block modal-block--paragraph"
                                 v-html="block.content" />
 
-                            <!-- Encabezado -->
                             <h3 v-else-if="block.type === 'heading'" class="modal-block modal-block--heading"
                                 v-html="block.content" />
 
-                            <!-- Sub-encabezado -->
                             <h4 v-else-if="block.type === 'subheading'" class="modal-block modal-block--subheading"
                                 v-html="block.content" />
 
-                            <!-- Lista -->
                             <ul v-else-if="block.type === 'list'" class="modal-block modal-block--list">
                                 <li v-for="(item, i) in block.items" :key="i" v-html="item" />
                             </ul>
 
-                            <!-- Imagen -->
                             <figure v-else-if="block.type === 'image'" class="modal-block modal-block--image">
                                 <img :src="block.src" :alt="block.alt || ''" />
                                 <figcaption v-if="block.caption">{{ block.caption }}</figcaption>
                             </figure>
 
-                            <!-- Bloque genérico fallback -->
                             <div v-else class="modal-block modal-block--default" v-html="block.content || block.text" />
                         </template>
                     </div>
@@ -157,7 +140,6 @@ function renderBlock(block) {
 </template>
 
 <style scoped>
-/* ========== Backdrop ========== */
 .modal-backdrop {
     position: fixed;
     inset: 0;
@@ -169,7 +151,6 @@ function renderBlock(block) {
     padding: 1.5rem;
 }
 
-/* ========== Container ========== */
 .modal-container {
     background: #ffffff;
     border-radius: 12px;
@@ -182,7 +163,6 @@ function renderBlock(block) {
     overflow: hidden;
 }
 
-/* ========== Header ========== */
 .modal-header {
     display: flex;
     align-items: flex-start;
@@ -213,7 +193,6 @@ function renderBlock(block) {
     line-height: 1.4;
 }
 
-/* ========== Close Button ========== */
 .modal-close {
     flex-shrink: 0;
     width: 36px;
@@ -236,7 +215,6 @@ function renderBlock(block) {
     color: #1a1a2e;
 }
 
-/* ========== Divider ========== */
 .modal-divider {
     height: 1px;
     background: #e5e5ea;
@@ -244,7 +222,6 @@ function renderBlock(block) {
     flex-shrink: 0;
 }
 
-/* ========== Body ========== */
 .modal-body {
     padding: 1rem 1.5rem 1.5rem;
     overflow-y: auto;
@@ -252,7 +229,6 @@ function renderBlock(block) {
     min-height: 0;
 }
 
-/* ========== Blocks ========== */
 .modal-block {
     margin: 0 0 1rem 0;
 }
@@ -308,7 +284,6 @@ function renderBlock(block) {
     margin-top: 0.5rem;
 }
 
-/* ========== Deep selectors para HTML interno ========== */
 .modal-body :deep(strong),
 .modal-body :deep(b) {
     font-weight: 700;
@@ -330,7 +305,6 @@ function renderBlock(block) {
     color: #1d4ed8;
 }
 
-/* ========== Transición (preparado para GSAP) ========== */
 .modal-fade-enter-active,
 .modal-fade-leave-active {
     transition: opacity 0.25s ease;
@@ -341,7 +315,6 @@ function renderBlock(block) {
     opacity: 0;
 }
 
-/* Scrollbar personalizado */
 .modal-body::-webkit-scrollbar {
     width: 6px;
 }
@@ -359,7 +332,6 @@ function renderBlock(block) {
     background: #a0a0b0;
 }
 
-/* ========== Responsive ========== */
 @media (max-width: 480px) {
     .modal-backdrop {
         padding: 0.75rem;
