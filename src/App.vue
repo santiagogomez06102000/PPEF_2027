@@ -14,6 +14,7 @@ import Gasto from './components/secciones/Gasto.vue'
 import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
+import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
@@ -96,6 +97,9 @@ onUnmounted(() => {
       <Federalizado />
     </div>
     <div id="datos-abiertos"></div>
+    <div>
+      <demoModal />
+    </div>
   </div>
   <SustentoNormativo />
   <Footer />

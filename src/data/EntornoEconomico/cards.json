@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Panorama internacional",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "Hacia finales de 2025 se prevé que la <strong>economía global siga creciendo, aunque a un ritmo más moderado</strong>. Si bien se anticipa un efecto positivo del avance en las negociaciones comerciales con Estados Unidos, la reducción de algunos aranceles, mejores condiciones financieras y un repunte del comercio internacional."
+      },
+      {
+        "type": "paragraph",
+        "content": "Se <strong>espera que la inflación global siga disminuyendo</strong> debido a la desaceleración de la actividad económica y la caída en los precios de la energía. Los efectos de las políticas arancelarias variarán según el país, pero se prevé que serán más persistentes en Estados Unidos y en los países que implementaron medidas de represalia. En este contexto, <strong>se proyectan reducciones graduales en las tasas de interés</strong>, tanto en países desarrollados como en economías en desarrollo, aunque a un ritmo más lento."
+      }
+    ]
+  },
+  {
+    "title": "Economía nacional",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "En la segunda mitad de 2025, se espera que <strong>la economía mexicana mantenga un crecimiento moderado</strong> gracias a la recuperación del consumo interno, que se ha beneficiado del impulso de los Programas para el Bienestar y el empleo, así como el dinamismo del comercio exterior. La inversión nacional retomará su dinamismo hacia finales de año, favorecida por un entorno global con menor incertidumbre. La industria crecerá por la construcción, la manufactura y la generación de energía eléctrica, mientras que los servicios se beneficiarán de más infraestructura ferroviaria, más empleo formal en plataformas digitales y una mayor demanda en la economía digital."
+      },
+      {
+        "type": "paragraph",
+        "content": "<strong>Las exportaciones, la inversión extranjera y el turismo seguirán apoyando el crecimiento</strong>. Estos factores, junto con los efectos del Plan México y la relocalización de empresas, preparan las bases para que en 2026 la economía crezca con más fuerza y contribuya a reducir la pobreza y la desigualdad."
+      }
+    ]
+  },
+  {
+    "title": "Mercado laboral",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "En 2025, el <strong>mercado laboral ha mostrado fortaleza</strong>. En los primeros siete meses del año, el número de personas ocupadas aumentó en más de 300 mil personas respecto a 2024, <strong>principalmente en servicios como transporte, comercio y profesionales</strong>. En el mismo periodo, la tasa de desempleo fue de 2.6%, la subocupación de 7.0% y la informalidad de 54.8%. En julio, el IMSS registró 23.6 millones de empleos, 1.3 millones más que el año previo, con una contribución destacada de la reforma para incorporar a los trabajadores de plataformas digitales. Además, <strong>los salarios registrados en el IMSS crecieron 3.8%</strong> en términos reales."
+      }
+    ]
+  },
+  {
+    "title": "Inflación",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "Entre enero y julio de 2025, la <strong>inflación promedió 3.9% anual</strong>, el nivel más bajo desde 2021 y dentro del intervalo de variabilidad del Banco de México. La disminución se debió, sobre todo, a <strong>la reducción de los precios en frutas y verduras por mejores condiciones climáticas</strong>. Por otra parte, los precios de los servicios continuaron mostrando mayor persistencia, con una inflación anual de 4.5%. El precio de la gasolina se mantuvo estable gracias al acuerdo nacional con distribuidores. <strong>Las expectativas apuntan a que la inflación siga cercana a 3.6% en los próximos 12 meses</strong>."
+      }
+    ]
+  },
+  {
+    "title": "Sector financiero y monetario",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "En 2026, la <strong>política financiera fomentará la competencia, impulsará la inclusión y garantizará la estabilidad del sistema</strong>. Para lograrlo, en coordinación con autoridades nacionales e internacionales, el sector privado y organismos especializados, se promoverá el acceso equitativo a servicios financieros de calidad, la modernización de la regulación, la simplificación de trámites, la innovación tecnológica, la protección a los usuarios y la adopción de mejores prácticas en sostenibilidad y equidad de género."
+      },
+      {
+        "type": "paragraph",
+        "content": "Para 2026, se prevé que el Banco de México sitúe su tasa de interés de referencia en 6.0% al cierre del año. El tipo de cambio, por su parte, se estima en 18.9 pesos por dólar estadounidense al cierre del año."
+      }
+    ]
+  },
+  {
+    "title": "Mercado petrolero",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "Se espera que en 2026 el <strong>precio del petróleo mexicano (MME) promedie 54.9 dólares por barril (dpb)</strong>. En México, la producción seguirá acercándose a 1.8 millones de barriles diarios, en línea con el Plan Estratégico 2025-2035 de Pemex. Este Plan busca fortalecer el sector energético mediante nuevos proyectos de exploración, modernización de refinerías, reactivación de la petroquímica y el impulso a energías más limpias como la cogeneración y el hidrógeno verde."
+      }
+    ]
+  }
+]

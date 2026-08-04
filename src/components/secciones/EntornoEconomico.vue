@@ -9,15 +9,29 @@
         </div>
 
         <div class="grid-cards">
-            <article v-for="card in datos.cards" :key="card.id" class="card">
+            <button v-for="(card, index) in datos.cards" :key="card.id" class="card"
+                @click="abrirModal(generales[index])">
                 <h3>{{ card.titulo }}</h3>
-            </article>
+            </button>
         </div>
+        <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
     </section>
 </template>
 
 <script setup>
-import datos from '@/data/entornoEconomico.json'
+import datos from '@/data/EntornoEconomico/entornoEconomico.json'
+import Modal from '@/components/utils/Modal.vue'
+import { useModal } from '@/components/composables/useModal.js'
+
+// Importar JSONs de modales
+import generales from '@/data/EntornoEconomico/cards.json'
+
+// Instancia del composable para el modal
+const modal = useModal()
+
+function abrirModal(data) {
+    modal.open(data)
+}
 </script>
 
 <style scoped>
