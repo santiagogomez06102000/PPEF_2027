@@ -1,8 +1,8 @@
 <template>
-  <div class="hero">
-    <div class="hero-content">
+  <div class="flex">
+    <div class="flex flex-col lg:flex-row items-center justify-between  w-full">
       <!-- Columna izquierda: Texto -->
-      <div class="hero-text">
+      <div class="flex  flex-col text-white gap-10 w-full">
         <h1 class="titulo-principal">
           <span class="linea">Paquete</span>
           <span class="linea">Económico 2027</span>
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Columna derecha: Mascota -->
-      <div class="hero-image">
+      <div class="">
         <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
       </div>
     </div>

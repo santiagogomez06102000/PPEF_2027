@@ -48,7 +48,7 @@ const updateActiveSection = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', updateActiveSection, {
-    passive: true
+    passive: true,
   })
 
   updateActiveSection()
@@ -60,44 +60,54 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="secciones" class="precriterios bg-white">
-    <NavPlantilla :active="activeHash"/>
+  <NavPlantilla :active="activeHash" />
 
-    <div id="inicio" style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px">
+  <div id="secciones" class="precriterios bg-white grid grid-template-">
+    <div
+      id="inicio"
+      class="seccion"
+      style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px"
+    >
       <Precriterios />
     </div>
-    <div>
+    <div class="seccion">
       <Informacion />
     </div>
-    <div>
+    <div class="seccion">
       <Fechas />
     </div>
     <div
       id="entorno-economico"
+      class="seccion"
       style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px"
     >
       <EntornoEconomico />
     </div>
-    <div id="ingreso">
+    <div id="ingreso" class="seccion">
       <Ingreso />
     </div>
-    <div id="gasto" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
+    <div
+      id="gasto"
+      class="seccion"
+      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
+    >
       <Gasto />
     </div>
-    <div>
+    <div class="seccion">
       <DistribucionGasto />
     </div>
-    <div>
+    <div class="seccion">
       <inversion />
     </div>
     <div
       id="gasto-federalizado"
+      class="seccion"
       style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
     >
       <Federalizado />
     </div>
-    <div id="datos-abiertos"></div>
-    <div>
+    <div id="datos-abiertos" class="seccion"></div>
+    <div class="seccion">
       <demoModal />
     </div>
   </div>
@@ -115,10 +125,19 @@ onUnmounted(() => {
 
 .precriterios {
   display: grid;
-  grid-template-rows: auto 1fr auto;
 
   min-height: 100dvh;
 
   /* background-color: greenyellow; */
+}
+.seccion {
+  padding: 3rem 1rem;
+  max-width: 100dvw;
+}
+@media (min-width: 1023px) {
+  .seccion {
+    padding: 3rem 10rem;
+    max-width: 100dvw;
+  }
 }
 </style>

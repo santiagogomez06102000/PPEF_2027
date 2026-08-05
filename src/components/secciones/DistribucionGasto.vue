@@ -31,9 +31,7 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
 
 <style scoped>
 .distribucion {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 3rem 2.5rem 4rem;
+
     background-color: #ffffff;
 }
 
@@ -50,7 +48,6 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
 /* ── Descripción ── */
 .descripcion {
     text-align: center;
-    max-width: 950px;
     margin: 0 auto 3rem;
     font-size: 1rem;
     line-height: 1.7;
@@ -119,9 +116,7 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 900px) {
-    .distribucion {
-        padding: 2rem 1.5rem 3rem;
-    }
+
 
     .contenido {
         flex-direction: column;

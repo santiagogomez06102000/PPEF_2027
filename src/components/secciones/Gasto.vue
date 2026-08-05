@@ -80,9 +80,7 @@ function abrirModal(data) {
 
 <style scoped>
 .gasto {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
+
     color: #ffffff;
 }
 
@@ -327,9 +325,7 @@ function abrirModal(data) {
 }
 
 @media (max-width: 640px) {
-    .gasto {
-        padding: 2rem 1rem 3rem;
-    }
+
 
     .btn-eje {
         padding: 1rem;

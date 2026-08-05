@@ -36,9 +36,7 @@ function abrirModal(data) {
 
 <style scoped>
 .entorno {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 3.5rem 2.5rem 5rem;
+
     color: #ffffff;
     position: relative;
 }
@@ -124,9 +122,6 @@ function abrirModal(data) {
 
 /* Tablet / móvil grande: 2 en 2 */
 @media (max-width: 768px) {
-    .entorno {
-        padding: 2.5rem 1.5rem 4rem;
-    }
 
     .textos p {
         text-align: left;

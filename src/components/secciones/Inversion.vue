@@ -53,9 +53,6 @@ import Mascota from '@/components/utils/Mascota.vue'
 
 <style scoped>
 .gasto-inversion {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
     border-radius: 40px;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -220,9 +217,6 @@ import Mascota from '@/components/utils/Mascota.vue'
         gap: 3rem;
     }
 
-    .gasto-inversion {
-        padding: 2rem 1rem 3rem;
-    }
 
     .descripcion {
         min-height: auto;
