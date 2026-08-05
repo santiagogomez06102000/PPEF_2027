@@ -20,13 +20,13 @@
                 </button>
 
                 <!-- Contenido desplegable -->
-                <Transition name="desplegar">
-                    <div v-show="activo === idx" class="contenido-wrapper">
+                <div class="contenido-wrapper">
+                    <div class="contenido-inner">
                         <div class="contenido">
                             <p>{{ item.descripcion }}</p>
                         </div>
                     </div>
-                </Transition>
+                </div>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 import { ref } from 'vue'
 import datos from '@/data/fechas.json'
 
-const activo = ref(0) // El primero abierto por defecto; cambia a null si prefieres todos cerrados
+const activo = ref(0)
 
 const toggle = (idx) => {
     activo.value = activo.value === idx ? null : idx
@@ -112,6 +112,11 @@ const toggle = (idx) => {
     border-radius: 50%;
     background-color: #b8860b;
     z-index: 2;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item.abierto .circulo {
+    transform: scale(1.15);
 }
 
 .linea {
@@ -138,7 +143,7 @@ const toggle = (idx) => {
 
 .flecha {
     color: #555;
-    transition: transform 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
 }
@@ -147,9 +152,34 @@ const toggle = (idx) => {
     transform: rotate(180deg);
 }
 
-/* ── Contenido desplegable ── */
+/* ═══════════════════════════════════════
+   TRANSICIÓN MEJORADA — EFECTO PUERTA CORREDIZA
+   ═══════════════════════════════════════ */
+
 .contenido-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+}
+
+.item.abierto .contenido-wrapper {
+    grid-template-rows: 1fr;
+}
+
+/* El contenido interno controla opacidad y deslizamiento */
+.contenido-inner {
+    min-height: 0;
+    opacity: 0;
+    transform: translateY(-12px);
+    transition:
+        opacity 0.3s ease-out 50ms,
+        transform 0.3s ease-out 50ms;
+}
+
+.item.abierto .contenido-inner {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contenido {
@@ -166,19 +196,6 @@ const toggle = (idx) => {
     line-height: 1.7;
     color: #333;
     font-size: 0.98rem;
-}
-
-/* ── Transición ── */
-.desplegar-enter-active,
-.desplegar-leave-active {
-    transition: all 0.25s ease;
-    max-height: 200px;
-}
-
-.desplegar-enter-from,
-.desplegar-leave-to {
-    opacity: 0;
-    max-height: 0;
 }
 
 /* ── Texto final ── */
