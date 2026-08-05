@@ -1,0 +1,29 @@
+{
+  "titulo": "Agenda 2030",
+  "bloques": [
+    {
+      "tipo": "parrafos",
+      "items": [
+        "La Agenda 2030 es un compromiso de Estado y un acuerdo global suscrito por 193 países, incluido México. Integra 17 Objetivos de Desarrollo Sostenible (ODS) y 169 metas para mejorar la vida de las personas y proteger al planeta. Su propósito es orientar las políticas públicas bajo el principio de que nadie se quede atrás, con la participación conjunta de gobiernos, empresas, academia y sociedad."
+      ]
+    },
+    {
+      "tipo": "dos-columnas",
+      "columnas": [
+        "En México, el presupuesto público se vincula con las metas de los ODS para planear con visión de largo plazo y dar seguimiento al cumplimiento de los compromisos asumidos en la Agenda 2030. Este enfoque permite identificar qué programas y de qué manera estos contribuyen al logro de los ODS, priorizar acciones y fortalecer la toma de decisiones con base en evidencia.",
+        "En 2026, los ejecutores de gasto hicieron un ejercicio de análisis para vincular sus programas presupuestarios a los ODS. En 2025, 7 de cada 10 programas estaban vinculados con al menos un ODS. Para 2026, prácticamente todos los programas (99%) están vinculados con la Agenda 2030. Esto muestra un avance muy importante en cómo el Gobierno de México planea y da seguimiento a sus acciones para cumplir con los ODS."
+      ]
+    },
+    {
+      "tipo": "tarjetas",
+      "items": [
+        { "titulo": "Fin de la pobreza" },
+        { "titulo": "Hambre cero" },
+        { "titulo": "Salud y bienestar" },
+        { "titulo": "Educación de calidad" },
+        { "titulo": "Igualdad de género" },
+        { "titulo": "Agua limpia" }
+      ]
+    }
+  ]
+}

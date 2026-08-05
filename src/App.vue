@@ -14,6 +14,7 @@ import Gasto from './components/secciones/Gasto.vue'
 import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
+import Agenda from './components/secciones/Agenda.vue'
 import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
@@ -61,7 +62,7 @@ onUnmounted(() => {
 
 <template>
   <div id="secciones" class="precriterios bg-white">
-    <NavPlantilla :active="activeHash"/>
+    <NavPlantilla :active="activeHash" />
 
     <div id="inicio" style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px">
       <Precriterios />
@@ -72,10 +73,7 @@ onUnmounted(() => {
     <div>
       <Fechas />
     </div>
-    <div
-      id="entorno-economico"
-      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px"
-    >
+    <div id="entorno-economico" style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px">
       <EntornoEconomico />
     </div>
     <div id="ingreso">
@@ -90,11 +88,11 @@ onUnmounted(() => {
     <div>
       <inversion />
     </div>
-    <div
-      id="gasto-federalizado"
-      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
-    >
+    <div id="gasto-federalizado" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
       <Federalizado />
+    </div>
+    <div>
+      <Agenda />
     </div>
     <div id="datos-abiertos"></div>
     <div>
