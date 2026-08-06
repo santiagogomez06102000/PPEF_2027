@@ -23,22 +23,22 @@
       {
         "id": "derechos",
         "texto": "Gobernanza con justicia y participación ciudadana",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       },
       {
         "id": "soberania",
         "texto": "Desarrollo con bienestar",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       },
       {
         "id": "seguridad",
         "texto": "Economía moral y trabajo",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       },
       {
         "id": "desarrollo",
         "texto": "Desarrollo sustentable",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       }
     ]
   },
@@ -48,17 +48,17 @@
       {
         "id": "igualdad",
         "texto": "Igualdad Sustantiva y derechos de la mujeres",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       },
       {
         "id": "educacion",
         "texto": "Innovación pública para el desarrollo tecnológico nacional",
-        "imagen": "@/assets/  img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       },
       {
         "id": "medio-ambiente",
         "texto": "Derechos de las comunidades indígenas y afromexicanas",
-        "imagen": "@/assets/img_circulo.png"
+        "imagen": "gasto/img_circle.png"
       }
     ]
   }

@@ -2,12 +2,12 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import NavPlantillaItem from './NavPlantillaItem.vue'
 import GobMxAccesibilidad_2 from './GobMxAccesibilidad_2.vue'
-const props=defineProps<{
-  active:string
+const props = defineProps<{
+  active: string
 }>()
 
 const menu = ref([])
-const basePath = import.meta.env.BASE_URL;
+const basePath = import.meta.env.BASE_URL
 const getMenu = async () => {
   try {
     //@ts-ignore
@@ -122,7 +122,7 @@ onUnmounted(() => {
       </nav>
     </div>
   </header>
-  <GobMxAccesibilidad_2/>
+  <GobMxAccesibilidad_2 />
 </template>
 <style>
 .logo {

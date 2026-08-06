@@ -1,6 +1,8 @@
 <template>
   <section class="fechas">
     <h2 class="titulo">{{ datos.titulo }}</h2>
+  <section class="fechas">
+    <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <div class="acordeon">
       <div
@@ -36,16 +38,18 @@
         </button>
 
         <!-- Contenido desplegable -->
-        <Transition name="desplegar">
-          <div v-show="activo === idx" class="contenido-wrapper">
+        <div class="contenido-wrapper">
+          <div class="contenido-inner">
             <div class="contenido">
               <p>{{ item.descripcion }}</p>
             </div>
           </div>
-        </Transition>
+        </div>
       </div>
     </div>
 
+    <p class="texto-final">{{ datos.textoFinal }}</p>
+  </section>
     <p class="texto-final">{{ datos.textoFinal }}</p>
   </section>
 </template>
@@ -54,7 +58,7 @@
 import { ref } from 'vue'
 import datos from '@/data/fechas.json'
 
-const activo = ref(0) // El primero abierto por defecto; cambia a null si prefieres todos cerrados
+const activo = ref(0)
 
 const toggle = (idx) => {
   activo.value = activo.value === idx ? null : idx
@@ -75,6 +79,12 @@ const toggle = (idx) => {
   color: #00a8c6;
   margin-bottom: 2.5rem;
   font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #00a8c6;
+  margin-bottom: 2.5rem;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 /* ── Acordeón ── */
@@ -82,9 +92,13 @@ const toggle = (idx) => {
   display: flex;
   flex-direction: column;
   gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .item {
+  position: relative;
   position: relative;
 }
 
@@ -107,6 +121,7 @@ const toggle = (idx) => {
 }
 
 .cabecera:hover {
+  background-color: #fafafa;
   background-color: #fafafa;
 }
 
@@ -132,6 +147,7 @@ const toggle = (idx) => {
   z-index: 2;
   position: absolute;
   top: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .linea {
@@ -148,9 +164,13 @@ const toggle = (idx) => {
 /* Último item: ocultar línea sobrante */
 .item:last-child .linea {
   display: none;
+  display: none;
 }
 
 .fecha {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1rem;
   flex: 1;
   font-weight: 700;
   font-size: 1rem;
@@ -158,18 +178,44 @@ const toggle = (idx) => {
 
 .flecha {
   color: #555;
-  transition: transform 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
 }
 
 .item.abierto .flecha {
   transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-/* ── Contenido desplegable ── */
+/* ═══════════════════════════════════════
+   TRANSICIÓN MEJORADA — EFECTO PUERTA CORREDIZA
+   ═══════════════════════════════════════ */
+
 .contenido-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+}
+
+.item.abierto .contenido-wrapper {
+  grid-template-rows: 1fr;
+}
+
+/* El contenido interno controla opacidad y deslizamiento */
+.contenido-inner {
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.3s ease-out 50ms,
+    transform 0.3s ease-out 50ms;
+}
+
+.item.abierto .contenido-inner {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contenido {
@@ -182,6 +228,10 @@ const toggle = (idx) => {
 }
 
 .contenido p {
+  margin: 0;
+  line-height: 1.7;
+  color: #333;
+  font-size: 0.98rem;
   margin: 0;
   line-height: 1.7;
   color: #333;

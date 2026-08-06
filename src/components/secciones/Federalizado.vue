@@ -40,14 +40,15 @@
         <p class="footer-text">{{ datos.footer }}</p>
 
         <div class="mapa-placeholder">
-            Aquí debe de ir otro mapa
+            <mapa />
         </div>
     </section>
 </template>
 
 <script setup>
 import datos from '@/data/gasto_federalizado.json'
-import Mascota from '@/components/utils/Mascota.vue' 
+import Mascota from '@/components/utils/Mascota.vue'
+import mapa from '@/components/secciones/Federalizado/Mapa.vue'
 </script>
 
 <style scoped>
@@ -123,7 +124,7 @@ import Mascota from '@/components/utils/Mascota.vue'
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
 }
 
 .mascota-container {
@@ -189,15 +190,11 @@ import Mascota from '@/components/utils/Mascota.vue'
 /* ── Mapa Placeholder ── */
 .mapa-placeholder {
     margin-top: 2rem;
-    height: 300px;
-    background-color: #e0e0e0;
-    border-radius: 20px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #555;
-    font-size: 1.2rem;
-    font-weight: 600;
 }
 
 /* ═══════════════════════════════════════
