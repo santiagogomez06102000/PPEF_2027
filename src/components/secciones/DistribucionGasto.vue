@@ -14,8 +14,8 @@
             </div>
 
             <!-- Gráfica -->
-            <div class="panel-grafica">
-                <Grafica :datos="datos.clasificaciones[activo].barras" />
+            <div class="panel-grafica w-full lg:w-auto">
+               <Grafica :datos="datos.clasificaciones[activo].barras" />
             </div>
         </div>
     </section>
