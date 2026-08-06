@@ -49,7 +49,7 @@ const updateActiveSection = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', updateActiveSection, {
-    passive: true
+    passive: true,
   })
 
   updateActiveSection()
@@ -73,7 +73,10 @@ onUnmounted(() => {
     <div>
       <Fechas />
     </div>
-    <div id="entorno-economico" style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px">
+    <div
+      id="entorno-economico"
+      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px"
+    >
       <EntornoEconomico />
     </div>
     <div id="ingreso">
@@ -88,7 +91,10 @@ onUnmounted(() => {
     <div>
       <inversion />
     </div>
-    <div id="gasto-federalizado" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
+    <div
+      id="gasto-federalizado"
+      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
+    >
       <Federalizado />
     </div>
     <div>

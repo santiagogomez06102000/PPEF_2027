@@ -41,7 +41,7 @@
         <div class="grid-botones grid-4">
             <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id" class="btn-eje"
                 @click="abrirModal(generales[index])">
-                <img src="@/assets/img_circle.png" :alt="btn.texto" class="img-eje" />
+                <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
                 <span>{{ btn.texto }}</span>
             </button>
         </div>
@@ -51,7 +51,7 @@
         <div class="grid-botones grid-3">
             <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id" class="btn-eje"
                 @click="abrirModal(transversales[index])">
-                <img src="@/assets/img_circle.png" :alt="btn.texto" class="img-eje" />
+                <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
                 <span>{{ btn.texto }}</span>
             </button>
         </div>
@@ -69,13 +69,14 @@ import { useModal } from '@/components/composables/useModal.js'
 import generales from '@/data/Gasto/ejes_generales.json'
 import transversales from '@/data/Gasto/ejes_transversales.json'
 
+const baseUrl = import.meta.env.BASE_URL;
+
 // Instancia del composable para el modal
 const modal = useModal()
 
 function abrirModal(data) {
     modal.open(data)
 }
-
 </script>
 
 <style scoped>

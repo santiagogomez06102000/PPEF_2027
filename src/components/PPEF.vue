@@ -23,7 +23,11 @@
 
       <!-- Columna derecha: Mascota -->
       <div class="hero-image">
-        <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
+        <Mascota
+          :mascota="datos.mascota.indice"
+          :ancho="datos.mascota.ancho"
+          :alto="datos.mascota.alto"
+        />
       </div>
     </div>
   </div>
