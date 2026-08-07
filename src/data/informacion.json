@@ -21,7 +21,7 @@
       "id": "ilif",
       "titulo": "Iniciativa de Ley de Ingresos de la Federación",
       "abreviatura": "ILIF",
-      "imagenCirculo": "/informacion/img_circle.png",
+      "imagenCirculo": "informacion/img_circle.png",
       "tituloSeccion": "Iniciativa de Ley de Ingresos de la Federación (ILIF)",
       "descripcion": [
         "Es un documento que presenta la propuesta de medidas y políticas a desarrollar durante el siguiente ejercicio fiscal para obtener los recursos públicos con los que se financiará el Presupuesto de Egresos de la Federación. Incluye: La exposición de motivos. El pronóstico de los ingresos presupuestarios del sector público. La descripción del entorno económico. La propuesta de endeudamiento para el año que se presupuesta."
@@ -31,7 +31,7 @@
       "id": "ppef",
       "titulo": "Proyecto de Decreto de Presupuesto de Egresos de la Federación",
       "abreviatura": "PPEF",
-      "imagenCirculo": "/informacion/img_circle.png",
+      "imagenCirculo": "informacion/img_circle.png",
       "tituloSeccion": "Proyecto de Decreto de Presupuesto de Egresos de la Federación (PPEF)",
       "descripcion": [
         "Es la propuesta de previsiones de gasto público para el ejercicio fiscal que se presupuesta. Incluye: Proyecto de Decreto del Presupuesto de Egresos de la Federación. Carta de la Presidenta de la República. Exposición de Motivos, Tomos y Anexos del Proyecto."

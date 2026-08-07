@@ -149,10 +149,12 @@
     },
     {
       "id": "18",
+      "tipo": "descarga",
       "texto": "Datos abiertos Vinculación ODS",
       "metas": "",
       "cumplidas": "",
-      "imagen": "gasto/img_circle.png"
+      "imagen": "gasto/img_circle.png",
+      "archivo": "gasto/ODS_2026.csv"
     }
   ]
 }

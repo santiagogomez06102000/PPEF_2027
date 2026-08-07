@@ -17,18 +17,41 @@
         <h3 class="subtitulo">{{ datos.subtitulo }}</h3>
 
         <div class="grid-botones">
-            <button v-for="(btn, index) in datos.botones" :key="btn.id" class="btn-eje"
-                @click="abrirModal(datos.botones[index])">
-                <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
-                <span>{{ btn.texto }}</span>
+            <template v-for="(btn, index) in datos.botones" :key="btn.id">
 
-                <!-- ═══ Indicador de avance compacto ═══ -->
-                <div class="progress-wrapper">
-                    <div v-for="n in Number(btn.metas)" :key="n" class="progress-segment"
-                        :class="{ completed: n <= Number(btn.cumplidas) }" />
-                </div>
-                <div class="meta-label">{{ btn.cumplidas }} de {{ btn.metas }} metas</div>
-            </button>
+                <!-- Botón normal: abre modal -->
+                <button v-if="btn.tipo !== 'descarga'" class="btn-eje" @click="abrirModal(ODS[index])">
+                    <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
+
+                    <span>{{ btn.texto }}</span>
+
+                    <div class="progress-wrapper">
+                        <div v-for="n in Number(btn.metas)" :key="n" class="progress-segment"
+                            :class="{ completed: n <= Number(btn.cumplidas) }" />
+                    </div>
+
+                    <div class="meta-label">
+                        {{ btn.cumplidas }} de {{ btn.metas }} metas
+                    </div>
+                </button>
+
+                <!-- Botón de descarga: NO abre modal -->
+                <a v-else class="btn-eje" :href="`${baseUrl}${btn.link}`" :download="btn.archivo">
+                    <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
+
+                    <span>{{ btn.texto }}</span>
+
+                    <div class="progress-wrapper">
+                        <div v-for="n in Number(btn.metas)" :key="n" class="progress-segment"
+                            :class="{ completed: n <= Number(btn.cumplidas) }" />
+                    </div>
+
+                    <div class="meta-label">
+                        {{ btn.cumplidas }} de {{ btn.metas }} metas
+                    </div>
+                </a>
+
+            </template>
         </div>
 
         <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
@@ -37,6 +60,7 @@
 
 <script setup>
 import datos from '@/data/Agenda/agenda.json'
+import ODS from '@/data/Agenda/ODS.json'
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
 
@@ -46,6 +70,7 @@ const modal = useModal()
 function abrirModal(data) {
     modal.open(data)
 }
+
 </script>
 
 <style scoped>
@@ -117,10 +142,19 @@ function abrirModal(data) {
    ═══════════════════════════════════════ */
 .grid-botones {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     max-width: 900px;
     margin: 0 auto 2.5rem;
     grid-template-columns: repeat(4, 1fr);
+}
+
+/* Últimos dos botones centrados */
+.grid-botones>.btn-eje:nth-last-child(2) {
+    grid-column: 2;
+}
+
+.grid-botones>.btn-eje:last-child {
+    grid-column: 3;
 }
 
 /* Botones */
@@ -131,8 +165,7 @@ function abrirModal(data) {
     justify-content: flex-start;
     gap: 0.6rem;
 
-    background-color: rgba(255, 0, 0, 0.12);
-    border: 2px solid rgba(255, 0, 0, 0.25);
+    background-color: rgba(102, 204, 204, 0.12);
     border-radius: 16px;
     padding: 1.2rem 1rem;
     min-height: 180px;
@@ -151,8 +184,7 @@ function abrirModal(data) {
 
 .btn-eje:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(255, 0, 0, 0.15);
-    border-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 8px 24px rgba(120, 226, 240, 0.15);
 }
 
 .img-eje {
@@ -192,7 +224,7 @@ function abrirModal(data) {
 }
 
 .progress-segment.completed {
-    background-color: #e53935;
+    background-color: rgb(35, 146, 182);
     /* rojo */
 }
 

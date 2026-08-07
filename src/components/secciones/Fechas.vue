@@ -1,16 +1,9 @@
 <template>
   <section class="fechas">
     <h2 class="titulo">{{ datos.titulo }}</h2>
-  <section class="fechas">
-    <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <div class="acordeon">
-      <div
-        v-for="(item, idx) in datos.items"
-        :key="item.id"
-        class="item"
-        :class="{ abierto: activo === idx }"
-      >
+      <div v-for="(item, idx) in datos.items" :key="item.id" class="item" :class="{ abierto: activo === idx }">
         <!-- Cabecera -->
         <div class="indicador">
           <span class="circulo"></span>
@@ -19,20 +12,9 @@
         <button class="cabecera" @click="toggle(idx)" :aria-expanded="activo === idx">
           <span class="fecha">{{ item.fecha }}</span>
           <span class="flecha" aria-hidden="true">
-            <svg
-              width="16"
-              height="10"
-              viewBox="0 0 16 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 1.5L8 8.5L15 1.5"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.5L8 8.5L15 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </span>
         </button>
@@ -48,8 +30,6 @@
       </div>
     </div>
 
-    <p class="texto-final">{{ datos.textoFinal }}</p>
-  </section>
     <p class="texto-final">{{ datos.textoFinal }}</p>
   </section>
 </template>
@@ -270,7 +250,7 @@ const toggle = (idx) => {
   .cabecera {
     padding: 0.9rem 0.6rem;
     gap: 0.75rem;
-      padding-left: 3rem;
+    padding-left: 3rem;
 
   }
 
