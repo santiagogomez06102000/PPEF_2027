@@ -25,5 +25,134 @@
         { "titulo": "Agua limpia" }
       ]
     }
+  ],
+  "subtitulo": "¿Cuántas de las metas asociadas a cada ODS se atienden a través de las acciones implementadas por los Programas presupuestarios?",
+  "botones": [
+    {
+      "id": "1",
+      "texto": "01 Fin a la pobreza",
+      "metas": "7",
+      "cumplidas": "7",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "2",
+      "texto": "02 Hambre cero",
+      "metas": "8",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "3",
+      "texto": "03 Salud y bienestar",
+      "metas": "13",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "4",
+      "texto": "04 Educación de calidad",
+      "metas": "10",
+      "cumplidas": "7",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "5",
+      "texto": "05 Igualdad de género",
+      "metas": "9",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "1",
+      "texto": "01 Fin a la pobreza",
+      "metas": "7",
+      "cumplidas": "5",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "2",
+      "texto": "02 Hambre cero",
+      "metas": "8",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "3",
+      "texto": "03 Salud y bienestar",
+      "metas": "13",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "4",
+      "texto": "04 Educación de calidad",
+      "metas": "10",
+      "cumplidas": "7",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "5",
+      "texto": "05 Igualdad de género",
+      "metas": "9",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "1",
+      "texto": "01 Fin a la pobreza",
+      "metas": "7",
+      "cumplidas": "5",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "2",
+      "texto": "02 Hambre cero",
+      "metas": "8",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "3",
+      "texto": "03 Salud y bienestar",
+      "metas": "13",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "4",
+      "texto": "04 Educación de calidad",
+      "metas": "10",
+      "cumplidas": "7",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "5",
+      "texto": "05 Igualdad de género",
+      "metas": "9",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "1",
+      "texto": "01 Fin a la pobreza",
+      "metas": "7",
+      "cumplidas": "5",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "2",
+      "texto": "02 Hambre cero",
+      "metas": "8",
+      "cumplidas": "6",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "3",
+      "texto": "03 Salud y bienestar",
+      "metas": "13",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    }
   ]
 }
