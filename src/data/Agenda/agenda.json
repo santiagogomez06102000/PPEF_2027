@@ -32,41 +32,6 @@
       "id": "1",
       "texto": "01 Fin a la pobreza",
       "metas": "7",
-      "cumplidas": "7",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "2",
-      "texto": "02 Hambre cero",
-      "metas": "8",
-      "cumplidas": "6",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "3",
-      "texto": "03 Salud y bienestar",
-      "metas": "13",
-      "cumplidas": "9",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "4",
-      "texto": "04 Educación de calidad",
-      "metas": "10",
-      "cumplidas": "7",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "5",
-      "texto": "05 Igualdad de género",
-      "metas": "9",
-      "cumplidas": "6",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "1",
-      "texto": "01 Fin a la pobreza",
-      "metas": "7",
       "cumplidas": "5",
       "imagen": "gasto/img_circle.png"
     },
@@ -99,59 +64,94 @@
       "imagen": "gasto/img_circle.png"
     },
     {
-      "id": "1",
-      "texto": "01 Fin a la pobreza",
-      "metas": "7",
-      "cumplidas": "5",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "2",
-      "texto": "02 Hambre cero",
-      "metas": "8",
-      "cumplidas": "6",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "3",
-      "texto": "03 Salud y bienestar",
-      "metas": "13",
-      "cumplidas": "9",
-      "imagen": "gasto/img_circle.png"
-    },
-    {
-      "id": "4",
-      "texto": "04 Educación de calidad",
+      "id": "6",
+      "texto": "06 Agua limpia y saneamiento",
       "metas": "10",
       "cumplidas": "7",
       "imagen": "gasto/img_circle.png"
     },
     {
-      "id": "5",
-      "texto": "05 Igualdad de género",
-      "metas": "9",
+      "id": "7",
+      "texto": "07 Energía asequible y no contaminante",
+      "metas": "5",
+      "cumplidas": "5",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "8",
+      "texto": "08 Trabajo decente y crecimiento económico",
+      "metas": "12",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "9",
+      "texto": "09 Industria, innovación e infraestructura",
+      "metas": "8",
+      "cumplidas": "7",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "10",
+      "texto": "10 Reducción de las desigualdades",
+      "metas": "10",
       "cumplidas": "6",
       "imagen": "gasto/img_circle.png"
     },
     {
-      "id": "1",
-      "texto": "01 Fin a la pobreza",
+      "id": "11",
+      "texto": "11 Ciudades y comunidades sostenibles",
+      "metas": "10",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "12",
+      "texto": "12 Producción y consumo responsables",
+      "metas": "11",
+      "cumplidas": "9",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "13",
+      "texto": "13 Acción por el clima",
+      "metas": "5",
+      "cumplidas": "3",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "14",
+      "texto": "14 vida submarina",
+      "metas": "10",
+      "cumplidas": "5",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "15",
+      "texto": "15 Vida en ecosistemas terrestres",
+      "metas": "12",
+      "cumplidas": "12",
+      "imagen": "gasto/img_circle.png"
+    },
+    {
+      "id": "16",
+      "texto": "16 Paz, justicia e instituciones sólidas",
       "metas": "7",
       "cumplidas": "5",
       "imagen": "gasto/img_circle.png"
     },
     {
-      "id": "2",
-      "texto": "02 Hambre cero",
-      "metas": "8",
-      "cumplidas": "6",
+      "id": "17",
+      "texto": "17 Alianzas para lograr los objetivos",
+      "metas": "19",
+      "cumplidas": "13",
       "imagen": "gasto/img_circle.png"
     },
     {
-      "id": "3",
-      "texto": "03 Salud y bienestar",
-      "metas": "13",
-      "cumplidas": "9",
+      "id": "18",
+      "texto": "Datos abiertos Vinculación ODS",
+      "metas": "",
+      "cumplidas": "",
       "imagen": "gasto/img_circle.png"
     }
   ]
