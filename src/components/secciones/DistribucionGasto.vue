@@ -18,12 +18,12 @@
         </button>
       </div>
 
-      <!-- Gráfica -->
-      <div class="panel-grafica">
-        <Grafica :datos="datos.clasificaciones[activo].barras" />
-      </div>
-    </div>
-  </section>
+            <!-- Gráfica -->
+            <div class="panel-grafica w-full lg:w-auto">
+               <Grafica :datos="datos.clasificaciones[activo].barras" />
+            </div>
+        </div>
+    </section>
 </template>
 
 <script setup>
@@ -36,10 +36,8 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
 
 <style scoped>
 .distribucion {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 3rem 2.5rem 4rem;
-  background-color: #ffffff;
+
+    background-color: #ffffff;
 }
 
 /* ── Título ── */
@@ -54,12 +52,11 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
 
 /* ── Descripción ── */
 .descripcion {
-  text-align: center;
-  max-width: 950px;
-  margin: 0 auto 3rem;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #333;
+    text-align: center;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
 }
 
 /* ── Layout principal ── */
@@ -124,9 +121,7 @@ const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con 
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 900px) {
-  .distribucion {
-    padding: 2rem 1.5rem 3rem;
-  }
+
 
   .contenido {
     flex-direction: column;

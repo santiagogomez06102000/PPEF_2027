@@ -1,6 +1,8 @@
 <template>
   <section class="fechas">
     <h2 class="titulo">{{ datos.titulo }}</h2>
+  <section class="fechas">
+    <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <div class="acordeon">
       <div
@@ -10,11 +12,11 @@
         :class="{ abierto: activo === idx }"
       >
         <!-- Cabecera -->
+        <div class="indicador">
+          <span class="circulo"></span>
+          <span v-if="idx < datos.items.length - 1" class="linea"></span>
+        </div>
         <button class="cabecera" @click="toggle(idx)" :aria-expanded="activo === idx">
-          <div class="indicador">
-            <span class="circulo"></span>
-            <span v-if="idx < datos.items.length - 1" class="linea"></span>
-          </div>
           <span class="fecha">{{ item.fecha }}</span>
           <span class="flecha" aria-hidden="true">
             <svg
@@ -48,6 +50,8 @@
 
     <p class="texto-final">{{ datos.textoFinal }}</p>
   </section>
+    <p class="texto-final">{{ datos.textoFinal }}</p>
+  </section>
 </template>
 
 <script setup>
@@ -63,14 +67,18 @@ const toggle = (idx) => {
 
 <style scoped>
 .fechas {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+  max-width: 100%;
   background-color: #ffffff;
 }
 
 /* ── Título ── */
 .titulo {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #00a8c6;
+  margin-bottom: 2.5rem;
+  font-family: 'Noto Sans', sans-serif;
   text-align: center;
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
@@ -84,9 +92,13 @@ const toggle = (idx) => {
   display: flex;
   flex-direction: column;
   gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .item {
+  position: relative;
   position: relative;
 }
 
@@ -105,21 +117,26 @@ const toggle = (idx) => {
   color: #222;
   transition: background-color 0.2s ease;
   border-radius: 8px;
+  padding-left: 3rem;
 }
 
 .cabecera:hover {
+  background-color: #fafafa;
   background-color: #fafafa;
 }
 
 /* Indicador visual (círculo + línea) */
 .indicador {
-  position: relative;
+  position: absolute;
   width: 24px;
-  height: 24px;
+  height: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 0.9rem;
+  left: 0.5rem;
+
 }
 
 .circulo {
@@ -128,20 +145,18 @@ const toggle = (idx) => {
   border-radius: 50%;
   background-color: #b8860b;
   z-index: 2;
+  position: absolute;
+  top: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.item.abierto .circulo {
-  transform: scale(1.15);
 }
 
 .linea {
   position: absolute;
   top: 24px;
   left: 50%;
-  transform: translateX(-50%);
+  /*transform: translateX(-50%);*/
   width: 2px;
-  height: calc(100% + 1rem);
+  height: calc(100%);
   background-color: #b8860b;
   z-index: 1;
 }
@@ -149,9 +164,13 @@ const toggle = (idx) => {
 /* Último item: ocultar línea sobrante */
 .item:last-child .linea {
   display: none;
+  display: none;
 }
 
 .fecha {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1rem;
   flex: 1;
   font-weight: 700;
   font-size: 1rem;
@@ -165,6 +184,7 @@ const toggle = (idx) => {
 }
 
 .item.abierto .flecha {
+  transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -212,6 +232,23 @@ const toggle = (idx) => {
   line-height: 1.7;
   color: #333;
   font-size: 0.98rem;
+  margin: 0;
+  line-height: 1.7;
+  color: #333;
+  font-size: 0.98rem;
+}
+
+/* ── Transición ── */
+.desplegar-enter-active,
+.desplegar-leave-active {
+  transition: all 0.25s ease;
+  max-height: 200px;
+}
+
+.desplegar-enter-from,
+.desplegar-leave-to {
+  opacity: 0;
+  max-height: 0;
 }
 
 /* ── Texto final ── */
@@ -230,13 +267,11 @@ const toggle = (idx) => {
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 640px) {
-  .fechas {
-    padding: 2rem 1rem;
-  }
-
   .cabecera {
     padding: 0.9rem 0.6rem;
     gap: 0.75rem;
+      padding-left: 3rem;
+
   }
 
   .contenido {

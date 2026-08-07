@@ -76,11 +76,8 @@ const toggle = (idx) => {
 
 <style scoped>
 .ingreso {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
-  background-color: #ffffff;
-  color: #222;
+    background-color: #ffffff;
+    color: #222;
 }
 
 /* ── Título ── */
@@ -265,14 +262,10 @@ const toggle = (idx) => {
 }
 
 @media (max-width: 640px) {
-  .ingreso {
-    padding: 2rem 1rem 3rem;
-  }
-
-  .cabecera {
-    padding: 0.9rem 1rem;
-    gap: 0.75rem;
-  }
+    .cabecera {
+        padding: 0.9rem 1rem;
+        gap: 0.75rem;
+    }
 
   .icono {
     width: 36px;

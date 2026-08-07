@@ -50,10 +50,9 @@ onUnmounted(() => {
 
 <style scoped>
 .informacion {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 3rem 2.5rem;
-  background-color: #ffffff;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
 /* ── Fila superior: intro + botones ── */
@@ -125,9 +124,7 @@ onUnmounted(() => {
    RESPONSIVE: Móvil (≤768px)
    ═══════════════════════════════════════ */
 @media (max-width: 768px) {
-  .informacion {
-    padding: 2rem 1.2rem;
-  }
+
 
   .fila-superior {
     flex-direction: column;
