@@ -9,12 +9,7 @@
     </div>
 
     <div class="grid-cards">
-      <button
-        v-for="(card, index) in datos.cards"
-        :key="card.id"
-        class="card"
-        @click="abrirModal(generales[index])"
-      >
+      <button v-for="(card, index) in datos.cards" :key="card.id" class="card" @click="abrirModal(generales[index])">
         <h3>{{ card.titulo }}</h3>
       </button>
     </div>
@@ -41,23 +36,20 @@ function abrirModal(data) {
 <style scoped>
 .entorno {
 
-    color: #ffffff;
-    position: relative;
+  color: #ffffff;
+  position: relative;
 }
 
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 800;
   margin-bottom: 2.5rem;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans Black', sans-serif;
   letter-spacing: -0.02em;
 }
 
 /* ── Párrafos ── */
 .textos {
-  max-width: 1100px;
   margin: 0 auto 3.5rem;
   display: flex;
   flex-direction: column;
@@ -66,7 +58,6 @@ function abrirModal(data) {
 
 .textos p {
   margin: 0;
-  font-size: 1.05rem;
   line-height: 1.7;
   text-align: justify;
   color: #ffffff;

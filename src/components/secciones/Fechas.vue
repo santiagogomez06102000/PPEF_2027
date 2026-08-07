@@ -48,23 +48,14 @@ const toggle = (idx) => {
 <style scoped>
 .fechas {
   max-width: 100%;
-  background-color: #ffffff;
 }
 
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
   color: #00a8c6;
   margin-bottom: 2.5rem;
-  font-family: 'Noto Sans', sans-serif;
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
-  color: #00a8c6;
-  margin-bottom: 2.5rem;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans Black', sans-serif;
 }
 
 /* ── Acordeón ── */
@@ -72,13 +63,9 @@ const toggle = (idx) => {
   display: flex;
   flex-direction: column;
   gap: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
 }
 
 .item {
-  position: relative;
   position: relative;
 }
 
@@ -102,7 +89,6 @@ const toggle = (idx) => {
 
 .cabecera:hover {
   background-color: #fafafa;
-  background-color: #fafafa;
 }
 
 /* Indicador visual (círculo + línea) */
@@ -116,7 +102,6 @@ const toggle = (idx) => {
   justify-content: center;
   top: 0.9rem;
   left: 0.5rem;
-
 }
 
 .circulo {
@@ -144,13 +129,9 @@ const toggle = (idx) => {
 /* Último item: ocultar línea sobrante */
 .item:last-child .linea {
   display: none;
-  display: none;
 }
 
 .fecha {
-  flex: 1;
-  font-weight: 700;
-  font-size: 1rem;
   flex: 1;
   font-weight: 700;
   font-size: 1rem;
@@ -164,7 +145,6 @@ const toggle = (idx) => {
 }
 
 .item.abierto .flecha {
-  transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -212,10 +192,6 @@ const toggle = (idx) => {
   line-height: 1.7;
   color: #333;
   font-size: 0.98rem;
-  margin: 0;
-  line-height: 1.7;
-  color: #333;
-  font-size: 0.98rem;
 }
 
 /* ── Transición ── */
@@ -235,10 +211,8 @@ const toggle = (idx) => {
 .texto-final {
   text-align: center;
   margin-top: 2.5rem;
-  font-size: 0.95rem;
   line-height: 1.6;
-  color: #222;
-  max-width: 800px;
+  color: #000000;
   margin-left: auto;
   margin-right: auto;
 }

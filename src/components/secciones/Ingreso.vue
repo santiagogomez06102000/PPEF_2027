@@ -12,12 +12,7 @@
     <p class="descripcion">{{ datos.descripcion }}</p>
 
     <div class="acordeon">
-      <div
-        v-for="(item, idx) in datos.items"
-        :key="item.id"
-        class="item"
-        :class="{ abierto: activo === idx }"
-      >
+      <div v-for="(item, idx) in datos.items" :key="item.id" class="item" :class="{ abierto: activo === idx }">
         <!-- Cabecera -->
         <button class="cabecera" @click="toggle(idx)">
           <div class="icono">
@@ -30,20 +25,9 @@
           </div>
 
           <span class="flecha" aria-hidden="true">
-            <svg
-              width="14"
-              height="8"
-              viewBox="0 0 14 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 1L7 7L13 1"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </span>
         </button>
@@ -76,14 +60,13 @@ const toggle = (idx) => {
 
 <style scoped>
 .ingreso {
-    background-color: #ffffff;
-    color: #222;
+  background-color: #ffffff;
+  color: #222;
 }
 
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 800;
   color: #00b4d8;
   margin-top: 10rem;
@@ -262,10 +245,10 @@ const toggle = (idx) => {
 }
 
 @media (max-width: 640px) {
-    .cabecera {
-        padding: 0.9rem 1rem;
-        gap: 0.75rem;
-    }
+  .cabecera {
+    padding: 0.9rem 1rem;
+    gap: 0.75rem;
+  }
 
   .icono {
     width: 36px;
