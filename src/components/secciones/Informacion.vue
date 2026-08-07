@@ -17,7 +17,7 @@
     <!-- Sección inferior: solo visible en Desktop -->
     <div v-if="activo >= 0 && !esMovil" class="seccion-inferior">
       <div class="tarjeta-contenido">
-        <h2>{{ datos.botones[activo].tituloSeccion }}</h2>
+        <h3>{{ datos.botones[activo].tituloSeccion }}</h3>
         <p v-for="(parrafo, i) in datos.botones[activo].descripcion" :key="i">
           {{ parrafo }}
         </p>
@@ -50,9 +50,9 @@ onUnmounted(() => {
 
 <style scoped>
 .informacion {
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: #ffffff;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
 }
 
 /* ── Fila superior: intro + botones ── */
@@ -66,17 +66,7 @@ onUnmounted(() => {
 .intro {
   flex: 1;
   color: #222;
-  font-size: 1rem;
   line-height: 1.7;
-}
-
-.intro p {
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
-.intro strong {
-  font-weight: 700;
 }
 
 /* ── Sección inferior (Desktop) ── */
@@ -90,15 +80,14 @@ onUnmounted(() => {
   padding: 2.2rem 2.5rem;
 }
 
-.tarjeta-contenido h2 {
+.tarjeta-contenido h3 {
   color: #0b6e7a;
-  font-size: 1.15rem;
-  font-weight: 700;
+  text-align: left;
   margin-bottom: 1rem;
 }
 
 .tarjeta-contenido p {
-  color: #333;
+  color: #000000;
   line-height: 1.7;
   margin-bottom: 1rem;
   text-align: justify;

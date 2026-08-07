@@ -15,6 +15,7 @@ import DistribucionGasto from './components/secciones/DistribucionGasto.vue'
 import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
 import Agenda from './components/secciones/Agenda.vue'
+import Ciudadania from './components/secciones/Ciudadania.vue'
 import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
@@ -65,11 +66,7 @@ onUnmounted(() => {
   <NavPlantilla :active="activeHash" />
 
   <div id="secciones" class="precriterios bg-white grid grid-template-">
-    <div
-      id="inicio"
-      class="seccion"
-      style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px"
-    >
+    <div id="inicio" class="seccion" style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px">
       <Precriterios />
     </div>
     <div class="seccion">
@@ -78,21 +75,14 @@ onUnmounted(() => {
     <div class="seccion">
       <Fechas />
     </div>
-    <div
-      id="entorno-economico"
-      class="seccion"
-      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px"
-    >
+    <div id="entorno-economico" class="seccion"
+      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px">
       <EntornoEconomico />
     </div>
     <div id="ingreso" class="seccion">
       <Ingreso />
     </div>
-    <div
-      id="gasto"
-      class="seccion"
-      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
-    >
+    <div id="gasto" class="seccion" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
       <Gasto />
     </div>
     <div class="seccion">
@@ -101,20 +91,21 @@ onUnmounted(() => {
     <div class="seccion">
       <inversion />
     </div>
-    <div
-      id="gasto-federalizado"
-      class="seccion"
-      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px"
-    >
+    <div id="gasto-federalizado" class="seccion"
+      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
       <Federalizado />
     </div>
     <div>
       <Agenda />
     </div>
+    <div>
+      <Ciudadania />
+    </div>
     <div id="datos-abiertos" class="seccion"></div>
     <div class="seccion">
       <demoModal />
     </div>
+
   </div>
   <SustentoNormativo />
   <Footer />
@@ -135,10 +126,12 @@ onUnmounted(() => {
 
   /* background-color: greenyellow; */
 }
+
 .seccion {
   padding: 3rem 1rem;
   max-width: 100dvw;
 }
+
 @media (min-width: 1023px) {
   .seccion {
     padding: 3rem 10rem;
