@@ -67,17 +67,15 @@ const toggle = (idx) => {
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-weight: 800;
   color: #00b4d8;
-  margin-top: 10rem;
+  margin-top: 12rem;
   margin-bottom: 1.2rem;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans Black', sans-serif;
 }
 
 /* ── Intro ── */
 .intro {
   text-align: center;
-  font-size: 1rem;
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto 1.5rem;
@@ -104,7 +102,7 @@ const toggle = (idx) => {
 .unidad {
   font-size: 1rem;
   font-weight: 600;
-  color: #555;
+  color: #000000;
   margin: 0.3rem 0 0;
   align-items: center;
   display: flex;
@@ -114,9 +112,7 @@ const toggle = (idx) => {
 /* ── Descripción ── */
 .descripcion {
   text-align: center;
-  font-size: 0.98rem;
   line-height: 1.6;
-  max-width: 850px;
   margin: 0 auto 2.5rem;
 }
 

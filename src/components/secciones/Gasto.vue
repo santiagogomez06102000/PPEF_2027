@@ -88,17 +88,14 @@ function abrirModal(data) {
 /* ── Título principal ── */
 .titulo {
     text-align: center;
-    font-size: clamp(2.2rem, 5vw, 3rem);
-    font-weight: 800;
     color: #ffffff;
     margin-bottom: 1.2rem;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans Black', sans-serif;
 }
 
 /* ── Intro ── */
 .intro {
     text-align: center;
-    font-size: 1rem;
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto 1.5rem;
@@ -124,7 +121,6 @@ function abrirModal(data) {
 }
 
 .unidad {
-    font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
     margin: 0.3rem 0 0;
@@ -133,7 +129,6 @@ function abrirModal(data) {
 /* ── Descripción ── */
 .descripcion {
     text-align: center;
-    font-size: 0.98rem;
     line-height: 1.6;
     max-width: 850px;
     margin: 0 auto 2.5rem;
@@ -153,7 +148,7 @@ function abrirModal(data) {
 }
 
 .caja-gasto {
-    background-color: #1b6c7a;
+    background-color: rgb(13, 104, 129);
     border-radius: 28px;
     padding: 2rem 1.5rem;
     text-align: center;
@@ -179,6 +174,7 @@ function abrirModal(data) {
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
+    color: #ffffff;
 }
 
 .caja-unidad {
@@ -186,6 +182,7 @@ function abrirModal(data) {
     font-weight: 500;
     margin: 0.1rem 0 0 0;
     opacity: 0.9;
+    color: #ffffff;
 }
 
 .mascota-wrapper {
@@ -202,14 +199,12 @@ function abrirModal(data) {
     text-align: center;
     font-size: 1rem;
     line-height: 1.7;
-    max-width: 900px;
     margin: 0 auto 2.5rem;
     color: #ffffff;
 }
 
 .subtitulo-ejes {
     text-align: center;
-    font-size: 1.4rem;
     font-weight: 700;
     color: #ccffff;
     margin: 0 0 1.2rem 0;
