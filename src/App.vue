@@ -19,6 +19,7 @@ import Ciudadania from './components/secciones/Ciudadania.vue'
 import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
+import DatosAbiertos from './components/secciones/DatosAbiertos.vue'
 
 const activeHash = ref(window.location.hash)
 
@@ -101,7 +102,9 @@ onUnmounted(() => {
     <div>
       <Ciudadania />
     </div>
-    <div id="datos-abiertos" class="seccion"></div>
+    <div id="datos-abiertos" class="seccion">
+      <DatosAbiertos/>
+    </div>
     <div class="seccion">
       <demoModal />
     </div>
