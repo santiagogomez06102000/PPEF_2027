@@ -39,8 +39,8 @@
         <!-- ═════════ FOOTER ═════════ -->
         <p class="footer-text">{{ datos.footer }}</p>
 
-        <div class="mapa-placeholder">
-            <mapa />
+        <div class="mapa-placeholder h-full">
+            <ViewMapa />
         </div>
     </section>
 </template>
@@ -49,6 +49,7 @@
 import datos from '@/data/gasto_federalizado.json'
 import Mascota from '@/components/utils/Mascota.vue'
 import mapa from '@/components/secciones/Federalizado/Mapa.vue'
+import ViewMapa from './Federalizado/ViewMapa.vue';
 </script>
 
 <style scoped>
@@ -189,12 +190,13 @@ import mapa from '@/components/secciones/Federalizado/Mapa.vue'
 
 /* ── Mapa Placeholder ── */
 .mapa-placeholder {
-    margin-top: 2rem;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 /* ═══════════════════════════════════════

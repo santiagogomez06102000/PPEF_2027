@@ -53,7 +53,7 @@
 import datos from '@/data/gasto_inversion.json'
 // 🔴 IMPORTANTE: Asegúrate de que la ruta de importación coincida con tu proyecto
 import Mascota from '@/components/utils/Mascota.vue'
-import ViewMapa from './Federalizado/ViewMapa.vue';
+import ViewMapa from './Inversion/ViewMapa.vue';
 </script>
 
 <style scoped>

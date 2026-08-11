@@ -71,3 +71,18 @@ p {
 #back-to-top {
   padding: 0 0 6px 1px;
 }
+
+.mapa-p{
+  text-align: start !important;
+  font-size: 14px !important;
+  font-weight: normal;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+.titulo-mapa-popup{
+      font-family: 'Noto Sans', sans-serif;
+
+}
+.mapa-gasto-federalizado .leaflet-interactive:focus{
+  outline: none !important;
+}

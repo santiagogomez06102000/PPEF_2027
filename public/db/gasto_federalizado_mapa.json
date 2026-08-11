@@ -1,0 +1,290 @@
+[
+  {
+    "id_entidad_federativa": 1,
+    "entidad_federativa": "Aguascalientes",
+    "total": 32176.2,
+    "participaciones_federales": 15878.5,
+    "aportaciones_federales": 14697.6,
+    "convenios": 1600.0,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 2,
+    "entidad_federativa": "Baja California",
+    "total": 77802.9,
+    "participaciones_federales": 45091.5,
+    "aportaciones_federales": 24456.6,
+    "convenios": 3365.4,
+    "subsidios": 4889.5
+  },
+  {
+    "id_entidad_federativa": 3,
+    "entidad_federativa": "Baja California Sur",
+    "total": 21088.9,
+    "participaciones_federales": 11307.4,
+    "aportaciones_federales": 8597.9,
+    "convenios": 1183.6,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 4,
+    "entidad_federativa": "Campeche",
+    "total": 22526.0,
+    "participaciones_federales": 10530.1,
+    "aportaciones_federales": 9922.1,
+    "convenios": 2073.9,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 5,
+    "entidad_federativa": "Coahuila",
+    "total": 62977.0,
+    "participaciones_federales": 35151.6,
+    "aportaciones_federales": 24968.5,
+    "convenios": 2856.8,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 6,
+    "entidad_federativa": "Colima",
+    "total": 17988.4,
+    "participaciones_federales": 8471.3,
+    "aportaciones_federales": 7297.8,
+    "convenios": 2219.3,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 7,
+    "entidad_federativa": "Chiapas",
+    "total": 129350.4,
+    "participaciones_federales": 55243.1,
+    "aportaciones_federales": 68947.3,
+    "convenios": 4697.0,
+    "subsidios": 463.0
+  },
+  {
+    "id_entidad_federativa": 8,
+    "entidad_federativa": "Chihuahua",
+    "total": 80136.0,
+    "participaciones_federales": 45236.8,
+    "aportaciones_federales": 30870.4,
+    "convenios": 4028.8,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 9,
+    "entidad_federativa": "Ciudad de México",
+    "total": 273301.2,
+    "participaciones_federales": 142981.1,
+    "aportaciones_federales": 104051.0,
+    "convenios": 6009.8,
+    "subsidios": 20259.4
+  },
+  {
+    "id_entidad_federativa": 10,
+    "entidad_federativa": "Durango",
+    "total": 42271.5,
+    "participaciones_federales": 20534.1,
+    "aportaciones_federales": 19932.4,
+    "convenios": 2804.9,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 11,
+    "entidad_federativa": "Guanajuato",
+    "total": 112114.4,
+    "participaciones_federales": 65936.5,
+    "aportaciones_federales": 42148.7,
+    "convenios": 4029.1,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 12,
+    "entidad_federativa": "Guerrero",
+    "total": 87088.9,
+    "participaciones_federales": 33573.1,
+    "aportaciones_federales": 49462.6,
+    "convenios": 3684.3,
+    "subsidios": 368.8
+  },
+  {
+    "id_entidad_federativa": 13,
+    "entidad_federativa": "Hidalgo",
+    "total": 65572.7,
+    "participaciones_federales": 29950.0,
+    "aportaciones_federales": 31956.2,
+    "convenios": 3666.5,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 14,
+    "entidad_federativa": "Jalisco",
+    "total": 156753.8,
+    "participaciones_federales": 96672.2,
+    "aportaciones_federales": 50980.1,
+    "convenios": 9101.5,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 15,
+    "entidad_federativa": "México",
+    "total": 300571.7,
+    "participaciones_federales": 194623.2,
+    "aportaciones_federales": 98525.8,
+    "convenios": 5884.3,
+    "subsidios": 1538.4
+  },
+  {
+    "id_entidad_federativa": 16,
+    "entidad_federativa": "Michoacán",
+    "total": 93091.8,
+    "participaciones_federales": 46853.3,
+    "aportaciones_federales": 41776.2,
+    "convenios": 4462.3,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 17,
+    "entidad_federativa": "Morelos",
+    "total": 37534.4,
+    "participaciones_federales": 18901.2,
+    "aportaciones_federales": 16576.2,
+    "convenios": 2057.0,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 18,
+    "entidad_federativa": "Nayarit",
+    "total": 27590.5,
+    "participaciones_federales": 13183.5,
+    "aportaciones_federales": 12077.5,
+    "convenios": 2329.5,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 19,
+    "entidad_federativa": "Nuevo León",
+    "total": 120077.8,
+    "participaciones_federales": 76530.0,
+    "aportaciones_federales": 35966.4,
+    "convenios": 7581.4,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 20,
+    "entidad_federativa": "Oaxaca",
+    "total": 99258.9,
+    "participaciones_federales": 39528.9,
+    "aportaciones_federales": 56489.3,
+    "convenios": 2976.2,
+    "subsidios": 264.5
+  },
+  {
+    "id_entidad_federativa": 21,
+    "entidad_federativa": "Puebla",
+    "total": 120545.8,
+    "participaciones_federales": 64718.0,
+    "aportaciones_federales": 48482.0,
+    "convenios": 7043.1,
+    "subsidios": 302.7
+  },
+  {
+    "id_entidad_federativa": 22,
+    "entidad_federativa": "Querétaro",
+    "total": 48593.2,
+    "participaciones_federales": 28354.8,
+    "aportaciones_federales": 17472.3,
+    "convenios": 2766.1,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 23,
+    "entidad_federativa": "Quintana Roo",
+    "total": 36824.2,
+    "participaciones_federales": 21954.9,
+    "aportaciones_federales": 13534.0,
+    "convenios": 1335.3,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 24,
+    "entidad_federativa": "San Luis Potosí",
+    "total": 58936.8,
+    "participaciones_federales": 29101.5,
+    "aportaciones_federales": 26265.5,
+    "convenios": 3569.9,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 25,
+    "entidad_federativa": "Sinaloa",
+    "total": 64766.6,
+    "participaciones_federales": 33662.4,
+    "aportaciones_federales": 23933.6,
+    "convenios": 7170.6,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 26,
+    "entidad_federativa": "Sonora",
+    "total": 60976.2,
+    "participaciones_federales": 36980.2,
+    "aportaciones_federales": 19772.1,
+    "convenios": 4223.9,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 27,
+    "entidad_federativa": "Tabasco",
+    "total": 57170.0,
+    "participaciones_federales": 34122.5,
+    "aportaciones_federales": 19382.1,
+    "convenios": 3665.3,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 28,
+    "entidad_federativa": "Tamaulipas",
+    "total": 73948.3,
+    "participaciones_federales": 43004.0,
+    "aportaciones_federales": 27140.9,
+    "convenios": 3803.4,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 29,
+    "entidad_federativa": "Tlaxcala",
+    "total": 29106.3,
+    "participaciones_federales": 14391.6,
+    "aportaciones_federales": 13120.2,
+    "convenios": 1594.6,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 30,
+    "entidad_federativa": "Veracruz",
+    "total": 159939.2,
+    "participaciones_federales": 83582.2,
+    "aportaciones_federales": 70429.7,
+    "convenios": 5601.8,
+    "subsidios": 325.4
+  },
+  {
+    "id_entidad_federativa": 31,
+    "entidad_federativa": "Yucatán",
+    "total": 47646.3,
+    "participaciones_federales": 24930.4,
+    "aportaciones_federales": 19131.1,
+    "convenios": 3584.7,
+    "subsidios": null
+  },
+  {
+    "id_entidad_federativa": 32,
+    "entidad_federativa": "Zacatecas",
+    "total": 36697.1,
+    "participaciones_federales": 17786.9,
+    "aportaciones_federales": 15957.0,
+    "convenios": 2953.3,
+    "subsidios": null
+  }
+]

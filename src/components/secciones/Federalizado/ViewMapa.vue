@@ -1,56 +1,58 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import FiltrosMapa from './FiltrosMapa.vue'
 import Mapa, { Proyecto } from './Mapa.vue'
 import { fetchPublicJson } from '@/components/utils/utils.js'
-const datos = ref<Proyecto[] | null>(null)
-const datosFiltrados = ref<Proyecto[]>([])
+import { baseUrl } from '../Inversion/mapController.js'
+const datos = ref<EntidadFederativaDatos[] | null>(null)
+const estados = ref<EntidadFederativa[] | null>(null)
 
 async function obtenerDatos() {
-  const respuesta = await fetchPublicJson<Proyecto[]>('/db/ProyectosInversion.json')
+  const respuesta = await fetchPublicJson<EntidadFederativaDatos[]>('/db/gasto_federalizado_mapa.json')
   if (respuesta) {
     datos.value = respuesta
-    datosFiltrados.value = respuesta
+    
   }
+  const entidadesFed = await fetchPublicJson<EntidadFederativa[]>("/filtros/entidades_federativas.json")
+    if(entidadesFed){
+      estados.value = entidadesFed;
+    }
 }
 onMounted(async () => {
   await obtenerDatos()
 })
 
-function filtrarDatos(filtros: Filtros) {
-  const filtrado = datos.value?.filter((proyecto) => {
-    if (filtros.ramo !== null && proyecto.ID_RAMO !== filtros.ramo) {
-      return false
-    }
-
-    if (filtros.estado !== null && proyecto.ID_ENTIDAD_FEDERATIVA !== filtros.estado) {
-      return false
-    }
-
-    if (filtros.ejecutor !== null && proyecto.ID_UR !== filtros.ejecutor) {
-      return false
-    }
-
-    return true
-  })
-  datosFiltrados.value = filtrado ?? []
+export interface EntidadFederativa{
+    id_entidad_federativa:number
+    entidad_federativa:string
 }
 
-export interface Filtros {
-  ramo: number | null
-  estado: number | null
-  ejecutor: string | null
+
+export interface EntidadFederativaDatos {
+  id_entidad_federativa: number;
+  entidad_federativa: string;
+  total: number;
+  participaciones_federales: number;
+  aportaciones_federales: number;
+  convenios: number;
+  subsidios: number | null;
 }
+
+
+
 </script>
 <template>
-  <section class="w-full h-full  flex flex-col gap-4">
-    <h3 class="text-center" style="margin: 0;">Proyectos de inversión georreferenciados propuestos para el 2027</h3>
+  <section class="w-full h-full">
     <div
-      class="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-start gap-8"
+      class="w-full h-full flex flex-col-reverse lg:flex-row gap-8"
     >
-      <FiltrosMapa :filtrar="filtrarDatos" />
-      <div class="flex-1 w-full h-full rounded-xl shadow-xl overflow-hidden ">
-        <Mapa :proyectos="datosFiltrados" />
+      <div class="flex-1 w-full h-full rounded-xl shadow-xl overflow-hidden items-stretch" v-if="datos">
+        <Mapa :estados="datos" />
+      </div>
+      <div class=" w-full lg:w-[30%] flex flex-col items-center justify-center">
+        <img :src="baseUrl + 'mascota/7_impulso.png'"/>
+        <div>
+          <h3 class="text-[var(--color-blanco)]">Selecciona un estado para conocer el monto designado</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -63,5 +65,6 @@ export interface Filtros {
   --color-rojo-claro: #e26c6c;
   --color-blanco: #f8fafc;
   --color-gris: #565e74;
+  --color-dorado:#ad8617;
 }
 </style>
