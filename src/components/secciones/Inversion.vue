@@ -43,7 +43,9 @@
     <!-- ═════════ FOOTER ═════════ -->
     <p class="footer-text">{{ datos.footer }}</p>
 
-    <div class="mapa-placeholder">Aquí debe de ir un mapa</div>
+    <div class="mapa-placeholder h-full ">
+      <ViewMapa/>
+    </div>
   </section>
 </template>
 
@@ -51,6 +53,7 @@
 import datos from '@/data/gasto_inversion.json'
 // 🔴 IMPORTANTE: Asegúrate de que la ruta de importación coincida con tu proyecto
 import Mascota from '@/components/utils/Mascota.vue'
+import ViewMapa from './Federalizado/ViewMapa.vue';
 </script>
 
 <style scoped>
@@ -192,9 +195,6 @@ import Mascota from '@/components/utils/Mascota.vue'
 
 /* ── Mapa Placeholder ── */
 .mapa-placeholder {
-  margin-top: 2rem;
-  height: 300px;
-  background-color: #e0e0e0;
   border-radius: 20px;
   display: flex;
   align-items: center;
