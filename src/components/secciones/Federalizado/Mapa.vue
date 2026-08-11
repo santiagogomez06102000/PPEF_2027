@@ -49,11 +49,12 @@ async function crearCapaEstados() {
 
       layer.bindTooltip(estado?.entidad_federativa, {
         sticky: true,
-        direction:"top",
-         offset: [0, -8],
-      opacity: 0.9,
+        direction: 'top',
+        offset: [0, -8],
+        opacity: 0.9,
       })
-      layer.bindPopup(`
+      layer.bindPopup(
+        `
   ${
     estado?.entidad_federativa
       ? `<h5 class="font-bold text-3xl titulo-mapa-popup pb-4 text-[var(--color-dorado)]">${estado.entidad_federativa}</h5>`
@@ -75,7 +76,12 @@ async function crearCapaEstados() {
   ${mostrarDato('Convenios', estado?.convenios)}
 
   ${mostrarDato('Subsidios', estado?.subsidios)}
-`)
+`,
+        {
+          autoPan: true,
+          autoPanPadding: [20, 20],
+        },
+      )
       layer.setStyle({
         fillOpacity: 0.6,
         fillColor: obtenerColorEstado(estado?.total ?? 0),

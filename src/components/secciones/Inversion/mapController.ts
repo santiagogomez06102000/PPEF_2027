@@ -11,8 +11,8 @@ export function initMap(mapaContainer: Ref<HTMLElement | null>): L.Map | null {
     zoom: 5,
     minZoom,
     maxZoom,
-    maxBounds: mexicoBounds,
-    maxBoundsViscosity: 0.5,
+    //maxBounds: mexicoBounds,
+    //maxBoundsViscosity: 0.5,
     scrollWheelZoom: false,
     zoomControl: true,
   });
