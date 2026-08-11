@@ -1,0 +1,50 @@
+[
+  {
+    "ramo": "Comisión Federal de Electricidad",
+    "id_ramo": 53
+  },
+  {
+    "ramo": "Economía",
+    "id_ramo": 10
+  },
+  {
+    "ramo": "Energía",
+    "id_ramo": 18
+  },
+  {
+    "ramo": "Entidades no Sectorizadas",
+    "id_ramo": 47
+  },
+  {
+    "ramo": "Hacienda y Crédito Público",
+    "id_ramo": 6
+  },
+  {
+    "ramo": "Infraestructura, Comunicaciones y Transportes",
+    "id_ramo": 9
+  },
+  {
+    "ramo": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado",
+    "id_ramo": 51
+  },
+  {
+    "ramo": "Instituto Mexicano del Seguro Social",
+    "id_ramo": 50
+  },
+  {
+    "ramo": "Marina",
+    "id_ramo": 13
+  },
+  {
+    "ramo": "Medio Ambiente y Recursos Naturales",
+    "id_ramo": 16
+  },
+  {
+    "ramo": "Petróleos Mexicanos",
+    "id_ramo": 52
+  },
+  {
+    "ramo": "Salud",
+    "id_ramo": 12
+  }
+]

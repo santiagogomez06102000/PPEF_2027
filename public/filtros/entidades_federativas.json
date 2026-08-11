@@ -1,0 +1,130 @@
+[
+    {
+        "id_entidad_federativa": 1,
+        "entidad_federativa": "Aguascalientes"
+    },
+    {
+        "id_entidad_federativa": 2,
+        "entidad_federativa": "Baja California"
+    },
+    {
+        "id_entidad_federativa": 3,
+        "entidad_federativa": "Baja California Sur"
+    },
+    {
+        "id_entidad_federativa": 4,
+        "entidad_federativa": "Campeche"
+    },
+    {
+        "id_entidad_federativa": 7,
+        "entidad_federativa": "Chiapas"
+    },
+    {
+        "id_entidad_federativa": 8,
+        "entidad_federativa": "Chihuahua"
+    },
+    {
+        "id_entidad_federativa": 9,
+        "entidad_federativa": "Ciudad de México"
+    },
+    {
+        "id_entidad_federativa": 5,
+        "entidad_federativa": "Coahuila de Zaragoza"
+    },
+    {
+        "id_entidad_federativa": 6,
+        "entidad_federativa": "Colima"
+    },
+    {
+        "id_entidad_federativa": 10,
+        "entidad_federativa": "Durango"
+    },
+    {
+        "id_entidad_federativa": 11,
+        "entidad_federativa": "Guanajuato"
+    },
+    {
+        "id_entidad_federativa": 12,
+        "entidad_federativa": "Guerrero"
+    },
+    {
+        "id_entidad_federativa": 13,
+        "entidad_federativa": "Hidalgo"
+    },
+    {
+        "id_entidad_federativa": 14,
+        "entidad_federativa": "Jalisco"
+    },
+    {
+        "id_entidad_federativa": 16,
+        "entidad_federativa": "Michoacán de Ocampo"
+    },
+    {
+        "id_entidad_federativa": 17,
+        "entidad_federativa": "Morelos"
+    },
+    {
+        "id_entidad_federativa": 15,
+        "entidad_federativa": "México"
+    },
+    {
+        "id_entidad_federativa": 18,
+        "entidad_federativa": "Nayarit"
+    },
+    {
+        "id_entidad_federativa": 19,
+        "entidad_federativa": "Nuevo León"
+    },
+    {
+        "id_entidad_federativa": 20,
+        "entidad_federativa": "Oaxaca"
+    },
+    {
+        "id_entidad_federativa": 21,
+        "entidad_federativa": "Puebla"
+    },
+    {
+        "id_entidad_federativa": 22,
+        "entidad_federativa": "Querétaro"
+    },
+    {
+        "id_entidad_federativa": 23,
+        "entidad_federativa": "Quintana Roo"
+    },
+    {
+        "id_entidad_federativa": 24,
+        "entidad_federativa": "San Luis Potosí"
+    },
+    {
+        "id_entidad_federativa": 25,
+        "entidad_federativa": "Sinaloa"
+    },
+    {
+        "id_entidad_federativa": 26,
+        "entidad_federativa": "Sonora"
+    },
+    {
+        "id_entidad_federativa": 27,
+        "entidad_federativa": "Tabasco"
+    },
+    {
+        "id_entidad_federativa": 28,
+        "entidad_federativa": "Tamaulipas"
+    },
+    {
+        "id_entidad_federativa": 29,
+        "entidad_federativa": "Tlaxcala"
+    },
+    {
+        "id_entidad_federativa": 30,
+        "entidad_federativa": "Veracruz de Ignacio de la Llave"
+    },
+    {
+        "id_entidad_federativa": 31,
+        "entidad_federativa": "Yucatán"
+    },
+    {
+        "id_entidad_federativa": 32,
+        "entidad_federativa": "Zacatecas"
+    }
+]

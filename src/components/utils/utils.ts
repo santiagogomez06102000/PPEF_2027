@@ -29,3 +29,17 @@ export const getCardClass = (items: number, index: number): string => {
 
   return 'col-span-6 lg:col-span-2'
 }
+export function formatearMoneda(valor: number | string): string {
+  const numero = Number(valor);
+
+  if (Number.isNaN(numero)) {
+    return "-";
+  }
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(numero);
+}

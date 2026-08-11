@@ -1,0 +1,118 @@
+[
+  {
+    "id_ur": "J2Y",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Altamira, S.A. de C.V."
+  },
+  {
+    "id_ur": "J2P",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Dos Bocas, S.A. de C.V."
+  },
+  {
+    "id_ur": "J2R",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Ensenada, S.A. de C.V."
+  },
+  {
+    "id_ur": "J3A",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Lázaro Cárdenas, S.A. de C.V."
+  },
+  {
+    "id_ur": "J2T",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Mazatlán, S.A. de C.V."
+  },
+  {
+    "id_ur": "J3E",
+    "descripcion_ur": "Administración del Sistema Portuario Nacional Veracruz, S.A. de C.V."
+  },
+  {
+    "id_ur": "KDN",
+    "descripcion_ur": "Aeropuerto Internacional de la Ciudad de México, S.A. de C.V."
+  },
+  {
+    "id_ur": "G1H",
+    "descripcion_ur": "Banco Nacional del Ejército, Fuerza Aérea y Armada, S.N.C."
+  },
+  {
+    "id_ur": "G2T",
+    "descripcion_ur": "Casa de Moneda de México"
+  },
+  {
+    "id_ur": "TOM",
+    "descripcion_ur": "Centro Nacional de Control de Energía"
+  },
+  {
+    "id_ur": "TON",
+    "descripcion_ur": "Centro Nacional de Control del Gas Natural"
+  },
+  {
+    "id_ur": "TVV",
+    "descripcion_ur": "CFE Consolidado"
+  },
+  {
+    "id_ur": "S00",
+    "descripcion_ur": "Comisión Federal para la Protección contra Riesgos Sanitarios"
+  },
+  {
+    "id_ur": "B00",
+    "descripcion_ur": "Comisión Nacional del Agua"
+  },
+  {
+    "id_ur": "RHQ",
+    "descripcion_ur": "Comisión Nacional Forestal"
+  },
+  {
+    "id_ur": "211",
+    "descripcion_ur": "Dirección General de Conservación de Carreteras"
+  },
+  {
+    "id_ur": "215",
+    "descripcion_ur": "Dirección General de Desarrollo Ferroviario y Multimodal"
+  },
+  {
+    "id_ur": "512",
+    "descripcion_ur": "Dirección General de Recursos Materiales y Servicios Generales"
+  },
+  {
+    "id_ur": "512",
+    "descripcion_ur": "Dirección General de Recursos Materiales, Inmuebles y Servicios"
+  },
+  {
+    "id_ur": "J3L",
+    "descripcion_ur": "Ferrocarril del Istmo de Tehuantepec, S.A. de C.V."
+  },
+  {
+    "id_ur": "NBD",
+    "descripcion_ur": "Hospital General de México \"Dr. Eduardo Liceaga\""
+  },
+  {
+    "id_ur": "GYN",
+    "descripcion_ur": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado"
+  },
+  {
+    "id_ur": "T0O",
+    "descripcion_ur": "Instituto Mexicano del Petróleo"
+  },
+  {
+    "id_ur": "GYR",
+    "descripcion_ur": "Instituto Mexicano del Seguro Social"
+  },
+  {
+    "id_ur": "T0K",
+    "descripcion_ur": "Instituto Nacional de Electricidad y Energías Limpias"
+  },
+  {
+    "id_ur": "T9G",
+    "descripcion_ur": "Pemex Exploración y Producción"
+  },
+  {
+    "id_ur": "T9M",
+    "descripcion_ur": "Pemex Transformación Industrial"
+  },
+  {
+    "id_ur": "LAU",
+    "descripcion_ur": "Servicio Geológico Mexicano"
+  },
+  {
+    "id_ur": "AYL",
+    "descripcion_ur": "Sistema Público de Radiodifusión del Estado Mexicano"
+  }
+]
