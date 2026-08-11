@@ -129,6 +129,7 @@ watch(model, (nuevoValor) => {
 
 .select {
   position: relative;
+  font-weight: normal;
 }
 
 .seleccion {
