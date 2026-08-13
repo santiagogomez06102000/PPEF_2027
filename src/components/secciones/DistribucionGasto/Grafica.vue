@@ -20,6 +20,7 @@ import * as d3 from 'd3'
 
 const props = defineProps({
   datos: { type: Array, required: true }, // ahora es array de barras
+  onClick: {type:Function, required:true}
 })
 
 const container = ref(null)
@@ -190,7 +191,10 @@ const render = () => {
       .on('mousemove', (event) => positionTooltip(event))
       .on('mouseleave', (event) => {
         d3.select(event.target).style('filter', 'none')
+        d3.select(event.target).style('transform', 'scale(1)')
         tooltipVisible.value = false
+      }).on('click',()=>{
+        props.onClick(i) 
       })
 
     /* ── Labels móvil (arriba de barra) ── */

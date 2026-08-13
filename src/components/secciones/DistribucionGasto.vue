@@ -1,40 +1,50 @@
 <template>
-  <section class="distribucion" v-if="datos">
+ <section class="distribucion" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
     <p class="descripcion">{{ datos.descripcion }}</p>
 
     <div class="contenido">
       <!-- Botones de clasificación -->
       <div class="botones">
-        <button
-          v-for="(cat, idx) in datos.clasificaciones"
-          :key="cat.id"
-          class="boton-clasificacion"
-          :class="{ activo: activo === idx }"
-          @click="activo = idx"
-        >
+        <button v-for="(cat, idx) in datos.clasificaciones" :key="cat.id" class="boton-clasificacion"
+          :class="{ activo: activo === idx }" @click="activo = idx">
           <span class="pregunta">{{ cat.pregunta }}</span>
           <span class="subtitulo">{{ cat.subtitulo }}</span>
         </button>
       </div>
 
-            <!-- Gráfica -->
-            <div class="panel-grafica w-full lg:w-auto">
-               <Grafica :datos="datos.clasificaciones[activo].barras" />
-            </div>
-        </div>
-    </section>
+      <!-- Gráfica -->
+      <div class="panel-grafica w-full lg:w-auto">
+        <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
+      </div>
+      
+    </div>
+    <Detalle v-if="detalleActivo" :detalle="detalleActivo"/>
+
+  </section>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
 import { fetchPublicJson } from '../utils/utils';
+import Detalle from './DistribucionGasto/Detalle.vue';
 const datos=ref();
 onMounted(async ()=>{
   datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
 })
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
+const detalleActivo=ref(null);
+function handleClickBarra(idx){
+  const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
+  if(seleccionado.id === detalleActivo.value?.id ){
+    detalleActivo.value = null
+  }
+  else{
+    detalleActivo.value = seleccionado;
+  }
+  
+}
 </script>
 
 <style scoped>
