@@ -9,17 +9,17 @@
     {
       "id": "oct-20",
       "fecha": "20 de octubre",
-      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "descripcion": "La Cámara de Diputados debe aprobar la Iniciativa de Ley de Ingresos de la Federación (ILIF) a más tardar en esta fecha."
     },
     {
       "id": "oct-31",
       "fecha": "31 de octubre",
-      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "descripcion": "La Cámara de Senadores deber aprobar la Ley de Ingresos a más tardar en esta fecha."
     },
     {
       "id": "nov-15",
       "fecha": "15 de noviembre",
-      "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "descripcion": "Fecha límite para que la Cámara de Diputados apruebe el Presupuesto de Egresos de la Federación."
     }
   ],
   "textoFinal": "Al finalizar este proceso, la Iniciativa se convierte en la Ley de Ingresos de la Federación (LIF) y el Proyecto se convierte en el Presupuesto de Egresos de la Federación (PEF)."

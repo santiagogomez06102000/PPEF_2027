@@ -1,5 +1,5 @@
 <template>
-  <section class="fechas">
+  <section class="fechas" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <div class="acordeon">
@@ -35,9 +35,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import datos from '@/data/fechas.json'
-
+import { onMounted, ref } from 'vue'
+import { fetchPublicJson } from '../utils/utils';
+const datos=ref({});
+onMounted(async ()=>{
+  datos.value = await fetchPublicJson("/secciones/fechas/fechas.json");
+})
 const activo = ref(0)
 
 const toggle = (idx) => {

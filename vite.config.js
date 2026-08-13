@@ -19,7 +19,7 @@ export default defineConfig(({ command }) => {
 
     /* base: isDev ? '/' : '/work/models/PTP/NPTP/PTP_Doc_Ciudadanos/Precriterios_2027/', */
 
-    base: isDev ? '/' : '/work/models/PTP/NPTP/PTP_PPEF/',
+    base: isDev ? '/' : '/work/models/PTP/NPTP/PTP_Doc_Ciudadanos/PPEF/2027/',
     server: {
       host: 'localhost', // expone a la red
       watch: {

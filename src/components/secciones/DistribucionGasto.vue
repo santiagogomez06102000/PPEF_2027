@@ -1,5 +1,5 @@
 <template>
-  <section class="distribucion">
+  <section class="distribucion" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
     <p class="descripcion">{{ datos.descripcion }}</p>
 
@@ -27,10 +27,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
-import datos from '@/data/distribucion.json'
-
+import { fetchPublicJson } from '../utils/utils';
+const datos=ref();
+onMounted(async ()=>{
+  datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
+})
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
 </script>
 

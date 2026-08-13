@@ -105,12 +105,16 @@ onUnmounted(() => {
     <div id="datos-abiertos" class="seccion">
       <DatosAbiertos/>
     </div>
-    <div class="seccion">
-      <demoModal />
-    </div>
+
 
   </div>
-  <SustentoNormativo />
+  <SustentoNormativo class="hidden"/>
+      <div class="bg-[#3a4049] mb-1 py-4 text-white">
+      <div class=" text-center">Envía tus dudas y comentarios 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3Sr9_GxEUeZfXXkwlk9w51vu5phPXsj6jnzup9J_kEHSOeQ/viewform?usp=header"
+        target="_blank"
+        class="rounded border border-white px-4 hover:bg-gray-800 transition ease duration-300">aquí</a></div>
+    </div>
   <Footer />
 </template>
 

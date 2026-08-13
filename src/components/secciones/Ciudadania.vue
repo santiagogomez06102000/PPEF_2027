@@ -1,5 +1,12 @@
 <script setup>
+import { onMounted, ref } from 'vue';
+import { fetchPublicJson } from '../utils/utils';
+import { baseUrl } from './Inversion/mapController';
 
+const cards = ref(null);
+onMounted(async ()=>{
+    cards.value = await fetchPublicJson("/secciones/ciudadaniaInformada/cardsCI.json");
+})
 </script>
 
 <template>
@@ -16,52 +23,18 @@
                 </p>
             </div>
 
-            <div class="cards">
-
-                <div class="subcards">
+            <div class="cards" v-if="cards">
+                <a class="subcards hover:scale-105 transition duration-300 ease"  v-for="card in cards" :key="card.url" :href="card.url" target="_blank">
                     <figure>
-                        <img src="/secciones/impactos/images/14_infraestructura.png" alt="Cambiar" />
+                        <img :src="baseUrl + card.img" alt="Cambiar" />
                     </figure>
 
-                    <p class="p-h4">
-                        Destacar la inversión en infraestructura en la estrategia de crecimiento
+                    <p class="p-h4" v-html="card.titulo">
                     </p>
 
-                    <p>
-                        el gasto y los resultados de los programas presupuestarios de forma trimestral
-                        en la sección Programas
+                    <p v-html="card.descripcion">
                     </p>
-                </div>
-
-                <div class="subcards">
-                    <figure>
-                        <img src="/secciones/impactos/images/15_impulsar_exportacion.png" alt="Cambiar" />
-                    </figure>
-
-                    <p class="p-h4">
-                        Impulsar una mayor integración productiva e incentivar un mayor contenido nacional
-                        en las exportaciones
-                    </p>
-
-                    <p>
-                        cada trimestre la sección de Obra Pública
-                    </p>
-                </div>
-
-                <div class="subcards">
-                    <figure>
-                        <img src="/secciones/impactos/images/16_responsable.png" alt="Cambiar" />
-                    </figure>
-
-                    <p class="p-h4">
-                        Mantener una política responsable y prudente
-                    </p>
-
-                    <p>
-                        el gasto federalizado en la sección de entidades federativas
-                    </p>
-                </div>
-
+                </a>
             </div>
         </div>
     </section>
@@ -78,8 +51,15 @@
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     column-gap: 1rem;
+    margin: 0 auto;
+    padding: 3.5rem 2.5rem 5rem;
+    border-radius: 70px;
 }
-
+@media (max-width: 640px) {
+    .paquete-economico{
+        padding: 2.5rem 1.5rem 4rem;
+    }
+}
 
 /* =========================================================
    CONTENIDO

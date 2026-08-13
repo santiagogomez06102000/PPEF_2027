@@ -36,8 +36,8 @@
         <Transition name="desplegar">
           <div v-show="activo === idx" class="panel">
             <ul>
-              <li v-for="(linea, i) in item.contenido" :key="i">
-                {{ linea }}
+              <li v-for="(linea, i) in item.contenido" :key="i" v-html="linea">
+                
               </li>
             </ul>
           </div>
@@ -49,7 +49,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import datos from '@/data/ingreso.json'
+import { onMounted } from 'vue';
+import { fetchPublicJson } from '../utils/utils';
+const datos=ref({});
+onMounted(async ()=>{
+  datos.value = await fetchPublicJson("/secciones/ingreso/ingreso.json");
+})
 
 const activo = ref(0)
 

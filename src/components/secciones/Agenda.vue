@@ -89,6 +89,7 @@ function abrirModal(data) {
     margin-bottom: 2.5rem;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -0.02em;
+    color:#0a5a45 ;
 }
 
 .subtitulo {
@@ -98,6 +99,7 @@ function abrirModal(data) {
     margin: 0 auto 3.5rem;
     font-family: 'Noto Sans Black', sans-serif;
     letter-spacing: -0.02em;
+    color:#2bc0a3 ;
 }
 
 .bloque {
@@ -180,6 +182,24 @@ function abrirModal(data) {
     line-height: 1.35;
     position: relative;
     overflow: hidden;
+}
+@media (max-width:1023px) {
+    .btn-eje {
+        grid-column: 1;
+        grid-column-end: 4;
+    }
+
+    /* Últimos dos botones centrados */
+    .grid-botones>.btn-eje:nth-last-child(2) {
+        grid-column: 1;
+        grid-column-end: 4;
+    }
+
+    .grid-botones>.btn-eje:last-child {
+        grid-column: 1;
+        grid-column-end: 4;
+    }
+
 }
 
 .btn-eje:hover {

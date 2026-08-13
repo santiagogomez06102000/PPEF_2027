@@ -1,0 +1,90 @@
+{
+  "titulo": "Ingreso",
+  "intro": "La Iniciativa de Ley de Ingresos de la Federación estima cuánto dinero ingresará al país durante el año. Para el ejercicio fiscal 2026, se proyecta que la Federación obtendrá ingresos por:",
+  "monto": "$11,000,000",
+  "unidad": "millones de pesos",
+  "descripcion": "El gobierno federal obtiene recursos de nueve tipos de ingresos. Cada uno tiene un origen distinto y juntos hacen posible financiar la provisión de bienes y servicios y obras públicas. A continuación, te explicamos cada tipo de ingreso para el ejercicio fiscal 2027:",
+  "items": [
+    {
+      "id": "impuestos",
+      "titulo": "Impuestos",
+      "monto": "$ 5,838,541.1 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> contribuciones establecidas en ley que deben pagar las personas físicas y morales que se encuentran en la situación jurídica o de hecho prevista por la misma ley.",
+        "<b>Ejemplo:</b> el Impuesto sobre la Renta (ISR), que es el pago que hacen las personas por los ingresos que reciben, como sueldos y salarios, y que también deben cubrir las empresas por las ganancias que obtienen."
+      ]
+    },
+    {
+      "id": "cuotas",
+      "titulo": "Cuotas y aportaciones de seguridad social",
+      "monto": "$641,782.1 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> contribuciones establecidas en la ley a cargo de patrones y trabajadores, destinadas a financiar el sistema de seguridad social que presta el Estado.",
+        "<b>Ejemplo:</b> las cuotas obrero-patronales del IMSS, que son las aportaciones que hacen, por un lado, las y los trabajadores y, por otro, las empresas donde laboran, para financiar los servicios de salud, guarderías, incapacidades, pensiones y demás prestaciones de seguridad social que brinda el IMSS."
+      ]
+    },
+    {
+      "id": "contribuciones",
+      "titulo": "Contribuciones de mejoras",
+      "monto": "$39.6 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos por pagos que hacen las personas o las empresas cuando reciben un beneficio directo por la realización de una obra pública.",
+        "<b>Ejemplo:</b> los ingresos por la contribución a mejoras por obras públicas de infraestructura hidráulica, que son los ingresos que se obtienen de personas físicas o morales que utilizan dichas obras para aprovechar, explotar, distribuir o descargar aguas nacionales."
+      ]
+    },
+    {
+      "id": "derechos",
+      "titulo": "Derechos",
+      "monto": "$157,081.7 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos por pagos que se hacen por usar bienes que son de la Nación, como playas o carreteras, o por recibir servicios que brinda el gobierno en sus funciones públicas, como trámites oficiales o expedición de documentos.",
+        "<b>Ejemplo:</b> los ingresos por la expedición de pasaportes y permisos de residencia."
+      ]
+    },
+    {
+      "id": "productos",
+      "titulo": "Productos",
+      "monto": "$16,488.3 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos que obtiene el Estado por los servicios que ofrece como cualquier particular y por el uso, aprovechamiento o venta de bienes que forman parte de su propiedad privada.",
+        "<b>Ejemplo:</b> los ingresos por utilidades de la Lotería Nacional."
+      ]
+    },
+    {
+      "id": "aprovechamientos",
+      "titulo": "Aprovechamientos",
+      "monto": "$203,520.5 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos que recibe el Estado por sus funciones de derecho público, distintos de contribuciones, de ingresos derivados de financiamientos, y de los recursos que obtienen los organismos descentralizados o las empresas del gobierno.",
+        "<b>Ejemplo:</b> las participaciones a cargo de los concesionarios de vías generales de comunicación y de empresas de abastecimiento de energía."
+      ]
+    },
+    {
+      "id": "ventas",
+      "titulo": "Ingresos por ventas de bienes, prestación de servicios y otros ingresos",
+      "monto": "$1,630,973.6 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos que reciben las instituciones públicas creadas por ley, por la producción, venta de bienes o prestación de servicios, así como por otras actividades que no forman parte directa de su operación.",
+        "<b>Ejemplo:</b> los recursos que obtiene el Estado a través de empresas públicas como PEMEX y la CFE, o de instituciones como el IMSS y el ISSSTE."
+      ]
+    },
+    {
+      "id": "transferencias",
+      "titulo": "Transferencias, asignaciones, subsidios y subvenciones y pensiones y jubilaciones",
+      "monto": "$232,630.4 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> recursos que reciben los entes públicos como parte de su política económica y social, de acuerdo con las estrategias y prioridades de desarrollo para el sostenimiento y desempeño de sus actividades.",
+        "<b>Ejemplo:</b> ingresos por transferencias de recursos del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo."
+      ]
+    },
+    {
+      "id": "financiamientos",
+      "titulo": "Ingresos derivados de financiamientos",
+      "monto": "$1,472,626.4 millones de pesos",
+      "contenido": [
+        "<b>Definición:</b> ingresos obtenidos por préstamos internos o externos, a corto o largo plazo.",
+        "<b>Ejemplo:</b> créditos que se obtienen por emisiones de instrumentos financieros en mercados nacionales e internacionales de capital, organismos financieros internacionales, créditos bilaterales y otras fuentes."
+      ]
+    }
+  ]
+}

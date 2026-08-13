@@ -1,5 +1,5 @@
 <template>
-  <section class="entorno">
+  <section class="entorno" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <div class="textos">
@@ -18,12 +18,19 @@
 </template>
 
 <script setup>
-import datos from '@/data/EntornoEconomico/entornoEconomico.json'
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
 
 // Importar JSONs de modales
-import generales from '@/data/EntornoEconomico/cards.json'
+import { fetchPublicJson } from '../utils/utils';
+import { onMounted, ref } from 'vue';
+
+const datos=ref({});
+const generales=ref([])
+onMounted(async ()=>{
+  datos.value = await fetchPublicJson("/secciones/EntornoEconomico/entornoEconomico.json");
+  generales.value = await fetchPublicJson("/secciones/EntornoEconomico/cards.json")
+})
 
 // Instancia del composable para el modal
 const modal = useModal()
