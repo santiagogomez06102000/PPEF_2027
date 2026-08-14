@@ -7,7 +7,10 @@
       <!-- Botones de clasificación -->
       <div class="botones">
         <button v-for="(cat, idx) in datos.clasificaciones" :key="cat.id" class="boton-clasificacion"
-          :class="{ activo: activo === idx }" @click="activo = idx">
+          :class="{ activo: activo === idx }" @click="()=>{
+            activo=idx
+            detalleActivo = null
+          }">
           <span class="pregunta">{{ cat.pregunta }}</span>
           <span class="subtitulo">{{ cat.subtitulo }}</span>
         </button>
