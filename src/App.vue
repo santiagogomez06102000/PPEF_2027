@@ -20,6 +20,7 @@ import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import DatosAbiertos from './components/secciones/DatosAbiertos.vue'
+import ModalTest from './components/secciones/ModalTest.vue'
 
 const activeHash = ref(window.location.hash)
 
@@ -98,6 +99,11 @@ onUnmounted(() => {
     </div>
     <div>
       <Agenda />
+    </div>
+
+    <div>
+    
+      <ModalTest></ModalTest>
     </div>
     <div>
       <Ciudadania />
