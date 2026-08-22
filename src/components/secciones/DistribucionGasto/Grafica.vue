@@ -55,6 +55,7 @@ const claseTendencia = (t) => {
 
 const isMobile = computed(() => {
   if (typeof window === 'undefined') return false
+  return true
   return window.innerWidth <= 768
 })
 
@@ -96,7 +97,7 @@ const render = () => {
     rowG
       .append('text')
       .attr('x', 0)
-      .attr('y', -6)
+      .attr('y', barHeight + 16)
       .attr('text-anchor', 'start')
       .style('font-size', mobile ? '15px' : '18px')
       .style('font-weight', '800')
@@ -202,11 +203,11 @@ const render = () => {
       rowG
         .append('text')
         .attr('x', 0)
-        .attr('y', barHeight + 16)
-        .style('font-size', '12px')
+        .attr('y', -5)
+        .style('font-size', '14px')
         .style('font-weight', '700')
         .style('fill', '#333')
-        .text(truncar(barra.nombre, 40))
+        .text(truncar(barra.nombre, 100))
 
       rowG
         .append('text')

@@ -2,11 +2,20 @@
   <div class="flex">
     <div class="flex flex-col lg:flex-row items-center justify-between  w-full">
       <!-- Columna izquierda: Texto -->
-      <div class="flex  flex-col text-white gap-10 w-full">
-        <h1 class="titulo-principal">
-          <span class="linea">Paquete</span>
-          <span class="linea">Económico 2027</span>
+      <div class="flex  flex-col text-white gap-10 w-full  flex-1 ">
+        <h1 class="titulo-principal lg:text-end">
+          <span class="linea">Paquete Económico 2027</span>
+
         </h1>
+
+
+      </div>
+
+      <!-- Columna derecha: Mascota -->
+      <div class="">
+        <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
+      </div>
+      <div class="flex  flex-col text-white  gap-10 flex-1 w-full">
 
         <div class="bloque-datos">
           <p class="etiqueta">{{ datos.subtituloGasto }}</p>
@@ -19,11 +28,6 @@
           <p class="comparativa">{{ datos.comparativa }}</p>
           <p class="nota">{{ datos.nota }}</p>
         </div>
-      </div>
-
-      <!-- Columna derecha: Mascota -->
-      <div class="">
-        <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
       </div>
     </div>
   </div>

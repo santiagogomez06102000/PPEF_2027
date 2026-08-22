@@ -35,7 +35,7 @@ const urlBase = import.meta.env.BASE_URL
 </template>
 <style lang="css" scoped>
 .contenedor-img-mascota {
-  min-width: 10rem;
+  min-width: var(--ancho);
   margin: 0 1rem;
 }
 .img-mascota {

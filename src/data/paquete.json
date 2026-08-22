@@ -8,7 +8,7 @@
   "nota": "en términos reales",
   "mascota": {
     "indice": 5,
-    "ancho": "30rem",
+    "ancho": "25rem",
     "alto": "auto"
   }
 }

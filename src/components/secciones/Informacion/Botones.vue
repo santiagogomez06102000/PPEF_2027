@@ -78,8 +78,8 @@ onUnmounted(() => {
   padding: 1.8rem 1.2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: start;
+  text-align: start;
   cursor: pointer;
   transition: all 0.25s ease;
   border: 2px solid transparent;

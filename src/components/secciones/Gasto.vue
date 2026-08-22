@@ -36,26 +36,42 @@
 
         <p class="texto-ejes">{{ datos.textoEjes }}</p>
 
-        <!-- Ejes Generales -->
-        <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
-        <div class="grid-botones grid-4">
-            <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id" class="btn-eje"
-                @click="abrirModal(generales[index])">
-                <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
-                <span>{{ btn.texto }}</span>
-            </button>
-        </div>
+        <div class="grid grid-cols-2 gap-x-16 gap-y-40 lg:gap-y-16">
+            <!-- Ejes Generales -->
+            <div class="col-span-2 lg:col-span-1">
+                <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
+                <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
+                    <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
+                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
+                        @click="handleClickBtn(generales[index])">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
+                        <span class="absolute top-[100%] pt-2 left-0  w-full">{{ btn.texto }}</span>
+                    </button>
+                </div>
+            </div>
 
-        <!-- Ejes Transversales -->
-        <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
-        <div class="grid-botones grid-3">
-            <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id" class="btn-eje"
-                @click="abrirModal(transversales[index])">
-                <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
-                <span>{{ btn.texto }}</span>
-            </button>
+            <!-- Ejes Transversales -->
+            <div class="col-span-2 lg:col-span-1">
+                <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
+                <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
+                    <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
+                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
+                        @click="handleClickBtn(transversales[index])">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
+                        <span class="absolute top-[100%] pt-2 left-0  w-full">{{ btn.texto }}</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
+        <div class="mt-40"></div>
+        <div class=" w-full rounded-lg text-black bg-white px-8 py-4" v-if="abierto">
+            <h4 class="subtitulo-ejes">
+                {{ abierto.title }}
+            </h4>
+            <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content" class="parrafo-boton">
+                
+            </div>
+        </div>
     </section>
 </template>
 
@@ -68,6 +84,7 @@ import { useModal } from '@/components/composables/useModal.js'
 // Importar JSONs de modales
 import generales from '@/data/Gasto/ejes_generales.json'
 import transversales from '@/data/Gasto/ejes_transversales.json'
+import { ref } from 'vue'
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -77,9 +94,20 @@ const modal = useModal()
 function abrirModal(data) {
     modal.open(data)
 }
+const abierto = ref()
+function handleClickBtn(e){
+
+        abierto.value = e;
+
+    
+}
 </script>
 
 <style scoped>
+.parrafo-boton{
+    font-size: 1rem;
+    margin: 0;
+}
 .gasto {
 
     color: #ffffff;
@@ -88,7 +116,7 @@ function abrirModal(data) {
 /* ── Título principal ── */
 .titulo {
     text-align: center;
-    color: #ffffff;
+    color: #00a1cd;
     margin-bottom: 1.2rem;
     font-family: 'Noto Sans Black', sans-serif;
 }
@@ -99,7 +127,7 @@ function abrirModal(data) {
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto 1.5rem;
-    color: #ffffff;
+    color: #000;
 }
 
 /* ── Monto grande ── */
@@ -114,7 +142,7 @@ function abrirModal(data) {
 .monto {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    color: #ccffff;
+    color: #409da2;
     margin: 0;
     line-height: 1;
     font-family: 'Noto Sans', sans-serif;
@@ -122,7 +150,7 @@ function abrirModal(data) {
 
 .unidad {
     font-weight: 600;
-    color: #ffffff;
+    color: #000;
     margin: 0.3rem 0 0;
 }
 
@@ -132,7 +160,7 @@ function abrirModal(data) {
     line-height: 1.6;
     max-width: 850px;
     margin: 0 auto 2.5rem;
-    color: #ffffff;
+    color: #000;
 }
 
 /* ═══════════════════════════════════════
@@ -148,11 +176,11 @@ function abrirModal(data) {
 }
 
 .caja-gasto {
-    background-color: rgb(13, 104, 129);
+    background-color: #fff;
     border-radius: 28px;
     padding: 2rem 1.5rem;
     text-align: center;
-    color: #ffffff;
+    color: rgb(13, 104, 129);
     flex: 1 1 200px;
     max-width: 280px;
     min-height: 160px;
@@ -174,7 +202,7 @@ function abrirModal(data) {
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
-    color: #ffffff;
+    color: #409da2;
 }
 
 .caja-unidad {
@@ -182,7 +210,7 @@ function abrirModal(data) {
     font-weight: 500;
     margin: 0.1rem 0 0 0;
     opacity: 0.9;
-    color: #ffffff;
+    color: #000;
 }
 
 .mascota-wrapper {
@@ -200,13 +228,13 @@ function abrirModal(data) {
     font-size: 1rem;
     line-height: 1.7;
     margin: 0 auto 2.5rem;
-    color: #ffffff;
+    color: #000;
 }
 
 .subtitulo-ejes {
     text-align: center;
     font-weight: 700;
-    color: #ccffff;
+    color: rgb(13, 104, 129);
     margin: 0 0 1.2rem 0;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -242,7 +270,7 @@ function abrirModal(data) {
     min-height: 180px;
     /* ajusta según necesites */
 
-    color: #ffffff;
+    color: #000;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Noto Sans', sans-serif;
@@ -253,13 +281,12 @@ function abrirModal(data) {
 }
 
 .img-eje {
-    width: 64px;
-    height: 64px;
+    width: 8rem;
+    height: 8rem;
     object-fit: contain;
     flex-shrink: 0;
 
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.15);
     padding: 8px;
 }
 
