@@ -30,16 +30,36 @@ export const getCardClass = (items: number, index: number): string => {
   return 'col-span-6 lg:col-span-2'
 }
 export function formatearMoneda(valor: number | string): string {
-  const numero = Number(valor);
+  const numero = Number(valor)
 
   if (Number.isNaN(numero)) {
-    return "-";
+    return '-'
   }
 
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
-  }).format(numero);
+  }).format(numero)
+}
+export async function fetchPublicText(path: string): Promise<string | null> {
+  // @ts-ignore
+  const base = import.meta.env.BASE_URL
+
+  const url = `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+
+  try {
+    const res = await fetch(url)
+
+    if (!res.ok) {
+      console.warn(`Archivo no encontrado: ${url} (${res.status})`)
+      return null
+    }
+
+    return await res.text()
+  } catch (err) {
+    console.warn(`Error de red al cargar archivo: ${url}`, err)
+    return null
+  }
 }
