@@ -1,25 +1,43 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref } from 'vue'
+import {
+    nextTick,
+    onMounted,
+    ref,
+    watch
+} from 'vue'
+
 import { fetchPublicText } from '@/components/utils/utils.js'
 
-const mapaContainer = ref<HTMLElement | null>(null)
+interface EntidadFederativaDatos {
+    id_entidad_federativa: number
+    entidad_federativa: string
+    total: number
+    participaciones_federales: number
+    aportaciones_federales: number
+    convenios: number
+    subsidios: number | null
+}
 
-const svgMapa = ref('')
+interface EstadoSeleccionado {
+    id: number
+    codigo: string
+    nombre: string
+    pathD: string
+    viewBox: string
+    color: string
+}
 
-const emit = defineEmits<{
-    seleccionar: [
-        estado: {
-            id: number
-            codigo: string
-            nombre: string
-        }
-    ]
+const props = defineProps<{
+    datos: EntidadFederativaDatos[]
 }>()
 
-/*
- * Relación entre código ISO del SVG
- * y el id_entidad_federativa de tus datos.
- */
+const emit = defineEmits<{
+    seleccionar: [estado: EstadoSeleccionado]
+}>()
+
+const mapaContainer = ref<HTMLElement | null>(null)
+const svgMapa = ref('')
+
 const entidades: Record<string, number> = {
     MXAGU: 1,
     MXBCN: 2,
@@ -55,8 +73,20 @@ const entidades: Record<string, number> = {
     MXZAC: 32
 }
 
+const COLOR_CLARO = {
+    r: 120,
+    g: 226,
+    b: 240
+}
+
+const COLOR_OSCURO = {
+    r: 6,
+    g: 101,
+    b: 122
+}
+
 async function obtenerMapa() {
-    const respuesta = await fetchPublicText('/mapas/mx.svg')
+    const respuesta = await fetchPublicText('/mapa/mx.svg')
 
     if (!respuesta) {
         console.warn('No fue posible cargar el mapa de México')
@@ -80,7 +110,6 @@ function prepararMapa() {
         return
     }
 
-    // El SVG original usa "viewbox" en minúsculas
     svg.removeAttribute('viewbox')
     svg.setAttribute('viewBox', '0 0 1000 630')
 
@@ -89,7 +118,6 @@ function prepararMapa() {
 
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet')
 
-    // Evitamos que estilos externos oculten el SVG
     svg.style.display = 'block'
     svg.style.width = '100%'
     svg.style.height = 'auto'
@@ -104,52 +132,80 @@ function prepararMapa() {
 
     const estados = grupoEstados.querySelectorAll<SVGPathElement>('path')
 
-    console.log('Estados encontrados:', estados.length)
-
     estados.forEach((estado) => {
         const codigo = estado.id
         const nombre = estado.getAttribute('name') ?? codigo
         const id = entidades[codigo]
 
         if (!id) {
-            console.warn(
-                `No existe id_entidad_federativa para ${codigo}`
-            )
+            console.warn(`No existe id_entidad_federativa para ${codigo}`)
             return
         }
 
         estado.classList.add('estado-mexico')
-
         estado.dataset.entidadId = String(id)
         estado.dataset.entidadNombre = nombre
 
-        /*
-         * IMPORTANTE:
-         * Aplicamos los colores directamente al SVG.
-         *
-         * Así evitamos conflictos con CSS global del proyecto.
-         */
-        estado.style.setProperty(
-            'fill',
-            '#5dc1be',
-            'important'
-        )
-
-        estado.style.setProperty(
-            'stroke',
-            '#ffffff',
-            'important'
-        )
-
-        estado.style.setProperty(
-            'stroke-width',
-            '1.5px',
-            'important'
-        )
+        estado.style.setProperty('stroke', '#ffffff', 'important')
+        estado.style.setProperty('stroke-width', '1.5px', 'important')
 
         estado.addEventListener('click', () => {
             seleccionarEstado(estado)
         })
+    })
+
+    pintarMapa()
+}
+
+function obtenerColor(valorNormalizado: number): string {
+    const t = Math.max(0, Math.min(1, valorNormalizado))
+
+    const r = Math.round(
+        COLOR_CLARO.r + (COLOR_OSCURO.r - COLOR_CLARO.r) * t
+    )
+
+    const g = Math.round(
+        COLOR_CLARO.g + (COLOR_OSCURO.g - COLOR_CLARO.g) * t
+    )
+
+    const b = Math.round(
+        COLOR_CLARO.b + (COLOR_OSCURO.b - COLOR_CLARO.b) * t
+    )
+
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+function pintarMapa() {
+    if (!mapaContainer.value) return
+    if (!props.datos.length) return
+
+    const valores = props.datos
+        .map(item => Number(item.total))
+        .filter(valor => Number.isFinite(valor))
+
+    if (!valores.length) return
+
+    const minimo = Math.min(...valores)
+    const maximo = Math.max(...valores)
+
+    props.datos.forEach((entidad) => {
+        const path =
+            mapaContainer.value?.querySelector<SVGPathElement>(
+                `[data-entidad-id="${entidad.id_entidad_federativa}"]`
+            )
+
+        if (!path) return
+
+        const normalizado =
+            maximo === minimo
+                ? 0.5
+                : (entidad.total - minimo) / (maximo - minimo)
+
+        const color = obtenerColor(normalizado)
+
+        path.style.setProperty('fill', color, 'important')
+        path.dataset.total = String(entidad.total)
+        path.dataset.color = color
     })
 }
 
@@ -157,32 +213,46 @@ function seleccionarEstado(estado: SVGPathElement) {
     if (!mapaContainer.value) return
 
     const id = Number(estado.dataset.entidadId)
-
-    const nombre =
-        estado.dataset.entidadNombre ?? ''
-
+    const nombre = estado.dataset.entidadNombre ?? ''
     const codigo = estado.id
+    const pathD = estado.getAttribute('d') ?? ''
+    const color = estado.dataset.color ?? 'rgb(6, 101, 122)'
 
-    /*
-     * Quitamos selección anterior.
-     */
+    const bbox = estado.getBBox()
+    const padding = 12
+
+    const viewBox = [
+        bbox.x - padding,
+        bbox.y - padding,
+        bbox.width + padding * 2,
+        bbox.height + padding * 2
+    ].join(' ')
+
     mapaContainer.value
         .querySelectorAll('.estado-mexico.activo')
         .forEach((elemento) => {
             elemento.classList.remove('activo')
         })
 
-    /*
-     * Marcamos estado actual.
-     */
     estado.classList.add('activo')
 
     emit('seleccionar', {
         id,
         codigo,
-        nombre
+        nombre,
+        pathD,
+        viewBox,
+        color
     })
 }
+
+watch(
+    () => props.datos,
+    () => {
+        pintarMapa()
+    },
+    { deep: true }
+)
 
 onMounted(async () => {
     await obtenerMapa()
@@ -198,7 +268,6 @@ onMounted(async () => {
 <style scoped>
 .mapa-mexico {
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -212,59 +281,35 @@ onMounted(async () => {
 .mapa-svg-container :deep(svg) {
     width: 100%;
     height: auto;
-
     display: block;
-
     overflow: visible;
 }
 
-/* =========================================
-   ESTADOS
-========================================= */
-
 .mapa-svg-container :deep(#features > path) {
-    fill: #5dc1be !important;
-    stroke: #ffffff !important;
-    stroke-width: 1.5px !important;
-
     opacity: 1 !important;
     visibility: visible !important;
-
     cursor: pointer;
-
     transform-box: fill-box;
     transform-origin: center;
-
     transition:
         transform 0.2s ease,
-        fill 0.2s ease,
-        filter 0.2s ease;
+        filter 0.2s ease,
+        stroke 0.2s ease;
 }
 
 .mapa-svg-container :deep(#features > path:hover) {
-    fill: #ad8617 !important;
-
     transform: scale(1.05);
-
+    stroke: #ffffff !important;
+    stroke-width: 2.5px !important;
     filter:
         drop-shadow(0 4px 3px rgba(0, 0, 0, 0.18)) drop-shadow(0 7px 6px rgba(0, 0, 0, 0.12));
 }
 
 .mapa-svg-container :deep(#features > path.activo) {
-    fill: #ad8617 !important;
-
     transform: scale(1.05);
-
+    stroke: #ffffff !important;
+    stroke-width: 3px !important;
     filter:
-        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.18)) drop-shadow(0 7px 6px rgba(0, 0, 0, 0.12));
-}
-
-/*
- * El SVG también contiene puntos que no necesitamos
- * visualizar.
- */
-.mapa-svg-container :deep(#points),
-.mapa-svg-container :deep(#label_points) {
-    display: none;
+        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.2)) drop-shadow(0 7px 6px rgba(0, 0, 0, 0.15));
 }
 </style>
