@@ -1,177 +1,632 @@
-<script setup lang="ts">
+<script setup>
 import {
-    nextTick,
-    onMounted,
     ref,
-    watch
+    computed,
+    onMounted,
+    nextTick
 } from 'vue'
 
-import { fetchPublicText } from '@/components/utils/utils.js'
+// Ajusta únicamente esta ruta a tu utils.ts actual.
+// El archivo utils puede continuar siendo TypeScript.
+import { fetchPublicText } from '@/components/utils/utils'
 
-interface EntidadFederativaDatos {
-    id_entidad_federativa: number
-    entidad_federativa: string
-    total: number
-    participaciones_federales: number
-    aportaciones_federales: number
-    convenios: number
-    subsidios: number | null
-}
+/* =========================================================
+   PROPS
+========================================================= */
 
-interface EstadoSeleccionado {
-    id: number
-    codigo: string
-    nombre: string
-    pathD: string
-    viewBox: string
-    color: string
-}
+const props = defineProps({
+    datos: {
+        type: Array,
+        default: () => []
+    },
 
-interface CajaEstado {
-    x: number
-    y: number
-    width: number
-    height: number
-}
+    seleccionadoId: {
+        type: [Number, String],
+        default: null
+    }
+})
 
-const props = defineProps<{
-    datos: EntidadFederativaDatos[]
-}>()
+/* =========================================================
+   EMITS
+========================================================= */
 
-const emit = defineEmits<{
-    seleccionar: [estado: EstadoSeleccionado]
-}>()
+const emit = defineEmits([
+    'seleccionar'
+])
 
-const mapaContainer = ref<HTMLElement | null>(null)
-const svgMapa = ref('')
+/* =========================================================
+   CONSTANTES
+========================================================= */
 
 /*
- * Capa independiente para dibujar el estado
- * que tiene hover.
- *
- * Nunca moveremos el path original.
+ * Chihuahua y otros estados grandes terminarán cerca de 1.05.
+ * Estados muy pequeños terminarán cerca de 1.35.
  */
-const hoverLayer = ref<SVGGElement | null>(null)
+const ESCALA_MINIMA = 1.05
+const ESCALA_MAXIMA = 1.35
 
-/* =========================================================
-   ENTIDADES
-========================================================= */
-
-const entidades: Record<string, number> = {
-    MXAGU: 1,
-    MXBCN: 2,
-    MXBCS: 3,
-    MXCAM: 4,
-    MXCOA: 5,
-    MXCOL: 6,
-    MXCHP: 7,
-    MXCHH: 8,
-    MXCMX: 9,
-    MXDUR: 10,
-    MXGUA: 11,
-    MXGRO: 12,
-    MXHID: 13,
-    MXJAL: 14,
-    MXMEX: 15,
-    MXMIC: 16,
-    MXMOR: 17,
-    MXNAY: 18,
-    MXNLE: 19,
-    MXOAX: 20,
-    MXPUE: 21,
-    MXQUE: 22,
-    MXROO: 23,
-    MXSLP: 24,
-    MXSIN: 25,
-    MXSON: 26,
-    MXTAB: 27,
-    MXTAM: 28,
-    MXTLA: 29,
-    MXVER: 30,
-    MXYUC: 31,
-    MXZAC: 32
-}
-
-/* =========================================================
-   COLORES COROPLÉTICOS
-========================================================= */
-
-const COLOR_CLARO = {
+const COLOR_MINIMO = {
     r: 120,
     g: 226,
     b: 240
 }
 
-const COLOR_OSCURO = {
+const COLOR_MAXIMO = {
     r: 6,
     g: 101,
     b: 122
 }
 
-/* =========================================================
-   HOVER PROPORCIONAL
-========================================================= */
-
-const ESCALA_MINIMA = 1.05
-const ESCALA_MAXIMA = 1.35
+const COLOR_SIN_DATOS = 'rgb(215, 220, 224)'
 
 /*
- * Cuántas unidades visuales queremos agregar
- * aproximadamente al estado.
+ * Si Colima contiene las islas como elementos SVG separados,
+ * se conservará únicamente la geometría principal.
  */
-const CRECIMIENTO_VISUAL = 12
-
-/*
- * Espacio alrededor del estado cuando se muestra
- * individualmente en el panel derecho.
- */
-const MARGEN_PREVIEW = 0.25
+const REMOVER_ISLAS_COLIMA = true
 
 /* =========================================================
-   CARGAR MAPA
+   CONFIGURACIÓN CENTRALIZADA DE ENTIDADES
 ========================================================= */
 
-async function obtenerMapa() {
-    const respuesta =
-        await fetchPublicText('/mapa/mx.svg')
+const CONFIG_ENTIDADES = [
+    {
+        id: 1,
+        codigo: 'MXAGU',
+        nombre: 'Aguascalientes',
+        archivo: '/mapa/estados/01_MXAGU_aguascalientes.svg'
+    },
+    {
+        id: 2,
+        codigo: 'MXBCN',
+        nombre: 'Baja California',
+        archivo: '/mapa/estados/02_MXBCN_baja_california.svg'
+    },
+    {
+        id: 3,
+        codigo: 'MXBCS',
+        nombre: 'Baja California Sur',
+        archivo: '/mapa/estados/03_MXBCS_baja_california_sur.svg'
+    },
+    {
+        id: 4,
+        codigo: 'MXCAM',
+        nombre: 'Campeche',
+        archivo: '/mapa/estados/04_MXCAM_campeche.svg'
+    },
+    {
+        id: 5,
+        codigo: 'MXCOA',
+        nombre: 'Coahuila',
+        archivo: '/mapa/estados/05_MXCOA_coahuila_de_zaragoza.svg'
+    },
+    {
+        id: 6,
+        codigo: 'MXCOL',
+        nombre: 'Colima',
+        archivo: '/mapa/estados/06_MXCOL_colima.svg'
+    },
+    {
+        id: 7,
+        codigo: 'MXCHP',
+        nombre: 'Chiapas',
+        archivo: '/mapa/estados/07_MXCHP_chiapas.svg'
+    },
+    {
+        id: 8,
+        codigo: 'MXCHH',
+        nombre: 'Chihuahua',
+        archivo: '/mapa/estados/08_MXCHH_chihuahua.svg'
+    },
+    {
+        id: 9,
+        codigo: 'MXCMX',
+        nombre: 'Ciudad de México',
+        archivo: '/mapa/estados/09_MXCMX_ciudad_de_mexico.svg'
+    },
+    {
+        id: 10,
+        codigo: 'MXDUR',
+        nombre: 'Durango',
+        archivo: '/mapa/estados/10_MXDUR_durango.svg'
+    },
+    {
+        id: 11,
+        codigo: 'MXGUA',
+        nombre: 'Guanajuato',
+        archivo: '/mapa/estados/11_MXGUA_guanajuato.svg'
+    },
+    {
+        id: 12,
+        codigo: 'MXGRO',
+        nombre: 'Guerrero',
+        archivo: '/mapa/estados/12_MXGRO_guerrero.svg'
+    },
+    {
+        id: 13,
+        codigo: 'MXHID',
+        nombre: 'Hidalgo',
+        archivo: '/mapa/estados/13_MXHID_hidalgo.svg'
+    },
+    {
+        id: 14,
+        codigo: 'MXJAL',
+        nombre: 'Jalisco',
+        archivo: '/mapa/estados/14_MXJAL_jalisco.svg'
+    },
+    {
+        id: 15,
+        codigo: 'MXMEX',
+        nombre: 'Estado de México',
+        archivo: '/mapa/estados/15_MXMEX_mexico.svg'
+    },
+    {
+        id: 16,
+        codigo: 'MXMIC',
+        nombre: 'Michoacán',
+        archivo: '/mapa/estados/16_MXMIC_michoacan_de_ocampo.svg'
+    },
+    {
+        id: 17,
+        codigo: 'MXMOR',
+        nombre: 'Morelos',
+        archivo: '/mapa/estados/17_MXMOR_morelos.svg'
+    },
+    {
+        id: 18,
+        codigo: 'MXNAY',
+        nombre: 'Nayarit',
+        archivo: '/mapa/estados/18_MXNAY_nayarit.svg'
+    },
+    {
+        id: 19,
+        codigo: 'MXNLE',
+        nombre: 'Nuevo León',
+        archivo: '/mapa/estados/19_MXNLE_nuevo_leon.svg'
+    },
+    {
+        id: 20,
+        codigo: 'MXOAX',
+        nombre: 'Oaxaca',
+        archivo: '/mapa/estados/20_MXOAX_oaxaca.svg'
+    },
+    {
+        id: 21,
+        codigo: 'MXPUE',
+        nombre: 'Puebla',
+        archivo: '/mapa/estados/21_MXPUE_puebla.svg'
+    },
+    {
+        id: 22,
+        codigo: 'MXQUE',
+        nombre: 'Querétaro',
+        archivo: '/mapa/estados/22_MXQUE_queretaro.svg'
+    },
+    {
+        id: 23,
+        codigo: 'MXROO',
+        nombre: 'Quintana Roo',
+        archivo: '/mapa/estados/23_MXROO_quintana_roo.svg'
+    },
+    {
+        id: 24,
+        codigo: 'MXSLP',
+        nombre: 'San Luis Potosí',
+        archivo: '/mapa/estados/24_MXSLP_san_luis_potosi.svg'
+    },
+    {
+        id: 25,
+        codigo: 'MXSIN',
+        nombre: 'Sinaloa',
+        archivo: '/mapa/estados/25_MXSIN_sinaloa.svg'
+    },
+    {
+        id: 26,
+        codigo: 'MXSON',
+        nombre: 'Sonora',
+        archivo: '/mapa/estados/26_MXSON_sonora.svg'
+    },
+    {
+        id: 27,
+        codigo: 'MXTAB',
+        nombre: 'Tabasco',
+        archivo: '/mapa/estados/27_MXTAB_tabasco.svg'
+    },
+    {
+        id: 28,
+        codigo: 'MXTAM',
+        nombre: 'Tamaulipas',
+        archivo: '/mapa/estados/28_MXTAM_tamaulipas.svg'
+    },
+    {
+        id: 29,
+        codigo: 'MXTLA',
+        nombre: 'Tlaxcala',
+        archivo: '/mapa/estados/29_MXTLA_tlaxcala.svg'
+    },
+    {
+        id: 30,
+        codigo: 'MXVER',
+        nombre: 'Veracruz',
+        archivo: '/mapa/estados/30_MXVER_veracruz_de_ignacio_de_la_llave.svg'
+    },
+    {
+        id: 31,
+        codigo: 'MXYUC',
+        nombre: 'Yucatán',
+        archivo: '/mapa/estados/31_MXYUC_yucatan.svg'
+    },
+    {
+        id: 32,
+        codigo: 'MXZAC',
+        nombre: 'Zacatecas',
+        archivo: '/mapa/estados/32_MXZAC_zacatecas.svg'
+    }
+]
 
-    if (!respuesta) {
-        console.warn(
-            'No fue posible cargar el mapa de México'
-        )
-        return
+/* =========================================================
+   ESTADO
+========================================================= */
+
+const mapaRef = ref(null)
+
+const estados = ref([])
+
+const cargando = ref(true)
+const errorCarga = ref(false)
+
+const hoverId = ref(null)
+
+const viewBoxBase = ref({
+    x: 0,
+    y: 0,
+    width: 1000,
+    height: 630
+})
+
+/* =========================================================
+   TOTAL POR ENTIDAD
+========================================================= */
+
+function obtenerRegistro(id) {
+    return props.datos.find(
+        (item) =>
+            Number(item.id_entidad_federativa) === Number(id)
+    )
+}
+
+function obtenerTotal(id) {
+    const registro = obtenerRegistro(id)
+
+    if (
+        !registro ||
+        registro.total === null ||
+        registro.total === undefined
+    ) {
+        return null
     }
 
-    svgMapa.value = respuesta
+    const valor = Number(registro.total)
 
-    await nextTick()
+    if (Number.isNaN(valor)) {
+        return null
+    }
 
-    prepararMapa()
+    return valor
 }
 
 /* =========================================================
-   PREPARACIÓN
+   MÍNIMO Y MÁXIMO
 ========================================================= */
 
-function prepararMapa() {
-    if (!mapaContainer.value) return
-
-    const svg =
-        mapaContainer.value.querySelector<SVGSVGElement>(
-            'svg'
+const rangoTotales = computed(() => {
+    const valores = props.datos
+        .map((item) => item.total)
+        .filter(
+            (valor) =>
+                valor !== null &&
+                valor !== undefined &&
+                !Number.isNaN(Number(valor))
         )
+        .map(Number)
 
-    if (!svg) {
-        console.warn('No se encontró el SVG')
-        return
+    if (!valores.length) {
+        return {
+            minimo: null,
+            maximo: null
+        }
     }
 
-    svg.removeAttribute('viewbox')
+    return {
+        minimo: Math.min(...valores),
+        maximo: Math.max(...valores)
+    }
+})
 
+/* =========================================================
+   COLOR COROPLÉTICO
+========================================================= */
+
+function interpolar(inicio, fin, t) {
+    return Math.round(
+        inicio + (fin - inicio) * t
+    )
+}
+
+function colorEstado(id) {
+    const valor = obtenerTotal(id)
+
+    if (valor === null) {
+        return COLOR_SIN_DATOS
+    }
+
+    const {
+        minimo,
+        maximo
+    } = rangoTotales.value
+
+    if (minimo === null || maximo === null) {
+        return COLOR_SIN_DATOS
+    }
+
+    /*
+     * Si todos los estados tienen exactamente el mismo valor,
+     * utilizamos el centro de la escala.
+     */
+    const t =
+        maximo === minimo
+            ? 0.5
+            : (valor - minimo) / (maximo - minimo)
+
+    const r = interpolar(
+        COLOR_MINIMO.r,
+        COLOR_MAXIMO.r,
+        t
+    )
+
+    const g = interpolar(
+        COLOR_MINIMO.g,
+        COLOR_MAXIMO.g,
+        t
+    )
+
+    const b = interpolar(
+        COLOR_MINIMO.b,
+        COLOR_MAXIMO.b,
+        t
+    )
+
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+/* =========================================================
+   PARSEAR VIEWBOX
+========================================================= */
+
+function parsearViewBox(valor) {
+    if (!valor) {
+        return null
+    }
+
+    const partes = valor
+        .trim()
+        .split(/[\s,]+/)
+        .map(Number)
+
+    if (
+        partes.length !== 4 ||
+        partes.some(Number.isNaN)
+    ) {
+        return null
+    }
+
+    return {
+        x: partes[0],
+        y: partes[1],
+        width: partes[2],
+        height: partes[3]
+    }
+}
+
+/* =========================================================
+   CALCULAR VIEWBOX GLOBAL DE MÉXICO
+========================================================= */
+
+/*
+ * Cada SVG viene recortado a su propio estado, por ejemplo:
+ *
+ * Aguascalientes:
+ * viewBox="463.77 379.47 31.64 30.92"
+ *
+ * Pero las coordenadas del path siguen perteneciendo al
+ * sistema global original.
+ *
+ * Por eso podemos obtener automáticamente los límites
+ * completos de México uniendo los 32 viewBox.
+ */
+function calcularViewBoxGlobal(estados) {
+    const viewBoxes = estados
+        .map((estado) => estado.viewBox)
+        .filter(Boolean)
+
+    if (!viewBoxes.length) {
+        return {
+            x: 0,
+            y: 0,
+            width: 1000,
+            height: 630
+        }
+    }
+
+    const minX = Math.min(
+        ...viewBoxes.map((viewBox) => viewBox.x)
+    )
+
+    const minY = Math.min(
+        ...viewBoxes.map((viewBox) => viewBox.y)
+    )
+
+    const maxX = Math.max(
+        ...viewBoxes.map(
+            (viewBox) => viewBox.x + viewBox.width
+        )
+    )
+
+    const maxY = Math.max(
+        ...viewBoxes.map(
+            (viewBox) => viewBox.y + viewBox.height
+        )
+    )
+
+    /*
+     * Pequeño margen alrededor de México.
+     */
+    const width = maxX - minX
+    const height = maxY - minY
+
+    const paddingX = width * 0.02
+    const paddingY = height * 0.02
+
+    return {
+        x: minX - paddingX,
+        y: minY - paddingY,
+        width: width + paddingX * 2,
+        height: height + paddingY * 2
+    }
+}
+
+
+/* =========================================================
+   ASIGNAR VIEWBOX GLOBAL
+========================================================= */
+
+function aplicarViewBoxGlobal(textoSvg, viewBoxGlobal) {
+    if (!textoSvg) {
+        return null
+    }
+
+    const parser = new DOMParser()
+
+    const documento = parser.parseFromString(
+        textoSvg,
+        'image/svg+xml'
+    )
+
+    const svg = documento.documentElement
+
+    if (
+        !svg ||
+        svg.tagName.toLowerCase() !== 'svg'
+    ) {
+        return null
+    }
+
+    const {
+        x,
+        y,
+        width,
+        height
+    } = viewBoxGlobal
+
+    /*
+     * MUY IMPORTANTE:
+     *
+     * Cambiamos solamente el viewBox.
+     *
+     * NO modificamos:
+     * - path d
+     * - transformaciones originales
+     * - coordenadas
+     */
     svg.setAttribute(
         'viewBox',
-        '0 0 1000 630'
+        `${x} ${y} ${width} ${height}`
     )
+
+    svg.setAttribute(
+        'preserveAspectRatio',
+        'xMidYMid meet'
+    )
+
+    svg.removeAttribute('width')
+    svg.removeAttribute('height')
+
+    const serializer = new XMLSerializer()
+
+    return serializer.serializeToString(svg)
+}
+
+/* =========================================================
+   PREPARAR SVG
+========================================================= */
+
+/*
+ * Cada SVG se transforma a esta estructura:
+ *
+ * <svg class="estado-svg-root">
+ *
+ *   <defs>...</defs>
+ *
+ *   <g class="estado-shape">
+ *       geometría del estado
+ *   </g>
+ *
+ * </svg>
+ *
+ * Esto es importante porque el hover debe escalar
+ * LA SILUETA, no el SVG completo de 1000x630.
+ */
+function prepararSvg(textoSvg) {
+    const parser = new DOMParser()
+
+    const documento = parser.parseFromString(
+        textoSvg,
+        'image/svg+xml'
+    )
+
+    const parserError =
+        documento.querySelector('parsererror')
+
+    if (parserError) {
+        console.warn('SVG inválido', parserError)
+        return null
+    }
+
+    const svg = documento.documentElement
+
+    if (
+        !svg ||
+        svg.tagName.toLowerCase() !== 'svg'
+    ) {
+        return null
+    }
+
+    /*
+     * Seguridad básica.
+     *
+     * Los SVG vienen de /public y son archivos propios,
+     * pero evitamos scripts/eventos incrustados.
+     */
+    documento
+        .querySelectorAll('script, foreignObject')
+        .forEach((elemento) => elemento.remove())
+
+    documento
+        .querySelectorAll('*')
+        .forEach((elemento) => {
+            Array.from(elemento.attributes).forEach(
+                (atributo) => {
+                    if (/^on/i.test(atributo.name)) {
+                        elemento.removeAttribute(
+                            atributo.name
+                        )
+                    }
+                }
+            )
+        })
+
+    const viewBox =
+        parsearViewBox(svg.getAttribute('viewBox'))
 
     svg.removeAttribute('width')
     svg.removeAttribute('height')
@@ -181,654 +636,970 @@ function prepararMapa() {
         'xMidYMid meet'
     )
 
-    svg.style.display = 'block'
-    svg.style.width = '100%'
-    svg.style.height = 'auto'
-    svg.style.overflow = 'visible'
-
-    const grupoEstados =
-        svg.querySelector('#features')
-
-    if (!grupoEstados) {
-        console.warn(
-            'No se encontró #features'
-        )
-        return
-    }
+    svg.classList.add('estado-svg-root')
 
     /*
-     * Creamos la capa que siempre estará
-     * encima del resto del SVG.
+     * Creamos un grupo externo que no tiene transformaciones
+     * originales. De esta manera podemos escalarlo en hover
+     * sin destruir transforms existentes dentro del SVG.
      */
-    crearCapaHover(svg)
-
-    const estados =
-        grupoEstados.querySelectorAll<SVGPathElement>(
-            'path'
-        )
-
-    console.log(
-        'Estados encontrados:',
-        estados.length
-    )
-
-    estados.forEach((estado) => {
-
-        const codigo = estado.id
-
-        const nombre =
-            estado.getAttribute('name') ??
-            codigo
-
-        const id =
-            entidades[codigo]
-
-        if (!id) {
-            console.warn(
-                `No existe id_entidad_federativa para ${codigo}`
-            )
-            return
-        }
-
-        estado.classList.add(
-            'estado-mexico'
-        )
-
-        estado.dataset.entidadId =
-            String(id)
-
-        estado.dataset.entidadNombre =
-            nombre
-
-        /*
-         * Calculamos una escala diferente
-         * dependiendo del tamaño del estado.
-         */
-        const escala =
-            calcularEscalaHover(estado)
-
-        estado.dataset.hoverScale =
-            escala.toFixed(3)
-
-        estado.style.setProperty(
-            'stroke',
-            '#ffffff',
-            'important'
-        )
-
-        estado.style.setProperty(
-            'stroke-width',
-            '1.5px',
-            'important'
-        )
-
-        /*
-         * IMPORTANTE:
-         *
-         * Ya NO hacemos appendChild(estado).
-         */
-        estado.addEventListener(
-            'pointerenter',
-            () => {
-                mostrarHover(estado)
-            }
-        )
-
-        estado.addEventListener(
-            'pointerleave',
-            () => {
-                ocultarHover()
-            }
-        )
-
-        estado.addEventListener(
-            'click',
-            () => {
-                seleccionarEstado(estado)
-            }
-        )
-    })
-
-    pintarMapa()
-}
-
-/* =========================================================
-   CAPA DE HOVER
-========================================================= */
-
-function crearCapaHover(
-    svg: SVGSVGElement
-) {
-    const existente =
-        svg.querySelector<SVGGElement>(
-            '#hover-layer'
-        )
-
-    if (existente) {
-        hoverLayer.value = existente
-        return
-    }
-
     const namespace =
         'http://www.w3.org/2000/svg'
 
-    const capa =
-        document.createElementNS(
+    const grupo =
+        documento.createElementNS(
             namespace,
             'g'
         )
 
-    capa.setAttribute(
-        'id',
-        'hover-layer'
-    )
+    grupo.classList.add('estado-shape')
 
     /*
-     * Fundamental:
+     * Elementos considerados parte visible del estado.
      *
-     * Esta copia visual jamás recibe
-     * eventos del cursor.
+     * defs, style, metadata, etc. permanecen fuera.
      */
-    capa.setAttribute(
-        'pointer-events',
-        'none'
-    )
+    const elementosGraficos = new Set([
+        'g',
+        'path',
+        'polygon',
+        'polyline',
+        'rect',
+        'circle',
+        'ellipse',
+        'line',
+        'use',
+        'switch'
+    ])
 
-    /*
-     * Al agregarla al final del SVG,
-     * todo lo que dibujemos aquí
-     * queda encima de los estados.
-     */
-    svg.appendChild(capa)
+    const hijosOriginales =
+        Array.from(svg.children)
 
-    hoverLayer.value = capa
+    hijosOriginales.forEach((elemento) => {
+        const tag =
+            elemento.tagName.toLowerCase()
+
+        if (elementosGraficos.has(tag)) {
+            grupo.appendChild(elemento)
+        }
+    })
+
+    svg.appendChild(grupo)
+
+    const serializer = new XMLSerializer()
+
+    return {
+        svg: serializer.serializeToString(svg),
+        viewBox
+    }
 }
 
 /* =========================================================
-   MOSTRAR HOVER
+   CARGAR LOS 32 SVG
 ========================================================= */
 
-function mostrarHover(
-    estado: SVGPathElement
-) {
-    const capa = hoverLayer.value
-
-    if (!capa) return
+async function cargarEstados() {
+    cargando.value = true
+    errorCarga.value = false
 
     /*
-     * Solo debe existir un clon.
+     * PASO 1
+     *
+     * Cargamos los 32 SVG una sola vez.
      */
-    capa.replaceChildren()
+    const resultados = await Promise.all(
+        CONFIG_ENTIDADES.map(async (estado) => {
+            const contenido =
+                await fetchPublicText(estado.archivo)
 
-    const clon =
-        estado.cloneNode(true)
-        as SVGPathElement
+            if (!contenido) {
+                console.warn(
+                    `No fue posible cargar ${estado.nombre}: ${estado.archivo}`
+                )
 
-    /*
-     * Evitamos tener IDs duplicados.
-     */
-    clon.removeAttribute('id')
+                return {
+                    ...estado,
+                    svg: null,
+                    viewBox: null,
+                    bbox: null,
+                    medida: null,
+                    escalaHover: ESCALA_MINIMA
+                }
+            }
 
-    clon.classList.remove(
-        'estado-mexico',
-        'activo'
+            /*
+             * prepararSvg conserva todavía el viewBox
+             * original recortado del estado.
+             */
+            const preparado =
+                prepararSvg(contenido)
+
+            if (!preparado) {
+                console.warn(
+                    `No fue posible procesar ${estado.nombre}`
+                )
+
+                return {
+                    ...estado,
+                    svg: null,
+                    viewBox: null,
+                    bbox: null,
+                    medida: null,
+                    escalaHover: ESCALA_MINIMA
+                }
+            }
+
+            return {
+                ...estado,
+
+                /*
+                 * SVG todavía con viewBox individual.
+                 */
+                svg: preparado.svg,
+
+                /*
+                 * Guardamos el viewBox original porque sus
+                 * coordenadas nos indican dónde se encontraba
+                 * el estado dentro de México.
+                 */
+                viewBox: preparado.viewBox,
+
+                bbox: null,
+                medida: null,
+
+                escalaHover: ESCALA_MINIMA
+            }
+        })
     )
 
-    clon.classList.add(
-        'estado-hover-clone'
+    const validos = resultados.filter(
+        (estado) =>
+            estado.svg &&
+            estado.viewBox
     )
 
-    clon.style.pointerEvents = 'none'
-
-    /*
-     * Recuperamos la escala calculada
-     * para este estado.
-     */
-    const escala =
-        estado.dataset.hoverScale ??
-        String(ESCALA_MINIMA)
-
-    clon.style.setProperty(
-        '--hover-scale',
-        escala
-    )
-
-    /*
-     * Conservamos el color coroplético.
-     */
-    const color =
-        estado.dataset.color
-
-    if (color) {
-        clon.style.setProperty(
-            'fill',
-            color,
-            'important'
-        )
+    if (!validos.length) {
+        errorCarga.value = true
+        cargando.value = false
+        return
     }
 
-    capa.appendChild(clon)
+    /*
+     * PASO 2
+     *
+     * Calculamos el viewBox completo de México usando
+     * los límites de los 32 estados.
+     */
+    const viewBoxGlobal =
+        calcularViewBoxGlobal(validos)
+
+    viewBoxBase.value = viewBoxGlobal
+
+    console.log(
+        '[MapaMexico] ViewBox global:',
+        viewBoxGlobal
+    )
 
     /*
-     * Dos frames permiten que el navegador
-     * registre scale(1) antes de animar.
+     * PASO 3
+     *
+     * Todos los SVG reciben exactamente el mismo viewBox.
+     *
+     * Las coordenadas de sus paths NO cambian.
      */
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            clon.classList.add(
-                'visible'
+    estados.value = resultados.map((estado) => {
+        if (!estado.svg) {
+            return estado
+        }
+
+        return {
+            ...estado,
+
+            svg: aplicarViewBoxGlobal(
+                estado.svg,
+                viewBoxGlobal
             )
+        }
+    })
+
+    cargando.value = false
+
+    /*
+     * Esperamos que Vue inserte los 32 SVG en el DOM.
+     */
+    await nextTick()
+
+    /*
+     * Después podemos usar getBBox().
+     */
+    limpiarColima()
+
+    await nextTick()
+
+    medirEstados()
+}
+
+/* =========================================================
+   VIEWBOX GLOBAL
+========================================================= */
+
+
+
+
+
+/* =========================================================
+   COLIMA
+========================================================= */
+
+/*
+ * Si el archivo de Colima contiene:
+ *
+ * path = territorio continental
+ * path = isla 1
+ * path = isla 2
+ *
+ * conservamos solamente la geometría de mayor tamaño.
+ *
+ * Si el SVG que recibes ya viene sin islas,
+ * esta función no afecta nada.
+ */
+function limpiarColima() {
+    if (!REMOVER_ISLAS_COLIMA) {
+        return
+    }
+
+    const capa = mapaRef.value?.querySelector(
+        '[data-estado-id="6"]'
+    )
+
+    const shape =
+        capa?.querySelector('.estado-shape')
+
+    if (!shape) {
+        return
+    }
+
+    const elementos = Array.from(
+        shape.querySelectorAll(
+            'path, polygon, polyline'
+        )
+    )
+
+    if (elementos.length <= 1) {
+        return
+    }
+
+    const geometrias = elementos
+        .map((elemento) => {
+            try {
+                const bbox = elemento.getBBox()
+
+                return {
+                    elemento,
+                    bbox,
+                    area:
+                        bbox.width *
+                        bbox.height
+                }
+            } catch {
+                return null
+            }
         })
+        .filter(Boolean)
+        .filter((item) => item.area > 0)
+
+    if (geometrias.length <= 1) {
+        return
+    }
+
+    geometrias.sort(
+        (a, b) => b.area - a.area
+    )
+
+    const principal = geometrias[0]
+
+    /*
+     * Las geometrías extremadamente pequeñas frente
+     * al territorio principal se consideran islas.
+     */
+    geometrias
+        .slice(1)
+        .forEach((item) => {
+            if (
+                item.area <
+                principal.area * 0.12
+            ) {
+                item.elemento.style.display =
+                    'none'
+            }
+        })
+}
+
+/* =========================================================
+   MEDIR LOS 32 ESTADOS
+========================================================= */
+
+function medirEstados() {
+    if (!mapaRef.value) {
+        return
+    }
+
+    const medidasValidas = []
+
+    estados.value.forEach((estado) => {
+        if (!estado.svg) {
+            return
+        }
+
+        const capa =
+            mapaRef.value.querySelector(
+                `[data-estado-id="${estado.id}"]`
+            )
+
+        const shape =
+            capa?.querySelector('.estado-shape')
+
+        if (!shape) {
+            return
+        }
+
+        try {
+            const bbox = shape.getBBox()
+
+            if (
+                bbox.width <= 0 ||
+                bbox.height <= 0
+            ) {
+                return
+            }
+
+            /*
+             * sqrt(area) convierte el área a una medida
+             * lineal comparable.
+             *
+             * Funciona mejor que utilizar solamente width,
+             * ya que Veracruz, por ejemplo, es muy largo
+             * pero relativamente estrecho.
+             */
+            const medida =
+                Math.sqrt(
+                    bbox.width * bbox.height
+                )
+
+            estado.bbox = {
+                x: bbox.x,
+                y: bbox.y,
+                width: bbox.width,
+                height: bbox.height
+            }
+
+            estado.medida = medida
+
+            medidasValidas.push(medida)
+        } catch (error) {
+            console.warn(
+                `No fue posible medir ${estado.nombre}`,
+                error
+            )
+        }
+    })
+
+    if (!medidasValidas.length) {
+        return
+    }
+
+    const medidaMinima =
+        Math.min(...medidasValidas)
+
+    const medidaMaxima =
+        Math.max(...medidasValidas)
+
+    estados.value.forEach((estado) => {
+        if (estado.medida === null) {
+            return
+        }
+
+        /*
+         * Estado más pequeño:
+         * normalizado = 0
+         * escala = 1.35
+         *
+         * Estado más grande:
+         * normalizado = 1
+         * escala = 1.05
+         */
+        const normalizado =
+            medidaMaxima === medidaMinima
+                ? 0.5
+                : (
+                    estado.medida -
+                    medidaMinima
+                ) /
+                (
+                    medidaMaxima -
+                    medidaMinima
+                )
+
+        const escala =
+            ESCALA_MAXIMA -
+            normalizado *
+            (
+                ESCALA_MAXIMA -
+                ESCALA_MINIMA
+            )
+
+        estado.escalaHover =
+            limitar(
+                escala,
+                ESCALA_MINIMA,
+                ESCALA_MAXIMA
+            )
     })
 }
 
-function ocultarHover() {
-    if (!hoverLayer.value) return
-
-    hoverLayer.value.replaceChildren()
-}
-
-/* =========================================================
-   TAMAÑO DEL ESTADO
-========================================================= */
-
-function obtenerCajaEstado(
-    estado: SVGPathElement
-): CajaEstado {
-
-    const bbox =
-        estado.getBBox()
-
-    return {
-        x: bbox.x,
-        y: bbox.y,
-        width: bbox.width,
-        height: bbox.height
-    }
-}
-
-/* =========================================================
-   ESCALA PROPORCIONAL
-========================================================= */
-
-function calcularEscalaHover(
-    estado: SVGPathElement
-): number {
-
-    const bbox =
-        obtenerCajaEstado(estado)
-
-    const dimension =
-        Math.max(
-            bbox.width,
-            bbox.height
-        )
-
-    if (dimension <= 0) {
-        return ESCALA_MINIMA
-    }
-
-    /*
-     * Estados grandes:
-     * escala cercana a 1.05
-     *
-     * Estados pequeños:
-     * escala progresivamente mayor.
-     */
-    const escala =
-        1 +
-        CRECIMIENTO_VISUAL /
-        dimension
-
+function limitar(valor, minimo, maximo) {
     return Math.min(
-        ESCALA_MAXIMA,
-        Math.max(
-            ESCALA_MINIMA,
-            escala
-        )
+        Math.max(valor, minimo),
+        maximo
     )
 }
 
 /* =========================================================
-   VIEWBOX DEL PANEL DERECHO
+   INTERACCIÓN
 ========================================================= */
 
-function crearViewBoxPreview(
-    estado: SVGPathElement
-): string {
+function entrarEstado(estado) {
+    hoverId.value = estado.id
+}
 
-    const bbox =
-        obtenerCajaEstado(estado)
+function salirEstado(estado) {
+    if (hoverId.value === estado.id) {
+        hoverId.value = null
+    }
+}
 
+function seleccionarEstado(estado) {
+    emit('seleccionar', {
+        id: estado.id,
+        codigo: estado.codigo,
+        nombre: estado.nombre
+    })
+}
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+/*
+ * Esta función es utilizada por ViewMapa.vue.
+ *
+ * NO hace fetch.
+ *
+ * Clona el SVG que ya está renderizado,
+ * obtiene el getBBox() real del estado y cambia el
+ * viewBox para mostrar solamente la silueta.
+ */
+function getSvgPreview(id) {
+    if (!mapaRef.value) {
+        return ''
+    }
+
+    const capa =
+        mapaRef.value.querySelector(
+            `[data-estado-id="${id}"]`
+        )
+
+    const svg =
+        capa?.querySelector(
+            '.estado-svg-root'
+        )
+
+    const shape =
+        capa?.querySelector(
+            '.estado-shape'
+        )
+
+    if (!svg || !shape) {
+        return ''
+    }
+
+    let bbox
+
+    try {
+        bbox = shape.getBBox()
+    } catch {
+        return ''
+    }
+
+    if (
+        bbox.width <= 0 ||
+        bbox.height <= 0
+    ) {
+        return ''
+    }
+
+    const clone =
+        svg.cloneNode(true)
+
+    /*
+     * Margen alrededor de la silueta.
+     */
     const dimensionMayor =
         Math.max(
             bbox.width,
             bbox.height
         )
 
-    const margen =
-        dimensionMayor *
-        MARGEN_PREVIEW
+    const padding =
+        dimensionMayor * 0.08
 
-    return [
-        bbox.x - margen,
-        bbox.y - margen,
+    const x =
+        bbox.x - padding
 
+    const y =
+        bbox.y - padding
+
+    const width =
         bbox.width +
-        margen * 2,
+        padding * 2
 
+    const height =
         bbox.height +
-        margen * 2
-    ].join(' ')
-}
+        padding * 2
 
-/* =========================================================
-   COLOR COROPLÉTICO
-========================================================= */
+    clone.setAttribute(
+        'viewBox',
+        `${x} ${y} ${width} ${height}`
+    )
 
-function obtenerColor(
-    valorNormalizado: number
-): string {
+    clone.setAttribute(
+        'preserveAspectRatio',
+        'xMidYMid meet'
+    )
 
-    const t =
-        Math.max(
-            0,
-            Math.min(
-                1,
-                valorNormalizado
-            )
+    clone.setAttribute(
+        'width',
+        '100%'
+    )
+
+    clone.setAttribute(
+        'height',
+        '100%'
+    )
+
+    /*
+     * Eliminamos cualquier transformación de hover.
+     */
+    const cloneShape =
+        clone.querySelector(
+            '.estado-shape'
         )
 
-    const r =
-        Math.round(
-            COLOR_CLARO.r +
-            (
-                COLOR_OSCURO.r -
-                COLOR_CLARO.r
-            ) * t
+    if (cloneShape) {
+        cloneShape.style.transform = 'none'
+        cloneShape.style.filter = 'none'
+    }
+
+    /*
+     * El SVG del preview ya no depende del CSS
+     * de MapaMexico.vue.
+     *
+     * Le asignamos el color como estilo inline.
+     */
+    const color =
+        colorEstado(id)
+
+    clone
+        .querySelectorAll(
+            'path, polygon, polyline, rect, circle, ellipse'
         )
+        .forEach((elemento) => {
+            /*
+             * Respetamos los elementos ocultados,
+             * por ejemplo las islas de Colima.
+             */
+            if (
+                elemento.style.display ===
+                'none'
+            ) {
+                return
+            }
 
-    const g =
-        Math.round(
-            COLOR_CLARO.g +
-            (
-                COLOR_OSCURO.g -
-                COLOR_CLARO.g
-            ) * t
-        )
-
-    const b =
-        Math.round(
-            COLOR_CLARO.b +
-            (
-                COLOR_OSCURO.b -
-                COLOR_CLARO.b
-            ) * t
-        )
-
-    return `rgb(${r}, ${g}, ${b})`
-}
-
-/* =========================================================
-   PINTAR MAPA
-========================================================= */
-
-function pintarMapa() {
-    if (!mapaContainer.value) return
-    if (!props.datos.length) return
-
-    const valores =
-        props.datos
-            .map(
-                item =>
-                    Number(item.total)
-            )
-            .filter(
-                valor =>
-                    Number.isFinite(valor)
-            )
-
-    if (!valores.length) return
-
-    const minimo =
-        Math.min(...valores)
-
-    const maximo =
-        Math.max(...valores)
-
-    props.datos.forEach(
-        entidad => {
-
-            const path =
-                mapaContainer.value
-                    ?.querySelector<
-                        SVGPathElement
-                    >(
-                        `[data-entidad-id="${entidad.id_entidad_federativa}"]`
-                    )
-
-            if (!path) return
-
-            const normalizado =
-                maximo === minimo
-                    ? 0.5
-                    : (
-                        entidad.total -
-                        minimo
-                    ) /
-                    (
-                        maximo -
-                        minimo
-                    )
-
-            const color =
-                obtenerColor(
-                    normalizado
-                )
-
-            path.style.setProperty(
+            elemento.style.setProperty(
                 'fill',
                 color,
                 'important'
             )
 
-            path.dataset.total =
-                String(
-                    entidad.total
-                )
+            elemento.style.setProperty(
+                'stroke',
+                '#ffffff',
+                'important'
+            )
 
-            path.dataset.color =
-                color
-        }
+            elemento.style.setProperty(
+                'stroke-width',
+                '1.5',
+                'important'
+            )
+
+            elemento.style.setProperty(
+                'vector-effect',
+                'non-scaling-stroke',
+                'important'
+            )
+        })
+
+    const serializer =
+        new XMLSerializer()
+
+    return serializer.serializeToString(
+        clone
     )
 }
 
-/* =========================================================
-   SELECCIÓN
-========================================================= */
-
-function seleccionarEstado(
-    estado: SVGPathElement
-) {
-    if (!mapaContainer.value) return
-
-    const id =
-        Number(
-            estado.dataset.entidadId
-        )
-
-    const nombre =
-        estado.dataset
-            .entidadNombre ?? ''
-
-    const codigo =
-        estado.id
-
-    const pathD =
-        estado.getAttribute('d') ??
-        ''
-
-    const color =
-        estado.dataset.color ??
-        'rgb(6, 101, 122)'
-
-    const viewBox =
-        crearViewBoxPreview(
-            estado
-        )
-
-    /*
-     * Quitamos selección anterior.
-     */
-    mapaContainer.value
-        .querySelectorAll(
-            '.estado-mexico.activo'
-        )
-        .forEach(
-            elemento => {
-                elemento.classList.remove(
-                    'activo'
-                )
-            }
-        )
-
-    estado.classList.add(
-        'activo'
-    )
-
-    /*
-     * El emit vuelve a funcionar normalmente
-     * porque el path original nunca se mueve.
-     */
-    emit('seleccionar', {
-        id,
-        codigo,
-        nombre,
-        pathD,
-        viewBox,
-        color
-    })
-}
+/*
+ * Exponemos únicamente lo que necesita
+ * ViewMapa.vue.
+ */
+defineExpose({
+    getSvgPreview
+})
 
 /* =========================================================
-   WATCH
+   ASPECT RATIO DEL MAPA
 ========================================================= */
 
-watch(
-    () => props.datos,
-    () => {
-        pintarMapa()
-    },
-    {
-        deep: true
+const estiloMapa = computed(() => {
+    const {
+        width,
+        height
+    } = viewBoxBase.value
+
+    return {
+        aspectRatio: `${width} / ${height}`
     }
-)
+})
 
-onMounted(async () => {
-    await obtenerMapa()
+/* =========================================================
+   INICIALIZACIÓN
+========================================================= */
+
+onMounted(() => {
+    cargarEstados()
 })
 </script>
 
 <template>
     <div class="mapa-mexico">
+        <!-- CARGANDO -->
+        <div v-if="cargando" class="mapa-estado-mensaje">
+            Cargando mapa...
+        </div>
 
-        <div ref="mapaContainer" class="mapa-svg-container" v-html="svgMapa"></div>
+        <!-- ERROR -->
+        <div v-else-if="errorCarga" class="mapa-estado-mensaje mapa-estado-mensaje--error">
+            No fue posible cargar el mapa.
+        </div>
 
+        <!-- MAPA -->
+        <div v-else ref="mapaRef" class="mapa-svg-container" :style="estiloMapa">
+            <div v-for="estado in estados" v-show="estado.svg" :key="estado.codigo" class="estado-capa" :class="{
+                'estado-hover':
+                    hoverId === estado.id,
+
+                'estado-seleccionado':
+                    Number(seleccionadoId) ===
+                    estado.id
+            }" :data-estado-id="estado.id" :style="{
+                '--estado-fill':
+                    colorEstado(estado.id),
+
+                '--hover-scale':
+                    estado.escalaHover
+            }" role="button" :aria-label="`Seleccionar ${estado.nombre}`" @pointerenter="
+                entrarEstado(estado)
+                " @pointerleave="
+                    salirEstado(estado)
+                    " @click="
+                        seleccionarEstado(estado)
+                        ">
+                <div class="estado-svg" v-html="estado.svg" />
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped>
 .mapa-mexico {
     width: 100%;
+    min-width: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.mapa-svg-container {
-    width: 100%;
-    max-width: 1000px;
-}
-
-.mapa-svg-container :deep(svg) {
-    width: 100%;
-    height: auto;
-
-    display: block;
 
     overflow: visible;
 }
 
-/* =========================================
-   ESTADOS ORIGINALES
-========================================= */
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
 
-.mapa-svg-container :deep(#features > path) {
-    opacity: 1 !important;
-    visibility: visible !important;
+.mapa-svg-container {
+    position: relative;
 
-    cursor: pointer;
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+
+    overflow: visible;
 
     /*
-     * El estado original ya NO escala.
-     *
-     * Esto evita el parpadeo.
-     */
-    transition:
-        stroke 0.18s ease,
-        filter 0.18s ease;
+   * Evita seleccionar texto durante interacción.
+   */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-/* =========================================
-   ESTADO SELECCIONADO
-========================================= */
+/* =========================================================
+   CAPAS
+========================================================= */
 
-.mapa-svg-container :deep(#features > path.activo) {
-    stroke: #ffffff !important;
-    stroke-width: 3px !important;
+/*
+ * Los 32 estados ocupan EXACTAMENTE el mismo espacio.
+ *
+ * Como todos conservan el mismo viewBox,
+ * al superponerlos reconstruyen México.
+ */
+.estado-capa {
+    position: absolute;
+    inset: 0;
 
-    filter:
-        drop-shadow(0 3px 3px rgba(0, 0, 0, 0.18));
-}
+    width: 100%;
+    height: 100%;
 
-/* =========================================
-   CAPA SUPERIOR DEL HOVER
-========================================= */
-
-.mapa-svg-container :deep(#hover-layer) {
     pointer-events: none;
+
+    z-index: 1;
 }
 
 /*
- * El clon comienza exactamente
- * en la posición original.
+ * El seleccionado permanece ligeramente
+ * por encima del resto.
  */
-.mapa-svg-container :deep(.estado-hover-clone) {
-    pointer-events: none;
+.estado-capa.estado-seleccionado {
+    z-index: 20;
+}
 
+/*
+ * El hover siempre queda hasta arriba.
+ */
+.estado-capa.estado-hover {
+    z-index: 100;
+}
+
+.estado-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================================
+   SVG ROOT
+========================================================= */
+
+/*
+ * v-html no recibe el atributo scoped de Vue.
+ * Por eso todos los estilos internos utilizan :deep().
+ */
+.estado-capa :deep(.estado-svg-root) {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   SILUETA
+========================================================= */
+
+.estado-capa :deep(.estado-shape) {
+    /*
+   * MUY IMPORTANTE:
+   *
+   * transform-box: fill-box hace que el origen de escala
+   * se calcule usando el bounding box DEL ESTADO,
+   * no el viewBox completo de México.
+   */
     transform-box: fill-box;
     transform-origin: center;
 
-    transform: scale(1);
-
-    stroke: #ffffff !important;
-    stroke-width: 2.5px !important;
-
     transition:
-        transform 0.18s ease,
-        filter 0.18s ease;
+        transform 180ms ease,
+        filter 180ms ease;
+
+    pointer-events: visiblePainted;
+
+    cursor: pointer;
 }
 
 /*
- * Después pasa a la escala proporcional.
+ * Los elementos internos también son interactivos.
  */
-.mapa-svg-container :deep(.estado-hover-clone.visible) {
+.estado-capa :deep(.estado-shape *) {
+    pointer-events: visiblePainted;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+.estado-capa :deep(.estado-shape path),
+.estado-capa :deep(.estado-shape polygon),
+.estado-capa :deep(.estado-shape polyline),
+.estado-capa :deep(.estado-shape rect),
+.estado-capa :deep(.estado-shape circle),
+.estado-capa :deep(.estado-shape ellipse) {
+    fill: var(--estado-fill) !important;
+
+    stroke: #ffffff !important;
+    stroke-width: 1.1;
+
+    /*
+   * El borde no se vuelve grueso al escalar.
+   */
+    vector-effect: non-scaling-stroke;
+
+    transition:
+        stroke-width 180ms ease,
+        filter 180ms ease;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.estado-capa.estado-hover :deep(.estado-shape) {
     transform:
-        scale(var(--hover-scale,
-                1.05));
+        scale(var(--hover-scale));
 
     filter:
-        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.18)) drop-shadow(0 7px 6px rgba(0, 0, 0, 0.12));
+        drop-shadow(0 4px 5px rgba(0, 0, 0, 0.22));
+}
+
+.estado-capa.estado-hover :deep(.estado-shape path),
+.estado-capa.estado-hover :deep(.estado-shape polygon),
+.estado-capa.estado-hover :deep(.estado-shape polyline),
+.estado-capa.estado-hover :deep(.estado-shape rect),
+.estado-capa.estado-hover :deep(.estado-shape circle),
+.estado-capa.estado-hover :deep(.estado-shape ellipse) {
+    /*
+   * El fill NO cambia.
+   */
+    fill: var(--estado-fill) !important;
+
+    stroke: #164e63 !important;
+    stroke-width: 2;
+}
+
+/* =========================================================
+   SELECCIONADO
+========================================================= */
+
+.estado-capa.estado-seleccionado :deep(.estado-shape) {
+    /*
+   * No dejamos permanentemente escalado el estado.
+   */
+    filter:
+        drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18));
+}
+
+.estado-capa.estado-seleccionado :deep(.estado-shape path),
+.estado-capa.estado-seleccionado :deep(.estado-shape polygon),
+.estado-capa.estado-seleccionado :deep(.estado-shape polyline),
+.estado-capa.estado-seleccionado :deep(.estado-shape rect),
+.estado-capa.estado-seleccionado :deep(.estado-shape circle),
+.estado-capa.estado-seleccionado :deep(.estado-shape ellipse) {
+    stroke: #164e63 !important;
+    stroke-width: 2;
+}
+
+/*
+ * Si además está seleccionado Y tiene hover,
+ * gana el comportamiento de hover.
+ */
+.estado-capa.estado-seleccionado.estado-hover :deep(.estado-shape) {
+    transform:
+        scale(var(--hover-scale));
+
+    filter:
+        drop-shadow(0 5px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.mapa-estado-mensaje {
+    width: 100%;
+
+    padding: 3rem 1rem;
+
+    text-align: center;
+}
+
+.mapa-estado-mensaje--error {
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+    .mapa-mexico {
+        width: 100%;
+    }
+
+    .mapa-svg-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /*
+   * Evita cualquier desbordamiento horizontal
+   * provocado por el contenedor.
+   */
+    .mapa-mexico {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .estado-capa :deep(.estado-shape) {
+        transition: none;
+    }
+
+    .estado-capa :deep(.estado-shape path),
+    .estado-capa :deep(.estado-shape polygon),
+    .estado-capa :deep(.estado-shape polyline),
+    .estado-capa :deep(.estado-shape rect),
+    .estado-capa :deep(.estado-shape circle),
+    .estado-capa :deep(.estado-shape ellipse) {
+        transition: none;
+    }
 }
 </style>
