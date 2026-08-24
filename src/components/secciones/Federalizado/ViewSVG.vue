@@ -45,13 +45,17 @@ async function obtenerDatos() {
     }
 }
 
-function seleccionarEstado(estadoMapa: EstadoMapa) {
-    const estado = datos.value.find(
-        item => item.id_entidad_federativa === estadoMapa.id
-    )
+function seleccionarEstado(
+    estadoMapa: EstadoMapa
+) {
+    const estado =
+        datos.value.find(
+            item =>
+                item.id_entidad_federativa ===
+                estadoMapa.id
+        )
 
     if (!estado) {
-        console.warn(`No se encontraron datos para ${estadoMapa.nombre}`)
         return
     }
 
@@ -105,11 +109,12 @@ onMounted(async () => {
                     <div class="estado-preview-card">
 
                         <div class="estado-preview-wrapper">
-                            <svg class="estado-preview-svg" :viewBox="estadoSeleccionado.viewBox"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <<svg class="estado-preview-svg" :viewBox="estadoSeleccionado.viewBox"
+                                preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
                                 <path :d="estadoSeleccionado.pathD" :fill="estadoSeleccionado.color" stroke="#ffffff"
                                     stroke-width="1.5" />
-                            </svg>
+                                </svg>
                         </div>
                         <p v-if="estadoSeleccionado.total !== null">
                             <strong>Total:</strong>
@@ -195,12 +200,16 @@ onMounted(async () => {
 
 .mascota-wrapper,
 .estado-preview-wrapper {
-    width: 100%;
-    max-width: 260px;
-    min-height: 220px;
+    width: 220px;
+    height: 180px;
+
+    max-width: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    overflow: hidden;
 }
 
 .estado-preview-card {
@@ -213,10 +222,11 @@ onMounted(async () => {
 
 .estado-preview-svg {
     width: 100%;
-    max-width: 240px;
-    height: auto;
+    height: 100%;
+
     display: block;
-    overflow: visible;
+
+    overflow: hidden;
 }
 
 .estado-nombre {
