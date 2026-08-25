@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import FiltrosMapa from './FiltrosMapa.vue'
+import FiltrosMapa, { RamoInterface } from './FiltrosMapa.vue'
 import Mapa, { Proyecto } from './Mapa.vue'
 import { fetchPublicJson } from '@/components/utils/utils.js'
+import FiltroRamos from './FiltroRamos.vue'
 const datos = ref<Proyecto[] | null>(null)
 const datosFiltrados = ref<Proyecto[]>([])
 
@@ -36,6 +37,15 @@ function filtrarDatos(filtros: Filtros) {
   datosFiltrados.value = filtrado ?? []
 }
 
+function filtrarRamos(ramos:number[]) {
+  console.log(ramos);
+  
+  const filtrado = datos.value?.filter((proyecto) => {
+    return ramos.includes(proyecto.ID_RAMO)
+  })
+  datosFiltrados.value = filtrado ?? []
+}
+
 export interface Filtros {
   ramo: number | null
   estado: number | null
@@ -48,8 +58,9 @@ export interface Filtros {
     <div
       class="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-start gap-8"
     >
-      <FiltrosMapa :filtrar="filtrarDatos" />
-      <div class="flex-1 w-full h-full rounded-xl shadow-xl overflow-hidden ">
+      <FiltrosMapa :filtrar="filtrarDatos" class="hidden" />
+      <div class="flex-1 w-full h-full rounded-xl shadow-xl overflow-hidden relative ">
+        <FiltroRamos @filtrar="filtrarRamos"/>
         <Mapa :proyectos="datosFiltrados" />
       </div>
     </div>

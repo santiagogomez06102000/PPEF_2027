@@ -48,7 +48,7 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <header class="header sticky top-0 z-2000 bg-[#073441] shadow-sm">
+  <header class="header sticky top-0 z-2000 bg-[#142e3f] shadow-sm">
     <div class="header-container">
       <div class="logo">
         <a href="/">

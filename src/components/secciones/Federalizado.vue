@@ -12,29 +12,7 @@
         <p class="texto-medio">{{ datos.post_monto }}</p>
 
         <!-- ═════════ BLOQUES DINÁMICOS ═════════ -->
-        <div class="grid-bloques">
-            <div v-for="(bloque, index) in datos.bloques" :key="index" class="bloque-item"
-                :class="{ 'bloque-mascota': bloque.tipo === 'mascota' }">
-                <!-- Contenido condicional -->
-                <div class="header-bloque">
-                    <template v-if="bloque.tipo === 'mascota'">
-                        <div class="mascota-container">
-                            <Mascota :mascota="7" ancho="8rem" alto="8rem" />
-                        </div>
-                    </template>
-                    <template v-else>
-                        <p class="porcentaje">{{ bloque.porcentaje }}</p>
-                    </template>
-                </div>
-
-                <p class="descripcion" v-html="bloque.descripcion"></p>
-
-                <div class="monto-wrapper">
-                    <p class="monto-bloque">{{ bloque.monto }}</p>
-                    <p class="unidad-bloque">{{ bloque.unidad }}</p>
-                </div>
-            </div>
-        </div>
+        <BarraInversion :bloques="datos.bloques" />
 
         <!-- ═════════ FOOTER ═════════ -->
         <p class="footer-text">{{ datos.footer }}</p>
@@ -51,6 +29,8 @@ import Mascota from '@/components/utils/Mascota.vue'
 import mapa from '@/components/secciones/Federalizado/Mapa.vue'
 import ViewSVG from './Federalizado/ViewSVG.vue';
 
+import ViewMapa from './Federalizado/ViewMapa.vue';
+import BarraInversion from './Inversion/BarraInversion.vue';
 </script>
 
 <style scoped>

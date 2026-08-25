@@ -2,7 +2,7 @@
   <section class="fechas" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <div class="acordeon">
+    <div class="acordeon mx-0 lg:mx-[15dvw]">
       <div v-for="(item, idx) in datos.items" :key="item.id" class="item" :class="{ abierto: activo === idx }">
         <!-- Cabecera -->
         <div class="indicador">

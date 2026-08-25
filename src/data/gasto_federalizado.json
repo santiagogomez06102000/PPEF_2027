@@ -7,31 +7,37 @@
   "bloques": [
     {
       "tipo": "estandar",
-      "porcentaje": "77%",
-      "descripcion": "en inversión física",
-      "monto": "$976,863.5",
-      "unidad": "millones de pesos"
+      "porcentaje": 52,
+      "descripcion": "Participaciones federales",
+      "monto": "$1,456.045.9",
+      "unidad": "millones de pesos",
+      "color": "#5154bb"
     },
     {
       "tipo": "estandar",
-      "porcentaje": "22%",
-      "descripcion": "en inversión financiera",
-      "monto": "$274,860.0",
-      "unidad": "millones de pesos"
+      "porcentaje": 40,
+      "descripcion": "Participaciones federales",
+      "monto": "$1,200,075.7",
+      "unidad": "millones de pesos",
+      "color":"#00a1cd"
     },
     {
       "tipo": "estandar",
-      "porcentaje": "22%",
+      "porcentaje": 5,
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
-      "unidad": "millones de pesos"
+      "unidad": "millones de pesos",
+      "color":"#afe4d0",
+      "ocultar":true
     },
     {
       "tipo": "estandar",
-      "porcentaje": "22%",
+      "porcentaje": 3,
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
-      "unidad": "millones de pesos"
+      "unidad": "millones de pesos",
+      "color":"#68e1ca",
+      "ocultar":true
     }
   ],
   "footer": "La mayoría del dinero que el gobierno federal propone para estados y municipios (92%) proviene de dos fuentes principales: participaciones y aportaciones. Estas dos formas de apoyo son clave para que los gobiernos locales puedan manejar su presupuesto y ofrecer servicios públicos. A continuación, se presenta cuánto se propone para cada estado."

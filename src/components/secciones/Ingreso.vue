@@ -12,51 +12,182 @@
     <p class="descripcion">{{ datos.descripcion }}</p>
 
     <div class="acordeon">
-      <div v-for="(item, idx) in datos.items" :key="item.id" class="item" :class="{ abierto: activo === idx }">
-        <!-- Cabecera -->
-        <button class="cabecera" @click="toggle(idx)">
-          <div class="icono">
-            <img src="@/assets/img_circle.png" alt="icono" />
-          </div>
 
-          <div class="info">
-            <span class="item-titulo">{{ item.titulo }}</span>
-            <span class="item-monto">{{ item.monto }}</span>
-          </div>
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="columna">
+        <div
+          v-for="item in columnaIzquierda"
+          :key="item.id"
+          class="item"
+          :class="{ abierto: activo === item.index }"
+        >
+          <button
+            class="cabecera"
+            @click="toggle(item.index)"
+          >
+            <div class="icono">
+              <img src="@/assets/img_circle.png" alt="icono" />
+            </div>
 
-          <span class="flecha" aria-hidden="true">
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </span>
-        </button>
+            <div class="info">
+              <span class="item-titulo">
+                {{ item.titulo }}
+              </span>
 
-        <!-- Contenido desplegable -->
-        <Transition name="desplegar">
-          <div v-show="activo === idx" class="panel">
-            <ul>
-              <li v-for="(linea, i) in item.contenido" :key="i" v-html="linea">
-                
-              </li>
-            </ul>
-          </div>
-        </Transition>
+              <span class="item-monto">
+                {{ item.monto }}
+              </span>
+            </div>
+
+            <span class="flecha" aria-hidden="true">
+              <svg
+                width="14"
+                height="8"
+                viewBox="0 0 14 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L7 7L13 1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <Transition name="desplegar">
+            <div
+              v-show="activo === item.index"
+              class="panel"
+            >
+              <ul>
+                <li
+                  v-for="(linea, i) in item.contenido"
+                  :key="i"
+                  v-html="linea"
+                />
+              </ul>
+            </div>
+          </Transition>
+        </div>
       </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="columna">
+        <div
+          v-for="item in columnaDerecha"
+          :key="item.id"
+          class="item"
+          :class="{ abierto: activo === item.index }"
+        >
+          <button
+            class="cabecera"
+            @click="toggle(item.index)"
+          >
+            <div class="icono">
+              <img src="@/assets/img_circle.png" alt="icono" />
+            </div>
+
+            <div class="info">
+              <span class="item-titulo">
+                {{ item.titulo }}
+              </span>
+
+              <span class="item-monto">
+                {{ item.monto }}
+              </span>
+            </div>
+
+            <span class="flecha" aria-hidden="true">
+              <svg
+                width="14"
+                height="8"
+                viewBox="0 0 14 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L7 7L13 1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <Transition name="desplegar">
+            <div
+              v-show="activo === item.index"
+              class="panel"
+            >
+              <ul>
+                <li
+                  v-for="(linea, i) in item.contenido"
+                  :key="i"
+                  v-html="linea"
+                />
+              </ul>
+            </div>
+          </Transition>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { onMounted } from 'vue';
-import { fetchPublicJson } from '../utils/utils';
-const datos=ref({});
-onMounted(async ()=>{
-  datos.value = await fetchPublicJson("/secciones/ingreso/ingreso.json");
+import { ref, computed, onMounted } from 'vue'
+import { fetchPublicJson } from '../utils/utils'
+
+const datos = ref({
+  items: []
 })
 
 const activo = ref(0)
+
+onMounted(async () => {
+  datos.value = await fetchPublicJson(
+    '/secciones/ingreso/ingreso.json'
+  )
+})
+
+/*
+ * Agregamos el índice original a cada elemento.
+ * Esto permite que "activo" siga funcionando
+ * aunque los elementos estén separados en dos columnas.
+ */
+const itemsConIndice = computed(() => {
+  return (datos.value.items ?? []).map((item, index) => ({
+    ...item,
+    index
+  }))
+})
+
+/*
+ * Elementos pares:
+ * 0, 2, 4, 6...
+ */
+const columnaIzquierda = computed(() => {
+  return itemsConIndice.value.filter(
+    item => item.index % 2 === 0
+  )
+})
+
+/*
+ * Elementos impares:
+ * 1, 3, 5, 7...
+ */
+const columnaDerecha = computed(() => {
+  return itemsConIndice.value.filter(
+    item => item.index % 2 !== 0
+  )
+})
 
 const toggle = (idx) => {
   activo.value = activo.value === idx ? null : idx
@@ -70,6 +201,7 @@ const toggle = (idx) => {
 }
 
 /* ── Título ── */
+
 .titulo {
   text-align: center;
   color: #00b4d8;
@@ -79,6 +211,7 @@ const toggle = (idx) => {
 }
 
 /* ── Intro ── */
+
 .intro {
   text-align: center;
   line-height: 1.6;
@@ -87,6 +220,7 @@ const toggle = (idx) => {
 }
 
 /* ── Monto ── */
+
 .monto-wrapper {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -115,6 +249,7 @@ const toggle = (idx) => {
 }
 
 /* ── Descripción ── */
+
 .descripcion {
   text-align: center;
   line-height: 1.6;
@@ -122,11 +257,27 @@ const toggle = (idx) => {
 }
 
 /* ── Acordeón ── */
+
 .acordeon {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+/*
+ * Cada columna es independiente.
+ * Si un accordion crece, solamente crece
+ * esta columna.
+ */
+.columna {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1rem;
+  min-width: 0;
 }
+
+/* ── Item ── */
 
 .item {
   background-color: #f5f5f0;
@@ -140,6 +291,7 @@ const toggle = (idx) => {
 }
 
 /* ── Cabecera ── */
+
 .cabecera {
   width: 100%;
   display: flex;
@@ -174,6 +326,7 @@ const toggle = (idx) => {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+  min-width: 0;
 }
 
 .item-titulo {
@@ -205,6 +358,7 @@ const toggle = (idx) => {
 }
 
 /* ── Panel desplegable ── */
+
 .panel {
   padding: 0 1.2rem 1.2rem calc(40px + 2.2rem);
 }
@@ -224,6 +378,7 @@ const toggle = (idx) => {
 }
 
 /* ── Transición ── */
+
 .desplegar-enter-active,
 .desplegar-leave-active {
   transition: all 0.25s ease;
@@ -236,9 +391,8 @@ const toggle = (idx) => {
   max-height: 0;
 }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════ */
+/* ── Responsive ── */
+
 @media (max-width: 1024px) {
   .titulo {
     margin-top: 0;
@@ -246,6 +400,13 @@ const toggle = (idx) => {
 }
 
 @media (max-width: 640px) {
+  /*
+   * En móvil vuelve a una sola columna.
+   */
+  .acordeon {
+    grid-template-columns: 1fr;
+  }
+
   .cabecera {
     padding: 0.9rem 1rem;
     gap: 0.75rem;

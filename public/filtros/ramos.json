@@ -1,6 +1,6 @@
 [
   {
-    "ramo": "Comisión Federal de Electricidad",
+    "ramo": "CFE",
     "id_ramo": 53
   },
   {
@@ -12,39 +12,39 @@
     "id_ramo": 18
   },
   {
-    "ramo": "Entidades no Sectorizadas",
-    "id_ramo": 47
-  },
-  {
-    "ramo": "Hacienda y Crédito Público",
+    "ramo": "Hacienda",
     "id_ramo": 6
   },
   {
-    "ramo": "Infraestructura, Comunicaciones y Transportes",
-    "id_ramo": 9
-  },
-  {
-    "ramo": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado",
-    "id_ramo": 51
-  },
-  {
-    "ramo": "Instituto Mexicano del Seguro Social",
+    "ramo": "IMSS",
     "id_ramo": 50
+  },
+  {
+    "ramo": "ISSSTE",
+    "id_ramo": 51
   },
   {
     "ramo": "Marina",
     "id_ramo": 13
   },
   {
-    "ramo": "Medio Ambiente y Recursos Naturales",
-    "id_ramo": 16
+    "ramo": "No sectorizadas",
+    "id_ramo": 47
   },
   {
-    "ramo": "Petróleos Mexicanos",
+    "ramo": "PEMEX",
     "id_ramo": 52
   },
   {
     "ramo": "Salud",
     "id_ramo": 12
+  },
+  {
+    "ramo": "SEMARNAT",
+    "id_ramo": 16
+  },
+  {
+    "ramo": "SICT",
+    "id_ramo": 9
   }
 ]

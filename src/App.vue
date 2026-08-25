@@ -2,7 +2,6 @@
 /* import { RouterLink, RouterView } from 'vue-router' */
 import Footer from './components/footer/Footer.vue'
 import NavPlantilla from './components/navbar/NavPlantilla.vue'
-import Precriterios from './components/PPEF.vue'
 /* import './css/cubo.css' */
 
 /* SECCIONES */
@@ -20,6 +19,7 @@ import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import DatosAbiertos from './components/secciones/DatosAbiertos.vue'
+import PPEF from './components/PPEF.vue'
 
 const activeHash = ref(window.location.hash)
 
@@ -67,8 +67,8 @@ onUnmounted(() => {
   <NavPlantilla :active="activeHash" />
 
   <div id="secciones" class="precriterios bg-white grid grid-template-">
-    <div id="inicio" class="seccion" style="background: rgb(6, 101, 122); border-radius: 0 0 70px 70px">
-      <Precriterios />
+    <div id="inicio" class="seccion" style="background: #06657a; border-radius: 0 0 70px 70px">
+      <PPEF />
     </div>
     <div class="seccion">
       <Informacion />
@@ -83,7 +83,7 @@ onUnmounted(() => {
     <div id="ingreso" class="seccion">
       <Ingreso />
     </div>
-    <div id="gasto" class="seccion" style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
+    <div id="gasto" class="seccion" style="background: #e0f5f5; border-radius: 70px 70px 70px 70px">
       <Gasto />
     </div>
     <div class="seccion">

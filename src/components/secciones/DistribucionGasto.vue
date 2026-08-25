@@ -1,5 +1,5 @@
 <template>
- <section class="distribucion" v-if="datos">
+  <section class="distribucion" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
     <p class="descripcion">{{ datos.descripcion }}</p>
 
@@ -7,8 +7,8 @@
       <!-- Botones de clasificación -->
       <div class="botones">
         <button v-for="(cat, idx) in datos.clasificaciones" :key="cat.id" class="boton-clasificacion"
-          :class="{ activo: activo === idx }" @click="()=>{
-            activo=idx
+          :class="{ activo: activo === idx }" @click="() => {
+            activo = idx
             detalleActivo = null
           }">
           <span class="pregunta">{{ cat.pregunta }}</span>
@@ -16,13 +16,20 @@
         </button>
       </div>
 
-      <!-- Gráfica -->
-      <div class="panel-grafica w-full lg:w-auto">
-        <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
+      <div class="flex gap-0 w-full  flex-wrap">
+        <!-- Gráfica -->
+        <div class="panel-grafica w-auto overflow-hidden " :class="{
+          'max-w-full':!detalleActivo,
+          'max-w-full lg:max-w-[40%]':detalleActivo
+        }">
+          <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
+        </div>
+        <div class="w-full lg:w-[60%] "  v-if="detalleActivo">
+          <Detalle :detalle="detalleActivo" />
+        </div>
       </div>
-      
+
     </div>
-    <Detalle v-if="detalleActivo" :detalle="detalleActivo"/>
 
   </section>
 </template>
@@ -32,28 +39,28 @@ import { onMounted, ref } from 'vue'
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
 import { fetchPublicJson } from '../utils/utils';
 import Detalle from './DistribucionGasto/Detalle.vue';
-const datos=ref();
-onMounted(async ()=>{
+const datos = ref();
+onMounted(async () => {
   datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
 })
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
-const detalleActivo=ref(null);
-function handleClickBarra(idx){
+const detalleActivo = ref(null);
+function handleClickBarra(idx) {
   const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
-  if(seleccionado.id === detalleActivo.value?.id ){
+  if (seleccionado.id === detalleActivo.value?.id) {
     detalleActivo.value = null
   }
-  else{
+  else {
     detalleActivo.value = seleccionado;
   }
-  
+
 }
 </script>
 
 <style scoped>
 .distribucion {
 
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 /* ── Título ── */
@@ -68,16 +75,17 @@ function handleClickBarra(idx){
 
 /* ── Descripción ── */
 .descripcion {
-    text-align: center;
-    margin: 0 auto 3rem;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #333;
+  text-align: center;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
 }
 
 /* ── Layout principal ── */
 .contenido {
   display: flex;
+  flex-direction: column;
   gap: 3rem;
   align-items: flex-start;
 }
@@ -85,7 +93,8 @@ function handleClickBarra(idx){
 /* ── Botones (columna izquierda) ── */
 .botones {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
   gap: 1rem;
   min-width: 260px;
   flex-shrink: 0;

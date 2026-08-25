@@ -1,6 +1,7 @@
 import { ref, Ref } from "vue";
 import L from "leaflet";
 import { GeoJsonObject } from "geojson";
+import { Entidad_federativaInterface, RamoInterface } from "./FiltrosMapa.vue";
 export let mapa: L.Map | null = null;
 let mapaDetalle: L.Map | null = null;
 export function initMap(mapaContainer: Ref<HTMLElement | null>): L.Map | null {
@@ -263,3 +264,21 @@ export const clasificacionesColores = [
   "#ff5600",
   "#8bcc14",
 ];
+export const ramoColores = new Map([
+  [53, "#99cc66"],
+  [10, "#9E9E9E"],
+  [18, "#19bcb9"],
+  [47, "#f8a24b"],
+  [6, "#835da8"],
+  [9, "#e883af"],
+  [51, "#611232"],
+  [50, "#006253"],
+  [13, "#386ab3"],
+  [16, "#19bcb9"],
+  [52, "#e2282b"],
+  [12, "#66ccff"],
+]);
+
+
+export const entidadesFederativas:Entidad_federativaInterface[] = [];
+export const ramos:RamoInterface[] = [];
