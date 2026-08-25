@@ -16,6 +16,7 @@
 
         <h3 class="subtitulo">{{ datos.subtitulo }}</h3>
 
+
         <div class="grid-botones">
             <template v-for="(btn, index) in datos.botones" :key="btn.id">
 
@@ -54,6 +55,8 @@
             </template>
         </div>
 
+
+        <BurbujasODS />
         <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
     </section>
 </template>
@@ -63,6 +66,7 @@ import datos from '@/data/Agenda/agenda.json'
 import ODS from '@/data/Agenda/ODS.json'
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
+import BurbujasODS from './Agenda/BurbujasODS.vue'
 
 const baseUrl = import.meta.env.BASE_URL
 const modal = useModal()
@@ -89,7 +93,7 @@ function abrirModal(data) {
     margin-bottom: 2.5rem;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -0.02em;
-    color:#0a5a45 ;
+    color: #0a5a45;
 }
 
 .subtitulo {
@@ -99,7 +103,7 @@ function abrirModal(data) {
     margin: 0 auto 3.5rem;
     font-family: 'Noto Sans Black', sans-serif;
     letter-spacing: -0.02em;
-    color:#2bc0a3 ;
+    color: #2bc0a3;
 }
 
 .bloque {
@@ -183,6 +187,7 @@ function abrirModal(data) {
     position: relative;
     overflow: hidden;
 }
+
 @media (max-width:1023px) {
     .btn-eje {
         grid-column: 1;
