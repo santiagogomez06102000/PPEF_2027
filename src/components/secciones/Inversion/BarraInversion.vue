@@ -60,7 +60,7 @@ interface Bloque {
         cursor-pointer
         group
     " :class="{ 'bloque-color': bloque.tipo === 'mascota' }">
-                <span v-if="!bloque.ocultar" class="font-bold text-4xl flex flex-col">
+                <span v-if="!bloque.ocultar" class="font-bold text-2xl lg:text-4xl flex flex-col">
                     {{ bloque.monto }}
 
                     <span class="text-sm font-normal">
@@ -112,7 +112,7 @@ interface Bloque {
                     lg:gap-4
                     lg:px-0
                 ">
-                <span class="text-[#0a5a45] text-[3rem]">
+                <span class="text-[#0a5a45] text-4xl lg:text-[3rem]">
                     {{ bloque.porcentaje }}%
                 </span>
 
