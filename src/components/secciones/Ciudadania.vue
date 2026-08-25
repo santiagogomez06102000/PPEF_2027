@@ -60,12 +60,14 @@ onMounted(async () => {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     column-gap: 1rem;
 
+    width: 100%;
+    max-width: 1400px;
+
     margin: 0 auto;
     padding: 3.5rem 2.5rem 5rem;
 
     border-radius: 70px;
 }
-
 
 /* =========================================================
    CONTENIDO
@@ -79,19 +81,15 @@ onMounted(async () => {
 
 
 /* =========================================================
-   FONDO
+   TEXTO
    ========================================================= */
 
-#paquete_economico {
-    /*  background: linear-gradient(90deg,
-            rgb(170 236 248) 0%,
-            rgba(122, 211, 227, 1) 100%); */
-
-    color: #2c4072;
+#paquete_economico h2 {
+    color: #00a1cd;
 }
 
 #paquete_economico p {
-    color: #2c4072;
+    color: #000000;
 }
 
 
@@ -125,25 +123,18 @@ onMounted(async () => {
 
 /* =========================================================
    CARD
-
-   ESTRUCTURA:
-
-   ┌───────────────────┐
-   │      IMAGEN       │
-   ├───────────────────┤
-   │ TÍTULO │  TEXTO   │
-   └───────────────────┘
    ========================================================= */
 
 .subcards {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     width: 100%;
 
     background-color: #ffffff;
 
-    border-radius: 12px;
+    border-radius: 20px;
 
     overflow: hidden;
 
@@ -177,10 +168,13 @@ onMounted(async () => {
    ========================================================= */
 
 .subcards figure {
-    width: 100%;
-    height: 180px;
+    width: 110px;
+    height: 110px;
+
+    flex: 0 0 110px;
 
     margin: 0;
+    padding: 12px;
 
     display: flex;
     align-items: center;
@@ -210,12 +204,11 @@ onMounted(async () => {
 .subcards-text {
     display: flex;
     flex-direction: column;
-
     align-items: flex-start;
 
-    gap: 1.5rem;
+    gap: 0.5rem;
 
-    padding: 1.5rem;
+    padding: 1rem 1.25rem;
 
     flex: 1;
 
@@ -228,11 +221,9 @@ onMounted(async () => {
    ========================================================= */
 
 .p-h4 {
-    flex: 0 0 40%;
-
     margin: 0;
 
-    color: rgb(56, 78, 158) !important;
+    color: rgb(0, 0, 0);
 
     font-family: 'Noto Sans', sans-serif;
 
@@ -305,32 +296,28 @@ onMounted(async () => {
 
     .cards {
         grid-template-columns: 1fr;
-
         gap: 1.5rem;
     }
 
+    .subcards figure {
+        width: 90px;
+        height: 90px;
+        flex-basis: 90px;
 
-    /* En móvil título y descripción también pueden
-       mantenerse lado a lado */
+        padding: 10px;
+    }
+
     .subcards-text {
-        gap: 1rem;
-
-        padding: 1.25rem;
+        gap: 0.4rem;
+        padding: 0.85rem 1rem;
     }
 
     .p-h4 {
-        flex-basis: 40%;
-
         font-size: 18px;
     }
 
     .descripcion {
         font-size: 14px;
     }
-
-    .subcards figure {
-        height: 150px;
-    }
-
 }
 </style>
