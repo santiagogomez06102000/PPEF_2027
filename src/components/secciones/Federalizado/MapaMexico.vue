@@ -3,7 +3,9 @@ import {
     ref,
     computed,
     onMounted,
-    nextTick
+    onBeforeUnmount,
+    nextTick,
+    watch
 } from 'vue'
 
 // Ajusta únicamente esta ruta a tu utils.ts actual.
@@ -265,6 +267,63 @@ const CONFIG_ENTIDADES = [
 ]
 
 /* =========================================================
+   PROYECCIONES DE ESTADOS PEQUEÑOS
+========================================================= */
+
+/*
+ * x / y son porcentajes dentro del contenedor responsive.
+ *
+ * Pacífico:
+ * - Aguascalientes
+ * - Colima
+ *
+ * Golfo:
+ * - Ciudad de México
+ * - Morelos
+ * - Tlaxcala
+ *
+ * Si después quieres mover alguno, solamente modificas
+ * x / y aquí.
+ */
+const CONFIG_PROYECCIONES = [
+    {
+        id: 1,
+        nombre: 'Aguascalientes',
+        zona: 'pacifico',
+        x: 2,
+        y: 27
+    },
+    {
+        id: 6,
+        nombre: 'Colima',
+        zona: 'pacifico',
+        x: 2,
+        y: 61
+    },
+    {
+        id: 9,
+        nombre: 'Ciudad de México',
+        zona: 'golfo',
+        x: 62,
+        y: 24
+    },
+    {
+        id: 17,
+        nombre: 'Morelos',
+        zona: 'golfo',
+        x: 79,
+        y: 39
+    },
+    {
+        id: 29,
+        nombre: 'Tlaxcala',
+        zona: 'golfo',
+        x: 79,
+        y: 75
+    }
+]
+
+/* =========================================================
    ESTADO
 ========================================================= */
 
@@ -277,12 +336,95 @@ const errorCarga = ref(false)
 
 const hoverId = ref(null)
 
+/*
+ * Contenedor exterior.
+ *
+ * Lo usamos para:
+ * - tooltip
+ * - líneas de proyección
+ * - posiciones responsive
+ */
+const mapaWrapperRef = ref(null)
+
+/*
+ * Tooltip
+ */
+const tooltip = ref({
+    visible: false,
+    nombre: '',
+    x: 0,
+    y: 0
+})
+
+/*
+ * Responsive
+ */
+const esResponsive = ref(false)
+
+/*
+ * SVG ampliado de los estados pequeños.
+ */
+const svgsProyeccion = ref({})
+
+/*
+ * Líneas que conectan:
+ *
+ * estado real ─────────► proyección
+ */
+const lineasProyeccion = ref([])
+
+/*
+ * Referencias DOM de las proyecciones.
+ */
+const refsProyeccion = new Map()
+
+const haySeleccion = computed(() => {
+    return (
+        props.seleccionadoId !== null &&
+        props.seleccionadoId !== undefined
+    )
+})
+
 const viewBoxBase = ref({
     x: 0,
     y: 0,
     width: 1000,
     height: 630
 })
+
+/* =========================================================
+   ESTADO NO SELECCIONADO
+========================================================= */
+
+function mezclarConBlanco(color, intensidad = 0.55) {
+    const valores = color.match(/\d+/g)
+
+    if (!valores || valores.length < 3) {
+        return color
+    }
+
+    const [r, g, b] = valores.map(Number)
+
+    const mezclarCanal = (canal) => {
+        return Math.round(
+            canal +
+            (255 - canal) * intensidad
+        )
+    }
+
+    return `rgb(
+    ${mezclarCanal(r)},
+    ${mezclarCanal(g)},
+    ${mezclarCanal(b)}
+  )`
+}
+
+function colorEstadoAtenuado(id) {
+    return mezclarConBlanco(
+        colorEstado(id),
+        0.58
+    )
+}
 
 /* =========================================================
    TOTAL POR ENTIDAD
@@ -1065,17 +1207,56 @@ function limitar(valor, minimo, maximo) {
 }
 
 /* =========================================================
-   INTERACCIÓN
+   TOOLTIP
 ========================================================= */
 
-function entrarEstado(estado) {
+function entrarEstado(estado, event) {
     hoverId.value = estado.id
+
+    tooltip.value.visible = true
+    tooltip.value.nombre = estado.nombre
+
+    moverTooltip(event)
+}
+
+function moverTooltip(event) {
+    if (!mapaWrapperRef.value) {
+        return
+    }
+
+    const rect =
+        mapaWrapperRef.value.getBoundingClientRect()
+
+    let x =
+        event.clientX -
+        rect.left
+
+    let y =
+        event.clientY -
+        rect.top
+
+    /*
+     * Evitamos que el tooltip se salga
+     * horizontalmente del mapa.
+     */
+    x = Math.max(
+        50,
+        Math.min(
+            x,
+            rect.width - 50
+        )
+    )
+
+    tooltip.value.x = x
+    tooltip.value.y = y
 }
 
 function salirEstado(estado) {
     if (hoverId.value === estado.id) {
         hoverId.value = null
     }
+
+    tooltip.value.visible = false
 }
 
 function seleccionarEstado(estado) {
@@ -1282,12 +1463,225 @@ const estiloMapa = computed(() => {
 })
 
 /* =========================================================
+   PROYECCIONES RESPONSIVE
+========================================================= */
+
+function registrarRefProyeccion(id, elemento) {
+    if (elemento) {
+        refsProyeccion.set(
+            Number(id),
+            elemento
+        )
+    } else {
+        refsProyeccion.delete(
+            Number(id)
+        )
+    }
+}
+
+function actualizarSvgsProyeccion() {
+    const nuevos = {}
+
+    CONFIG_PROYECCIONES.forEach(
+        (proyeccion) => {
+
+            nuevos[proyeccion.id] =
+                getSvgPreview(
+                    proyeccion.id
+                )
+        }
+    )
+
+    svgsProyeccion.value =
+        nuevos
+}
+
+function seleccionarProyeccion(proyeccion) {
+    const estado =
+        estados.value.find(
+            (item) =>
+                item.id ===
+                proyeccion.id
+        )
+
+    if (!estado) {
+        return
+    }
+
+    seleccionarEstado(estado)
+}
+
+/* =========================================================
+   LÍNEAS DE PROYECCIÓN
+========================================================= */
+
+function actualizarLineasProyeccion() {
+    if (
+        !esResponsive.value ||
+        !mapaWrapperRef.value ||
+        !mapaRef.value
+    ) {
+        lineasProyeccion.value = []
+        return
+    }
+
+    const wrapperRect =
+        mapaWrapperRef.value
+            .getBoundingClientRect()
+
+    const nuevasLineas = []
+
+    CONFIG_PROYECCIONES.forEach(
+        (proyeccion) => {
+
+            /*
+             * Estado real dentro del mapa.
+             */
+            const capa =
+                mapaRef.value.querySelector(
+                    `[data-estado-id="${proyeccion.id}"]`
+                )
+
+            const shape =
+                capa?.querySelector(
+                    '.estado-shape'
+                )
+
+            /*
+             * Representación ampliada.
+             */
+            const destino =
+                refsProyeccion.get(
+                    proyeccion.id
+                )
+
+            if (
+                !shape ||
+                !destino
+            ) {
+                return
+            }
+
+            const origenRect =
+                shape.getBoundingClientRect()
+
+            const destinoRect =
+                destino.getBoundingClientRect()
+
+            /*
+             * Centro del estado real.
+             */
+            const x1 =
+                origenRect.left -
+                wrapperRect.left +
+                origenRect.width / 2
+
+            const y1 =
+                origenRect.top -
+                wrapperRect.top +
+                origenRect.height / 2
+
+            /*
+             * Centro de la proyección.
+             */
+            const x2 =
+                destinoRect.left -
+                wrapperRect.left +
+                destinoRect.width / 2
+
+            const y2 =
+                destinoRect.top -
+                wrapperRect.top +
+                destinoRect.height / 2
+
+            nuevasLineas.push({
+                id: proyeccion.id,
+
+                x1,
+                y1,
+
+                x2,
+                y2
+            })
+        }
+    )
+
+    lineasProyeccion.value =
+        nuevasLineas
+}
+
+function actualizarModoResponsive() {
+    esResponsive.value =
+        window.matchMedia(
+            '(max-width: 700px)'
+        ).matches
+}
+
+function actualizarResponsive() {
+    actualizarModoResponsive()
+
+    nextTick(() => {
+        if (!esResponsive.value) {
+            lineasProyeccion.value = []
+            return
+        }
+
+        actualizarSvgsProyeccion()
+
+        requestAnimationFrame(() => {
+            actualizarLineasProyeccion()
+        })
+    })
+}
+
+/* =========================================================
    INICIALIZACIÓN
 ========================================================= */
 
-onMounted(() => {
-    cargarEstados()
+onMounted(async () => {
+    actualizarModoResponsive()
+
+    window.addEventListener(
+        'resize',
+        actualizarResponsive
+    )
+
+    await cargarEstados()
+
+    await nextTick()
+
+    actualizarSvgsProyeccion()
+
+    requestAnimationFrame(() => {
+        actualizarLineasProyeccion()
+    })
 })
+
+onBeforeUnmount(() => {
+    window.removeEventListener(
+        'resize',
+        actualizarResponsive
+    )
+})
+
+watch(
+    () => props.datos,
+    async () => {
+        await nextTick()
+
+        actualizarSvgsProyeccion()
+
+        if (esResponsive.value) {
+            requestAnimationFrame(() => {
+                actualizarLineasProyeccion()
+            })
+        }
+    },
+    {
+        deep: true
+    }
+)
+
 </script>
 
 <template>
@@ -1303,28 +1697,98 @@ onMounted(() => {
         </div>
 
         <!-- MAPA -->
-        <div v-else ref="mapaRef" class="mapa-svg-container" :style="estiloMapa">
-            <div v-for="estado in estados" v-show="estado.svg" :key="estado.codigo" class="estado-capa" :class="{
-                'estado-hover':
-                    hoverId === estado.id,
 
-                'estado-seleccionado':
-                    Number(seleccionadoId) ===
-                    estado.id
-            }" :data-estado-id="estado.id" :style="{
-                '--estado-fill':
-                    colorEstado(estado.id),
+        <div v-else ref="mapaWrapperRef" class="mapa-responsive-wrapper">
+            <!-- =============================================
+     LÍNEAS DE PROYECCIÓN
+============================================== -->
 
-                '--hover-scale':
-                    estado.escalaHover
-            }" role="button" :aria-label="`Seleccionar ${estado.nombre}`" @pointerenter="
-                entrarEstado(estado)
-                " @pointerleave="
-                    salirEstado(estado)
-                    " @click="
-                        seleccionarEstado(estado)
-                        ">
-                <div class="estado-svg" v-html="estado.svg" />
+            <svg v-if="esResponsive" class="proyecciones-lineas" aria-hidden="true">
+                <g v-for="linea in lineasProyeccion" :key="`linea-${linea.id}`">
+                    <line :x1="linea.x1" :y1="linea.y1" :x2="linea.x2" :y2="linea.y2" />
+
+                    <circle :cx="linea.x1" :cy="linea.y1" r="2.5" />
+                </g>
+            </svg>
+            <!-- =============================================
+     PROYECCIONES RESPONSIVE
+============================================== -->
+
+            <template v-if="esResponsive">
+                <button v-for="proyeccion in CONFIG_PROYECCIONES" :key="`proyeccion-${proyeccion.id}`" :ref="(elemento) =>
+                    registrarRefProyeccion(
+                        proyeccion.id,
+                        elemento
+                    )
+                    " type="button" class="estado-proyeccion" :class="{
+                        'estado-proyeccion--seleccionado':
+                            Number(seleccionadoId) ===
+                            proyeccion.id,
+
+                        'estado-proyeccion--atenuado':
+                            haySeleccion &&
+                            Number(seleccionadoId) !==
+                            proyeccion.id
+                    }" :style="{
+                        left: `${proyeccion.x}%`,
+                        top: `${proyeccion.y}%`
+                    }" :aria-label="`Seleccionar ${proyeccion.nombre}`
+                        " @click="
+                            seleccionarProyeccion(
+                                proyeccion
+                            )
+                            ">
+                    <div class="estado-proyeccion__svg">
+                        <div v-if="
+                            svgsProyeccion[
+                            proyeccion.id
+                            ]
+                        " v-html="svgsProyeccion[
+                            proyeccion.id
+                        ]
+                            " />
+                    </div>
+
+                    <span class="estado-proyeccion__nombre">
+                        {{ proyeccion.nombre }}
+                    </span>
+                </button>
+            </template>
+            <div ref="mapaRef" class="mapa-svg-container" :style="estiloMapa">
+                <div v-for="estado in estados" v-show="estado.svg" :key="estado.codigo" class="estado-capa" :class="{
+                    'estado-hover':
+                        hoverId === estado.id,
+                    'estado-seleccionado':
+                        Number(seleccionadoId) === estado.id,
+                    'estado-atenuado':
+                        haySeleccion &&
+                        Number(seleccionadoId) !== estado.id
+                }" :data-estado-id="estado.id" :style="{
+                    '--estado-fill':
+                        colorEstado(estado.id),
+                    '--estado-fill-atenuado':
+                        colorEstadoAtenuado(estado.id),
+                    '--hover-scale':
+                        estado.escalaHover
+                }" role="button" :aria-label="`Seleccionar ${estado.nombre}`" @pointerenter="
+                    entrarEstado(estado, $event)
+                    " @pointermove="
+                        moverTooltip($event)
+                        " @pointerleave="
+                            salirEstado(estado)
+                            " @click="
+                                seleccionarEstado(estado)
+                                ">
+                    <div class="estado-svg" v-html="estado.svg" />
+
+                </div>
+                <!-- TOOLTIP -->
+                <div v-show="tooltip.visible" class="estado-tooltip" :style="{
+                    left: `${tooltip.x}px`,
+                    top: `${tooltip.y}px`
+                }">
+                    {{ tooltip.nombre }}
+                </div>
             </div>
         </div>
     </div>
@@ -1429,18 +1893,11 @@ onMounted(() => {
 ========================================================= */
 
 .estado-capa :deep(.estado-shape) {
-    /*
-   * MUY IMPORTANTE:
-   *
-   * transform-box: fill-box hace que el origen de escala
-   * se calcule usando el bounding box DEL ESTADO,
-   * no el viewBox completo de México.
-   */
     transform-box: fill-box;
     transform-origin: center;
 
     transition:
-        transform 180ms ease,
+        transform 160ms ease-out,
         filter 180ms ease;
 
     pointer-events: visiblePainted;
@@ -1478,6 +1935,8 @@ onMounted(() => {
     vector-effect: non-scaling-stroke;
 
     transition:
+        fill 450ms ease,
+        stroke 300ms ease,
         stroke-width 180ms ease,
         filter 180ms ease;
 }
@@ -1492,6 +1951,40 @@ onMounted(() => {
 
     filter:
         drop-shadow(0 4px 5px rgba(0, 0, 0, 0.22));
+}
+
+.estado-capa:active :deep(.estado-shape) {
+    transform: scale(0.985);
+
+    transition:
+        transform 70ms ease-out,
+        filter 70ms ease-out;
+}
+
+/*
+ * Si el estado está en hover y lo pulsamos,
+ * NO queremos pasar, por ejemplo, de:
+ *
+ * scale(1.30) -> scale(0.985)
+ *
+ * porque daría un salto enorme.
+ *
+ * En cambio hacemos:
+ *
+ * 1.30 * 0.985 = 1.2805
+ *
+ * Es decir, solamente se hunde ligeramente.
+ */
+.estado-capa.estado-hover:active :deep(.estado-shape) {
+    transform:
+        scale(calc(var(--hover-scale) * 0.985));
+
+    filter:
+        drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18));
+
+    transition:
+        transform 70ms ease-out,
+        filter 70ms ease-out;
 }
 
 .estado-capa.estado-hover :deep(.estado-shape path),
@@ -1544,6 +2037,90 @@ onMounted(() => {
 }
 
 /* =========================================================
+   ESTADOS ATENUADOS
+========================================================= */
+
+.estado-capa.estado-atenuado :deep(.estado-shape path),
+.estado-capa.estado-atenuado :deep(.estado-shape polygon),
+.estado-capa.estado-atenuado :deep(.estado-shape polyline),
+.estado-capa.estado-atenuado :deep(.estado-shape rect),
+.estado-capa.estado-atenuado :deep(.estado-shape circle),
+.estado-capa.estado-atenuado :deep(.estado-shape ellipse) {
+
+    fill:
+        var(--estado-fill-atenuado) !important;
+
+    stroke:
+        rgba(255, 255, 255, 0.8) !important;
+}
+
+/*
+ * Aunque hagamos hover sobre otro estado,
+ * mientras exista una selección ese estado
+ * continúa atenuado.
+ */
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape path),
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape polygon),
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape polyline),
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape rect),
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape circle),
+.estado-capa.estado-atenuado.estado-hover :deep(.estado-shape ellipse) {
+
+    fill:
+        var(--estado-fill-atenuado) !important;
+
+    stroke:
+        #164e63 !important;
+}
+
+/* =========================================================
+   PULSACIÓN DE ESTADO YA SELECCIONADO
+========================================================= */
+
+/*
+ * Estado seleccionado + pulsación.
+ *
+ * Se reduce apenas para dar sensación de presión.
+ * Aplica principalmente en dispositivos donde no hay hover.
+ */
+.estado-capa.estado-seleccionado:active :deep(.estado-shape) {
+
+    transform: scale(0.985);
+
+    filter:
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14));
+
+    transition:
+        transform 70ms ease-out,
+        filter 70ms ease-out;
+}
+
+
+/*
+ * Estado seleccionado + hover + pulsación.
+ *
+ * Conservamos la escala de hover y solamente
+ * la reducimos ligeramente durante el click.
+ *
+ * Ejemplo:
+ *
+ * hover = 1.20
+ * pulsado = 1.20 * 0.985
+ */
+.estado-capa.estado-seleccionado.estado-hover:active :deep(.estado-shape) {
+
+    transform:
+        scale(calc(var(--hover-scale) * 0.985));
+
+    filter:
+        drop-shadow(0 2px 3px rgba(0, 0, 0, 0.16));
+
+    transition:
+        transform 70ms ease-out,
+        filter 70ms ease-out;
+}
+
+/* =========================================================
    MENSAJES
 ========================================================= */
 
@@ -1557,6 +2134,208 @@ onMounted(() => {
 
 .mapa-estado-mensaje--error {
     font-size: 0.95rem;
+}
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+.estado-tooltip {
+    position: absolute;
+
+    z-index: 1000;
+
+    padding:
+        0.45rem 0.7rem;
+
+    background:
+        rgba(20, 30, 35, 0.92);
+
+    color: #ffffff;
+
+    border-radius: 6px;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, calc(-100% - 12px));
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+@media (hover: none) {
+    .estado-tooltip {
+        display: none;
+    }
+}
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.mapa-responsive-wrapper {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   LÍNEAS
+========================================================= */
+
+.proyecciones-lineas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 150;
+
+    overflow: visible;
+
+    pointer-events: none;
+}
+
+.proyecciones-lineas line {
+    stroke: #52727a;
+    stroke-width: 1.4;
+
+    vector-effect:
+        non-scaling-stroke;
+}
+
+.proyecciones-lineas circle {
+    fill: #52727a;
+}
+
+
+/* =========================================================
+   PROYECCIÓN
+========================================================= */
+
+.estado-proyeccion {
+    position: absolute;
+
+    z-index: 200;
+
+    width: 68px;
+    min-height: 68px;
+
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3px;
+
+    border: 1px solid rgba(22, 78, 99, 0.35);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.14);
+
+    cursor: pointer;
+
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        opacity 160ms ease;
+}
+
+.estado-proyeccion:active {
+    transform:
+        scale(0.96);
+}
+
+
+/* =========================================================
+   SVG DE LA PROYECCIÓN
+========================================================= */
+
+.estado-proyeccion__svg {
+    width: 52px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estado-proyeccion__svg>div {
+    width: 100%;
+    height: 100%;
+}
+
+.estado-proyeccion__svg :deep(svg) {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.estado-proyeccion__nombre {
+    max-width: 100%;
+
+    font-size: 0.62rem;
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PROYECCIÓN SELECCIONADA
+========================================================= */
+
+.estado-proyeccion--seleccionado {
+    border:
+        2px solid #164e63;
+
+    box-shadow:
+        0 4px 10px rgba(22, 78, 99, 0.28);
+}
+
+
+/* =========================================================
+   PROYECCIÓN ATENUADA
+========================================================= */
+
+.estado-proyeccion--atenuado {
+    opacity: 0.55;
 }
 
 /* =========================================================
@@ -1581,6 +2360,75 @@ onMounted(() => {
    */
     .mapa-mexico {
         max-width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    /*
+   * Le damos espacio vertical a las proyecciones.
+   */
+    .mapa-responsive-wrapper {
+        min-height: 390px;
+
+        padding:
+            1rem 0;
+    }
+
+    /*
+   * México ocupa menos ancho para dejar dos
+   * columnas visuales a sus costados.
+   */
+    .mapa-svg-container {
+        width: 74%;
+
+        margin:
+            0 auto;
+    }
+
+    .estado-proyeccion {
+        width: 75px;
+        min-height: 75px;
+
+        padding: 4px;
+    }
+
+    .estado-proyeccion__svg {
+        width: 48px;
+        height: 38px;
+    }
+
+    .estado-proyeccion__nombre {
+        font-size: 0.58rem;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .mapa-responsive-wrapper {
+        min-height: 370px;
+    }
+
+    .mapa-svg-container {
+        width: 70%;
+    }
+
+    .estado-proyeccion {
+        width: 57px;
+        min-height: 58px;
+    }
+
+    .estado-proyeccion__svg {
+        width: 43px;
+        height: 35px;
+    }
+
+    .estado-proyeccion__nombre {
+        font-size: 0.54rem;
     }
 }
 

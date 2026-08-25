@@ -49,14 +49,24 @@ onMounted(() => {
 ========================================================= */
 
 function seleccionarEstado(estado) {
-    estadoSeleccionado.value = estado
+    /*
+     * Si hacemos click sobre el estado que ya
+     * está seleccionado, lo deseleccionamos.
+     */
+    if (
+        estadoSeleccionado.value?.id === estado.id
+    ) {
+        estadoSeleccionado.value = null
+        svgSeleccionado.value = ''
+
+        return
+    }
 
     /*
-     * El SVG NO se vuelve a descargar.
-     *
-     * MapaMexico ya tiene los 32 SVG en memoria.
-     * Solamente solicitamos una versión preparada para preview.
+     * Si es otro estado, lo seleccionamos normalmente.
      */
+    estadoSeleccionado.value = estado
+
     svgSeleccionado.value =
         mapaMexicoRef.value?.getSvgPreview(estado.id) || ''
 }
