@@ -4,7 +4,7 @@ import { fetchPublicJson } from '../utils/utils';
 import { baseUrl } from './Inversion/mapController';
 
 const cards = ref(null);
-onMounted(async ()=>{
+onMounted(async () => {
     cards.value = await fetchPublicJson("/secciones/ciudadaniaInformada/cardsCI.json");
 })
 </script>
@@ -15,25 +15,25 @@ onMounted(async ()=>{
 
             <h2>Ciudadanía informada</h2>
 
-            <div class="introduccion">
-                <p>
-                    Participa, supervisa y ejerce tu derecho a saber: infórmate sobre el presupuesto y resultados,
-                    da seguimiento a obras y acciones de gobierno. Usa y comparte datos abiertos. Tu participación
-                    fortalece la transparencia y mejora los servicios públicos.
-                </p>
-            </div>
+            <p class="introduccion">
+                Participa, supervisa y ejerce tu derecho a saber: infórmate sobre el presupuesto y resultados,
+                da seguimiento a obras y acciones de gobierno. Usa y comparte datos abiertos. Tu participación
+                fortalece la transparencia y mejora los servicios
+            </p>
 
             <div class="cards" v-if="cards">
-                <a class="subcards hover:scale-105 transition duration-300 ease"  v-for="card in cards" :key="card.url" :href="card.url" target="_blank">
+                <a class="subcards hover:scale-105 transition duration-300 ease" v-for="card in cards" :key="card.url"
+                    :href="card.url" target="_blank">
                     <figure>
                         <img :src="baseUrl + card.img" alt="Cambiar" />
                     </figure>
 
-                    <p class="p-h4" v-html="card.titulo">
-                    </p>
-
-                    <p v-html="card.descripcion">
-                    </p>
+                    <div class="subcards-text">
+                        <p class="p-h4" v-html="card.titulo">
+                        </p>
+                        <p v-html="card.descripcion">
+                        </p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -55,8 +55,9 @@ onMounted(async ()=>{
     padding: 3.5rem 2.5rem 5rem;
     border-radius: 70px;
 }
+
 @media (max-width: 640px) {
-    .paquete-economico{
+    .paquete-economico {
         padding: 2.5rem 1.5rem 4rem;
     }
 }
@@ -100,6 +101,7 @@ onMounted(async ()=>{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    text-align: center;
 }
 
 
@@ -112,36 +114,20 @@ onMounted(async ()=>{
    ========================================================= */
 
 .cards {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
     gap: 2rem;
-    grid-auto-rows: min-content;
-
     padding: 36px 0;
 }
 
 
 /* =========================================================
    SUBCARDS
-   Equivalente a:
-   grid
-   grid-rows-subgrid
-   row-span-3
-   rounded-xl / rounded-2xl
-   shadow-xl
-   overflow-hidden
    ========================================================= */
 
 .subcards {
-    display: grid;
-
-    /*
-     * En CSS Grid nativo no todos los navegadores/estructuras
-     * necesitan row-span-3 de Tailwind.
-     * Se mantienen tres filas para alinear el contenido.
-     */
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+    display: flex;
+    flex-direction: row;
 
     padding: 20px 25px;
 
@@ -191,6 +177,10 @@ onMounted(async ()=>{
     object-fit: contain;
 }
 
+.subcards-text {
+    display: flex;
+    flex-direction: column;
+}
 
 /* =========================================================
    TÍTULOS DE LAS CARDS

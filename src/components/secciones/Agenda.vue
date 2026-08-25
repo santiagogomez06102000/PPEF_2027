@@ -16,11 +16,11 @@
 
         <h3 class="subtitulo">{{ datos.subtitulo }}</h3>
 
-
+        <!-- 
         <div class="grid-botones">
             <template v-for="(btn, index) in datos.botones" :key="btn.id">
 
-                <!-- Botón normal: abre modal -->
+                Botón normal: abre modal
                 <button v-if="btn.tipo !== 'descarga'" class="btn-eje" @click="abrirModal(ODS[index])">
                     <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
 
@@ -36,7 +36,7 @@
                     </div>
                 </button>
 
-                <!-- Botón de descarga: NO abre modal -->
+                 Botón de descarga: NO abre modal
                 <a v-else class="btn-eje" :href="`${baseUrl}${btn.link}`" :download="btn.archivo">
                     <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
 
@@ -53,8 +53,8 @@
                 </a>
 
             </template>
-        </div>
-
+</div>
+-->
 
         <BurbujasODS :botones="datos.botones" @seleccionar="abrirModalODS" />
 
