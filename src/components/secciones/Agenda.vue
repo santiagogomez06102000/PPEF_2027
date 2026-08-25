@@ -56,23 +56,44 @@
         </div>
 
 
-        <BurbujasODS />
+        <BurbujasODS :botones="datos.botones" @seleccionar="abrirModalODS" />
+
         <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
+
     </section>
 </template>
 
 <script setup>
 import datos from '@/data/Agenda/agenda.json'
 import ODS from '@/data/Agenda/ODS.json'
+
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
+
 import BurbujasODS from './Agenda/BurbujasODS.vue'
 
-const baseUrl = import.meta.env.BASE_URL
 const modal = useModal()
 
-function abrirModal(data) {
-    modal.open(data)
+
+// =============================================
+// ABRIR MODAL DEL ODS SELECCIONADO
+// =============================================
+
+function abrirModalODS(burbuja) {
+
+    const contenidoODS = ODS.find(
+        ods => String(ods.id) === String(burbuja.id)
+    )
+
+    if (!contenidoODS) {
+        console.warn(
+            `No se encontró información para el ODS ${burbuja.id}`
+        )
+
+        return
+    }
+
+    modal.open(contenidoODS)
 }
 
 </script>

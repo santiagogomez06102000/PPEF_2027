@@ -1,31 +1,36 @@
 <template>
-    <section class="ods">
-        <h2 class="ods__titulo">
-            {{ subtitulo }}
-        </h2>
 
-        <div ref="contenedor" class="ods__contenedor">
-            <button v-for="burbuja in burbujas" :key="burbuja.id" class="ods__burbuja" :style="estiloBurbuja(burbuja)"
-                @click="seleccionarBurbuja(burbuja)">
-                <div class="ods__burbuja-contenido">
+    <div ref="contenedor" class="ods__contenedor">
 
-                    <span class="ods__cantidad">
-                        {{ burbuja.cumplidas }}
-                    </span>
+        <button v-for="burbuja in burbujas" :key="burbuja.id" class="ods__burbuja" :style="estiloBurbuja(burbuja)"
+            type="button" @click="seleccionarBurbuja(burbuja)">
 
-                    <span class="ods__texto">
-                        {{ burbuja.texto }}
-                    </span>
+            <div class="ods__burbuja-contenido">
 
-                    <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono">
+                <!-- Cantidad de metas cumplidas -->
+                <span class="ods__cantidad">
+                    {{ burbuja.cumplidas }}
+                </span>
 
-                </div>
-            </button>
-        </div>
-    </section>
+                <!-- Nombre del ODS -->
+                <span class="ods__texto">
+                    {{ burbuja.texto }}
+                </span>
+
+                <!-- Imagen -->
+                <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono" />
+
+            </div>
+
+        </button>
+
+    </div>
+
 </template>
 
+
 <script setup>
+
 import {
     ref,
     reactive,
@@ -41,25 +46,46 @@ import {
     forceY
 } from 'd3-force'
 
+
+// =============================================
+// PROPS
+// =============================================
+
+const props = defineProps({
+
+    botones: {
+        type: Array,
+        default: () => []
+    }
+
+})
+
+
+// =============================================
+// EMITS
+// =============================================
+
 const emit = defineEmits([
     'seleccionar'
 ])
 
+
+// =============================================
+// REFERENCIAS
+// =============================================
+
 const contenedor = ref(null)
-
-const subtitulo = ref('')
-
-const burbujas = reactive([])
 
 let simulation = null
 let resizeObserver = null
 
 
-// ======================================================
-// COLORES DE LOS 17 ODS
-// ======================================================
+// =============================================
+// COLORES ODS
+// =============================================
 
 const coloresODS = {
+
     1: '#E5243B',
     2: '#DDA63A',
     3: '#4C9F38',
@@ -77,150 +103,180 @@ const coloresODS = {
     15: '#56C02B',
     16: '#00689D',
     17: '#19486A'
+
 }
 
 
-// ======================================================
-// CARGAR JSON
-// ======================================================
+// =============================================
+// CREAR BURBUJAS
+// =============================================
 
-const cargarAgenda = async () => {
-    try {
+/*
+    IMPORTANTE:
 
-        const response = await fetch(
-            `${import.meta.env.BASE_URL}ODS/agenda.json`
+    Aquí eliminamos el ID 18.
+
+    Por lo tanto solamente existirán
+    burbujas del ODS 1 al 17.
+*/
+
+const burbujas = reactive(
+
+    props.botones
+
+        .filter(
+            item => String(item.id) !== '18'
         )
 
-        if (!response.ok) {
-            throw new Error('No fue posible cargar agenda.json')
-        }
+        .map(item => ({
 
-        const data = await response.json()
+            ...item,
 
-        subtitulo.value = data.subtitulo
+            metas:
+                Number(item.metas),
 
-        const botones = data.botones || []
+            cumplidas:
+                Number(item.cumplidas),
 
-        botones.forEach(item => {
+            color:
+                coloresODS[Number(item.id)]
+                || '#666666',
 
-            burbujas.push({
-                ...item,
+            x: 0,
 
-                metas: Number(item.metas),
-                cumplidas: Number(item.cumplidas),
+            y: 0,
 
-                color:
-                    coloresODS[Number(item.id)] ||
-                    '#666666',
+            radio: 0,
 
-                x: 0,
-                y: 0,
+            diametro: 0
 
-                radio: 0,
-                diametro: 0
-            })
+        }))
 
-        })
+)
 
-        await nextTick()
 
-        crearDistribucion()
+// =============================================
+// CALCULAR TAMAÑO
+// =============================================
 
-    } catch (error) {
+function calcularTamanos(ancho) {
 
-        console.error(
-            'Error cargando agenda:',
-            error
-        )
-
+    if (!burbujas.length) {
+        return
     }
-}
 
-
-// ======================================================
-// CALCULAR TAMAÑO DE CADA BURBUJA
-// ======================================================
-
-const calcularTamanos = (ancho) => {
-
-    if (!burbujas.length) return
 
     const valores = burbujas.map(
         item => item.cumplidas
     )
 
-    const minimo = Math.min(...valores)
-    const maximo = Math.max(...valores)
+
+    const minimo =
+        Math.min(...valores)
+
+    const maximo =
+        Math.max(...valores)
+
 
     /*
-     * Escala general según tamaño de pantalla.
-     *
-     * Escritorio:
-     * 70px - 155px
-     *
-     * Pantallas pequeñas:
-     * se reducen proporcionalmente.
-     */
+        La escala reduce las burbujas
+        en pantallas pequeñas.
+    */
 
     const escalaPantalla = Math.max(
         0.60,
-        Math.min(1, ancho / 900)
+        Math.min(
+            1,
+            ancho / 900
+        )
     )
 
+
     const diametroMinimo =
-        70 * escalaPantalla
+        90 * escalaPantalla
 
     const diametroMaximo =
-        155 * escalaPantalla
+        200 * escalaPantalla
 
 
     burbujas.forEach(burbuja => {
 
         let porcentaje = 0
 
+
         if (maximo !== minimo) {
 
-            /*
-             * sqrt hace que la diferencia visual
-             * entre burbujas no sea exagerada.
-             */
-
             porcentaje =
+
                 (
-                    Math.sqrt(burbuja.cumplidas) -
-                    Math.sqrt(minimo)
+                    Math.sqrt(
+                        burbuja.cumplidas
+                    )
+
+                    -
+
+                    Math.sqrt(
+                        minimo
+                    )
                 )
+
                 /
+
                 (
-                    Math.sqrt(maximo) -
-                    Math.sqrt(minimo)
+                    Math.sqrt(
+                        maximo
+                    )
+
+                    -
+
+                    Math.sqrt(
+                        minimo
+                    )
                 )
 
         }
 
+
         burbuja.diametro =
-            diametroMinimo +
-            porcentaje *
+
+            diametroMinimo
+
+            +
+
+            porcentaje
+
+            *
+
             (
-                diametroMaximo -
+                diametroMaximo
+                -
                 diametroMinimo
             )
+
 
         burbuja.radio =
             burbuja.diametro / 2
 
     })
+
 }
 
 
-// ======================================================
+// =============================================
 // CREAR DISTRIBUCIÓN
-// ======================================================
+// =============================================
 
-const crearDistribucion = () => {
+function crearDistribucion() {
 
-    if (!contenedor.value) return
-    if (!burbujas.length) return
+    if (!contenedor.value) {
+        return
+    }
+
+
+    if (!burbujas.length) {
+        return
+    }
+
 
     const ancho =
         contenedor.value.clientWidth
@@ -228,167 +284,236 @@ const crearDistribucion = () => {
     const alto =
         contenedor.value.clientHeight
 
-    if (!ancho || !alto) return
 
+    if (!ancho || !alto) {
+        return
+    }
 
-    // --------------------------------------------
-    // 1. Calculamos tamaños
-    // --------------------------------------------
 
     calcularTamanos(ancho)
 
 
-    const centroX = ancho / 2
-    const centroY = alto / 2
+    const centroX =
+        ancho / 2
+
+    const centroY =
+        alto / 2
 
 
-    // --------------------------------------------
-    // 2. Liberamos posiciones anteriores
-    // --------------------------------------------
+    // =========================================
+    // POSICIONES INICIALES
+    // =========================================
 
     burbujas.forEach(burbuja => {
 
         burbuja.fx = null
         burbuja.fy = null
 
-        /*
-         * Empezamos cerca del centro,
-         * pero con una pequeña variación.
-         */
 
         burbuja.x =
-            centroX +
-            (Math.random() - 0.5) * ancho * 0.4
+
+            centroX
+
+            +
+
+            (Math.random() - 0.5)
+
+            *
+
+            ancho
+
+            *
+
+            0.4
+
 
         burbuja.y =
-            centroY +
-            (Math.random() - 0.5) * alto * 0.4
+
+            centroY
+
+            +
+
+            (Math.random() - 0.5)
+
+            *
+
+            alto
+
+            *
+
+            0.4
+
     })
 
 
-    // --------------------------------------------
-    // 3. Encontramos la burbuja más grande
-    // --------------------------------------------
+    // =========================================
+    // BURBUJA MÁS GRANDE
+    // =========================================
 
     const burbujaPrincipal =
+
         [...burbujas]
+
             .sort(
                 (a, b) =>
-                    b.cumplidas - a.cumplidas
+                    b.cumplidas
+                    -
+                    a.cumplidas
             )[0]
 
 
     /*
-     * La burbuja con más metas cumplidas
-     * permanece en el centro.
-     */
+        La que tenga más metas cumplidas
+        permanece en el centro.
+    */
 
     if (burbujaPrincipal) {
 
-        burbujaPrincipal.x = centroX
-        burbujaPrincipal.y = centroY
+        burbujaPrincipal.x =
+            centroX
 
-        burbujaPrincipal.fx = centroX
-        burbujaPrincipal.fy = centroY
+        burbujaPrincipal.y =
+            centroY
+
+        burbujaPrincipal.fx =
+            centroX
+
+        burbujaPrincipal.fy =
+            centroY
+
     }
 
 
-    // --------------------------------------------
-    // 4. Detenemos simulación anterior
-    // --------------------------------------------
+    // =========================================
+    // DETENER SIMULACIÓN ANTERIOR
+    // =========================================
 
     if (simulation) {
         simulation.stop()
     }
 
 
-    // --------------------------------------------
-    // 5. Simulación
-    // --------------------------------------------
+    // =========================================
+    // D3 FORCE
+    // =========================================
 
-    simulation = forceSimulation(burbujas)
+    simulation = forceSimulation(
+        burbujas
+    )
 
-        /*
-         * Todas las burbujas intentan acercarse
-         * horizontalmente al centro.
-         */
+
+        // Atracción horizontal
 
         .force(
+
             'x',
-            forceX(centroX)
+
+            forceX(
+                centroX
+            )
                 .strength(0.055)
+
         )
 
-        /*
-         * Todas intentan acercarse
-         * verticalmente al centro.
-         */
+
+        // Atracción vertical
 
         .force(
+
             'y',
-            forceY(centroY)
+
+            forceY(
+                centroY
+            )
                 .strength(0.055)
+
         )
 
-        /*
-         * Evita que las burbujas se encimen.
-         */
+
+        // Evitar que las burbujas se encimen
 
         .force(
+
             'collision',
 
             forceCollide()
+
                 .radius(
                     burbuja =>
                         burbuja.radio + 7
                 )
+
                 .strength(1)
+
                 .iterations(4)
+
         )
+
 
         .alpha(1)
 
         .alphaDecay(0.025)
 
-        .on('tick', () => {
 
-            /*
-             * Evitamos que las burbujas
-             * salgan del contenedor.
-             */
+        .on(
+            'tick',
+            () => {
 
-            burbujas.forEach(burbuja => {
+                burbujas.forEach(
+                    burbuja => {
 
-                const margen =
-                    burbuja.radio + 4
+                        const margen =
+                            burbuja.radio + 4
 
-                burbuja.x = Math.max(
-                    margen,
-                    Math.min(
-                        ancho - margen,
-                        burbuja.x
-                    )
+
+                        /*
+                            Evita que salgan
+                            del contenedor.
+                        */
+
+                        burbuja.x = Math.max(
+
+                            margen,
+
+                            Math.min(
+
+                                ancho - margen,
+
+                                burbuja.x
+
+                            )
+
+                        )
+
+
+                        burbuja.y = Math.max(
+
+                            margen,
+
+                            Math.min(
+
+                                alto - margen,
+
+                                burbuja.y
+
+                            )
+
+                        )
+
+                    }
                 )
 
-                burbuja.y = Math.max(
-                    margen,
-                    Math.min(
-                        alto - margen,
-                        burbuja.y
-                    )
-                )
+            }
+        )
 
-            })
-
-        })
 }
 
 
-// ======================================================
-// ESTILO DE BURBUJA
-// ======================================================
+// =============================================
+// ESTILOS DINÁMICOS
+// =============================================
 
-const estiloBurbuja = (burbuja) => {
+function estiloBurbuja(burbuja) {
 
     return {
 
@@ -401,37 +526,50 @@ const estiloBurbuja = (burbuja) => {
         backgroundColor:
             burbuja.color,
 
-        transform:
-            `
-        translate(
-          ${burbuja.x - burbuja.radio}px,
-          ${burbuja.y - burbuja.radio}px
-        )
-      `
+        transform: `
+            translate(
+                ${burbuja.x - burbuja.radio}px,
+                ${burbuja.y - burbuja.radio}px
+            )
+        `
+
     }
+
 }
 
 
-// ======================================================
+// =============================================
 // IMÁGENES
-// ======================================================
+// =============================================
 
-const getImagen = (ruta) => {
+function getImagen(ruta) {
 
-    if (!ruta) return ''
+    if (!ruta) {
+        return ''
+    }
+
 
     return (
-        import.meta.env.BASE_URL +
-        ruta.replace(/^\/+/, '')
+
+        import.meta.env.BASE_URL
+
+        +
+
+        ruta.replace(
+            /^\/+/,
+            ''
+        )
+
     )
+
 }
 
 
-// ======================================================
-// CLICK
-// ======================================================
+// =============================================
+// CLICK EN BURBUJA
+// =============================================
 
-const seleccionarBurbuja = (burbuja) => {
+function seleccionarBurbuja(burbuja) {
 
     emit(
         'seleccionar',
@@ -442,16 +580,20 @@ const seleccionarBurbuja = (burbuja) => {
             cumplidas: burbuja.cumplidas
         }
     )
+
 }
 
 
-// ======================================================
-// CICLO DE VIDA
-// ======================================================
+// =============================================
+// MOUNTED
+// =============================================
 
 onMounted(async () => {
 
-    await cargarAgenda()
+    await nextTick()
+
+    crearDistribucion()
+
 
     resizeObserver =
         new ResizeObserver(() => {
@@ -459,6 +601,7 @@ onMounted(async () => {
             crearDistribucion()
 
         })
+
 
     if (contenedor.value) {
 
@@ -471,46 +614,37 @@ onMounted(async () => {
 })
 
 
+// =============================================
+// UNMOUNTED
+// =============================================
+
 onUnmounted(() => {
 
     if (simulation) {
         simulation.stop()
     }
 
+
     if (resizeObserver) {
         resizeObserver.disconnect()
     }
 
 })
+
 </script>
 
+
 <style scoped>
-.ods {
-    width: 100%;
-}
-
-
-/* ==========================================
-   TÍTULO
-========================================== */
-
-.ods__titulo {
-    max-width: 900px;
-    margin: 0 auto 2rem;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 1.4;
-}
-
-
-/* ==========================================
+/* =============================================
    CONTENEDOR
-========================================== */
+============================================= */
 
 .ods__contenedor {
+
     position: relative;
 
     width: 100%;
+
     max-width: 1000px;
 
     height: 650px;
@@ -518,69 +652,84 @@ onUnmounted(() => {
     margin: 0 auto;
 
     overflow: hidden;
+
 }
 
 
-/* ==========================================
-   BURBUJA
-========================================== */
+/* =============================================
+   BURBUJAS
+============================================= */
 
 .ods__burbuja {
+
     position: absolute;
 
     top: 0;
     left: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 12px;
 
     border: none;
+
     border-radius: 50%;
 
-    color: #ffffff;
+    color: white;
 
     cursor: pointer;
 
-    transition:
-        transform 0.08s linear,
-        filter 0.25s ease;
-
     will-change: transform;
+
 }
 
+
+/* =============================================
+   HOVER
+============================================= */
 
 .ods__burbuja:hover {
+
     filter: brightness(1.08);
-    z-index: 10;
+
+    z-index: 20;
+
 }
 
 
-/* ==========================================
+/* =============================================
    CONTENIDO
-========================================== */
+============================================= */
 
 .ods__burbuja-contenido {
+
     width: 80%;
+
     height: 80%;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
+
 }
 
 
-/* ==========================================
+/* =============================================
    CANTIDAD
-========================================== */
+============================================= */
 
 .ods__cantidad {
+
     display: block;
 
     margin-bottom: 3px;
@@ -590,14 +739,16 @@ onUnmounted(() => {
             1rem);
 
     font-weight: 800;
+
 }
 
 
-/* ==========================================
+/* =============================================
    TEXTO
-========================================== */
+============================================= */
 
 .ods__texto {
+
     display: block;
 
     font-size: clamp(0.55rem,
@@ -607,35 +758,35 @@ onUnmounted(() => {
     font-weight: 700;
 
     line-height: 1.15;
+
 }
 
 
-/* ==========================================
+/* =============================================
    ICONO
-========================================== */
+============================================= */
 
 .ods__icono {
+
     width: 20%;
+
     max-width: 28px;
 
     margin-top: 7px;
 
     object-fit: contain;
+
 }
 
 
-/* ==========================================
+/* =============================================
    RESPONSIVE
-========================================== */
+============================================= */
 
 @media (max-width: 768px) {
 
     .ods__contenedor {
         height: 550px;
-    }
-
-    .ods__titulo {
-        font-size: 1.2rem;
     }
 
 }
