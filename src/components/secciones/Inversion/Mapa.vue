@@ -3,7 +3,7 @@ import { onMounted, ref, shallowRef, watch } from 'vue'
 import L from 'leaflet'
 //@ts-ignore
 import 'leaflet/dist/leaflet.css'
-import { entidadesFederativas, initMap, ramoColores, regrearMapa } from './mapController'
+import { entidadesFederativas, initMap, mexicoBounds, ramoColores } from './mapController'
 import { formatearMoneda } from '@/components/utils/utils';
 import Mexico from '@/components/utils/Icons/Mexico.vue';
 
@@ -439,7 +439,7 @@ export interface Proyecto {
       <button
         type="button"
         class="boton-terciario shadow-lg"
-        @click="regrearMapa"
+        @click="()=>mapa?.flyToBounds(mexicoBounds)"
       >
         <Mexico />
       </button>
