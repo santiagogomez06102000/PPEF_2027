@@ -113,10 +113,6 @@ const listaDatos = computed(() => {
 
     const campos = [
         {
-            clave: 'total',
-            etiqueta: 'Total'
-        },
-        {
             clave: 'participaciones_federales',
             etiqueta: 'Participaciones federales'
         },
@@ -136,45 +132,78 @@ const listaDatos = computed(() => {
 
     return campos
         .filter(({ clave }) => {
-            return item[clave] !== null && item[clave] !== undefined
+            return (
+                item[clave] !== null &&
+                item[clave] !== undefined
+            )
         })
         .map(({ clave, etiqueta }) => {
             return {
                 clave,
                 etiqueta,
-                valor: formatearNumero(item[clave])
+                valor: `$${formatearNumero(item[clave])}`
             }
         })
+})
+
+const totalSeleccionado = computed(() => {
+    const item = datosEstadoSeleccionado.value
+
+    if (
+        !item ||
+        item.total === null ||
+        item.total === undefined
+    ) {
+        return null
+    }
+
+    return `$${formatearNumero(item.total)}`
 })
 </script>
 
 <template>
     <section class="view-mapa">
         <div class="view-mapa__contenido">
+
             <!-- =============================================
-           MAPA
-      ============================================== -->
+                 MAPA
+            ============================================== -->
             <div class="view-mapa__mapa">
                 <MapaMexico ref="mapaMexicoRef" :datos="datos" :seleccionado-id="estadoSeleccionado?.id ?? null"
                     @seleccionar="seleccionarEstado" />
             </div>
 
+
             <!-- =============================================
-           PANEL DERECHO
-      ============================================== -->
+                 PANEL DERECHO
+            ============================================== -->
             <aside class="view-mapa__panel">
-                <!-- ESTADO INICIAL -->
+
+                <!-- =========================================
+                     ESTADO INICIAL
+                ========================================== -->
                 <div v-if="!estadoSeleccionado" class="panel-inicial">
-                    <Mascota :mascota="7" ancho="12rem" alto="12rem" />
+                    <div class="panel-inicial__mascota">
+                        <Mascota :mascota="7" ancho="12rem" alto="12rem" />
+                    </div>
 
                     <p class="panel-inicial__texto">
-                        Selecciona un estado
+                        <strong class="panel-inicial__destacado">
+                            Selecciona un estado
+                        </strong>
+
+                        <span class="panel-inicial__descripcion">
+                            para conocer el monto designado
+                        </span>
                     </p>
                 </div>
 
-                <!-- ENTIDAD SELECCIONADA -->
+
+                <!-- =========================================
+                     ENTIDAD SELECCIONADA
+                ========================================== -->
                 <div v-else class="panel-estado">
-                    <!-- SVG -->
+                    <!-- SVG DEL ESTADO -->
                     <div class="estado-preview-wrapper">
                         <div v-if="svgSeleccionado" class="estado-preview" v-html="svgSeleccionado" />
 
@@ -183,30 +212,56 @@ const listaDatos = computed(() => {
                         </div>
                     </div>
 
-                    <!-- NOMBRE -->
-                    <h3 class="estado-nombre">
-                        {{ estadoSeleccionado.nombre }}
-                    </h3>
 
-                    <!-- DATOS -->
-                    <div v-if="listaDatos.length" class="estado-datos">
-                        <ul>
-                            <li v-for="item in listaDatos" :key="item.clave">
-                                <strong>{{ item.etiqueta }}:</strong>
-                                {{ item.valor }}
-                            </li>
-                        </ul>
+                    <!-- INFORMACIÓN -->
+                    <div class="estado-informacion">
+
+                        <!-- TOTAL -->
+                        <template v-if="totalSeleccionado">
+                            <p class="estado-total">
+                                {{ totalSeleccionado }}
+                            </p>
+
+                            <p class="estado-unidad">
+                                millones de pesos
+                            </p>
+                        </template>
+
+
+                        <!-- NOMBRE -->
+                        <h3 class="estado-nombre">
+                            {{ estadoSeleccionado.nombre }}
+                        </h3>
+
+
+                        <!-- DESGLOSE -->
+                        <div v-if="listaDatos.length" class="estado-datos">
+                            <ul>
+                                <li v-for="item in listaDatos" :key="item.clave">
+                                    <strong>
+                                        {{ item.etiqueta }}:
+                                    </strong>
+
+                                    {{ item.valor }}
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <p v-else-if="!cargandoDatos" class="estado-sin-datos">
+                            No hay información disponible para esta entidad.
+                        </p>
+
                     </div>
-
-                    <p v-else-if="!cargandoDatos" class="estado-sin-datos">
-                        No hay información disponible para esta entidad.
-                    </p>
                 </div>
+
 
                 <p v-if="errorDatos" class="error-datos">
                     No fue posible cargar la información del mapa.
                 </p>
+
             </aside>
+
         </div>
     </section>
 </template>
@@ -217,8 +272,9 @@ const listaDatos = computed(() => {
     min-width: 0;
 }
 
+
 /* =========================================================
-   LAYOUT
+   LAYOUT GENERAL
 ========================================================= */
 
 .view-mapa__contenido {
@@ -228,11 +284,28 @@ const listaDatos = computed(() => {
     width: 100%;
     min-width: 0;
 
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
+
+/*
+ * Antes:
+ *
+ * mapa = 70%
+ * panel = 30%
+ *
+ * Queremos que el mapa sea aproximadamente
+ * el 80% de ese tamaño:
+ *
+ * 70 × 0.80 = 56
+ *
+ * Resultado aproximado:
+ *
+ * mapa = 56%
+ * panel = 44%
+ */
 .view-mapa__mapa {
-    flex: 7 1 0;
+    flex: 56 1 0;
 
     min-width: 0;
 
@@ -241,10 +314,11 @@ const listaDatos = computed(() => {
     justify-content: center;
 }
 
-.view-mapa__panel {
-    flex: 3 1 0;
 
-    min-width: 260px;
+.view-mapa__panel {
+    flex: 44 1 0;
+
+    min-width: 320px;
 
     display: flex;
     flex-direction: column;
@@ -256,29 +330,79 @@ const listaDatos = computed(() => {
     padding: 1rem;
 }
 
+
 /* =========================================================
    ESTADO INICIAL
 ========================================================= */
 
+/*
+ * Mascota izquierda
+ * Texto derecha
+ */
 .panel-inicial {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+
     justify-content: center;
     align-items: center;
 
-    gap: 1rem;
-
-    text-align: center;
+    gap: 1.5rem;
 }
+
+
+.panel-inicial__mascota {
+    flex: 0 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .panel-inicial__texto {
     margin: 0;
 
-    font-size: 1.1rem;
-    font-weight: 600;
+    max-width: 280px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    line-height: 1.2;
 }
+
+
+/*
+ * Texto principal grande.
+ */
+.panel-inicial__destacado {
+    display: block;
+
+    font-size: clamp(1.6rem,
+            2.2vw,
+            2.3rem);
+
+    font-weight: 700;
+}
+
+
+/*
+ * Texto secundario.
+ */
+.panel-inicial__descripcion {
+    display: block;
+
+    margin-top: 0.3rem;
+
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
 
 /* =========================================================
    ENTIDAD SELECCIONADA
@@ -288,36 +412,39 @@ const listaDatos = computed(() => {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+
+    justify-content: center;
     align-items: center;
 
-    gap: 1rem;
+    gap: 1.75rem;
 }
 
-/* Contenedor SIEMPRE del mismo tamaño */
+
+/* =========================================================
+   SVG DEL ESTADO
+========================================================= */
+
 .estado-preview-wrapper {
-    width: min(220px, 100%);
-    height: 180px;
+    width: 190px;
+    height: 170px;
+
+    flex: 0 0 190px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     overflow: hidden;
-
-    flex-shrink: 0;
 }
 
-/* Contenedor generado mediante v-html */
+
 .estado-preview {
     width: 100%;
     height: 100%;
 }
 
-/*
- * El SVG se inyecta mediante v-html,
- * por eso usamos :deep().
- */
+
 .estado-preview :deep(svg) {
     display: block;
 
@@ -330,23 +457,77 @@ const listaDatos = computed(() => {
     overflow: visible;
 }
 
+
 .estado-preview-cargando {
     font-size: 0.9rem;
+
     opacity: 0.7;
 }
 
+
 /* =========================================================
-   NOMBRE
+   CONTENEDOR DE INFORMACIÓN
+========================================================= */
+
+.estado-informacion {
+    flex: 1;
+
+    min-width: 0;
+    max-width: 390px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   TOTAL PRINCIPAL
+========================================================= */
+
+.estado-total {
+    margin: 0;
+
+    font-size: clamp(2.2rem,
+            3.2vw,
+            3.4rem);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -0.03em;
+}
+
+
+.estado-unidad {
+    margin:
+        0.25rem 0 0;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   NOMBRE DEL ESTADO
 ========================================================= */
 
 .estado-nombre {
-    margin: 0;
+    margin:
+        1rem 0 0.75rem;
 
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
 
-    text-align: center;
+    line-height: 1.2;
+
+    text-align: left;
 }
+
 
 /* =========================================================
    INFORMACIÓN
@@ -354,44 +535,111 @@ const listaDatos = computed(() => {
 
 .estado-datos {
     width: 100%;
-    max-width: 360px;
 }
+
 
 .estado-datos ul {
     margin: 0;
-    padding-left: 1.3rem;
+
+    padding-left: 1.25rem;
 }
+
 
 .estado-datos li {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.5rem;
 
-    line-height: 1.45;
+    font-size: 0.95rem;
+
+    line-height: 1.4;
 }
+
 
 .estado-datos li:last-child {
     margin-bottom: 0;
 }
+
+
+.estado-datos strong {
+    font-weight: 700;
+}
+
 
 .estado-sin-datos,
 .error-datos {
     margin: 0;
 
     font-size: 0.9rem;
-    text-align: center;
+
+    text-align: left;
 }
+
 
 .error-datos {
     margin-top: 1rem;
 }
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .view-mapa__contenido {
+        gap: 1rem;
+    }
+
+
+    .view-mapa__mapa {
+        flex: 58 1 0;
+    }
+
+
+    .view-mapa__panel {
+        flex: 42 1 0;
+
+        min-width: 280px;
+
+        padding: 0.5rem;
+    }
+
+
+    .panel-inicial {
+        gap: 0.75rem;
+    }
+
+
+    .panel-inicial__mascota {
+        transform: scale(0.85);
+    }
+
+
+    .panel-estado {
+        gap: 1rem;
+    }
+
+
+    .estado-preview-wrapper {
+        width: 150px;
+        height: 145px;
+
+        flex-basis: 150px;
+    }
+}
+
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
 @media (max-width: 900px) {
+
     .view-mapa__contenido {
         flex-direction: column;
+
+        gap: 1.5rem;
     }
+
 
     .view-mapa__mapa,
     .view-mapa__panel {
@@ -401,24 +649,134 @@ const listaDatos = computed(() => {
         min-width: 0;
     }
 
+
+    .view-mapa__mapa {
+        /*
+         * En móvil MapaMexico necesita todo el ancho
+         * disponible para las proyecciones de los
+         * estados pequeños.
+         */
+        width: 100%;
+    }
+
+
     .view-mapa__panel {
-        min-height: 300px;
+        min-height: auto;
+
+        padding:
+            1rem 0;
+    }
+
+
+    /*
+     * En tablet/móvil todavía mantenemos mascota
+     * y texto juntos mientras haya espacio.
+     */
+    .panel-inicial {
+        max-width: 520px;
+
+        margin: 0 auto;
+    }
+
+
+    .panel-estado {
+        max-width: 560px;
+
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 480px) {
-    .view-mapa__contenido {
-        gap: 1rem;
+
+/* =========================================================
+   TELÉFONO
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /*
+     * Aquí sí pasamos mascota y texto a columna
+     * porque ya no existe suficiente ancho.
+     */
+    .panel-inicial {
+        flex-direction: column;
+
+        gap: 0.5rem;
+
+        text-align: center;
     }
 
-    .view-mapa__panel {
-        padding-left: 0;
-        padding-right: 0;
+
+    .panel-inicial__mascota {
+        transform: none;
     }
+
+
+    .panel-inicial__texto {
+        align-items: center;
+
+        max-width: 320px;
+
+        text-align: center;
+    }
+
+
+    .panel-inicial__destacado {
+        font-size: 1.8rem;
+    }
+
+
+    .panel-inicial__descripcion {
+        font-size: 1rem;
+    }
+
+
+    /*
+     * Estado seleccionado:
+     * SVG arriba e información abajo.
+     */
+    .panel-estado {
+        flex-direction: column;
+
+        gap: 0.75rem;
+    }
+
 
     .estado-preview-wrapper {
-        width: 190px;
-        height: 155px;
+        width: 180px;
+        height: 145px;
+
+        flex-basis: auto;
+    }
+
+
+    .estado-informacion {
+        width: 100%;
+        max-width: 350px;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .estado-total {
+        font-size: 2.5rem;
+    }
+
+
+    .estado-nombre {
+        text-align: center;
+    }
+
+
+    .estado-datos {
+        text-align: left;
+    }
+
+
+    .estado-sin-datos,
+    .error-datos {
+        text-align: center;
     }
 }
 </style>
