@@ -83,9 +83,9 @@ onMounted(async () => {
    ========================================================= */
 
 #paquete_economico {
-    background: linear-gradient(90deg,
+    /*  background: linear-gradient(90deg,
             rgb(170 236 248) 0%,
-            rgba(122, 211, 227, 1) 100%);
+            rgba(122, 211, 227, 1) 100%); */
 
     color: #2c4072;
 }

@@ -99,22 +99,22 @@ onUnmounted(() => {
     <div>
       <Agenda />
     </div>
-    <div>
+    <div style="background: rgb(209, 232, 232); border-radius: 70px 70px 70px 70px">
       <Ciudadania />
     </div>
     <div id="datos-abiertos" class="seccion">
-      <DatosAbiertos/>
+      <DatosAbiertos />
     </div>
 
 
   </div>
-  <SustentoNormativo class="hidden"/>
-      <div class="bg-[#3a4049] mb-1 py-4 text-white">
-      <div class=" text-center">Envía tus dudas y comentarios 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3Sr9_GxEUeZfXXkwlk9w51vu5phPXsj6jnzup9J_kEHSOeQ/viewform?usp=header"
-        target="_blank"
-        class="rounded border border-white px-4 hover:bg-gray-800 transition ease duration-300">aquí</a></div>
+  <SustentoNormativo class="hidden" />
+  <div class="bg-[#3a4049] mb-1 py-4 text-white">
+    <div class=" text-center">Envía tus dudas y comentarios
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3Sr9_GxEUeZfXXkwlk9w51vu5phPXsj6jnzup9J_kEHSOeQ/viewform?usp=header"
+        target="_blank" class="rounded border border-white px-4 hover:bg-gray-800 transition ease duration-300">aquí</a>
     </div>
+  </div>
   <Footer />
 </template>
 
