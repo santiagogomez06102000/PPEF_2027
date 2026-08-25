@@ -16,6 +16,7 @@
 
         <h3 class="subtitulo">{{ datos.subtitulo }}</h3>
 
+
         <div class="grid-botones">
             <template v-for="(btn, index) in datos.botones" :key="btn.id">
 
@@ -54,21 +55,45 @@
             </template>
         </div>
 
+
+        <BurbujasODS :botones="datos.botones" @seleccionar="abrirModalODS" />
+
         <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
+
     </section>
 </template>
 
 <script setup>
 import datos from '@/data/Agenda/agenda.json'
 import ODS from '@/data/Agenda/ODS.json'
+
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
 
-const baseUrl = import.meta.env.BASE_URL
+import BurbujasODS from './Agenda/BurbujasODS.vue'
+
 const modal = useModal()
 
-function abrirModal(data) {
-    modal.open(data)
+
+// =============================================
+// ABRIR MODAL DEL ODS SELECCIONADO
+// =============================================
+
+function abrirModalODS(burbuja) {
+
+    const contenidoODS = ODS.find(
+        ods => String(ods.id) === String(burbuja.id)
+    )
+
+    if (!contenidoODS) {
+        console.warn(
+            `No se encontró información para el ODS ${burbuja.id}`
+        )
+
+        return
+    }
+
+    modal.open(contenidoODS)
 }
 
 </script>
@@ -89,7 +114,7 @@ function abrirModal(data) {
     margin-bottom: 2.5rem;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -0.02em;
-    color:#0a5a45 ;
+    color: #0a5a45;
 }
 
 .subtitulo {
@@ -99,7 +124,7 @@ function abrirModal(data) {
     margin: 0 auto 3.5rem;
     font-family: 'Noto Sans Black', sans-serif;
     letter-spacing: -0.02em;
-    color:#2bc0a3 ;
+    color: #2bc0a3;
 }
 
 .bloque {
@@ -183,6 +208,7 @@ function abrirModal(data) {
     position: relative;
     overflow: hidden;
 }
+
 @media (max-width:1023px) {
     .btn-eje {
         grid-column: 1;
