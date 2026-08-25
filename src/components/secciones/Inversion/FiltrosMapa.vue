@@ -3,6 +3,7 @@ import SelectInputBusqueda, { SelectOption } from '@/components/Forms/SelectInpu
 import { fetchPublicJson } from '@/components/utils/utils'
 import { nextTick, onMounted, ref, watch } from 'vue'
 import { Filtros } from './ViewMapa.vue'
+import { entidadesFederativas, ramos } from './mapController.js'
 
 /**Opciones de los select */
 const EstadosSelect = ref<SelectOption[] | null>(null)
@@ -19,6 +20,9 @@ async function consultarEntidadesFed() {
     '/filtros/entidades_federativas.json',
   )
   if (respuesta) {
+    if(entidadesFederativas.length === 0){
+      entidadesFederativas.push(...respuesta);
+    }
     EstadosSelect.value = respuesta.map((i) => ({
       value: Number(i.id_entidad_federativa),
       label: i.entidad_federativa,
@@ -30,6 +34,9 @@ async function consultarEntidadesFed() {
 async function consultarRamos() {
   const respuesta = await fetchPublicJson<RamoInterface[]>('/filtros/ramos.json')
   if (respuesta) {
+        if(ramos.length === 0){
+      ramos.push(...respuesta);
+    }
     ramosSelect.value = respuesta.map((i) => ({
       value: Number(i.id_ramo),
       label: i.ramo,
@@ -64,12 +71,12 @@ function limpiarFiltros(){
     ejecutor.value=null;
 }
 
-interface Entidad_federativaInterface {
+export interface Entidad_federativaInterface {
   id_entidad_federativa: number
   entidad_federativa: string
 }
 
-interface RamoInterface {
+export interface RamoInterface {
   id_ramo: number
   ramo: string
 }

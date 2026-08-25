@@ -45,7 +45,7 @@
                         class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
                         @click="handleClickBtn(generales[index])">
                         <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
-                        <span class="absolute top-[100%] pt-2 left-0  w-full">{{ btn.texto }}</span>
+                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
                         @click="handleClickBtn(transversales[index])">
                         <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
-                        <span class="absolute top-[100%] pt-2 left-0  w-full">{{ btn.texto }}</span>
+                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
             </div>
@@ -281,8 +281,8 @@ function handleClickBtn(e){
 }
 
 .img-eje {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
     object-fit: contain;
     flex-shrink: 0;
 
@@ -299,8 +299,8 @@ function handleClickBtn(e){
 
 @media (max-width: 768px) {
     .img-eje {
-        width: 52px;
-        height: 52px;
+        width: 3rem;
+        height: 3rem;
     }
 }
 

@@ -18,7 +18,7 @@
 
       <div class="flex gap-0 w-full  flex-wrap">
         <!-- Gráfica -->
-        <div class="panel-grafica w-full overflow-hidden " :class="{
+        <div class="panel-grafica w-auto overflow-hidden " :class="{
           'max-w-full':!detalleActivo,
           'max-w-full lg:max-w-[40%]':detalleActivo
         }">
