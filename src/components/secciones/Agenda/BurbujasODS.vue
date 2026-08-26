@@ -8,9 +8,9 @@
             <div class="ods__burbuja-contenido">
 
                 <!-- Cantidad de metas cumplidas -->
-                <span class="ods__cantidad">
+                <!-- <span class="ods__cantidad">
                     {{ burbuja.cumplidas }}
-                </span>
+                </span> -->
 
                 <!-- Nombre del ODS -->
                 <span class="ods__texto">
@@ -193,10 +193,10 @@ function calcularTamanos(ancho) {
 
 
     const diametroMinimo =
-        90 * escalaPantalla
+        110 * escalaPantalla
 
     const diametroMaximo =
-        200 * escalaPantalla
+        220 * escalaPantalla
 
 
     burbujas.forEach(burbuja => {
@@ -753,7 +753,7 @@ onUnmounted(() => {
 
     font-size: clamp(0.55rem,
             0.9vw,
-            0.8rem);
+            0.7rem);
 
     font-weight: 700;
 
@@ -768,11 +768,11 @@ onUnmounted(() => {
 
 .ods__icono {
 
-    width: 20%;
+    width: 100%;
 
-    max-width: 28px;
+    max-width: 75px;
 
-    margin-top: 7px;
+    /* margin-top: 7px; */
 
     object-fit: contain;
 
