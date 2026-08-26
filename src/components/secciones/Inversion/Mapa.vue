@@ -461,6 +461,10 @@ export interface Proyecto {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease;
+}
+.cluster-estado:hover{
+  transform: scale(1.1);
 }
 
 .cluster-estado__circle {

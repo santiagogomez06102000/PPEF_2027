@@ -51,20 +51,20 @@ interface Segmento {
         <h6 v-html="`${detalle.total} - ${detalle.respecto}`" class="col-span-12 text-[#757575] text-sm"></h6>
         <span class="text-[#757575] col-span-12 text-right">Clasificación administrativa</span>
         <div class="hidden md:grid grid-cols-24 col-span-12">
-            <span class="col-span-3 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="%">%</span>
+            <span class="col-span-5 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="%">%</span>
             <span class="col-span-3 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="Variación">Variación</span>
-            <span class="col-span-13 truncate px-2  text-[#0a5a45] bg-[#f5f2ed] font-bold" title="Desagregado">Desagregado</span>
-            <span class="col-span-5 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="2026">2026</span>
+            <span class="col-span-8 truncate px-2  text-[#0a5a45] bg-[#f5f2ed] font-bold" title="Desagregado">Desagregado</span>
+            <span class="col-span-8 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="2026">2026</span>
         </div>
         <div class="hidden md:grid grid-cols-24 col-span-12 gap-0" v-for="(row, i) in detalle.segmentos">
-            <span class="col-span-3  px-2 truncate text-center text-white bg-[var(--color-porcentaje)]" :style="{
+            <span class="col-span-5  px-2 truncate text-center text-white bg-[var(--color-porcentaje)]" :style="{
                 '--color-porcentaje': colores[i]
             }" :title="row.porcentaje.toString()" v-html="row.porcentaje"></span>
             <span class="col-span-3 text-center truncate px-2 text-[var(--color-flecha)]" v-html="row.tendencia" :style="{
                 '--color-flecha': row.tendencia === '▲' ? '#2a9d8f' : row.tendencia === '▼' ? '#e63946' : '#888888'
             }"></span>
-            <span class="col-span-13 px-2  text-black truncate " v-html="row.ramo" :title="row.ramo"></span>
-            <span class="col-span-5 px-2 text-center text-black truncate" :title="row.monto" v-html="row.monto"></span>
+            <span class="col-span-8 px-2  text-black truncate " v-html="row.ramo" :title="row.ramo"></span>
+            <span class="col-span-8 px-2 text-center text-black truncate" :title="row.monto" v-html="row.monto"></span>
             
             
         </div>

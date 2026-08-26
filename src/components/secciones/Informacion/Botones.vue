@@ -84,6 +84,7 @@ onUnmounted(() => {
   transition: all 0.25s ease;
   border: 2px solid transparent;
   min-height: 200px;
+  
 }
 
 .boton-card:hover {
@@ -93,32 +94,35 @@ onUnmounted(() => {
 }
 
 .boton-card.active {
-  background-color: #5bc4bf;
-  color: #fff;
+  background-color: #d1e8e8;
+  color: #0b6e7a;
 }
 
 /* ── Círculo ── */
 .circulo {
-  width: 72px;
-  height: 72px;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
-  background-color: #5bc4bf;
-  overflow: hidden;
+  background-color: #7abdcf;
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.25s ease;
+  position: relative;
 }
 
 .circulo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  right: -1rem;
+  top: 0;
 }
 
 .boton-card.active .circulo {
-  background-color: #1a8a9e;
+  background-color: #7abdcf;
 }
 
 /* ── Texto ── */
@@ -143,7 +147,8 @@ onUnmounted(() => {
 
 .boton-card.active .titulo,
 .boton-card.active .abreviatura {
-  color: #fff;
+    color: #0b6e7a;
+
 }
 
 /* ── Panel desplegable (solo móvil) ── */

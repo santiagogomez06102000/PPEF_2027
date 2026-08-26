@@ -2,7 +2,7 @@
   <section class="fechas" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <div class="acordeon mx-0 lg:mx-[15dvw]">
+    <div class="acordeon mx-0 lg:mx-[10dvw]">
       <div v-for="(item, idx) in datos.items" :key="item.id" class="item" :class="{ abierto: activo === idx }">
         <!-- Cabecera -->
         <div class="indicador">
@@ -79,7 +79,7 @@ const toggle = (idx) => {
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.2rem;
-  background: transparent;
+  background: #fff;
   border: none;
   cursor: pointer;
   text-align: left;
@@ -89,7 +89,9 @@ const toggle = (idx) => {
   border-radius: 8px;
   padding-left: 3rem;
 }
-
+.item.abierto .cabecera{
+  background-color: #fafafa;
+}
 .cabecera:hover {
   background-color: #fafafa;
 }
@@ -185,7 +187,6 @@ const toggle = (idx) => {
   margin-left: calc(24px + 1rem);
   margin-right: 1.2rem;
   padding: 1rem 1.2rem;
-  background-color: #f8f8f8;
   border-radius: 0 8px 8px 8px;
   margin-bottom: 0.5rem;
 }

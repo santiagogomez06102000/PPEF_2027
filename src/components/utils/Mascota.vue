@@ -19,6 +19,7 @@ const rutas = [
   '5_ingresos.png',
   '6_siguiente_ciclo.png',
   '7_impulso.png',
+  'dato.png'
 ]
 const urlBase = import.meta.env.BASE_URL
 </script>

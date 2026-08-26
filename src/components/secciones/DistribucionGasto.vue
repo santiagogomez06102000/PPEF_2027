@@ -15,16 +15,22 @@
           <span class="subtitulo">{{ cat.subtitulo }}</span>
         </button>
       </div>
+      <div class="w-full flex justify-end lg:hidden ">
+        <button type="button" @click="handleClickBarra(null)"
+          class="bg-white flex items-center justify-center text-blach w-[3rem] h-[3rem] shadow rounded-full">
+          <ArrowLeft />
+        </button>
+      </div>
 
       <div class="flex gap-0 w-full  flex-wrap">
         <!-- Gráfica -->
         <div class="panel-grafica w-auto overflow-hidden " :class="{
-          'max-w-full':!detalleActivo,
-          'max-w-full lg:max-w-[40%]':detalleActivo
+          'max-w-full': !detalleActivo,
+          'max-w-full md:max-w-[50%]': detalleActivo
         }">
           <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
         </div>
-        <div class="w-full lg:w-[60%] "  v-if="detalleActivo">
+        <div class="w-full lg:w-[50%] " v-if="detalleActivo">
           <Detalle :detalle="detalleActivo" />
         </div>
       </div>
@@ -39,6 +45,7 @@ import { onMounted, ref } from 'vue'
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
 import { fetchPublicJson } from '../utils/utils';
 import Detalle from './DistribucionGasto/Detalle.vue';
+import ArrowLeft from '../utils/Icons/ArrowLeft.vue';
 const datos = ref();
 onMounted(async () => {
   datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
@@ -46,12 +53,17 @@ onMounted(async () => {
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
 const detalleActivo = ref(null);
 function handleClickBarra(idx) {
-  const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
-  if (seleccionado.id === detalleActivo.value?.id) {
-    detalleActivo.value = null
+  if (idx != null) {
+    const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
+    if (seleccionado.id === detalleActivo.value?.id) {
+      detalleActivo.value = null
+    }
+    else {
+      detalleActivo.value = seleccionado;
+    }
   }
-  else {
-    detalleActivo.value = seleccionado;
+  else{
+    detalleActivo.value=null
   }
 
 }

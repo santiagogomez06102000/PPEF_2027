@@ -11,6 +11,7 @@
     <div class="grid-cards">
       <button v-for="(card, index) in datos.cards" :key="card.id" class="card" @click="abrirModal(generales[index])">
         <h3>{{ card.titulo }}</h3>
+        <img :src="baseUrl + card.img" :alt="card.titulo" class="w-full"/>
       </button>
     </div>
     <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
@@ -24,6 +25,7 @@ import { useModal } from '@/components/composables/useModal.js'
 // Importar JSONs de modales
 import { fetchPublicJson } from '../utils/utils';
 import { onMounted, ref } from 'vue';
+import { baseUrl } from './Inversion/mapController';
 
 const datos=ref({});
 const generales=ref([])
@@ -43,7 +45,7 @@ function abrirModal(data) {
 <style scoped>
 .entorno {
 
-  color: #ffffff;
+  color: #00a1cd;
   position: relative;
 }
 
@@ -67,7 +69,7 @@ function abrirModal(data) {
   margin: 0;
   line-height: 1.7;
   text-align: justify;
-  color: #ffffff;
+  color: #000;
 }
 
 /* ── Grid de tarjetas ── */
@@ -85,7 +87,8 @@ function abrirModal(data) {
 
 /* ── Tarjeta ── */
 .card {
-  background-color: #f5f2ed;
+  background-color: #0d6881;
+  color: #fff;
   border-radius: 36px;
   padding: 1.6rem 1.4rem;
   min-height: 260px;
@@ -101,7 +104,7 @@ function abrirModal(data) {
 
 .card h3 {
   margin: 0;
-  color: rgb(6, 101, 122);
+  color:#fff;
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.3;

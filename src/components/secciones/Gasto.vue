@@ -36,28 +36,28 @@
 
         <p class="texto-ejes">{{ datos.textoEjes }}</p>
 
-        <div class="grid grid-cols-2 gap-x-16 gap-y-40 lg:gap-y-16">
+        <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16">
             <!-- Ejes Generales -->
-            <div class="col-span-2 lg:col-span-1">
+            <div class="col-span-7 2xl:col-span-4">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
-                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
+                        class="relative text-black p-2  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
                         @click="handleClickBtn(generales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
                         <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
             </div>
 
             <!-- Ejes Transversales -->
-            <div class="col-span-2 lg:col-span-1">
+            <div class="col-span-7 2xl:col-span-3">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
-                <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
+                <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
                         class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
                         @click="handleClickBtn(transversales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje " />
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
                         <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
@@ -125,8 +125,6 @@ function handleClickBtn(e){
 .intro {
     text-align: center;
     line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
     color: #000;
 }
 
@@ -158,8 +156,6 @@ function handleClickBtn(e){
 .descripcion {
     text-align: center;
     line-height: 1.6;
-    max-width: 850px;
-    margin: 0 auto 2.5rem;
     color: #000;
 }
 
@@ -168,7 +164,7 @@ function handleClickBtn(e){
    ═══════════════════════════════════════ */
 .contenedor-inferior {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -281,13 +277,11 @@ function handleClickBtn(e){
 }
 
 .img-eje {
-    width: 6rem;
-    height: 6rem;
+
     object-fit: contain;
     flex-shrink: 0;
 
     border-radius: 12px;
-    padding: 8px;
 }
 
 .btn-eje span {
@@ -297,12 +291,6 @@ function handleClickBtn(e){
     flex: 1;
 }
 
-@media (max-width: 768px) {
-    .img-eje {
-        width: 3rem;
-        height: 3rem;
-    }
-}
 
 .btn-eje:hover {
     background-color: rgba(255, 255, 255, 0.28);

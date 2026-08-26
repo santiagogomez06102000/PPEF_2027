@@ -20,7 +20,7 @@ interface Bloque {
 <template>
     <div class="contenedor  w-full h-[80dvh] lg:h-[30dvh] relative overflow-visible flex flex-col lg:flex-row">
         <div class="mascota-hover hiddena lg:block">
-            <Mascota :mascota="7" ancho="4rem" alto="4rem" />
+            <Mascota :mascota="8" ancho="4rem" alto="4rem" />
         </div>
 
         <div v-for="(bloque) in bloques" :key="bloque.descripcion" class="
@@ -135,7 +135,7 @@ interface Bloque {
 
 
 .contenedor:has(.bloque-color:hover) .mascota-hover {
-    transform: translateX(3rem);
+    transform: translateX(4rem);
 }
 
 @media (min-width: 1024px) {

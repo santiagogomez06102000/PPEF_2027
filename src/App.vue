@@ -67,7 +67,7 @@ onUnmounted(() => {
   <NavPlantilla :active="activeHash" />
 
   <div id="secciones" class="precriterios bg-white grid grid-template-">
-    <div id="inicio" class="seccion" style="background: #06657a; border-radius: 0 0 70px 70px">
+    <div id="inicio" class="seccion" style="background: linear-gradient(rgb(1, 126, 144), rgb(0, 49, 97)); border-radius: 0 0 70px 70px">
       <PPEF />
     </div>
     <div class="seccion">
@@ -77,7 +77,7 @@ onUnmounted(() => {
       <Fechas />
     </div>
     <div id="entorno-economico" class="seccion"
-      style="background: rgb(6, 101, 122); border-radius: 70px 70px 70px 70px">
+      style="background:#d1e8e8; border-radius: 70px 70px 70px 70px">
       <EntornoEconomico />
     </div>
     <div id="ingreso" class="seccion">

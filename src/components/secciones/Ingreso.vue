@@ -26,7 +26,7 @@
             @click="toggle(item.index)"
           >
             <div class="icono">
-              <img src="@/assets/img_circle.png" alt="icono" />
+              <img :src="baseUrl+'secciones/ingreso/billete.png'" alt="icono" />
             </div>
 
             <div class="info">
@@ -88,7 +88,7 @@
             @click="toggle(item.index)"
           >
             <div class="icono">
-              <img src="@/assets/img_circle.png" alt="icono" />
+              <img :src="baseUrl+'secciones/ingreso/billete.png'" alt="icono" />
             </div>
 
             <div class="info">
@@ -144,6 +144,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { fetchPublicJson } from '../utils/utils'
+import { baseUrl } from './Inversion/mapController'
 
 const datos = ref({
   items: []
@@ -261,7 +262,7 @@ const toggle = (idx) => {
 .acordeon {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 4rem;
   align-items: start;
 }
 

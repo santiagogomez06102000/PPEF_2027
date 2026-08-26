@@ -5,11 +5,31 @@
     "A pesar de la inestabilidad en el comercio internacional, la economía mexicana mostró un desempeño positivo en los primeros seis meses de 2025, con un aumento de 0.3% en comparación con el semestre anterior y un crecimiento acumulado de 0.9% anual."
   ],
   "cards": [
-    { "id": "panorama", "titulo": "Panorama internacional" },
-    { "id": "economia", "titulo": "Economía nacional" },
-    { "id": "laboral", "titulo": "Mercado laboral" },
-    { "id": "inflacion", "titulo": "Inflación" },
-    { "id": "financiero", "titulo": "Sector financiero y monetario" },
-    { "id": "petrolero", "titulo": "Mercado petrolero" }
+    {
+      "id": "panorama",
+      "img": "secciones/EntornoEconomico/entorno.png",
+      "titulo": "Panorama internacional"
+    },
+    {
+      "id": "economia",
+      "img": "secciones/EntornoEconomico/nacional.png",
+      "titulo": "Economía nacional"
+    },
+    {
+      "id": "laboral",
+      "img": "secciones/EntornoEconomico/trabajo.png",
+      "titulo": "Mercado laboral"
+    },
+    { "id": "inflacion", "img": "secciones/EntornoEconomico/mercado.png", "titulo": "Inflación" },
+    {
+      "id": "financiero",
+      "img": "secciones/EntornoEconomico/financiero.png",
+      "titulo": "Sector financiero y monetario"
+    },
+    {
+      "id": "petrolero",
+      "img": "secciones/EntornoEconomico/petrolero.png",
+      "titulo": "Mercado petrolero"
+    }
   ]
 }
