@@ -284,28 +284,11 @@ const totalSeleccionado = computed(() => {
     width: 100%;
     min-width: 0;
 
-    gap: 1.5rem;
+    /* gap: 1.5rem; */
 }
 
-
-/*
- * Antes:
- *
- * mapa = 70%
- * panel = 30%
- *
- * Queremos que el mapa sea aproximadamente
- * el 80% de ese tamaño:
- *
- * 70 × 0.80 = 56
- *
- * Resultado aproximado:
- *
- * mapa = 56%
- * panel = 44%
- */
 .view-mapa__mapa {
-    flex: 56 1 0;
+    flex: 80 1 0;
 
     min-width: 0;
 
