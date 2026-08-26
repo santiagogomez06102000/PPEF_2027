@@ -100,10 +100,7 @@ function abrirModalODS(burbuja) {
 
 <style scoped>
 .entorno {
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 3.5rem 2.5rem 5rem;
-    color: #000000;
     position: relative;
 }
 
@@ -114,7 +111,7 @@ function abrirModalODS(burbuja) {
     margin-bottom: 2.5rem;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -0.02em;
-    color: #0a5a45;
+    color: #ffffff;
 }
 
 .subtitulo {
@@ -124,7 +121,7 @@ function abrirModalODS(burbuja) {
     margin: 0 auto 3.5rem;
     font-family: 'Noto Sans Black', sans-serif;
     letter-spacing: -0.02em;
-    color: #2bc0a3;
+    color: #ffffff;
 }
 
 .bloque {
@@ -147,7 +144,7 @@ function abrirModalODS(burbuja) {
     font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
-    color: #000000;
+    color: #ffffff;
 }
 
 .dos-columnas {
@@ -161,7 +158,7 @@ function abrirModalODS(burbuja) {
     font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
-    color: #000000;
+    color: #ffffff;
 }
 
 /* ═══════════════════════════════════════

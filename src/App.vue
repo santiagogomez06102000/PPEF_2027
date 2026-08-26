@@ -2,7 +2,6 @@
 /* import { RouterLink, RouterView } from 'vue-router' */
 import Footer from './components/footer/Footer.vue'
 import NavPlantilla from './components/navbar/NavPlantilla.vue'
-/* import './css/cubo.css' */
 
 /* SECCIONES */
 import Informacion from './components/secciones/Informacion.vue'
@@ -15,7 +14,6 @@ import inversion from './components/secciones/Inversion.vue'
 import Federalizado from './components/secciones/Federalizado.vue'
 import Agenda from './components/secciones/Agenda.vue'
 import Ciudadania from './components/secciones/Ciudadania.vue'
-import demoModal from './components/secciones/ModalDemo.vue'
 import SustentoNormativo from './components/secciones/SustentoNormativo.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import DatosAbiertos from './components/secciones/DatosAbiertos.vue'
@@ -66,7 +64,7 @@ onUnmounted(() => {
 <template>
   <NavPlantilla :active="activeHash" />
 
-  <div id="secciones" class="precriterios bg-white grid grid-template-">
+  <div id="secciones" class="ppef bg-white grid grid-template-">
     <div id="inicio" class="seccion" style="background: #06657a; border-radius: 0 0 70px 70px">
       <PPEF />
     </div>
@@ -93,14 +91,19 @@ onUnmounted(() => {
       <inversion />
     </div>
     <div id="gasto-federalizado" class="seccion"
-      style="background: rgb(93, 193, 190); border-radius: 70px 70px 70px 70px">
+      style="background: rgb(255, 255, 255); border-radius: 70px 70px 70px 70px">
       <Federalizado />
     </div>
-    <div>
-      <Agenda />
-    </div>
-    <div style="background: rgb(209, 232, 232); border-radius: 70px 70px 70px 70px">
-      <Ciudadania />
+    <div class="bloque-agenda-ciudadania">
+
+      <div class="bloque-agenda">
+        <Agenda />
+      </div>
+
+      <div class="bloque-ciudadania">
+        <Ciudadania />
+      </div>
+
     </div>
     <div id="datos-abiertos" class="seccion">
       <DatosAbiertos />
@@ -119,14 +122,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.display-cubo {
-  margin: 0 auto;
-  background-color: transparent;
-  /* 
-  background-image: url(@/assets/img/seccion1.png); */
-}
-
-.precriterios {
+.ppef {
   display: grid;
 
   min-height: 100dvh;
@@ -137,6 +133,49 @@ onUnmounted(() => {
 .seccion {
   padding: 3rem 1rem;
   max-width: 100dvw;
+}
+
+.bloque-agenda-ciudadania {
+  width: 100%;
+
+  /* Este es el fondo que se ve debajo de Agenda */
+  background: rgb(209, 232, 232);
+  border-radius: 70px 70px 70px 70px;
+}
+
+
+/* =========================================================
+   AGENDA
+   ========================================================= */
+
+.bloque-agenda {
+  position: relative;
+  z-index: 2;
+
+  background: linear-gradient(to bottom,
+      rgb(0, 49, 97) 0%,
+      rgb(1, 118, 139) 50%,
+      rgb(1, 141, 153) 100%);
+
+  /* Solo redondeamos la parte inferior */
+  border-radius: 70px 70px 70px 70px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CIUDADANÍA
+   ========================================================= */
+
+.bloque-ciudadania {
+  position: relative;
+  z-index: 1;
+
+  background: rgb(209, 232, 232);
+
+  /* Ya no necesita border-radius arriba */
+  border-radius: 0 0 70px 70px;
 }
 
 @media (min-width: 1023px) {
