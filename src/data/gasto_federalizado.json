@@ -1,6 +1,6 @@
 {
   "titulo": "Gasto federalizado",
-  "pre_monto": "Son los recursos que el Gobierno de México transfiere a las entidades y municipios, para 2026 se prevé:",
+  "pre_monto": "Son los recursos que el Gobierno de México transfiere a las entidades y municipios, para 2027 se prevé:",
   "monto_total": "$2,810,777.1*",
   "unidad_total": "millones de pesos",
   "post_monto": "Se segmenta por diferentes conceptos:",
@@ -19,7 +19,7 @@
       "descripcion": "Participaciones federales",
       "monto": "$1,200,075.7",
       "unidad": "millones de pesos",
-      "color":"#00a1cd"
+      "color": "#00a1cd"
     },
     {
       "tipo": "estandar",
@@ -27,8 +27,8 @@
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
-      "color":"#afe4d0",
-      "ocultar":true
+      "color": "#afe4d0",
+      "ocultar": true
     },
     {
       "tipo": "mascota",
@@ -36,8 +36,8 @@
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
-      "color":"#68e1ca",
-      "ocultar":true
+      "color": "#68e1ca",
+      "ocultar": true
     }
   ],
   "footer": "La mayoría del dinero que el gobierno federal propone para estados y municipios (92%) proviene de dos fuentes principales: participaciones y aportaciones. Estas dos formas de apoyo son clave para que los gobiernos locales puedan manejar su presupuesto y ofrecer servicios públicos. A continuación, se presenta cuánto se propone para cada estado."
