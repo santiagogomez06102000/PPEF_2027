@@ -4,12 +4,11 @@
 
     <!-- Tooltip -->
     <div ref="tooltip" class="tooltip" v-show="tooltipVisible">
-      <div class="tt-ramo">{{ tooltipData.ramo }}</div>
-      <div class="tt-monto">{{ tooltipData.monto }}</div>
-      <div class="tt-pct">{{ tooltipData.porcentaje }}%</div>
-      <div class="tt-tendencia" :class="claseTendencia(tooltipData.tendencia)">
+      <span class="tt-ramo" v-if="tooltipData.ramoCorto">{{ tooltipData.ramoCorto }}</span>
+      <span class="tt-pct">{{ tooltipData.porcentaje }}%</span>
+      <span class="tt-tendencia" :class="claseTendencia(tooltipData.tendencia)">
         {{ tooltipData.tendencia || '–' }}
-      </div>
+      </span>
     </div>
   </div>
 </template>
@@ -291,33 +290,29 @@ watch(
   pointer-events: none;
   z-index: 100;
   font-size: 0.88rem;
-  min-width: 190px;
+  display: flex;
+  gap:6px;
+  align-items: center;
+  justify-content: start;
 }
 
 .tt-ramo {
   font-weight: 700;
   color: #0b4f4f;
-  margin-bottom: 0.2rem;
-  font-size: 0.92rem;
-  line-height: 1.3;
+ 
 }
 
 .tt-monto {
   color: #333;
   font-weight: 600;
-  font-size: 0.88rem;
 }
 
 .tt-pct {
   color: #1a8a9e;
   font-weight: 800;
-  font-size: 1.1rem;
-  margin-top: 0.15rem;
 }
 
 .tt-tendencia {
-  margin-top: 0.25rem;
-  font-size: 0.95rem;
   font-weight: 700;
 }
 

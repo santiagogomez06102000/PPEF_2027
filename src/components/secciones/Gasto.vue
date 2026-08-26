@@ -12,18 +12,18 @@
         <p class="descripcion">{{ datos.descripcion }}</p>
 
         <!-- Cajas superior + mascota -->
-        <div class="contenedor-inferior">
-            <div class="caja-gasto">
+        <div class="contenedor-inferior grid grid-cols-3 gap-12 md:gap-24 lg:gap-[20%]">
+            <div class="caja-gasto col-span-3 md:col-span-1">
                 <h3>{{ datos.cajas.programable.titulo }}</h3>
                 <p class="caja-monto">{{ datos.cajas.programable.monto }}</p>
                 <p class="caja-unidad">{{ datos.cajas.programable.unidad }}</p>
             </div>
 
-            <div class="mascota-wrapper">
+            <div class="mascota-wrapper col-span-3 md:col-span-1">
                 <Mascota :mascota="1" ancho="24rem" alto="24rem" />
             </div>
 
-            <div class="caja-gasto">
+            <div class="caja-gasto col-span-3 md:col-span-1">
                 <h3>{{ datos.cajas.noProgramable.titulo }}</h3>
                 <p class="caja-monto">{{ datos.cajas.noProgramable.monto }}</p>
                 <p class="caja-unidad">{{ datos.cajas.noProgramable.unidad }}</p>
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="mt-40"></div>
-        <div class=" w-full rounded-lg text-black bg-white px-8 py-4" v-if="abierto">
+        <div class="  rounded-lg text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
             <h4 class="subtitulo-ejes">
                 {{ abierto.title }}
             </h4>
@@ -164,11 +164,7 @@ function handleClickBtn(e) {
    CAJAS + MASCOTA (superior)
    ═══════════════════════════════════════ */
 .contenedor-inferior {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+   
     margin-bottom: 3rem;
 }
 
@@ -178,9 +174,7 @@ function handleClickBtn(e) {
     padding: 2rem 1.5rem;
     text-align: center;
     color: rgb(13, 104, 129);
-    flex: 1 1 200px;
-    max-width: 280px;
-    min-height: 160px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -314,10 +308,7 @@ function handleClickBtn(e) {
 }
 
 @media (max-width: 768px) {
-    .contenedor-inferior {
-        flex-direction: column;
-        gap: 2rem;
-    }
+
 
     .caja-gasto {
         max-width: 100%;

@@ -15,7 +15,7 @@
           <span class="subtitulo">{{ cat.subtitulo }}</span>
         </button>
       </div>
-      <div class="w-full flex justify-end lg:hidden ">
+      <div class="w-full flex justify-end lg:hidden " v-if="detalleActivo">
         <button type="button" @click="handleClickBarra(null)"
           class="bg-white flex items-center justify-center text-blach w-[3rem] h-[3rem] shadow rounded-full">
           <ArrowLeft />

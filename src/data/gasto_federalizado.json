@@ -11,7 +11,8 @@
       "descripcion": "Participaciones federales",
       "monto": "$1,456.045.9",
       "unidad": "millones de pesos",
-      "color": "#5154bb"
+      "color": "#5154bb",
+      "posicion":"top"
     },
     {
       "tipo": "estandar",
@@ -19,7 +20,8 @@
       "descripcion": "Participaciones federales",
       "monto": "$1,200,075.7",
       "unidad": "millones de pesos",
-      "color":"#00a1cd"
+      "color":"#00a1cd",
+      "posicion":"top"
     },
     {
       "tipo": "mascota",
@@ -28,7 +30,8 @@
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
       "color":"#afe4d0",
-      "ocultar":true
+      "ocultar":true,
+      "posicion":"bottom"
     },
     {
       "tipo": "mascota",
@@ -37,7 +40,8 @@
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
       "color":"#68e1ca",
-      "ocultar":true
+      "ocultar":true,
+      "posicion":"bottom"
     }
   ],
   "footer": "La mayoría del dinero que el gobierno federal propone para estados y municipios (92%) proviene de dos fuentes principales: participaciones y aportaciones. Estas dos formas de apoyo son clave para que los gobiernos locales puedan manejar su presupuesto y ofrecer servicios públicos. A continuación, se presenta cuánto se propone para cada estado."

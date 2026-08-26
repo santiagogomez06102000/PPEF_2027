@@ -14,12 +14,13 @@ interface Bloque {
     unidad: string
     color: string
     ocultar?: boolean
+    posicion:"top" | "bottom" | "left" | "right"
 }
 
 </script>
 <template>
     <div class="contenedor  w-full h-[80dvh] lg:h-[30dvh] relative overflow-visible flex flex-col lg:flex-row">
-        <div class="mascota-hover hiddena lg:block">
+        <div class="mascota-hover">
             <Mascota :mascota="8" ancho="4rem" alto="4rem" />
         </div>
 
@@ -59,7 +60,8 @@ interface Bloque {
         lg:h-[4rem]
         cursor-pointer
         group
-    " :class="{ 'bloque-color': bloque.tipo === 'mascota' }">
+        bloque-color
+    " >
                 <span v-if="!bloque.ocultar" class="font-bold text-2xl lg:text-4xl flex flex-col">
                     {{ bloque.monto }}
 
@@ -69,23 +71,24 @@ interface Bloque {
                 </span>
 
                 <TooltipInversion :text="`
-                <div class='max-w-[50dvw] lg:max-w-[10rem] overflow-visible'>
+                <div class='w-full overflow-visible'>
                 <span class='text-[#0a5a45] text-xl font-bold'>
                     ${bloque.porcentaje}%
                 </span>
 
                 <span class='text-black text-wrap text-xs'>${bloque.descripcion}</span>
+                <br/>
                 <span
                     class='font-bold text-base mt-2'
                 >
                     ${bloque.monto}
 
-                    <div class='text-xs font-normal'>
+                    <span class='text-xs font-normal'>
                         ${bloque.unidad}
-                    </div>
+                    </span>
                 </span>
                 </div>
-                `" />
+                `" :position="bloque.posicion" />
             </div>
 
             <!-- Descripción -->

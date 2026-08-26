@@ -11,7 +11,8 @@
       "descripcion": "en inversión física",
       "monto": "$976,863.5",
       "unidad": "millones de pesos",
-      "color":"#00bdd9"
+      "color":"#00bdd9",
+      "posicion":"top"
     },
     {
       "tipo": "estandar",
@@ -19,7 +20,8 @@
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
-      "color":"#2c5e9f"
+      "color":"#2c5e9f",
+      "posicion":"top"
     },
     {
       "tipo": "mascota",
@@ -28,7 +30,8 @@
       "monto": "$15,395.9",
       "unidad": "millones de pesos",
       "color":"#68e1ca",
-      "ocultar":true
+      "ocultar":true,
+      "posicion":"bottom"
     }
   ],
   "footer": "Consulta en el mapa las obras públicas y otros proyectos de inversión incluidos en el PPEF 2026, con información georreferenciada:"
