@@ -4,9 +4,12 @@ import { fetchPublicJson } from '../utils/utils';
 import { baseUrl } from './Inversion/mapController';
 
 const cards = ref(null);
-onMounted(async ()=>{
-    cards.value = await fetchPublicJson("/secciones/ciudadaniaInformada/cardsCI.json");
-})
+
+onMounted(async () => {
+    cards.value = await fetchPublicJson(
+        "/secciones/ciudadaniaInformada/cardsCI.json"
+    );
+});
 </script>
 
 <template>
@@ -15,27 +18,34 @@ onMounted(async ()=>{
 
             <h2>Ciudadanía informada</h2>
 
-            <div class="introduccion">
-                <p>
-                    Participa, supervisa y ejerce tu derecho a saber: infórmate sobre el presupuesto y resultados,
-                    da seguimiento a obras y acciones de gobierno. Usa y comparte datos abiertos. Tu participación
-                    fortalece la transparencia y mejora los servicios públicos.
-                </p>
-            </div>
+            <p class="introduccion">
+                Participa, supervisa y ejerce tu derecho a saber: infórmate sobre el presupuesto y resultados,
+                da seguimiento a obras y acciones de gobierno. Usa y comparte datos abiertos. Tu participación
+                fortalece la transparencia y mejora los servicios
+            </p>
 
             <div class="cards" v-if="cards">
-                <a class="subcards hover:scale-105 transition duration-300 ease"  v-for="card in cards" :key="card.url" :href="card.url" target="_blank">
+
+                <a class="subcards" v-for="card in cards" :key="card.url" :href="card.url" target="_blank">
+
+                    <!-- IMAGEN -->
                     <figure>
-                        <img :src="baseUrl + card.img" alt="Cambiar" />
+                        <img :src="baseUrl + card.img" :alt="card.titulo" />
                     </figure>
 
-                    <p class="p-h4" v-html="card.titulo">
-                    </p>
+                    <!-- CONTENIDO -->
+                    <div class="subcards-text">
 
-                    <p v-html="card.descripcion">
-                    </p>
+                        <p class="p-h4" v-html="card.titulo"></p>
+
+                        <p class="descripcion" v-html="card.descripcion"></p>
+
+                    </div>
+
                 </a>
+
             </div>
+
         </div>
     </section>
 </template>
@@ -43,232 +53,271 @@ onMounted(async ()=>{
 <style scoped>
 /* =========================================================
    CONTENEDOR PRINCIPAL
-   Equivalente a:
-   grid grid-cols-6 gap-x-4
    ========================================================= */
 
 .paquete-economico {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     column-gap: 1rem;
+
+    width: 100%;
+    max-width: 1400px;
+
     margin: 0 auto;
     padding: 3.5rem 2.5rem 5rem;
+
     border-radius: 70px;
-}
-@media (max-width: 640px) {
-    .paquete-economico{
-        padding: 2.5rem 1.5rem 4rem;
-    }
 }
 
 /* =========================================================
    CONTENIDO
-   Equivalente a:
-   lg:col-start-2 lg:col-span-4
-   col-start-1 col-span-6
    ========================================================= */
 
 .paquete-contenido {
     grid-column: 1 / span 6;
+
+    font-family: 'Noto Sans', sans-serif;
 }
 
 
 /* =========================================================
-   COLORES
+   TEXTO
    ========================================================= */
 
-#paquete_economico {
-    background: linear-gradient(90deg,
-            rgb(170 236 248) 0%,
-            rgba(122, 211, 227, 1) 100%);
-
-    color: #2c4072;
+#paquete_economico h2 {
+    color: #00a1cd;
 }
 
 #paquete_economico p {
-    color: #2c4072;
+    color: #000000;
 }
 
 
 /* =========================================================
    INTRODUCCIÓN
-   Equivalente a:
-   flex flex-col-reverse lg:flex-row items-center
    ========================================================= */
 
 .introduccion {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
 }
 
 
 /* =========================================================
-   CARDS
-   Equivalente a:
-   grid grid-cols-1 md:grid-cols-3
-   gap-8
-   auto-rows-min
+   CONTENEDOR DE CARDS
+
+   Desktop:
+   [ CARD ][ CARD ][ CARD ]
    ========================================================= */
 
 .cards {
     display: grid;
-    grid-template-columns: 1fr;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 2rem;
-    grid-auto-rows: min-content;
 
     padding: 36px 0;
 }
 
 
 /* =========================================================
-   SUBCARDS
-   Equivalente a:
-   grid
-   grid-rows-subgrid
-   row-span-3
-   rounded-xl / rounded-2xl
-   shadow-xl
-   overflow-hidden
+   CARD
    ========================================================= */
 
 .subcards {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-    /*
-     * En CSS Grid nativo no todos los navegadores/estructuras
-     * necesitan row-span-3 de Tailwind.
-     * Se mantienen tres filas para alinear el contenido.
-     */
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+    width: 100%;
 
-    padding: 20px 25px;
+    background-color: #ffffff;
 
-    background-color: white;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 
     overflow: hidden;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* =========================================================
-   FIGURE
-   Equivalente a:
-   max-w-18
-   rounded-xl
-   overflow-hidden
-   bg-transparent
-   self-start
+   HOVER
+   ========================================================= */
+
+.subcards:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 16px 30px rgba(0, 0, 0, 0.12),
+        0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   IMAGEN
    ========================================================= */
 
 .subcards figure {
-    width: 4.5rem;
-    max-width: 4.5rem;
+    width: 110px;
+    height: 110px;
+
+    flex: 0 0 110px;
 
     margin: 0;
+    padding: 12px;
 
-    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     overflow: hidden;
 
     background-color: transparent;
-
-    align-self: start;
 }
 
 .subcards figure img {
     display: block;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
     object-fit: contain;
 }
 
 
 /* =========================================================
-   TÍTULOS DE LAS CARDS
+   CONTENIDO DE LA CARD
+
+   Título y texto en ROW
+   ========================================================= */
+
+.subcards-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.5rem;
+
+    padding: 1rem 1.25rem;
+
+    flex: 1;
+
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+/* =========================================================
+   TÍTULO
    ========================================================= */
 
 .p-h4 {
-    color: rgb(56, 78, 158);
+    margin: 0;
+
+    color: rgb(0, 0, 0);
 
     font-family: 'Noto Sans', sans-serif;
 
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.2;
 
     text-align: left;
-
-    margin: 0;
 }
 
 
 /* =========================================================
-   TEXTOS DE LAS CARDS
+   DESCRIPCIÓN
    ========================================================= */
 
-.subcards>p:not(.p-h4) {
+.descripcion {
+    flex: 1;
+
     margin: 0;
+
+    font-family: 'Noto Sans', sans-serif;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: left;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
+
+   [ CARD ][ CARD ]
+   [ CARD         ]
    ========================================================= */
 
-/*
- * Tailwind md = 768px
- *
- * grid-cols-3
- */
+@media (max-width: 1024px) {
 
-@media (min-width: 768px) {
     .cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
 }
 
 
-/*
- * Tailwind lg = 1024px
- *
- * col-start-2
- * col-span-4
- */
+/* =========================================================
+   MÓVIL
 
-@media (min-width: 1024px) {
-    .paquete-contenido {
-        grid-column: 2 / span 4;
-    }
+   [ CARD ]
+   [ CARD ]
+   [ CARD ]
+   ========================================================= */
 
-    .introduccion {
-        flex-direction: row;
-    }
-}
+@media (max-width: 640px) {
 
-
-/*
- * Ajustes para pantallas pequeñas
- */
-
-@media (max-width: 767px) {
     .paquete-economico {
         grid-template-columns: 1fr;
+
+        padding: 2.5rem 1.5rem 4rem;
+
+        border-radius: 40px;
     }
 
     .paquete-contenido {
         grid-column: 1;
     }
 
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .subcards figure {
+        width: 90px;
+        height: 90px;
+        flex-basis: 90px;
+
+        padding: 10px;
+    }
+
+    .subcards-text {
+        gap: 0.4rem;
+        padding: 0.85rem 1rem;
+    }
+
     .p-h4 {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .descripcion {
+        font-size: 14px;
     }
 }
 </style>

@@ -1,20 +1,20 @@
 [
-    {
-        "url":"/Programas",
-        "titulo":"Descubre",
-        "descripcion":"el gasto y los resultados de los programas presupuestarios de forma trimestral en la sección Programas",
-        "img":"secciones/impactos/images/14_infraestructura.png"
-    },
-    {
-        "url":"/Obra-Publica-Abierta",
-        "titulo":"Revisa",
-        "descripcion":"cada trimestre la sección de Obra Pública",
-        "img":"secciones/impactos/images/15_impulsar_exportacion.png"
-    },
-    {
-        "url":"https://web.diputados.gob.mx/inicio/comision/440bfe7a-d8dc-4b42-9ea7-e3643a5cefc6",
-        "titulo":"Sigue",
-        "descripcion":"el proceso de discusión y aprobación del PPEF 2026",
-        "img":"secciones/impactos/images/16_responsable.png"
-    }
+  {
+    "url": "/Programas",
+    "titulo": "Programas",
+    "descripcion": "Revisa el gasto y los resultados",
+    "img": "mascota/0_cabeza.png"
+  },
+  {
+    "url": "/Obra-Publica-Abierta",
+    "titulo": "Obra Pública",
+    "descripcion": "Consulta cada trimestre",
+    "img": "mascota/obra.png"
+  },
+  {
+    "url": "https://web.diputados.gob.mx/inicio/comision/440bfe7a-d8dc-4b42-9ea7-e3643a5cefc6",
+    "titulo": "Aprobación PPEF 2027",
+    "descripcion": "Sigue el proceso",
+    "img": "mascota/aprobacion_ppef.png"
+  }
 ]

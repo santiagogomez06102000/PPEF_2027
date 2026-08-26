@@ -69,7 +69,7 @@
                 {{ abierto.title }}
             </h4>
             <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content" class="parrafo-boton">
-                
+
             </div>
         </div>
     </section>
@@ -95,19 +95,20 @@ function abrirModal(data) {
     modal.open(data)
 }
 const abierto = ref()
-function handleClickBtn(e){
+function handleClickBtn(e) {
 
-        abierto.value = e;
+    abierto.value = e;
 
-    
+
 }
 </script>
 
 <style scoped>
-.parrafo-boton{
+.parrafo-boton {
     font-size: 1rem;
     margin: 0;
 }
+
 .gasto {
 
     color: #ffffff;
@@ -116,9 +117,9 @@ function handleClickBtn(e){
 /* ── Título principal ── */
 .titulo {
     text-align: center;
-    color: #00a1cd;
-    margin-bottom: 1.2rem;
-    font-family: 'Noto Sans Black', sans-serif;
+    font-weight: 800;
+    color: rgb(0, 161, 205);
+    margin-bottom: 1.5rem;
 }
 
 /* ── Intro ── */

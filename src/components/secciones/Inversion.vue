@@ -13,13 +13,13 @@
 
     <!-- ═════════ BLOQUES DINÁMICOS ═════════ -->
 
-    <BarraInversion :bloques="datos.bloques"/>
+    <BarraInversion :bloques="datos.bloques" />
 
     <!-- ═════════ FOOTER ═════════ -->
     <p class="footer-text">{{ datos.footer }}</p>
 
     <div class="mapa-placeholder h-full ">
-      <ViewMapa/>
+      <ViewMapa />
     </div>
   </section>
 </template>
@@ -34,16 +34,14 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 
 <style scoped>
 .gasto-inversion {
-    border-radius: 40px;
-    font-family: 'Noto Sans', sans-serif;
+  border-radius: 40px;
 }
 
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: #0a5a45;
+  color: rgb(0, 161, 205);
   /* Verde oscuro */
   margin-bottom: 1.5rem;
 }

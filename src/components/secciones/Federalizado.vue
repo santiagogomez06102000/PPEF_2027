@@ -45,7 +45,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
     text-align: center;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #ffffff;
+    color: rgb(0, 161, 205);
     /* Verde oscuro */
     margin-bottom: 1.5rem;
 }
@@ -54,7 +54,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #ffffff;
+    color: #000000;
     margin: 0.5rem 0;
 }
 
@@ -70,7 +70,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 .monto-principal {
     font-size: clamp(3.5rem, 8vw, 3.5rem);
     font-weight: 800;
-    color: #ccffff;
+    color: rgb(64, 157, 162);
     line-height: 1;
     margin-bottom: 0.2rem;
 }
@@ -78,7 +78,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 .unidad-principal {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    color: #000000;
 }
 
 /* ── Grid de Bloques ── */
@@ -153,19 +153,18 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 .unidad-bloque {
     font-size: 0.95rem;
     font-weight: 500;
-    color: #fff;
+    color: #000000;
     /* Gris */
     margin: 0.1rem 0 0 0;
 }
 
 /* ── Footer ── */
 .footer-text {
-    text-align: left;
+    text-align: center;
     font-size: 0.95rem;
-    color: #fff;
+    color: #000000;
     line-height: 1.6;
     margin-top: 2rem;
-    border-top: 1px solid #eee;
     padding-top: 1.5rem;
 }
 

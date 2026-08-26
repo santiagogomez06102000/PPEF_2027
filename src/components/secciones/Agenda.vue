@@ -16,11 +16,11 @@
 
         <h3 class="subtitulo">{{ datos.subtitulo }}</h3>
 
-
+        <!-- 
         <div class="grid-botones">
             <template v-for="(btn, index) in datos.botones" :key="btn.id">
 
-                <!-- Botón normal: abre modal -->
+                Botón normal: abre modal
                 <button v-if="btn.tipo !== 'descarga'" class="btn-eje" @click="abrirModal(ODS[index])">
                     <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
 
@@ -36,7 +36,7 @@
                     </div>
                 </button>
 
-                <!-- Botón de descarga: NO abre modal -->
+                 Botón de descarga: NO abre modal
                 <a v-else class="btn-eje" :href="`${baseUrl}${btn.link}`" :download="btn.archivo">
                     <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje" />
 
@@ -53,8 +53,8 @@
                 </a>
 
             </template>
-        </div>
-
+</div>
+-->
 
         <BurbujasODS :botones="datos.botones" @seleccionar="abrirModalODS" />
 
@@ -100,10 +100,7 @@ function abrirModalODS(burbuja) {
 
 <style scoped>
 .entorno {
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 3.5rem 2.5rem 5rem;
-    color: #000000;
     position: relative;
 }
 
@@ -114,7 +111,7 @@ function abrirModalODS(burbuja) {
     margin-bottom: 2.5rem;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -0.02em;
-    color: #0a5a45;
+    color: #ffffff;
 }
 
 .subtitulo {
@@ -124,7 +121,7 @@ function abrirModalODS(burbuja) {
     margin: 0 auto 3.5rem;
     font-family: 'Noto Sans Black', sans-serif;
     letter-spacing: -0.02em;
-    color: #2bc0a3;
+    color: #ffffff;
 }
 
 .bloque {
@@ -147,7 +144,7 @@ function abrirModalODS(burbuja) {
     font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
-    color: #000000;
+    color: #ffffff;
 }
 
 .dos-columnas {
@@ -161,7 +158,7 @@ function abrirModalODS(burbuja) {
     font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
-    color: #000000;
+    color: #ffffff;
 }
 
 /* ═══════════════════════════════════════

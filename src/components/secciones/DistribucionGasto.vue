@@ -78,11 +78,9 @@ function handleClickBarra(idx) {
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
-  color: #00b4d8;
-  margin-bottom: 1rem;
-  font-family: 'Noto Sans', sans-serif;
+  color: rgb(0, 161, 205);
+  margin-bottom: 1.5rem;
 }
 
 /* ── Descripción ── */
