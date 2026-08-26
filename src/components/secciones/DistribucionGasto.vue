@@ -19,12 +19,12 @@
       <div class="flex gap-0 w-full  flex-wrap">
         <!-- Gráfica -->
         <div class="panel-grafica w-auto overflow-hidden " :class="{
-          'max-w-full':!detalleActivo,
-          'max-w-full lg:max-w-[40%]':detalleActivo
+          'max-w-full': !detalleActivo,
+          'max-w-full lg:max-w-[40%]': detalleActivo
         }">
           <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
         </div>
-        <div class="w-full lg:w-[60%] "  v-if="detalleActivo">
+        <div class="w-full lg:w-[60%] " v-if="detalleActivo">
           <Detalle :detalle="detalleActivo" />
         </div>
       </div>
@@ -66,11 +66,9 @@ function handleClickBarra(idx) {
 /* ── Título ── */
 .titulo {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
-  color: #00b4d8;
-  margin-bottom: 1rem;
-  font-family: 'Noto Sans', sans-serif;
+  color: rgb(0, 161, 205);
+  margin-bottom: 1.5rem;
 }
 
 /* ── Descripción ── */
