@@ -1,6 +1,6 @@
 {
   "titulo": "Gasto de inversión",
-  "pre_monto": "En 2026, se prevé un gasto de inversión de:",
+  "pre_monto": "En 2027, se prevé un gasto de inversión de:",
   "monto_total": "$1,267,119.4",
   "unidad_total": "millones de pesos",
   "post_monto": "Compuesto de la siguiente forma:",
@@ -34,5 +34,5 @@
       "posicion":"bottom"
     }
   ],
-  "footer": "Consulta en el mapa las obras públicas y otros proyectos de inversión incluidos en el PPEF 2026, con información georreferenciada:"
+  "footer": "Consulta en el mapa las obras públicas y otros proyectos de inversión incluidos en el PPEF 2027, con información georreferenciada:"
 }

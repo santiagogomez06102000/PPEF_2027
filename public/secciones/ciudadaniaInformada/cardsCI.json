@@ -1,12 +1,12 @@
 [
   {
-    "url": "/Programas",
+    "url": "https://www.transparenciapresupuestaria.gob.mx/Programas",
     "titulo": "Programas",
     "descripcion": "Revisa el gasto y los resultados",
     "img": "mascota/0_cabeza.png"
   },
   {
-    "url": "/Obra-Publica-Abierta",
+    "url": "https://www.transparenciapresupuestaria.gob.mx/Obra-Publica-Abierta",
     "titulo": "Obra Pública",
     "descripcion": "Consulta cada trimestre",
     "img": "mascota/obra.png"
