@@ -52,7 +52,7 @@
 
             <!-- Ejes Transversales -->
             <div class="col-span-7 2xl:col-span-3">
-                <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
+                <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
                         class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"

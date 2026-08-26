@@ -51,7 +51,7 @@ onUnmounted(() => {
   <header class="header sticky top-0 z-2000 bg-[#142e3f] shadow-sm">
     <div class="header-container">
       <div class="logo">
-        <a href="/">
+        <a href="http://172.28.105.12/es/PTP/prueba_home">
           <img
             :src="basePath + 'menu/logo.png'"
             alt="Transparencia Presupuestaria"

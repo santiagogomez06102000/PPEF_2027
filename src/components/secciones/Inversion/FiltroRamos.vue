@@ -4,6 +4,7 @@ import { ramoColores } from './mapController';
 import { RamoInterface } from './FiltrosMapa.vue';
 import { onMounted, ref, watch } from 'vue';
 import ChevronDown from '@/components/utils/Icons/ChevronDown.vue';
+import ArrowClockWise from '@/components/utils/Icons/ArrowClockWise.vue';
 async function consultarRamos() {
     const respuesta = await fetchPublicJson<RamoInterface[]>('/filtros/ramos.json')
     if (respuesta) {
@@ -47,6 +48,10 @@ function handleClickRamo(id: number) {
         ? seleccionados.value.filter((item) => item !== id)
         : [...seleccionados.value, id]
 }
+function resetear() {
+    const ids = ramos.value?.map((item: { id_ramo: number }) => item.id_ramo)
+    seleccionados.value = ids ?? []
+}
 watch(
     seleccionados,
     async (nuevosActivos: number[]) => {
@@ -64,11 +69,18 @@ watch(
             'expandido': expandido
         }">
         <button type="button" class="rounded-full bg-white min-w-[3rem] min-h-[3rem]
-             flex items-center justify-center shadow lg:hidden" @click="() => { expandido = !expandido }">
+             flex items-center justify-center shadow lg:hidden cursor-pointer" @click="() => { expandido = !expandido }">
             <ChevronDown class="transition duration-300 ease" :class="{ '-rotate-180': expandido }" />
         </button>
+        <div class=" absolute top-4 right-[50%] lg:top-0 lg:right-0">
+            <button type="button" class="rounded-full bg-white min-w-[2rem] min-h-[2rem] cursor-pointer
+             flex items-center justify-center shadow " @click="resetear"
+                :class="{ 'hidden': seleccionados.length === ramos?.length }">
+                <ArrowClockWise class="transition duration-300 ease" />
+            </button>
+        </div>
         <button type="button" v-if="ramos" v-for="ramo in ramos" :key="ramo.id_ramo"
-            class=" boton-ramo rounded-full px-2 py-2 shadow"
+            class=" boton-ramo rounded-full px-2 py-2 shadow "
             :class="{ 'seleccionado': seleccionados.includes(ramo.id_ramo) }" :style="{
                 '--color-borde': ramoColores.get(ramo.id_ramo)
             }" @click="handleClickRamo(ramo.id_ramo)">{{ ramo.ramo }}</button>

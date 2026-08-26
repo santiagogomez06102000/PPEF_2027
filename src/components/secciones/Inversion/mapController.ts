@@ -22,29 +22,13 @@ export function initMap(mapaContainer: Ref<HTMLElement | null>): L.Map | null {
   mapaC.createPane("labels");
   mapaC.getPane("labels")!.style.zIndex = "640";
 
-  // Fondo sin etiquetas
-  const callesFondo = L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      maxZoom: 18,
-    },
-  );
+  const callesFondo = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  })
 
-  // Etiquetas
-  const callesLabels = L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
-    {
-      subdomains: "abcd",
-      minZoom: 5,
-      maxZoom: 18,
-      pane: "labels",
-    },
-  );
-
-  const calles = L.layerGroup([callesFondo, callesLabels]);
+  const calles = L.layerGroup([callesFondo]);
 
   calles.addTo(mapaC);
 
