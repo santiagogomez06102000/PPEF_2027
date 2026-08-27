@@ -123,7 +123,7 @@
             </div>
         </div>
 
-        <div class="mt-40 2xl:hidden"></div>
+        <div class="mt-40 2xl"></div>
     </section>
 </template>
 
