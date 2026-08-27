@@ -36,7 +36,7 @@
 
         <p class="texto-ejes">{{ datos.textoEjes }}</p>
 
-        <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16">
+        <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16 max-w-full">
             <!-- Ejes Generales -->
             <div class="col-span-7 2xl:col-span-4"  :class="{'hidden lg:block':seccion === 2}">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
@@ -288,7 +288,6 @@ async function handleClickBtn(e, sec) {
     border: 2px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     padding: 1.2rem 1rem;
-    min-height: 180px;
     /* ajusta según necesites */
 
     color: #000;

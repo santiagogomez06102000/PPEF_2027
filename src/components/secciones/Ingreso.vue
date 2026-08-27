@@ -150,7 +150,7 @@ const datos = ref({
   items: []
 })
 
-const activo = ref(0)
+const activo = ref(null)
 
 onMounted(async () => {
   datos.value = await fetchPublicJson(
