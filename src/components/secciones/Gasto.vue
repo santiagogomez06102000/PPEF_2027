@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="mt-40"></div>
-        <div class="  rounded-lg text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
+        <div ref="descripcion" class="  rounded-lg text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
             <h4 class="subtitulo-ejes">
                 {{ abierto.title }}
             </h4>
@@ -84,7 +84,7 @@ import { useModal } from '@/components/composables/useModal.js'
 // Importar JSONs de modales
 import generales from '@/data/Gasto/ejes_generales.json'
 import transversales from '@/data/Gasto/ejes_transversales.json'
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -94,11 +94,19 @@ const modal = useModal()
 function abrirModal(data) {
     modal.open(data)
 }
-const abierto = ref()
-function handleClickBtn(e) {
+const descripcion = ref();
+const abierto = ref(null)
+async function handleClickBtn(e) {
 
     abierto.value = e;
+      await nextTick()
 
+   if(descripcion.value){
+    descripcion.value?.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest"
+    })
+   }
 
 }
 </script>
