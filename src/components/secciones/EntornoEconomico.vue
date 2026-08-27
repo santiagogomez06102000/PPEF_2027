@@ -11,7 +11,7 @@
     <div class="grid-cards">
       <button v-for="(card, index) in datos.cards" :key="card.id" class="card" @click="abrirModal(generales[index])">
         <h3>{{ card.titulo }}</h3>
-        <img :src="baseUrl + card.img" :alt="card.titulo" class="w-full"/>
+        <img :src="baseUrl + card.img" :alt="card.titulo" />
       </button>
     </div>
     <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
@@ -27,9 +27,9 @@ import { fetchPublicJson } from '../utils/utils';
 import { onMounted, ref } from 'vue';
 import { baseUrl } from './Inversion/mapController';
 
-const datos=ref({});
-const generales=ref([])
-onMounted(async ()=>{
+const datos = ref({});
+const generales = ref([])
+onMounted(async () => {
   datos.value = await fetchPublicJson("/secciones/EntornoEconomico/entornoEconomico.json");
   generales.value = await fetchPublicJson("/secciones/EntornoEconomico/cards.json")
 })
@@ -104,7 +104,7 @@ function abrirModal(data) {
 
 .card h3 {
   margin: 0;
-  color:#fff;
+  color: #fff;
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.3;
@@ -115,20 +115,76 @@ function abrirModal(data) {
    RESPONSIVE
    ═══════════════════════════════════════ */
 
-/* Tablet grande / laptop pequeña: 3 en 3 */
+/* ═══════════════════════════════════════
+   TABLET <= 1024px
+   Cards horizontales compactas
+═══════════════════════════════════════ */
+
 @media (max-width: 1024px) {
+
   .grid-cards {
     position: static;
-    transform: none;
     left: auto;
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    transform: none;
+
+    width: min(100%, 850px);
     margin: 0 auto;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    height: 120px;
+    min-height: 0;
+
+    padding: 1rem 1.2rem;
+
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    text-align: left;
+  }
+
+  .card h3 {
+    flex: 1;
+
+    margin: 0;
+
+    font-size: 1.05rem;
+    line-height: 1.25;
+
+    text-align: left;
+  }
+
+  .card img {
+    flex-shrink: 0;
+
+    width: 85px;
+    height: 85px;
+
+    object-fit: contain;
   }
 }
 
-/* Tablet / móvil grande: 2 en 2 */
+/* ═══════════════════════════════════════
+   TABLET PEQUEÑA <= 768px
+═══════════════════════════════════════ */
+
 @media (max-width: 768px) {
+
+  .textos {
+    margin-bottom: 2.5rem;
+  }
 
   .textos p {
     text-align: left;
@@ -136,30 +192,67 @@ function abrirModal(data) {
   }
 
   .grid-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0.8rem;
   }
 
   .card {
-    min-height: 200px;
-    border-radius: 28px 28px 0 0;
-    padding: 1.4rem 1.2rem;
+    height: 105px;
+
+    padding: 0.9rem 1rem;
+
+    border-radius: 20px;
+
+    gap: 0.75rem;
   }
 
   .card h3 {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  .card img {
+    width: 70px;
+    height: 70px;
   }
 }
 
-/* Móvil: 1 en 1 */
-@media (max-width: 480px) {
+/* ═══════════════════════════════════════
+   CELULAR <= 560px
+═══════════════════════════════════════ */
+
+@media (max-width: 560px) {
+
   .grid-cards {
+    width: 100%;
+
     grid-template-columns: 1fr;
+
+    gap: 0.75rem;
   }
 
   .card {
-    min-height: 140px;
-    border-radius: 24px 24px 0 0;
+    height: 92px;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: 18px;
+
+    gap: 1rem;
   }
+
+  .card h3 {
+    font-size: 1rem;
+    line-height: 1.2;
+
+    text-align: left;
+  }
+
+  .card img {
+    width: 65px;
+    height: 65px;
+  }
+
 }
 </style>
