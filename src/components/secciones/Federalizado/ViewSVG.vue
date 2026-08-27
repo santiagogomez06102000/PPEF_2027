@@ -355,6 +355,7 @@ const totalSeleccionado = computed(() => {
     text-align: left;
 
     line-height: 1.2;
+    color:
 }
 
 
@@ -369,6 +370,7 @@ const totalSeleccionado = computed(() => {
             2.3rem);
 
     font-weight: 700;
+    color: rgb(0, 161, 205);
 }
 
 
@@ -460,8 +462,6 @@ const totalSeleccionado = computed(() => {
 
     display: flex;
     flex-direction: column;
-
-    align-items: flex-start;
 }
 
 
@@ -481,17 +481,16 @@ const totalSeleccionado = computed(() => {
     line-height: 1;
 
     letter-spacing: -0.03em;
+    color: rgb(64, 157, 162);
 }
 
 
 .estado-unidad {
-    margin:
-        0.25rem 0 0;
-
+    margin: 0.25rem 0 0;
     font-size: 1rem;
     font-weight: 600;
-
     line-height: 1.2;
+    text-align: center;
 }
 
 
@@ -500,15 +499,12 @@ const totalSeleccionado = computed(() => {
 ========================================================= */
 
 .estado-nombre {
-    margin:
-        1rem 0 0.75rem;
-
+    margin: 1rem 0 0.75rem;
     font-size: 1.6rem;
     font-weight: 700;
-
     line-height: 1.2;
-
-    text-align: left;
+    text-align: center;
+    color: rgb(0, 161, 205);
 }
 
 
@@ -523,8 +519,8 @@ const totalSeleccionado = computed(() => {
 
 .estado-datos ul {
     margin: 0;
-
     padding-left: 1.25rem;
+    list-style: disc;
 }
 
 
@@ -539,6 +535,10 @@ const totalSeleccionado = computed(() => {
 
 .estado-datos li:last-child {
     margin-bottom: 0;
+}
+
+.estado-datos li::marker {
+    color: rgb(6, 101, 122);
 }
 
 
