@@ -7,11 +7,13 @@
   "cajas": {
     "programable": {
       "titulo": "Gasto programable",
+      "texto": "Se refiere al que soporta la operación de las instituciones del gobierno federal para que éstas proporcionen servicios como educación, salud, carreteras o las relaciones con otros países, etc.",
       "monto": "$7,094,708.8",
       "unidad": "millones de pesos"
     },
     "noProgramable": {
       "titulo": "Gasto no programable",
+      "texto": "Se destina al cumplimiento de obligaciones y apoyos determinados por la Ley como la deuda pública, las participaciones a entidades federativas y municipios, lo que significa que no financia la operación de las instituciones del gobierno federal.",
       "monto": "$3,905,291.2",
       "unidad": "millones de pesos"
     }

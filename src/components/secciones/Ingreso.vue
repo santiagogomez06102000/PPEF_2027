@@ -15,18 +15,10 @@
 
       <!-- COLUMNA IZQUIERDA -->
       <div class="columna">
-        <div
-          v-for="item in columnaIzquierda"
-          :key="item.id"
-          class="item"
-          :class="{ abierto: activo === item.index }"
-        >
-          <button
-            class="cabecera"
-            @click="toggle(item.index)"
-          >
+        <div v-for="item in columnaIzquierda" :key="item.id" class="item" :class="{ abierto: activo === item.index }">
+          <button class="cabecera" @click="toggle(item.index)">
             <div class="icono">
-              <img :src="baseUrl+'secciones/ingreso/billete.png'" alt="icono" />
+              <img :src="baseUrl + 'secciones/ingreso/billete.png'" alt="icono" />
             </div>
 
             <div class="info">
@@ -40,35 +32,17 @@
             </div>
 
             <span class="flecha" aria-hidden="true">
-              <svg
-                width="14"
-                height="8"
-                viewBox="0 0 14 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1L7 7L13 1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </span>
           </button>
 
           <Transition name="desplegar">
-            <div
-              v-show="activo === item.index"
-              class="panel"
-            >
+            <div v-show="activo === item.index" class="panel">
               <ul>
-                <li
-                  v-for="(linea, i) in item.contenido"
-                  :key="i"
-                  v-html="linea"
-                />
+                <li v-for="(linea, i) in item.contenido" :key="i" v-html="linea" />
               </ul>
             </div>
           </Transition>
@@ -77,18 +51,10 @@
 
       <!-- COLUMNA DERECHA -->
       <div class="columna">
-        <div
-          v-for="item in columnaDerecha"
-          :key="item.id"
-          class="item"
-          :class="{ abierto: activo === item.index }"
-        >
-          <button
-            class="cabecera"
-            @click="toggle(item.index)"
-          >
+        <div v-for="item in columnaDerecha" :key="item.id" class="item" :class="{ abierto: activo === item.index }">
+          <button class="cabecera" @click="toggle(item.index)">
             <div class="icono">
-              <img :src="baseUrl+'secciones/ingreso/billete.png'" alt="icono" />
+              <img :src="baseUrl + 'secciones/ingreso/billete.png'" alt="icono" />
             </div>
 
             <div class="info">
@@ -102,35 +68,17 @@
             </div>
 
             <span class="flecha" aria-hidden="true">
-              <svg
-                width="14"
-                height="8"
-                viewBox="0 0 14 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1L7 7L13 1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </span>
           </button>
 
           <Transition name="desplegar">
-            <div
-              v-show="activo === item.index"
-              class="panel"
-            >
+            <div v-show="activo === item.index" class="panel">
               <ul>
-                <li
-                  v-for="(linea, i) in item.contenido"
-                  :key="i"
-                  v-html="linea"
-                />
+                <li v-for="(linea, i) in item.contenido" :key="i" v-html="linea" />
               </ul>
             </div>
           </Transition>
@@ -216,7 +164,7 @@ const toggle = (idx) => {
 .intro {
   text-align: center;
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 950px;
   margin: 0 auto 1.5rem;
 }
 
@@ -401,6 +349,7 @@ const toggle = (idx) => {
 }
 
 @media (max-width: 640px) {
+
   /*
    * En móvil vuelve a una sola columna.
    */
