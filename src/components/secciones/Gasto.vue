@@ -38,7 +38,7 @@
 
         <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16">
             <!-- Ejes Generales -->
-            <div class="col-span-7 2xl:col-span-4" v-if="seccion !== 2">
+            <div class="col-span-7 2xl:col-span-4"  :class="{'hidden lg:block':seccion === 2}">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
@@ -54,7 +54,7 @@
             </div>
 
             <!-- Ejes Transversales -->
-            <div class="col-span-7 2xl:col-span-3" v-if="seccion !== 1">
+            <div class="col-span-7 2xl:col-span-3" :class="{'hidden lg:block':seccion === 1}">
                 <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
