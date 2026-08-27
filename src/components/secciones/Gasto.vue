@@ -38,26 +38,32 @@
 
         <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16">
             <!-- Ejes Generales -->
-            <div class="col-span-7 2xl:col-span-4">
+            <div class="col-span-7 2xl:col-span-4" v-if="seccion !== 2">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
-                        class="relative text-black p-2  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
-                        @click="handleClickBtn(generales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
+                        class="relative text-black p-2  w-full flex items-center justify-center cursor-pointer hover:font-bold hover:scale-105 transition-all duration-300 ease"
+                        @click="handleClickBtn(generales[index], 1)" :class="{
+                            'scale-105 font-bold': btn.texto.toLowerCase() === abierto?.title.toLowerCase()
+                        }">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto"
+                            class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
                         <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
             </div>
 
             <!-- Ejes Transversales -->
-            <div class="col-span-7 2xl:col-span-3">
+            <div class="col-span-7 2xl:col-span-3" v-if="seccion !== 1">
                 <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
-                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
-                        @click="handleClickBtn(transversales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
+                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:font-bold hover:scale-105 transition-all duration-300 ease"
+                        :class="{
+                            'scale-105 font-bold': btn.texto.toLowerCase() === abierto?.title.toLowerCase()
+                        }" @click="handleClickBtn(transversales[index], 2)">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto"
+                            class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
                         <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
                     </button>
                 </div>
@@ -68,6 +74,7 @@
             <h4 class="subtitulo-ejes">
                 {{ abierto.title }}
             </h4>
+
             <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content" class="parrafo-boton">
 
             </div>
@@ -96,17 +103,26 @@ function abrirModal(data) {
 }
 const descripcion = ref();
 const abierto = ref(null)
-async function handleClickBtn(e) {
+const seccion = ref(null)
+async function handleClickBtn(e, sec) {
 
-    abierto.value = e;
-      await nextTick()
 
-   if(descripcion.value){
-    descripcion.value?.scrollIntoView({
-        behavior:"smooth",
-        block:"nearest"
-    })
-   }
+    if (e?.title === abierto.value?.title) {
+        abierto.value = null;
+        seccion.value = null;
+    }
+    else {
+        abierto.value = e;
+        seccion.value = sec
+        await nextTick()
+
+        if (descripcion.value) {
+            descripcion.value?.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            })
+        }
+    }
 
 }
 </script>
@@ -301,7 +317,8 @@ async function handleClickBtn(e) {
 }
 
 
-.btn-eje:hover {
+.btn-eje:hover,
+.btn-eje.activo {
     background-color: rgba(255, 255, 255, 0.28);
     border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-3px);
