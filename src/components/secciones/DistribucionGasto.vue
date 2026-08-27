@@ -69,7 +69,7 @@ function mostrarInicial(){
 }
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
 const detalleActivo = ref();
-const barraActiva = ref(null);
+const barraActiva = ref(0);
 function handleClickBarra(idx) {
   if (idx != null) {
     const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
