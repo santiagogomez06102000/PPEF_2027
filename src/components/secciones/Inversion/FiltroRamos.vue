@@ -96,6 +96,10 @@ watch(
     max-width: 15rem;
     width: 15rem;
     transition: max-height 0.3s ease;
+    pointer-events: none;
+}
+.contenedor button{
+    pointer-events: auto;
 }
 
 .contenedor.expandido {

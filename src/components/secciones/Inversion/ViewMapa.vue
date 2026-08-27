@@ -10,6 +10,8 @@ const datosFiltrados = ref<Proyecto[]>([])
 async function obtenerDatos() {
   const respuesta = await fetchPublicJson<Proyecto[]>('/db/proyectos_ppef.json')
   if (respuesta) {
+    console.log(respuesta.length);
+    
     datos.value = respuesta
     datosFiltrados.value = respuesta
   }

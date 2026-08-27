@@ -21,7 +21,7 @@ interface Bloque {
 <template>
     <div class="contenedor  w-full h-[80dvh] lg:h-[30dvh] relative overflow-visible flex flex-col lg:flex-row">
         <div class="mascota-hover">
-            <Mascota :mascota="8" ancho="4rem" alto="4rem" />
+            <Mascota :mascota="9" ancho="4rem" alto="4rem" />
         </div>
 
         <div v-for="(bloque) in bloques" :key="bloque.descripcion" class="
@@ -92,7 +92,7 @@ interface Bloque {
             </div>
 
             <!-- Descripción -->
-            <div v-if="!bloque.ocultar" class="
+            <div  class="
                     absolute
                     flex
                     items-start
@@ -115,11 +115,11 @@ interface Bloque {
                     lg:gap-4
                     lg:px-0
                 ">
-                <span class="text-[#0a5a45] text-4xl lg:text-[3rem]">
+                <span class="text-[#0a5a45] text-3xl lg:text-[2.5rem] xl:text-[3rem]">
                     {{ bloque.porcentaje }}%
                 </span>
 
-                <span class="text-black text-sm" v-html="bloque.descripcion"></span>
+                <span v-if="!bloque.ocultar" class="text-black text-sm" v-html="bloque.descripcion"></span>
             </div>
 
         </div>

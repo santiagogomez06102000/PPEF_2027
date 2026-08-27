@@ -281,8 +281,8 @@ function handleClickBtn(e) {
 
     object-fit: contain;
     flex-shrink: 0;
-
-    border-radius: 12px;
+    background-color: #fff;
+    border-radius: 50%;
 }
 
 .btn-eje span {
