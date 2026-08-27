@@ -355,7 +355,6 @@ const totalSeleccionado = computed(() => {
     text-align: left;
 
     line-height: 1.2;
-    color:
 }
 
 

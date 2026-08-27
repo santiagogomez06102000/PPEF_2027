@@ -7,18 +7,21 @@
 
             <div class="ods__burbuja-contenido">
 
-                <!-- Cantidad de metas cumplidas -->
-                <!-- <span class="ods__cantidad">
-                    {{ burbuja.cumplidas }}
-                </span> -->
-
                 <!-- Nombre del ODS -->
-                <span class="ods__texto">
+                <span v-if="Number(burbuja.cumplidas) > 5" class="ods__texto">
                     {{ burbuja.texto }}
                 </span>
 
                 <!-- Imagen -->
-                <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono" />
+                <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono"
+                    :class="{
+                        'ods__icono--solo': Number(burbuja.cumplidas) <= 5
+                    }" />
+
+                <!-- Tooltip: solamente para burbujas sin título -->
+                <span v-if="Number(burbuja.cumplidas) <= 5" class="ods__tooltip">
+                    {{ burbuja.texto }}
+                </span>
 
             </div>
 
@@ -651,7 +654,7 @@ onUnmounted(() => {
 
     margin: 0 auto;
 
-    overflow: hidden;
+    overflow: visible;
 
 }
 
@@ -753,7 +756,7 @@ onUnmounted(() => {
 
     font-size: clamp(0.55rem,
             0.9vw,
-            0.7rem);
+            0.9rem);
 
     font-weight: 700;
 
@@ -778,6 +781,82 @@ onUnmounted(() => {
 
 }
 
+.ods__icono--solo {
+    max-width: 90px;
+}
+
+/* =============================================
+   TOOLTIP
+============================================= */
+
+.ods__tooltip {
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 10px);
+
+    transform: translateX(-50%) translateY(5px);
+
+    width: max-content;
+    max-width: 180px;
+
+    padding: 7px 10px;
+
+    background-color: #333;
+    color: #fff;
+
+    border-radius: 6px;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 100;
+}
+
+
+/* Flechita */
+
+.ods__tooltip::after {
+    content: '';
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-width: 6px;
+    border-style: solid;
+
+    border-color:
+        #333 transparent transparent transparent;
+}
+
+
+/* Mostrar tooltip */
+
+.ods__burbuja:hover .ods__tooltip,
+.ods__burbuja:focus-visible .ods__tooltip {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateX(-50%) translateY(0);
+}
 
 /* =============================================
    RESPONSIVE
