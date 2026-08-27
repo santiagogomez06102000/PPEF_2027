@@ -16,10 +16,9 @@
     <BarraInversion :bloques="datos.bloques" />
 
     <!-- ═════════ FOOTER ═════════ -->
-    <p class="footer-text">{{ datos.footer }}</p>
 
-    <div class="mapa-placeholder h-full ">
-      <ViewMapa />
+    <div class="mapa-placeholder h-full mt-8">
+      <ViewMapa :titulo="datos.footer" />
     </div>
   </section>
 </template>

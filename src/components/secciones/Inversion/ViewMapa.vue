@@ -16,6 +16,10 @@ async function obtenerDatos() {
     datosFiltrados.value = respuesta
   }
 }
+const props = defineProps<Props>();
+interface Props{
+  titulo:string
+}
 onMounted(async () => {
   await obtenerDatos()
 })
@@ -56,7 +60,7 @@ export interface Filtros {
 </script>
 <template>
   <section class="w-full h-full  flex flex-col gap-4">
-    <h3 class="text-center" style="margin: 0;">Proyectos de inversión georreferenciados propuestos para el 2027</h3>
+    <h3 class="text-center" style="margin: 0;">{{ titulo }}</h3>
     <div
       class="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-start gap-8"
     >

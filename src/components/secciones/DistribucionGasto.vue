@@ -10,6 +10,7 @@
           :class="{ activo: activo === idx }" @click="() => {
             activo = idx
             detalleActivo = null
+            barraActiva = null
           }">
           <span class="pregunta">{{ cat.pregunta }}</span>
           <span class="subtitulo">{{ cat.subtitulo }}</span>
@@ -28,7 +29,7 @@
           'max-w-full': !detalleActivo,
           'max-w-full md:max-w-[50%]': detalleActivo
         }">
-          <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" />
+          <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" :activa="barraActiva" />
         </div>
         <div class="w-full lg:w-[50%] " v-if="detalleActivo">
           <Detalle :detalle="detalleActivo" />
@@ -41,29 +42,49 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref } from 'vue'
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
 import { fetchPublicJson } from '../utils/utils';
 import Detalle from './DistribucionGasto/Detalle.vue';
 import ArrowLeft from '../utils/Icons/ArrowLeft.vue';
 const datos = ref();
+const isLgOrLarger = window.matchMedia('(min-width: 1024px)')
+
 onMounted(async () => {
   datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
+  await nextTick();
+  mostrarInicial();
+    window.addEventListener('resize', mostrarInicial)
+
+ 
 })
+onUnmounted(() => {
+  window.removeEventListener('resize', ejecutarSiEsMobile)
+})
+function mostrarInicial(){
+  if (isLgOrLarger.matches) {
+     detalleActivo.value= datos.value?.clasificaciones[activo?.value]?.barras[0]
+  }
+  
+}
 const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
-const detalleActivo = ref(null);
+const detalleActivo = ref();
+const barraActiva = ref(null);
 function handleClickBarra(idx) {
   if (idx != null) {
     const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
     if (seleccionado.id === detalleActivo.value?.id) {
       detalleActivo.value = null
+      barraActiva.value=null
     }
     else {
       detalleActivo.value = seleccionado;
+      barraActiva.value = idx;
     }
   }
   else{
     detalleActivo.value=null
+    barraActiva.value=null
   }
 
 }

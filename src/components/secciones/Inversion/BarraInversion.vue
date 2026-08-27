@@ -59,9 +59,10 @@ interface Bloque {
         lg:w-full
         lg:h-[4rem]
         cursor-pointer
-        group
         bloque-color
-    " >
+    "
+    :class="{'group':bloque.ocultar}" 
+    >
                 <span v-if="!bloque.ocultar" class="font-bold text-2xl lg:text-4xl flex flex-col">
                     {{ bloque.monto }}
 
