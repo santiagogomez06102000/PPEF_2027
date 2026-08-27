@@ -58,22 +58,56 @@
 
         <BurbujasODS :botones="datos.botones" @seleccionar="abrirModalODS" />
 
+        <!-- <div v-if="botonDescarga" class="contenedor-descarga">
+            <a class="btn-descarga" :href="`${baseUrl}${botonDescarga.archivo}`"
+                :download="obtenerNombreArchivo(botonDescarga.archivo)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="btn-descarga__icono" aria-hidden="true">
+                    <path
+                        d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+
+                    <path
+                        d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                </svg>
+
+                <span class="btn-descarga__texto">
+                    {{ botonDescarga.texto }}
+                </span>
+            </a>
+        </div> -->
+
         <Modal v-model="modal.isOpen.value" :content="modal.content.value" />
 
     </section>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 import datos from '@/data/Agenda/agenda.json'
 import ODS from '@/data/Agenda/ODS.json'
 
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
-
 import BurbujasODS from './Agenda/BurbujasODS.vue'
 
 const modal = useModal()
 
+const baseUrl = import.meta.env.BASE_URL
+
+// =============================================
+// BOTÓN DE DESCARGA — ID 18
+// =============================================
+
+const botonDescarga = computed(() => {
+    return datos.botones.find(
+        boton => String(boton.id) === '18'
+    )
+})
+
+function obtenerNombreArchivo(ruta) {
+    return ruta?.split('/').pop() || 'datos.csv'
+}
 
 // =============================================
 // ABRIR MODAL DEL ODS SELECCIONADO
@@ -89,13 +123,11 @@ function abrirModalODS(burbuja) {
         console.warn(
             `No se encontró información para el ODS ${burbuja.id}`
         )
-
         return
     }
 
     modal.open(contenidoODS)
 }
-
 </script>
 
 <style scoped>
@@ -279,6 +311,79 @@ function abrirModalODS(burbuja) {
     letter-spacing: 0.02em;
 }
 
+/* =============================================
+   BOTÓN DESCARGA ODS — CÍRCULO
+============================================= */
+
+.contenedor-descarga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 3rem;
+}
+
+.btn-descarga {
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.8rem;
+    padding: 1.5rem;
+
+    background: #d3f1f9;
+
+    color: #000000;
+    text-decoration: none;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.btn-descarga:hover {
+    transform: scale(1.08);
+
+    background: #bce8f4;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.btn-descarga:active {
+    transform: scale(0.96);
+}
+
+.btn-descarga__icono {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+}
+
+.btn-descarga__texto {
+    max-width: 135px;
+
+    font-size: 0.95rem;
+    line-height: 1.25;
+}
+
 /* ═══════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════ */
@@ -306,6 +411,27 @@ function abrirModalODS(burbuja) {
     .dos-columnas {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .contenedor-descarga {
+        margin-top: 2rem;
+    }
+
+    .btn-descarga {
+        width: 160px;
+        height: 160px;
+
+        padding: 1.2rem;
+    }
+
+    .btn-descarga__icono {
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn-descarga__texto {
+        max-width: 120px;
+        font-size: 0.85rem;
     }
 }
 </style>
