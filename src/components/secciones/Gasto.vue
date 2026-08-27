@@ -31,75 +31,149 @@
         </div>
 
         <!-- ═══════════════════════════════════════
-         NUEVA SECCIÓN: EJES DEL PND
-         ═══════════════════════════════════════ -->
+     EJES DEL PND
+═══════════════════════════════════════ -->
 
         <p class="texto-ejes">{{ datos.textoEjes }}</p>
 
         <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16">
-            <!-- Ejes Generales -->
-            <div class="col-span-7 2xl:col-span-4">
-                <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
+
+            <!-- ========================================
+         EJES GENERALES
+    ========================================= -->
+            <div class="col-span-7 2xl:col-span-4" :class="{
+                'hidden 2xl:block': grupoAbierto === 'transversales'
+            }">
+                <h3 class="subtitulo-ejes">
+                    {{ datos.ejesGenerales.titulo }}
+                </h3>
+
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
-                        class="relative text-black p-2  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
-                        @click="handleClickBtn(generales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
-                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
+                        class="relative text-black p-2 w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
+                        @click="handleClickBtn(generales[index], 'generales', btn.id)">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto"
+                            class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem]" />
+
+                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm w-full">
+                            {{ btn.texto }}
+                        </span>
                     </button>
+                </div>
+
+                <!-- INFORMACIÓN GENERALES - SOLO RESPONSIVE -->
+                <div v-if="abierto && grupoAbierto === 'generales'" class="bloque-informacion-eje 2xl:hidden">
+                    <h4 class="subtitulo-ejes">
+                        {{ abierto.title }}
+                    </h4>
+
+                    <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content"
+                        class="parrafo-boton"></div>
                 </div>
             </div>
 
-            <!-- Ejes Transversales -->
-            <div class="col-span-7 2xl:col-span-3">
-                <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
+
+            <!-- ========================================
+         EJES TRANSVERSALES
+    ========================================= -->
+            <div class="col-span-7 2xl:col-span-3" :class="{
+                'hidden 2xl:block': grupoAbierto === 'generales'
+            }">
+                <h3 class="subtitulo-ejes">
+                    {{ datos.ejesTransversales.titulo }}
+                </h3>
+
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
-                        class="relative text-black  w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
-                        @click="handleClickBtn(transversales[index])">
-                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto" class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem] " />
-                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm  w-full">{{ btn.texto }}</span>
+                        class="relative text-black w-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease"
+                        @click="handleClickBtn(transversales[index], 'transversales', btn.id)">
+                        <img :src="`${baseUrl}${btn.imagen}`" :alt="btn.texto"
+                            class="img-eje w-[3rem] md:w-[8rem] lg:w-[8rem]" />
+
+                        <span class="absolute top-[100%] pt-2 left-0 text-xs lg:text-sm w-full">
+                            {{ btn.texto }}
+                        </span>
                     </button>
                 </div>
+
+                <!-- INFORMACIÓN TRANSVERSALES - SOLO RESPONSIVE -->
+                <div v-if="abierto && grupoAbierto === 'transversales'" class="bloque-informacion-eje 2xl:hidden">
+                    <h4 class="subtitulo-ejes">
+                        {{ abierto.title }}
+                    </h4>
+
+                    <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content"
+                        class="parrafo-boton"></div>
+                </div>
             </div>
+
         </div>
-        <div class="mt-40"></div>
-        <div class="  rounded-lg text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
+
+
+        <!-- ========================================
+     INFORMACIÓN EN ESCRITORIO
+========================================= -->
+
+        <div v-if="abierto" class="hidden 2xl:block mt-40 rounded-lg text-black bg-white px-8 py-4 mx-[10dvw]">
             <h4 class="subtitulo-ejes">
                 {{ abierto.title }}
             </h4>
-            <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content" class="parrafo-boton">
 
+            <div v-for="(parrafo, idx) in abierto.blocks" :key="idx" v-html="parrafo.content" class="parrafo-boton">
             </div>
         </div>
+
+        <div class="mt-40 2xl:hidden"></div>
     </section>
 </template>
 
 <script setup>
-import datos from '@/data/Gasto/gasto.json'
-import Mascota from '@/components/utils/Mascota.vue'
-import Modal from '@/components/utils/Modal.vue'
-import { useModal } from '@/components/composables/useModal.js'
-
-// Importar JSONs de modales
-import generales from '@/data/Gasto/ejes_generales.json'
-import transversales from '@/data/Gasto/ejes_transversales.json'
 import { ref } from 'vue'
 
-const baseUrl = import.meta.env.BASE_URL;
+import datos from '@/data/Gasto/gasto.json'
+import Mascota from '@/components/utils/Mascota.vue'
 
-// Instancia del composable para el modal
-const modal = useModal()
+import generales from '@/data/Gasto/ejes_generales.json'
+import transversales from '@/data/Gasto/ejes_transversales.json'
 
-function abrirModal(data) {
-    modal.open(data)
-}
-const abierto = ref()
-function handleClickBtn(e) {
+const baseUrl = import.meta.env.BASE_URL
 
-    abierto.value = e;
+const abierto = ref(null)
 
+/*
+    Puede ser:
+    null
+    'generales'
+    'transversales'
+*/
+const grupoAbierto = ref(null)
 
+/*
+    Guarda el ID del botón seleccionado
+    para saber si se volvió a pulsar
+    exactamente el mismo botón.
+*/
+const botonAbierto = ref(null)
+
+function handleClickBtn(data, grupo, id) {
+
+    // Si se pulsa nuevamente el mismo botón,
+    // cerramos la información.
+    if (
+        grupoAbierto.value === grupo &&
+        botonAbierto.value === id
+    ) {
+        abierto.value = null
+        grupoAbierto.value = null
+        botonAbierto.value = null
+
+        return
+    }
+
+    // Abrir/cambiar información
+    abierto.value = data
+    grupoAbierto.value = grupo
+    botonAbierto.value = id
 }
 </script>
 
@@ -298,6 +372,14 @@ function handleClickBtn(e) {
     border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bloque-informacion-eje {
+    margin-top: 5rem;
+    padding: 1.5rem 2rem;
+    background-color: #fff;
+    color: #000;
+    border-radius: 1rem;
 }
 
 /* ═══════════════════════════════════════
