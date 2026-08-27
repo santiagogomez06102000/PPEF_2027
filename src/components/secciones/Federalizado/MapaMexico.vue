@@ -291,20 +291,20 @@ const CONFIG_PROYECCIONES = [
         nombre: 'Aguascalientes',
         zona: 'pacifico',
         x: 2,
-        y: 27
+        y: 50
     },
     {
         id: 6,
         nombre: 'Colima',
         zona: 'pacifico',
-        x: 2,
-        y: 61
+        x: 20,
+        y: 75
     },
     {
         id: 9,
         nombre: 'Ciudad de México',
         zona: 'golfo',
-        x: 62,
+        x: 58,
         y: 24
     },
     {
@@ -312,7 +312,7 @@ const CONFIG_PROYECCIONES = [
         nombre: 'Morelos',
         zona: 'golfo',
         x: 79,
-        y: 39
+        y: 35
     },
     {
         id: 29,
