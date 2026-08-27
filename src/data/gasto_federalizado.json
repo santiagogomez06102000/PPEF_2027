@@ -12,7 +12,7 @@
       "monto": "$1,456.045.9",
       "unidad": "millones de pesos",
       "color": "#5154bb",
-      "posicion":"top"
+      "posicion": "top"
     },
     {
       "tipo": "estandar",
@@ -20,8 +20,8 @@
       "descripcion": "Participaciones federales",
       "monto": "$1,200,075.7",
       "unidad": "millones de pesos",
-      "color":"#00a1cd",
-      "posicion":"top"
+      "color": "#00a1cd",
+      "posicion": "top"
     },
     {
       "tipo": "mascota",
@@ -29,9 +29,9 @@
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
-      "color":"#afe4d0",
-      "ocultar":true,
-      "posicion":"bottom"
+      "color": "#afe4d0",
+      "ocultar": true,
+      "posicion": "bottom"
     },
     {
       "tipo": "mascota",
@@ -39,10 +39,12 @@
       "descripcion": "en inversión financiera",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
-      "color":"#68e1ca",
-      "ocultar":true,
-      "posicion":"bottom"
+      "color": "#68e1ca",
+      "ocultar": true,
+      "posicion": "bottom"
     }
   ],
-  "footer": "La mayoría del dinero que el gobierno federal propone para estados y municipios (92%) proviene de dos fuentes principales: participaciones y aportaciones. Estas dos formas de apoyo son clave para que los gobiernos locales puedan manejar su presupuesto y ofrecer servicios públicos. A continuación, se presenta cuánto se propone para cada estado."
+  "medium": "La mayoría del dinero que el gobierno federal propone para estados y municipios (92%) proviene de dos fuentes principales: participaciones y aportaciones. Estas dos formas de apoyo son clave para que los gobiernos locales puedan manejar su presupuesto y ofrecer servicios públicos. A continuación, se presenta cuánto se propone para cada estado.",
+  "footer1": "* Incluye los recursos para Salud Pública $80,768.4 millones de pesos, de los cuales $13,951.4 millones (17.3%) corresponden a la Ciudad de México.",
+  "footer2": "** Se refiere a los recursos correspondientes al Derecho extraordinario sobre exportación de petróleo crudo (FEIEF), así como otros subsidios que se entregan a las entidades federativas para impulsar el Desarrollo Regional."
 }
