@@ -31,8 +31,8 @@ const colores = [
     '#2b9348',
     '#83c5be',
     '#006d77',
-    '#e29578',
-    '#ffddd2',
+    '#00b3c3',
+    '#00909d',
     '#a8dadc',
 ]
 
@@ -68,8 +68,8 @@ interface Segmento {
             }"></span>
             <span class="col-span-8 px-2  text-black truncate " v-html="row.ramo" :title="row.ramo"></span>
             <span class="col-span-8 px-2 text-center text-black truncate" :title="row.monto" v-html="row.monto"></span>
-            
-            
+
+
         </div>
         <!--MOBILE-->
         <div class="grid grid-cols-1 text-white md:hidden col-span-6 gap-2 bg-[var(--color-porcentaje)] px-2 py-1"

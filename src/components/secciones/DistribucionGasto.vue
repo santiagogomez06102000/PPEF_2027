@@ -7,11 +7,7 @@
       <!-- Botones de clasificación -->
       <div class="botones">
         <button v-for="(cat, idx) in datos.clasificaciones" :key="cat.id" class="boton-clasificacion"
-          :class="{ activo: activo === idx }" @click="() => {
-            activo = idx
-            detalleActivo = null
-            barraActiva = null
-          }">
+          :class="{ activo: activo === idx }" @click="cambiarClasificacion(idx)">
           <span class="pregunta">{{ cat.pregunta }}</span>
           <span class="subtitulo">{{ cat.subtitulo }}</span>
         </button>
@@ -23,15 +19,15 @@
         </button>
       </div>
 
-      <div class="flex gap-0 w-full  flex-wrap">
+      <div class="flex gap-0 w-full  flex-wrap justify-evenly">
         <!-- Gráfica -->
         <div class="panel-grafica w-auto overflow-hidden " :class="{
           'max-w-full': !detalleActivo,
-          'max-w-full md:max-w-[50%]': detalleActivo
+          'max-w-full md:max-w-[45%]': detalleActivo
         }">
           <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" :activa="barraActiva" />
         </div>
-        <div class="w-full lg:w-[50%] " v-if="detalleActivo">
+        <div class="w-full lg:w-[45%] " v-if="detalleActivo">
           <Detalle :detalle="detalleActivo" />
         </div>
       </div>
@@ -42,51 +38,84 @@
 </template>
 
 <script setup>
-import { nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
+
 import Grafica from '@/components/secciones/DistribucionGasto/Grafica.vue'
-import { fetchPublicJson } from '../utils/utils';
-import Detalle from './DistribucionGasto/Detalle.vue';
-import ArrowLeft from '../utils/Icons/ArrowLeft.vue';
-const datos = ref();
-const isLgOrLarger = window.matchMedia('(min-width: 1024px)')
+import Detalle from './DistribucionGasto/Detalle.vue'
+import ArrowLeft from '../utils/Icons/ArrowLeft.vue'
+
+import { fetchPublicJson } from '../utils/utils'
+
+const datos = ref()
+
+const activo = ref(2)
+const detalleActivo = ref(null)
+const barraActiva = ref(null)
+
 
 onMounted(async () => {
-  datos.value = await fetchPublicJson("/secciones/distribucionGasto/distribucion.json");
-  await nextTick();
-  mostrarInicial();
-    window.addEventListener('resize', mostrarInicial)
+  datos.value = await fetchPublicJson(
+    "/secciones/distribucionGasto/distribucion.json"
+  )
 
- 
+  await nextTick()
+
+  mostrarInicial()
 })
-onUnmounted(() => {
-  window.removeEventListener('resize', ejecutarSiEsMobile)
-})
-function mostrarInicial(){
-  if (isLgOrLarger.matches) {
-     detalleActivo.value= datos.value?.clasificaciones[activo?.value]?.barras[0]
+
+
+function mostrarInicial() {
+  const barras = datos.value?.clasificaciones[activo.value]?.barras
+
+  if (barras?.length) {
+    detalleActivo.value = barras[0]
+    barraActiva.value = 0
   }
-  
 }
-const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
-const detalleActivo = ref();
-const barraActiva = ref(null);
+
+
+/* =========================================
+   CAMBIAR CLASIFICACIÓN
+========================================= */
+
+function cambiarClasificacion(idx) {
+  activo.value = idx
+
+  const barras = datos.value?.clasificaciones[idx]?.barras
+
+  if (barras?.length) {
+    detalleActivo.value = barras[0]
+    barraActiva.value = 0
+  } else {
+    detalleActivo.value = null
+    barraActiva.value = null
+  }
+}
+
+
+/* =========================================
+   CLICK EN UNA BARRA
+========================================= */
+
 function handleClickBarra(idx) {
-  if (idx != null) {
-    const seleccionado = datos.value.clasificaciones[activo.value].barras[idx];
+
+  if (idx !== null) {
+
+    const seleccionado =
+      datos.value.clasificaciones[activo.value].barras[idx]
+
     if (seleccionado.id === detalleActivo.value?.id) {
       detalleActivo.value = null
-      barraActiva.value=null
+      barraActiva.value = null
+    } else {
+      detalleActivo.value = seleccionado
+      barraActiva.value = idx
     }
-    else {
-      detalleActivo.value = seleccionado;
-      barraActiva.value = idx;
-    }
-  }
-  else{
-    detalleActivo.value=null
-    barraActiva.value=null
-  }
 
+  } else {
+    detalleActivo.value = null
+    barraActiva.value = null
+  }
 }
 </script>
 
