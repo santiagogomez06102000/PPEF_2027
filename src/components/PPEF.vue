@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero" v-if="datos">
     <div class="hero-content">
 
       <!-- ========================================
@@ -63,11 +63,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { fetchPublicJson } from './utils/utils.js';
 import Mascota from './utils/Mascota.vue'
-import datosJson from '../data/paquete.json'
 
-const datos = ref(datosJson)
+const datos = ref(null)
+
+onMounted(async () => {
+  datos.value = await fetchPublicJson(
+    "/secciones/PPEF/paquete.json"
+  );
+  console.log('Datos cargados:', datos.value)
+});
 </script>
 
 <style scoped>
