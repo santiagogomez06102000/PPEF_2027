@@ -7,12 +7,11 @@ const props = defineProps<{
 }>()
 
 const menu = ref([])
-const urlBase= '/work/models/PTP/NPTP/PTP_Layout/navbar/';
-
+const basePath = import.meta.env.BASE_URL
 const getMenu = async () => {
   try {
     //@ts-ignore
-    const response = await fetch(`${urlBase}navbar.json`)
+    const response = await fetch(`${basePath}menu/navbar.json`)
     const data = await response.json()
     menu.value = data
   } catch (error) {
@@ -54,7 +53,7 @@ onUnmounted(() => {
       <div class="logo">
         <a href="http://172.28.105.12/es/PTP/prueba_home">
           <img
-            :src="urlBase + 'logo.png'"
+            :src="basePath + 'menu/logo.png'"
             alt="Transparencia Presupuestaria"
             class="block h-[42px] w-[37px]"
           />
