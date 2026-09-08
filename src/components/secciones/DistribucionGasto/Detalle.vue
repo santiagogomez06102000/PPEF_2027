@@ -4,6 +4,7 @@ const props = defineProps<Props>();
 
 interface Props {
     detalle: Barra
+    subtitulo:string
 }
 type Tendencia = "▲" | "▼" | "-";
 
@@ -49,7 +50,7 @@ interface Segmento {
         <h6 v-html="`${detalle.porcentajeTotal}% del gasto programable`" class="col-span-12 text-[#757575] text-sm">
         </h6>
         <h6 v-html="`${detalle.total} - ${detalle.respecto}`" class="col-span-12 text-[#757575] text-sm"></h6>
-        <span class="text-[#757575] col-span-12 text-right">Clasificación administrativa</span>
+        <span class="text-[#757575] col-span-12 text-right" v-html="subtitulo"></span>
         <div class="hidden md:grid grid-cols-24 col-span-12">
             <span class="col-span-5 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="%">%</span>
             <span class="col-span-3 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold"

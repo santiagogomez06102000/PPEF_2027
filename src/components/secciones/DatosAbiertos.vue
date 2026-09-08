@@ -6,6 +6,7 @@ import CardDatosAbiertos, { type Datos } from './DatosAbiertos/CardDatosAbiertos
 interface DatosAbiertos {
   datos: Datos[]
   anexos: Datos[]
+  ods:Datos[]
 }
 
 const datosAbiertos = ref<DatosAbiertos | null>(null)
@@ -48,6 +49,17 @@ onMounted(async () => {
     <!-- SEGUNDO GRUPO DE BOTONES -->
     <div v-if="datosAbiertos" class="datos-abiertos__grid datos-abiertos__grid--anexos">
       <CardDatosAbiertos v-for="(dato, idx) in datosAbiertos.anexos" :key="dato.url" :card="dato" :idx="idx" />
+    </div>
+    <!-- Tercer TEXTO -->
+    <p class="datos-abiertos__subtitulo">
+      Vinculación de Programas presupuestarios PPEF a Objetivos de Desarrollo Sostenible (ODS)
+    </p>
+
+    <!-- TERCER GRUPO DE BOTONES -->
+    <div v-if="datosAbiertos" class="datos-abiertos__grid datos-abiertos__grid--principal">
+      <CardDatosAbiertos v-for="(dato, idx) in datosAbiertos.ods" :key="dato.url" :card="dato" :idx="idx" :class="{
+        'lg:col-start-2':datosAbiertos.ods.length === 1
+      }" />
     </div>
 
   </section>

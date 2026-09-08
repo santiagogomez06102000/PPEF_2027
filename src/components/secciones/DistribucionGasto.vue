@@ -32,7 +32,7 @@
           <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" :activa="barraActiva" />
         </div>
         <div class="w-full lg:w-[50%] " v-if="detalleActivo">
-          <Detalle :detalle="detalleActivo" />
+          <Detalle :detalle="detalleActivo" :subtitulo="datos.clasificaciones[activo].subtitulo" />
         </div>
       </div>
 

@@ -32,5 +32,13 @@
       "titulo": "CSV",
       "img": "datosAbiertos/down_csv.png"
     }
+  ],
+  "ods": [
+    {
+      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
+      "tipo": "xlsx",
+      "titulo": "ODS",
+      "img": "datosAbiertos/down_xlsx.png"
+    }
   ]
 }
