@@ -48,9 +48,9 @@ import { fetchPublicJson } from '../utils/utils'
 
 const datos = ref()
 
-const activo = ref(2)
+/* const activo = ref(2)
 const detalleActivo = ref(null)
-const barraActiva = ref(null)
+const barraActiva = ref(null) */
 
 
 onMounted(async () => {
