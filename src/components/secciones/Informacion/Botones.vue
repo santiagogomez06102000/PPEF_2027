@@ -19,6 +19,12 @@
         <p v-for="(parrafo, i) in btn.descripcion" :key="i">
           {{ parrafo }}
         </p>
+        <div class="flex items-center justify-end" v-if="btn.url">
+          <a :href="btn.url" 
+          target="_blank" 
+          class="rounded bg-white px-2 py-1 text-[#0b6e7a] hover:bg-[#d1e8e8] border border-white hover:border-[#0b6e7a] transition ease duration-250"
+          >Más información</a>
+        </div>
       </div>
     </div>
   </div>

@@ -3,12 +3,7 @@
     <!-- Fila superior: texto introductorio + botones -->
     <div class="fila-superior">
       <div class="intro">
-        <p>{{ datos.introduccion.parrafo1 }}</p>
-        <p>
-          {{ datos.introduccion.parrafo2Inicio }}
-          <strong>{{ datos.introduccion.resaltado }}</strong>
-          {{ datos.introduccion.parrafo2Fin }}
-        </p>
+        <p v-html="datos.introduccion.parrafo"></p>
       </div>
 
       <Botones v-model="activo" :botones="datos.botones" />
@@ -21,6 +16,12 @@
         <p v-for="(parrafo, i) in datos.botones[activo].descripcion" :key="i">
           {{ parrafo }}
         </p>
+        <div class="flex items-center justify-end" v-if="datos.botones[activo].url">
+          <a :href="datos.botones[activo].url" 
+          target="_blank" 
+          class="rounded bg-white px-2 py-1 text-[#0b6e7a] hover:bg-[#d1e8e8] border border-white hover:border-[#0b6e7a] transition ease duration-250"
+          >Más información</a>
+        </div>
       </div>
     </div>
   </section>

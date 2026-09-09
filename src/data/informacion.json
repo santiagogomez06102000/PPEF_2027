@@ -1,9 +1,6 @@
 {
   "introduccion": {
-    "parrafo1": "Cada año, el Ejecutivo Federal, a través de la Secretaría de Hacienda y Crédito Público (SHCP), envía al Congreso de la Unión la propuesta de cómo obtendrá y cómo destinará el dinero público durante el siguiente ejercicio fiscal.",
-    "parrafo2Inicio": "Esta propuesta se presenta en el ",
-    "resaltado": "Paquete Económico",
-    "parrafo2Fin": ", el cual está integrado por:"
+    "parrafo": "Cada año, el Ejecutivo Federal, a través de la Secretaría de Hacienda y Crédito Público (SHCP), envía al Congreso de la Unión la propuesta de cómo obtendrá y cómo destinará el dinero público durante el siguiente ejercicio fiscal.<br/><br/>Esta propuesta se presenta en el <strong>Paquete Económico</strong>, el cual está integrado por: "
   },
   "botones": [
     {
@@ -15,7 +12,8 @@
       "descripcion": [
         "Es un documento que elabora la Secretaría de Hacienda y Crédito Público en el que se presentan las perspectivas sobre cómo se espera que se comporten la economía del país, las finanzas públicas y la deuda.",
         "Su propósito es ofrecer a la ciudadanía, al H. Congreso de la Unión y a los mercados, información clara y transparente sobre la política económica del gobierno, sirviendo de base para la discusión y aprobación del Paquete Económico de cada año."
-      ]
+      ],
+      "url":"https://www.ppef.hacienda.gob.mx/work/models/PP3F2709/PPEF2027/yik327fP/paquete/politica_hacendaria/CGPE_2027.pdf"
     },
     {
       "id": "ilif",
@@ -25,7 +23,8 @@
       "tituloSeccion": "Iniciativa de Ley de Ingresos de la Federación (ILIF)",
       "descripcion": [
         "Es un documento que presenta la propuesta de medidas y políticas a desarrollar durante el siguiente ejercicio fiscal para obtener los recursos públicos con los que se financiará el Presupuesto de Egresos de la Federación. Incluye: La exposición de motivos. El pronóstico de los ingresos presupuestarios del sector público. La descripción del entorno económico. La propuesta de endeudamiento para el año que se presupuesta."
-      ]
+      ],
+      "url":"https://www.ppef.hacienda.gob.mx/work/models/PP3F2709/PPEF2027/yik327fP/paquete/ingresos/LIF_2027.pdf"
     },
     {
       "id": "ppef",
@@ -35,7 +34,8 @@
       "tituloSeccion": "Proyecto de Decreto de Presupuesto de Egresos de la Federación (PPEF)",
       "descripcion": [
         "Es la propuesta de previsiones de gasto público para el ejercicio fiscal que se presupuesta. Incluye: Proyecto de Decreto del Presupuesto de Egresos de la Federación. Carta de la Presidenta de la República. Exposición de Motivos, Tomos y Anexos del Proyecto."
-      ]
+      ],
+      "url":"https://www.ppef.hacienda.gob.mx/work/models/PP3F2709/PPEF2027/yik327fP/paquete/egresos/Proyecto_Decreto.pdf"
     }
   ]
 }
