@@ -1,44 +1,53 @@
-{
-  "datos": [
-    {
-      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/PPEF_2026.xlsx",
-      "tipo": "xlsx",
-      "titulo": "XLSX",
-      "img": "datosAbiertos/down_xlsx.png"
-    },
-    {
-      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/PPEF_2026.csv",
-      "tipo": "csv",
-      "titulo": "CSV",
-      "img": "datosAbiertos/down_csv.png"
-    },
-    {
-      "url": "/work/models/PTP/programas/ppef2020/diccionario_presupuesto.xlsx",
-      "tipo": "diccionario",
-      "titulo": "Diccionario de datos",
-      "img": "datosAbiertos/down_diccionario.png"
-    }
-  ],
-  "anexos": [
-    {
-      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
-      "tipo": "xlsx",
-      "titulo": "XLSX",
-      "img": "datosAbiertos/down_xlsx.png"
-    },
-    {
-      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/anexos_transversales_ppef2026.csv",
-      "tipo": "csv",
-      "titulo": "CSV",
-      "img": "datosAbiertos/down_csv.png"
-    }
-  ],
-  "ods": [
-    {
-      "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
-      "tipo": "xlsx",
-      "titulo": "ODS",
-      "img": "datosAbiertos/down_xlsx.png"
-    }
-  ]
-}
+[
+  {
+    "titulo": "Descarga, utiliza y comparte las bases de datos del Proyecto de Presupuesto de Egresos de la Federación 2027.",
+    "datos": [
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/PPEF_2026.xlsx",
+        "tipo": "xlsx",
+        "titulo": "XLSX",
+        "img": "datosAbiertos/down_xlsx.png"
+      },
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/PPEF_2026.csv",
+        "tipo": "csv",
+        "titulo": "CSV",
+        "img": "datosAbiertos/down_csv.png"
+      },
+      {
+        "url": "/work/models/PTP/programas/ppef2020/diccionario_presupuesto.xlsx",
+        "tipo": "diccionario",
+        "titulo": "Diccionario de datos",
+        "img": "datosAbiertos/down_diccionario.png"
+      }
+    ]
+  },
+  {
+    "titulo": "Conoce los Anexos transversales contemplados en el PPEF 2027.",
+    "datos": [
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
+        "tipo": "xlsx",
+        "titulo": "XLSX",
+        "img": "datosAbiertos/down_xlsx.png"
+      },
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/anexos_transversales_ppef2026.csv",
+        "tipo": "csv",
+        "titulo": "CSV",
+        "img": "datosAbiertos/down_csv.png"
+      }
+    ]
+  },
+  {
+    "titulo": "Vinculación de Programas presupuestarios PPEF a Objetivos de Desarrollo Sostenible (ODS)",
+    "datos": [
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
+        "tipo": "xlsx",
+        "titulo": "ODS",
+        "img": "datosAbiertos/down_xlsx.png"
+      }
+    ]
+  }
+]
