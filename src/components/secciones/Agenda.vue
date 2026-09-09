@@ -125,7 +125,8 @@ function abrirModalODS(burbuja) {
         )
         return
     }
-
+    console.log(contenidoODS);
+    
     modal.open(contenidoODS)
 }
 </script>
