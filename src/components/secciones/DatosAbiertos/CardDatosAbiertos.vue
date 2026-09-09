@@ -24,7 +24,7 @@ const imagen = computed(() => {
     <a class="card-datos-abiertos" :class="{
         'card-datos-abiertos--azul': idx % 2 === 0,
         'card-datos-abiertos--verde': idx % 2 !== 0
-    }" :href="props.card.url" target="_blank" rel="noopener noreferrer">
+    }" :href="props.card.url" target="_blank" rel="noopener noreferrer" :title="card.titulo">
 
         <!-- IMAGEN -->
         <figure class="card-datos-abiertos__figure">
@@ -32,7 +32,7 @@ const imagen = computed(() => {
         </figure>
 
         <!-- TÍTULO -->
-        <h5 class="card-datos-abiertos__titulo">
+        <h5 class="card-datos-abiertos__titulo truncate" >
             {{ props.card.titulo }}
         </h5>
 

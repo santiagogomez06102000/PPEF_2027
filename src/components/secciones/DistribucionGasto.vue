@@ -27,8 +27,8 @@
         }">
           <Grafica :datos="datos.clasificaciones[activo].barras" :onClick="handleClickBarra" :activa="barraActiva" />
         </div>
-        <div class="w-full lg:w-[45%] " v-if="detalleActivo">
-          <Detalle :detalle="detalleActivo" />
+        <div class="w-full lg:w-[50%] " v-if="detalleActivo">
+          <Detalle :detalle="detalleActivo" :subtitulo="datos.clasificaciones[activo].subtitulo" />
         </div>
       </div>
 
@@ -97,6 +97,9 @@ function cambiarClasificacion(idx) {
    CLICK EN UNA BARRA
 ========================================= */
 
+const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
+const detalleActivo = ref();
+const barraActiva = ref(0);
 function handleClickBarra(idx) {
 
   if (idx !== null) {

@@ -82,3 +82,40 @@ p {
 .mapa-gasto-federalizado .leaflet-interactive:focus {
   outline: none !important;
 }
+
+.grid-item {
+  grid-column: span 12;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .grid-item {
+    grid-column: span 6;
+  }
+
+  /* Último elemento solo en su fila */
+  .grid-item--tablet-single {
+    grid-column: 4 / span 6;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .grid-item {
+    grid-column: span 4;
+  }
+
+  /* Último elemento solo en su fila */
+  .grid-item--desktop-single {
+    grid-column: 5 / span 4;
+  }
+
+  /* Última fila con 2 elementos */
+  .grid-item--desktop-two-first {
+    grid-column: 3 / span 4;
+  }
+
+  .grid-item--desktop-two-second {
+    grid-column: 7 / span 4;
+  }
+}

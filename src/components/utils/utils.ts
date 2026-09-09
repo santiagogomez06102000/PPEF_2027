@@ -21,13 +21,28 @@ export async function fetchPublicJson<T>(path: string): Promise<T | null> {
   }
 }
 export const getCardClass = (items: number, index: number): string => {
-  const rowStart = Math.floor(index / 3) * 3
-  const rowSize = Math.min(items - rowStart, 3)
+  const remainder2 = items % 2
+  const remainder3 = items % 3
 
-  if (rowSize === 1) return 'col-span-6 lg:col-span-6'
-  if (rowSize === 2) return 'col-span-6 lg:col-span-3'
+  let classes = 'grid-item'
 
-  return 'col-span-6 lg:col-span-2'
+  // TABLET: 2 cards por fila
+  if (remainder2 === 1 && index === items - 1) {
+    classes += ' grid-item--tablet-single'
+  }
+
+  // DESKTOP: 3 cards por fila
+  if (remainder3 === 1 && index === items - 1) {
+    classes += ' grid-item--desktop-single'
+  }
+
+  if (remainder3 === 2 && index >= items - 2) {
+    classes += index === items - 2
+      ? ' grid-item--desktop-two-first'
+      : ' grid-item--desktop-two-second'
+  }
+
+  return classes
 }
 export function formatearMoneda(valor: number | string): string {
   const numero = Number(valor)

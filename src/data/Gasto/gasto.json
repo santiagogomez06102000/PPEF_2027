@@ -1,20 +1,20 @@
 {
   "titulo": "Gasto",
   "intro": "El Presupuesto de Egresos de la Federación autoriza el gasto público federal para el ejercicio fiscal. Para 2027, se proyecta un gasto neto total de:",
-  "monto": "$11,000,000",
+  "monto": "$10,636,488.1",
   "unidad": "millones de pesos",
   "descripcion": "El gasto se divide en programable y no programable. El gasto programable se destina a programas y políticas públicas que el gobierno puede ajustar, mientras que el no programable está comprometido por ley o por decisiones ya tomadas.",
   "cajas": {
     "programable": {
       "titulo": "Gasto programable",
       "texto": "Se refiere al que soporta la operación de las instituciones del gobierno federal para que éstas proporcionen servicios como educación, salud, carreteras o las relaciones con otros países, etc.",
-      "monto": "$7,094,708.8",
+      "monto": "$7,432,529.7",
       "unidad": "millones de pesos"
     },
     "noProgramable": {
       "titulo": "Gasto no programable",
       "texto": "Se destina al cumplimiento de obligaciones y apoyos determinados por la Ley como la deuda pública, las participaciones a entidades federativas y municipios, lo que significa que no financia la operación de las instituciones del gobierno federal.",
-      "monto": "$3,905,291.2",
+      "monto": "$3,203,958.4",
       "unidad": "millones de pesos"
     }
   },
