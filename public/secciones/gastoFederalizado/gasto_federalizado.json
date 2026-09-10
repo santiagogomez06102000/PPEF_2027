@@ -7,7 +7,7 @@
   "bloques": [
     {
       "tipo": "estandar",
-      "porcentaje": 52.7,
+      "porcentaje": 53,
       "descripcion": "Participaciones federales",
       "monto": "$1,547,607.9",
       "unidad": "millones de pesos",
@@ -16,7 +16,7 @@
     },
     {
       "tipo": "estandar",
-      "porcentaje": 40.8,
+      "porcentaje": 41,
       "descripcion": "Aportaciones federales",
       "monto": "$1,197,187.70",
       "unidad": "millones de pesos",
@@ -25,19 +25,19 @@
     },
     {
       "tipo": "mascota",
-      "porcentaje": 5.5,
+      "porcentaje": 5,
       "descripcion": "Convenios",
       "monto": "$163,015.90",
       "unidad": "millones de pesos",
       "color": "#afe4d0",
       "ocultar": true,
       "posicion": "top",
-      "desface":"-50%"
+      "desface": "-50%"
     },
     {
       "tipo": "mascota",
       "porcentaje": 1,
-      "descripcion": "Subsidios (Ramo 23) y salud pública **",
+      "descripcion": "Subsidios",
       "monto": "$29,660.90",
       "unidad": "millones de pesos",
       "color": "#68e1ca",
