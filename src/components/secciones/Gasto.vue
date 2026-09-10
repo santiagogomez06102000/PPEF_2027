@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="mt-40"></div>
-        <div ref="descripcion" class="  rounded-lg text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
+        <div ref="descripcion" class="  rounded-[1.5rem] text-black bg-white px-8 py-4 mx-0 lg:mx-[10dvw]" v-if="abierto">
             <h4 class="subtitulo-ejes">
                 {{ abierto.title }}
             </h4>
