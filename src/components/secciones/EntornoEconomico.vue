@@ -68,7 +68,7 @@ function abrirModal(data) {
 .textos p {
   margin: 0;
   line-height: 1.7;
-  text-align: justify;
+  text-align: center;
   color: #000;
 }
 

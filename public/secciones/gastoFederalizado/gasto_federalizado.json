@@ -17,8 +17,8 @@
     {
       "tipo": "estandar",
       "porcentaje": 40.8,
-      "descripcion": "Participaciones federales",
-      "monto": "$1,197,187.7",
+      "descripcion": "Aportaciones federales",
+      "monto": "$1,197,187.70",
       "unidad": "millones de pesos",
       "color": "#00a1cd",
       "posicion": "top"
@@ -26,8 +26,8 @@
     {
       "tipo": "mascota",
       "porcentaje": 5.5,
-      "descripcion": "en inversión financiera",
-      "monto": "$163,015.9",
+      "descripcion": "Convenios",
+      "monto": "$163,015.90",
       "unidad": "millones de pesos",
       "color": "#afe4d0",
       "ocultar": true,
@@ -37,8 +37,8 @@
     {
       "tipo": "mascota",
       "porcentaje": 1,
-      "descripcion": "en inversión financiera",
-      "monto": "$29,660.9",
+      "descripcion": "Subsidios (Ramo 23) y salud pública **",
+      "monto": "$29,660.90",
       "unidad": "millones de pesos",
       "color": "#68e1ca",
       "ocultar": true,

@@ -140,7 +140,6 @@ function handleClickBarra(idx) {
 .descripcion {
   text-align: center;
   margin: 0 auto 3rem;
-  font-size: 1rem;
   line-height: 1.7;
   color: #333;
 }

@@ -296,7 +296,6 @@ async function handleClickBtn(e, sec) {
    ═══════════════════════════════════════ */
 .texto-ejes {
     text-align: center;
-    font-size: 1rem;
     line-height: 1.7;
     margin: 0 auto 2.5rem;
     color: #000;
