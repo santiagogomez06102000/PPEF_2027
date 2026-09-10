@@ -17,7 +17,7 @@
     {
       "tipo": "estandar",
       "porcentaje": 40,
-      "descripcion": "Participaciones federales",
+      "descripcion": "Aportaciones federales",
       "monto": "$1,200,075.7",
       "unidad": "millones de pesos",
       "color": "#00a1cd",
@@ -26,7 +26,7 @@
     {
       "tipo": "mascota",
       "porcentaje": 5,
-      "descripcion": "en inversión financiera",
+      "descripcion": "Convenios",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
       "color": "#afe4d0",
@@ -36,7 +36,7 @@
     {
       "tipo": "mascota",
       "porcentaje": 3,
-      "descripcion": "en inversión financiera",
+      "descripcion": "Subsidios",
       "monto": "$274,860.0",
       "unidad": "millones de pesos",
       "color": "#68e1ca",
