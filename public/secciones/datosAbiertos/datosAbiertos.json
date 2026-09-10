@@ -3,13 +3,13 @@
     "titulo": "Descarga, utiliza y comparte las bases de datos del Proyecto de Presupuesto de Egresos de la Federación 2027.",
     "datos": [
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/PPEF_2026.xlsx",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/PPEF_2027.xlsx",
         "tipo": "xlsx",
         "titulo": "XLSX",
         "img": "datosAbiertos/down_xlsx.png"
       },
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/PPEF_2026.csv",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/PPEF_2027.csv",
         "tipo": "csv",
         "titulo": "CSV",
         "img": "datosAbiertos/down_csv.png"
@@ -26,13 +26,13 @@
     "titulo": "Conoce los Anexos transversales contemplados en el PPEF 2027.",
     "datos": [
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2027.xlsx",
         "tipo": "xlsx",
         "titulo": "XLSX",
         "img": "datosAbiertos/down_xlsx.png"
       },
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/anexos_transversales_ppef2026.csv",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/anexos_transversales_ppef2027.csv",
         "tipo": "csv",
         "titulo": "CSV",
         "img": "datosAbiertos/down_csv.png"
