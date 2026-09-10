@@ -19,8 +19,8 @@ import * as d3 from 'd3'
 
 const props = defineProps({
   datos: { type: Array, required: true }, // ahora es array de barras
-  onClick: {type:Function, required:true},
-  activa: {type:Number, required:true}
+  onClick: { type: Function, required: true },
+  activa: { type: Number, required: true }
 })
 
 const container = ref(null)
@@ -42,8 +42,8 @@ const colores = [
   '#2b9348',
   '#83c5be',
   '#006d77',
-  '#e29578',
-  '#ffddd2',
+  '#00b3c3',
+  '#00909d',
   '#a8dadc',
 ]
 
@@ -92,12 +92,12 @@ const render = () => {
 
   props.datos.forEach((barra, i) => {
     const rowG = g
-  .append('g')
-  .attr('transform', `translate(0, ${i * barGap})`)
-  .style(
-    'opacity',
-    props.activa === null || props.activa === i ? 1 : 0.3
-  )
+      .append('g')
+      .attr('transform', `translate(0, ${i * barGap})`)
+      .style(
+        'opacity',
+        props.activa === null || props.activa === i ? 1 : 0.3
+      )
 
     /* ── Porcentaje arriba ── */
     rowG
@@ -200,8 +200,8 @@ const render = () => {
         d3.select(event.target).style('filter', 'none')
         d3.select(event.target).style('transform', 'scale(1)')
         tooltipVisible.value = false
-      }).on('click',()=>{
-        props.onClick(i) 
+      }).on('click', () => {
+        props.onClick(i)
       })
 
     /* ── Labels móvil (arriba de barra) ── */
@@ -270,7 +270,7 @@ onUnmounted(() => {
 })
 
 watch(
-  [() => props.datos, ()=>props.activa],
+  [() => props.datos, () => props.activa],
   () => nextTick(render),
   { deep: true },
 )
@@ -298,7 +298,7 @@ watch(
   z-index: 100;
   font-size: 0.88rem;
   display: flex;
-  gap:6px;
+  gap: 6px;
   align-items: center;
   justify-content: start;
 }
@@ -306,7 +306,7 @@ watch(
 .tt-ramo {
   font-weight: 700;
   color: #0b4f4f;
- 
+
 }
 
 .tt-monto {

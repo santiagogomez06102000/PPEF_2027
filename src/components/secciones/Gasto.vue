@@ -15,6 +15,7 @@
         <div class="contenedor-inferior">
             <div class="caja-gasto">
                 <h3>{{ datos.cajas.programable.titulo }}</h3>
+                <p class="caja-texto">{{ datos.cajas.programable.texto }}</p>
                 <p class="caja-monto">{{ datos.cajas.programable.monto }}</p>
                 <p class="caja-unidad">{{ datos.cajas.programable.unidad }}</p>
             </div>
@@ -25,6 +26,7 @@
 
             <div class="caja-gasto">
                 <h3>{{ datos.cajas.noProgramable.titulo }}</h3>
+                <p class="caja-texto">{{ datos.cajas.noProgramable.texto }}</p>
                 <p class="caja-monto">{{ datos.cajas.noProgramable.monto }}</p>
                 <p class="caja-unidad">{{ datos.cajas.noProgramable.unidad }}</p>
             </div>
@@ -38,7 +40,7 @@
 
         <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16 max-w-full">
             <!-- Ejes Generales -->
-            <div class="col-span-7 2xl:col-span-4"  :class="{'hidden lg:block':seccion === 2}">
+            <div class="col-span-7 2xl:col-span-4" :class="{ 'hidden lg:block': seccion === 2 }">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
@@ -54,7 +56,7 @@
             </div>
 
             <!-- Ejes Transversales -->
-            <div class="col-span-7 2xl:col-span-3" :class="{'hidden lg:block':seccion === 1}">
+            <div class="col-span-7 2xl:col-span-3" :class="{ 'hidden lg:block': seccion === 1 }">
                 <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
@@ -193,7 +195,9 @@ async function handleClickBtn(e, sec) {
     align-items: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-bottom: 3rem;
+
+    width: min(100%, 1200px);
+    margin: 0 auto 3rem;
 }
 
 .caja-gasto {
@@ -202,36 +206,76 @@ async function handleClickBtn(e, sec) {
     padding: 2rem 1.5rem;
     text-align: center;
     color: rgb(13, 104, 129);
+
     flex: 1 1 200px;
-    max-width: 280px;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 400px;
+
+    /* Ambas cajas exactamente iguales */
+    height: 340px;
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-rows:
+        3.5rem 1fr 4rem 1.5rem;
+
     align-items: center;
 }
 
 .caja-gasto h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    margin: 0 0 0.5rem 0;
     font-family: 'Noto Sans', sans-serif;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.caja-texto {
+    margin: 0;
+
+    text-align: center;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
 }
 
 .caja-monto {
-    font-size: 1.4rem;
+    font-size: 3rem;
     font-weight: 700;
+
     margin: 0;
+
     line-height: 1.2;
+
     color: #409da2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .caja-unidad {
     font-size: 0.9rem;
     font-weight: 500;
-    margin: 0.1rem 0 0 0;
+
+    margin: 0;
+
     opacity: 0.9;
     color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mascota-wrapper {
@@ -327,6 +371,44 @@ async function handleClickBtn(e, sec) {
 /* ═══════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════ */
+
+/* ==========================================================
+   LAPTOP / TABLET
+========================================================== */
+
+@media (max-width: 1300px) {
+
+    .contenedor-inferior {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 2rem;
+
+        width: 100%;
+    }
+
+    .caja-gasto {
+        width: min(100%, 550px);
+        max-width: 550px;
+
+        flex: none;
+
+        height: 300px;
+
+        grid-template-rows:
+            3.5rem 1fr 4rem 1.5rem;
+    }
+
+    .mascota-wrapper {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 1024px) {
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);

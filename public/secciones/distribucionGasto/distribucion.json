@@ -10,135 +10,191 @@
         {
           "id": "control-directo",
           "nombre": "Desarrollo social",
-          "total": "$3,201,259.1",
-          "porcentajeTotal": 33,
-          "tendencia": "▼",
-          "respecto": "Respecto a 2025",
+          "total": "$5,384,912.8",
+          "porcentajeTotal": 74,
+          "tendencia": "▲",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
-              "ramo": "R20 Bienestar",
-              "ramoCorto": "R20",
-              "monto": "$674,510.00",
-              "porcentaje": 27.6,
-              "tendencia": "▲"
-            },
-            {
-              "ramo": "R11 Educación Pública",
-              "ramoCorto": "R11",
-              "monto": "$513,015.60",
-              "porcentaje": 21.0,
-              "tendencia": "▲"
-            },
-            {
-              "ramo": "R18 Energía",
-              "ramoCorto": "R18",
-              "monto": "$267,439.10",
-              "porcentaje": 10.9,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R56 IMSS BIENESTAR",
-              "ramoCorto": "R56",
-              "monto": "$172,492.40",
-              "porcentaje": 7.1,
-              "tendencia": "-"
-            },
-            {
-              "ramo": "R07 Defensa Nacional",
-              "ramoCorto": "R07",
-              "monto": "$170,753.10",
-              "porcentaje": 7.0,
-              "tendencia": "▲"
-            },
-            {
-              "ramo": "R09 Infraestructura",
-              "ramoCorto": "R09",
-              "monto": "$153,539.30",
-              "porcentaje": 6.3,
-              "tendencia": "▲"
-            },
-            {
-              "ramo": "Otros ramos",
+              "ramo": "Protección Social",
               "ramoCorto": null,
-              "monto": "$1,249,509.60",
-              "porcentaje": 20.1,
+              "monto": "$2,550,813.2",
+              "porcentaje": 47,
               "tendencia": "▲"
+            },
+            {
+              "ramo": "Educación",
+              "ramoCorto": null,
+              "monto": "$1,256,948.4",
+              "porcentaje": 23,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Salud",
+              "ramoCorto": null,
+              "monto": "$1,105,963.2",
+              "porcentaje": 21,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Vivienda y Servicios a la Comunidad",
+              "ramoCorto": null,
+              "monto": "$420,394.7",
+              "porcentaje": 8,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Protección Ambiental",
+              "ramoCorto": null,
+              "monto": "$24,224.0",
+              "porcentaje": 0,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Recreación, Cultura y Otras Manifestaciones Sociales",
+              "ramoCorto": null,
+              "monto": "$23,690.1",
+              "porcentaje": 0,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Otros Asuntos Sociales",
+              "ramoCorto": null,
+              "monto": "$2,879.0",
+              "porcentaje": 0,
+              "tendencia": "▼"
             }
           ]
         },
         {
           "id": "ramos-generales",
           "nombre": "Desarrollo económico",
-          "total": "$2,836,246.2",
-          "porcentajeTotal": 37,
-          "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "total": "$1,518,676.8",
+          "porcentajeTotal": 21,
+          "tendencia": "▼",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
-              "ramo": "R08 Agricultura",
-              "ramoCorto": "R08",
-              "monto": "$75,195.50",
-              "porcentaje": 10,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R13 Marina",
-              "ramoCorto": "R13",
-              "monto": "$65,926.80",
-              "porcentaje": 8,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R12 Salud",
-              "ramoCorto": "R12",
-              "monto": "$66,825.80",
-              "porcentaje": 8,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R36 Seguridad",
-              "ramoCorto": "R36",
-              "monto": "$60,110.90",
-              "porcentaje": 7,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "Otros ramos",
+              "ramo": "Combustibles y Energía",
               "ramoCorto": null,
-              "monto": "$2,568,187.20",
-              "porcentaje": 67,
+              "monto": "$1,081,692.7",
+              "porcentaje": 71,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Transporte",
+              "ramoCorto": null,
+              "monto": "$211,659.8",
+              "porcentaje": 14,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Agropecuaria, Silvicultura, Pesca y Caza",
+              "ramoCorto": null,
+              "monto": "$90,470.5",
+              "porcentaje": 6,
               "tendencia": "▲"
+            },
+            {
+              "ramo": "Ciencia, Tecnología e Innovación",
+              "ramoCorto": null,
+              "monto": "$70,584.3",
+              "porcentaje": 5,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Asuntos Económicos, Comerciales y Laborales en General",
+              "ramoCorto": null,
+              "monto": "$35,036.2",
+              "porcentaje": 2,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Otras Industrias y Otros Asuntos Económicos",
+              "ramoCorto": null,
+              "monto": "$22,956.1",
+              "porcentaje": 2,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Comunicaciones",
+              "ramoCorto": null,
+              "monto": "$4,325.3",
+              "porcentaje": 0,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Turismo",
+              "ramoCorto": null,
+              "monto": "$1,858.9",
+              "porcentaje": 0,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Minería, Manufacturas y Construcción",
+              "ramoCorto": null,
+              "monto": "$93.0",
+              "porcentaje": 0,
+              "tendencia": "▼"
             }
           ]
         },
         {
           "id": "ramos-administrativos",
           "nombre": "Gobierno",
-          "total": "$2,445,888.9",
-          "porcentajeTotal": 28,
+          "total": "$357,133.4",
+          "porcentajeTotal": 5,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
-              "ramo": "R14 Trabajo",
-              "ramoCorto": "R14",
-              "monto": "$28,441.90",
-              "porcentaje": 5,
+              "ramo": "Seguridad Nacional",
+              "ramoCorto": null,
+              "monto": "$166,740.6",
+              "porcentaje": 47,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Asuntos de Orden Público y de Seguridad Interior",
+              "ramoCorto": null,
+              "monto": "$75,671.1",
+              "porcentaje": 21,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Asuntos Financieros y Hacendarios",
+              "ramoCorto": null,
+              "monto": "$53,746.3",
+              "porcentaje": 15,
               "tendencia": "▼"
             },
             {
-              "ramo": "R06 Hacienda",
-              "ramoCorto": "R06",
-              "monto": "$26,792.10",
-              "porcentaje": 5,
+              "ramo": "Justicia",
+              "ramoCorto": null,
+              "monto": "$34,813.7",
+              "porcentaje": 10,
               "tendencia": "▲"
             },
             {
-              "ramo": "Otros ramos",
+              "ramo": "Coordinación de la Política de Gobierno",
               "ramoCorto": null,
-              "monto": "$2,390,654.90",
-              "porcentaje": 90,
+              "monto": "$14,443.3",
+              "porcentaje": 4,
               "tendencia": "▲"
+            },
+            {
+              "ramo": "Relaciones Exteriores",
+              "ramoCorto": null,
+              "monto": "$10,075.1",
+              "porcentaje": 3,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "Otros Servicios Generales",
+              "ramoCorto": null,
+              "monto": "$1,643.3",
+              "porcentaje": 0,
+              "tendencia": "▼"
             }
           ]
         }
@@ -228,122 +284,122 @@
         {
           "id": "ramos-administrativos",
           "nombre": "Ramos administrativos",
-          "total": "$2,445,888.9",
+          "total": "$2,461,789.6",
           "porcentajeTotal": 28,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "nota": "* 48 Cultura, 04 Gobernación, 05 Relaciones Exteriores, 47 Entidades no Sectorizadas, 55 Agencia de Transformación Digital y Telecomunicaciones, 10 Economía, 54 Mujeres, 21 Turismo, 27 Anticorrupción y Buen Gobierno, 31 Tribunales Agrarios, 02 Oficina de la Presidencia de la República, 37 Consejería Jurídica del Ejecutivo Federal.",
           "segmentos": [
             {
               "ramo": "R20 Bienestar",
               "ramoCorto": "R20",
-              "monto": "$674,510.0",
-              "porcentaje": 27.6,
+              "monto": "$697,106.3",
+              "porcentaje": 28,
               "tendencia": "▲"
             },
             {
               "ramo": "R11 Educación Pública",
               "ramoCorto": "R11",
-              "monto": "$513,015.6",
-              "porcentaje": 21,
+              "monto": "$576,631.9",
+              "porcentaje": 23,
               "tendencia": "▲"
             },
             {
-              "ramo": "R18 Energía",
-              "ramoCorto": "R18",
-              "monto": "$267,439.1",
-              "porcentaje": 10.9,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R56 IMSS BIENESTAR",
+              "ramo": "R56 Servicios de Salud del Instituto Mexicano del Seguro Social para el Bienestar",
               "ramoCorto": "R56",
-              "monto": "$172,492.4",
-              "porcentaje": 7.1,
-              "tendencia": "-"
+              "monto": "$193,987.2",
+              "porcentaje": 8,
+              "tendencia": "▲"
             },
             {
               "ramo": "R07 Defensa Nacional",
               "ramoCorto": "R07",
-              "monto": "$170,753.1",
-              "porcentaje": 7,
+              "monto": "$185,706.1",
+              "porcentaje": 8,
               "tendencia": "▲"
             },
             {
               "ramo": "R09 Infraestructura, Comunicaciones y Transportes",
               "ramoCorto": "R09",
-              "monto": "$153,539.3",
-              "porcentaje": 6.3,
+              "monto": "$167,074.8",
+              "porcentaje": 7,
               "tendencia": "▲"
             },
             {
               "ramo": "R08 Agricultura y Desarrollo Rural",
               "ramoCorto": "R08",
-              "monto": "$75,195.5",
-              "porcentaje": 3.1,
+              "monto": "$88,758.8",
+              "porcentaje": 4,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "R18 Energía",
+              "ramoCorto": "R18",
+              "monto": "$85,634.2",
+              "porcentaje": 3,
               "tendencia": "▼"
             },
             {
               "ramo": "R13 Marina",
               "ramoCorto": "R13",
-              "monto": "$65,926.8",
-              "porcentaje": 2.7,
-              "tendencia": "▼"
+              "monto": "$81,223.4",
+              "porcentaje": 3,
+              "tendencia": "▲"
             },
             {
               "ramo": "R12 Salud",
               "ramoCorto": "R12",
-              "monto": "$66,825.8",
-              "porcentaje": 2.4,
-              "tendencia": "▼"
+              "monto": "$72,305.5",
+              "porcentaje": 3,
+              "tendencia": "▲"
             },
             {
               "ramo": "R36 Seguridad y Protección Ciudadana",
               "ramoCorto": "R36",
-              "monto": "$60,110.9",
-              "porcentaje": 2.5,
-              "tendencia": "▼"
+              "monto": "$64,486.9",
+              "porcentaje": 3,
+              "tendencia": "▲"
             },
             {
               "ramo": "Otros ramos*",
               "ramoCorto": null,
-              "monto": "$55,631.5",
-              "porcentaje": 2.3,
-              "tendencia": "▼"
+              "monto": "$61,325.6",
+              "porcentaje": 2,
+              "tendencia": "-"
             },
             {
               "ramo": "R16 Medio Ambiente y Recursos Naturales",
               "ramoCorto": "R16",
-              "monto": "$44,064.1",
-              "porcentaje": 1.8,
-              "tendencia": "▼"
+              "monto": "$49,508.3",
+              "porcentaje": 2,
+              "tendencia": "▲"
+            },
+            {
+              "ramo": "R38 Ciencia, Humanidades, Tecnología e Innovación",
+              "ramoCorto": "R38",
+              "monto": "$42,217.7",
+              "porcentaje": 2,
+              "tendencia": "▲"
             },
             {
               "ramo": "R15 Desarrollo Agrario, Territorial y Urbano",
               "ramoCorto": "R15",
-              "monto": "$36,290.1",
-              "porcentaje": 1.5,
-              "tendencia": "▼"
-            },
-            {
-              "ramo": "R38 Ciencias, Humanidades, Tecnología e Innovación Tecnología e Innovación",
-              "ramoCorto": "R38",
-              "monto": "$34,860.8",
-              "porcentaje": 1.4,
+              "monto": "$37,873.6",
+              "porcentaje": 2,
               "tendencia": "▲"
             },
             {
               "ramo": "R14 Trabajo y Previsión Social",
               "ramoCorto": "R14",
-              "monto": "$28,441.9",
-              "porcentaje": 1.2,
-              "tendencia": "▼"
+              "monto": "$30,852.7",
+              "porcentaje": 1,
+              "tendencia": "▲"
             },
             {
               "ramo": "R06 Hacienda y Crédito Público",
               "ramoCorto": "R06",
-              "monto": "$26,792.1",
-              "porcentaje": 1.1,
+              "monto": "$27,096.6",
+              "porcentaje": 1,
               "tendencia": "▼"
             }
           ]
@@ -361,7 +417,7 @@
               "ramoCorto": null,
               "monto": "$85,960.20",
               "porcentaje": 52.28,
-              "tendencia": "▲"
+              "tendencia": "-"
             },
             {
               "ramo": "Instituto Nacional Electoral",
@@ -375,7 +431,7 @@
               "ramoCorto": null,
               "monto": "$21,059.40",
               "porcentaje": 12.81,
-              "tendencia": "▲"
+              "tendencia": "-"
             },
             {
               "ramo": "Poder Legislativo",
@@ -417,30 +473,30 @@
         {
           "id": "gasto-corriente",
           "nombre": "Gasto corriente",
-          "total": "$4,138,687.0",
-          "porcentajeTotal": 58,
+          "total": "$4,458,170.4",
+          "porcentajeTotal": 60,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "Servicios Personales",
               "ramoCorto": null,
-              "monto": "$1,846,383.7",
-              "porcentaje": 44.6,
+              "monto": "$2,031,571.5",
+              "porcentaje": 46,
               "tendencia": "▲"
             },
             {
               "ramo": "Subsidios",
               "ramoCorto": null,
-              "monto": "$1,236,364.8",
-              "porcentaje": 29.9,
+              "monto": "$1,302,294.0",
+              "porcentaje": 29,
               "tendencia": "▲"
             },
             {
               "ramo": "Gastos de Operación",
               "ramoCorto": null,
-              "monto": "$1,055,938.5",
-              "porcentaje": 25.5,
+              "monto": "$1,124,304.9",
+              "porcentaje": 25,
               "tendencia": "▲"
             }
           ]
@@ -448,15 +504,15 @@
         {
           "id": "pensiones",
           "nombre": "Pensiones y Jubilaciones",
-          "total": "$1,704,159.1",
-          "porcentajeTotal": 24,
+          "total": "$1,840,746.2",
+          "porcentajeTotal": 25,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "Pensiones y jubilaciones",
               "ramoCorto": null,
-              "monto": "$1,704,159.1",
+              "monto": "$1,840,746.2",
               "porcentaje": 100,
               "tendencia": "▲"
             }
@@ -465,30 +521,30 @@
         {
           "id": "gasto-inversion",
           "nombre": "Gasto de inversión",
-          "total": "$1,251,862.7",
-          "porcentajeTotal": 18,
-          "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "total": "$1,133,613.2",
+          "porcentajeTotal": 15,
+          "tendencia": "▼",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "Inversión Física",
               "ramoCorto": null,
-              "monto": "$960,094.7",
-              "porcentaje": 76.7,
+              "monto": "$1,026,474.4",
+              "porcentaje": 91,
               "tendencia": "▲"
             },
             {
               "ramo": "Inversión Financiera",
               "ramoCorto": null,
-              "monto": "$276,372.1",
-              "porcentaje": 22.1,
-              "tendencia": "▲"
+              "monto": "$92,271.8",
+              "porcentaje": 8,
+              "tendencia": "▼"
             },
             {
               "ramo": "Subsidios",
               "ramoCorto": null,
-              "monto": "$15,395.9",
-              "porcentaje": 1.2,
+              "monto": "$14,867.0",
+              "porcentaje": 1,
               "tendencia": "▼"
             }
           ]
