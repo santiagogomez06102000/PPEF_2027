@@ -1,33 +1,34 @@
 {
   "titulo": "Gasto de inversión",
   "pre_monto": "En 2027, se prevé un gasto de inversión de:",
-  "monto_total": "$1,267,119.4",
+  "monto_total": "$1,133,613.2",
   "unidad_total": "millones de pesos",
   "post_monto": "Compuesto de la siguiente forma:",
   "bloques": [
     {
       "tipo": "estandar",
-      "porcentaje": 77,
+      "porcentaje": 91,
       "descripcion": "en inversión física",
-      "monto": "$976,863.5",
+      "monto": "$1,026,474.4",
       "unidad": "millones de pesos",
       "color":"#00bdd9",
       "posicion":"top"
     },
     {
       "tipo": "estandar",
-      "porcentaje": 22,
+      "porcentaje": 8,
       "descripcion": "en inversión financiera",
-      "monto": "$274,860.0",
+      "monto": "$92,271.8",
       "unidad": "millones de pesos",
       "color":"#2c5e9f",
+      "ocultar":true,
       "posicion":"top"
     },
     {
       "tipo": "mascota",
       "porcentaje": 1,
       "descripcion": "en subsidios para el sector social y para<br>estados y municipios",
-      "monto": "$15,395.9",
+      "monto": "$14,867.0",
       "unidad": "millones de pesos",
       "color":"#68e1ca",
       "ocultar":true,
