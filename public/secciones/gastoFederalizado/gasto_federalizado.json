@@ -32,7 +32,7 @@
       "color": "#afe4d0",
       "ocultar": true,
       "posicion": "top",
-      "desface":"-2rem"
+      "desface":"-50%"
     },
     {
       "tipo": "mascota",

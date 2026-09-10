@@ -1,5 +1,5 @@
 <template>
-  <section class="informacion">
+  <section class="informacion" v-if="datos">
     <!-- Fila superior: texto introductorio + botones -->
     <div class="fila-superior">
       <div class="intro">
@@ -30,8 +30,11 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import Botones from './Informacion/Botones.vue'
-import datos from '@/data/informacion.json'
-
+import { fetchPublicJson } from '../utils/utils.js';
+const datos = ref();
+onMounted(async()=>{
+  datos.value = await fetchPublicJson("secciones/PPEF/informacion.json")
+})
 const activo = ref(0) // CGPE seleccionado por defecto
 
 const esMovil = ref(false)

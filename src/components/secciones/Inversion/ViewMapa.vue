@@ -10,7 +10,6 @@ const datosFiltrados = ref<Proyecto[]>([])
 async function obtenerDatos() {
   const respuesta = await fetchPublicJson<Proyecto[]>('/db/proyectos_ppef.json')
   if (respuesta) {
-    console.log(respuesta.length);
     
     datos.value = respuesta
     datosFiltrados.value = respuesta
@@ -44,7 +43,6 @@ function filtrarDatos(filtros: Filtros) {
 }
 
 function filtrarRamos(ramos:number[]) {
-  console.log(ramos);
   
   const filtrado = datos.value?.filter((proyecto) => {
     return ramos.includes(proyecto.ID_RAMO)

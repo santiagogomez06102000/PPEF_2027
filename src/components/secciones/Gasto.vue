@@ -1,5 +1,5 @@
 <template>
-    <section class="gasto">
+    <section class="gasto" v-if="datos">
         <h2 class="titulo">{{ datos.titulo }}</h2>
 
         <p class="intro">{{ datos.intro }}</p>
@@ -40,7 +40,7 @@
 
         <div class="grid grid-cols-7 gap-x-16 gap-y-40 lg:gap-y-16 max-w-full">
             <!-- Ejes Generales -->
-            <div class="col-span-7 2xl:col-span-4" :class="{ 'hidden lg:block': seccion === 2 }">
+            <div class="col-span-7 2xl:col-span-4" :class="{ 'hidden lg:block': seccion === 2 }" v-if="generales">
                 <h3 class="subtitulo-ejes">{{ datos.ejesGenerales.titulo }}</h3>
                 <div class="flex items-center justify-between gap-4 rounded-full px-8 bg-[#409da2] relative">
                     <button v-for="(btn, index) in datos.ejesGenerales.botones" :key="btn.id"
@@ -56,7 +56,7 @@
             </div>
 
             <!-- Ejes Transversales -->
-            <div class="col-span-7 2xl:col-span-3" :class="{ 'hidden lg:block': seccion === 1 }">
+            <div class="col-span-7 2xl:col-span-3" :class="{ 'hidden lg:block': seccion === 1 }" v-if="transversales">
                 <h3 class="subtitulo-ejes">{{ datos.ejesTransversales.titulo }}</h3>
                 <div class="flex items-center p-2 justify-between gap-4 rounded-full px-8 bg-[#0d6881] relative">
                     <button v-for="(btn, index) in datos.ejesTransversales.botones" :key="btn.id"
@@ -85,16 +85,22 @@
 </template>
 
 <script setup>
-import datos from '@/data/Gasto/gasto.json'
 import Mascota from '@/components/utils/Mascota.vue'
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
 
 // Importar JSONs de modales
-import generales from '@/data/Gasto/ejes_generales.json'
-import transversales from '@/data/Gasto/ejes_transversales.json'
-import { nextTick, ref } from 'vue'
 
+import { nextTick, onMounted, ref } from 'vue'
+import { fetchPublicJson } from '../utils/utils'
+const generales = ref()
+const transversales = ref()
+const datos = ref();
+onMounted(async ()=>{
+    datos.value = await fetchPublicJson("secciones/gasto/gasto.json")
+    generales.value= await fetchPublicJson("secciones/gasto/ejes_generales.json")
+    transversales.value= await fetchPublicJson("secciones/gasto/ejes_transversales.json")
+})
 const baseUrl = import.meta.env.BASE_URL;
 
 // Instancia del composable para el modal

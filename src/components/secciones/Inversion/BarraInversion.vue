@@ -117,11 +117,11 @@ interface Bloque {
                     lg:gap-4
                     lg:px-0
                 ">
-                <span class="text-[#0a5a45] text-3xl lg:text-[2.5rem] xl:text-[3rem] " :style="{marginLeft:bloque.desface}">
+                <span class="text-[#0a5a45] text-3xl lg:text-[2.5rem] xl:text-[3rem] " :class="{'desface':bloque.desface}" :style="{'--desface':bloque.desface}">
                     {{ bloque.porcentaje }}%
                 </span>
 
-                <span v-if="!bloque.ocultar" class="text-black text-sm" v-html="bloque.descripcion"></span>
+                <span v-if="!bloque.ocultar" class="text-black text-sm text-wrap  me-8" v-html="bloque.descripcion"></span>
             </div>
 
         </div>
@@ -143,6 +143,7 @@ interface Bloque {
     transform: translateX(4rem);
 }
 
+
 @media (min-width: 1024px) {
     .mascota-hover {
         position: absolute;
@@ -152,6 +153,9 @@ interface Bloque {
         bottom: unset;
         transition: transform 0.3s ease;
         pointer-events: none;
+    }
+    .desface{
+        margin-left: var(--desface);
     }
 }
 </style>

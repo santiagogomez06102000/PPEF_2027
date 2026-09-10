@@ -1,5 +1,5 @@
 <template>
-  <section class="gasto-inversion">
+  <section class="gasto-inversion" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
     <p class="texto-medio">{{ datos.pre_monto }}</p>
@@ -24,11 +24,18 @@
 </template>
 
 <script setup>
-import datos from '@/data/gasto_inversion.json'
 // 🔴 IMPORTANTE: Asegúrate de que la ruta de importación coincida con tu proyecto
 import Mascota from '@/components/utils/Mascota.vue'
 import ViewMapa from './Inversion/ViewMapa.vue';
 import BarraInversion from './Inversion/BarraInversion.vue';
+import { onMounted, ref } from 'vue';
+import { fetchPublicJson } from '../utils/utils.js';
+const datos = ref();
+onMounted(async ()=>{
+  datos.value = await fetchPublicJson("secciones/inversion/gasto_inversion.json")
+})
+
+
 </script>
 
 <style scoped>

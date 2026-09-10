@@ -73,7 +73,6 @@ onMounted(async () => {
   datos.value = await fetchPublicJson(
     "/secciones/PPEF/paquete.json"
   );
-  console.log('Datos cargados:', datos.value)
 });
 </script>
 

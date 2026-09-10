@@ -937,10 +937,7 @@ async function cargarEstados() {
 
     viewBoxBase.value = viewBoxGlobal
 
-    console.log(
-        '[MapaMexico] ViewBox global:',
-        viewBoxGlobal
-    )
+
 
     /*
      * PASO 3

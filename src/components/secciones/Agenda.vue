@@ -1,5 +1,5 @@
 <template>
-    <section class="entorno">
+    <section class="entorno" v-if="datos">
         <h2 class="titulo">{{ datos.titulo }}</h2>
 
         <!-- Renderiza bloques dinámicos desde el JSON -->
@@ -82,15 +82,19 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
-import datos from '@/data/Agenda/agenda.json'
-import ODS from '@/data/Agenda/ODS.json'
 
 import Modal from '@/components/utils/Modal.vue'
 import { useModal } from '@/components/composables/useModal.js'
 import BurbujasODS from './Agenda/BurbujasODS.vue'
-
+import { fetchPublicJson } from '../utils/utils.js'
+const datos = ref()
+const ODS = ref();
+onMounted(async()=>{
+     datos.value = await fetchPublicJson("secciones/Agenda/agenda.json");
+    ODS.value = await fetchPublicJson("secciones/Agenda/ODS.json")
+})
 const modal = useModal()
 
 const baseUrl = import.meta.env.BASE_URL
@@ -115,7 +119,7 @@ function obtenerNombreArchivo(ruta) {
 
 function abrirModalODS(burbuja) {
 
-    const contenidoODS = ODS.find(
+    const contenidoODS = ODS.value.find(
         ods => String(ods.id) === String(burbuja.id)
     )
 
@@ -125,7 +129,6 @@ function abrirModalODS(burbuja) {
         )
         return
     }
-    console.log(contenidoODS);
     
     modal.open(contenidoODS)
 }
