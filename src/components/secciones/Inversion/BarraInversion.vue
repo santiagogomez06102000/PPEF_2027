@@ -15,6 +15,7 @@ interface Bloque {
     color: string
     ocultar?: boolean
     posicion:"top" | "bottom" | "left" | "right"
+    desface?:string
 }
 
 </script>
@@ -116,7 +117,7 @@ interface Bloque {
                     lg:gap-4
                     lg:px-0
                 ">
-                <span class="text-[#0a5a45] text-3xl lg:text-[2.5rem] xl:text-[3rem]">
+                <span class="text-[#0a5a45] text-3xl lg:text-[2.5rem] xl:text-[3rem] " :style="{marginLeft:bloque.desface}">
                     {{ bloque.porcentaje }}%
                 </span>
 

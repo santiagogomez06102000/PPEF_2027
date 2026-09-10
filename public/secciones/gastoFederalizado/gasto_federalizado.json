@@ -31,7 +31,8 @@
       "unidad": "millones de pesos",
       "color": "#afe4d0",
       "ocultar": true,
-      "posicion": "bottom"
+      "posicion": "top",
+      "desface":"-2rem"
     },
     {
       "tipo": "mascota",

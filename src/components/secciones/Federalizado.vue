@@ -1,5 +1,5 @@
 <template>
-    <section class="gasto-inversion">
+    <section class="gasto-inversion" v-if="datos">
         <h2 class="titulo">{{ datos.titulo }}</h2>
 
         <p class="texto-medio">{{ datos.pre_monto }}</p>
@@ -28,9 +28,14 @@
 </template>
 
 <script setup>
-import datos from '@/data/gasto_federalizado.json'
+import { onMounted, ref } from 'vue';
 import ViewSVG from './Federalizado/ViewSVG.vue';
 import BarraInversion from './Inversion/BarraInversion.vue';
+import { fetchPublicJson } from '../utils/utils.js';
+const datos = ref();
+onMounted(async()=>{
+    datos.value= await fetchPublicJson("secciones/gastoFederalizado/gasto_federalizado.json")
+})
 </script>
 
 <style scoped>
