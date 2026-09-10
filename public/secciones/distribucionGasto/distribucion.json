@@ -1,6 +1,6 @@
 {
   "titulo": "Distribución del gasto programable",
-  "descripcion": "La distribución del gasto programable es la manera en que el gobierno federal organiza y reparte el dinero que se destina a programas y acciones para la población. Este gasto se enfoca en generar bienes y servicios públicos —como educación, salud, seguridad o infraestructura— y cada año, dentro del presupuesto, se clasifica en diferentes formas para entender mejor en qué se usa y a quién beneficia.",
+  "descripcion": "La distribución del gasto programable es la manera en que el gobierno federal organiza y reparte el dinero que se destina a programas y acciones para la población. <strong>Este gasto se enfoca en generar bienes y servicios públicos</strong> —como educación, salud, seguridad o infraestructura— y cada año, dentro del presupuesto, se clasifica en diferentes formas para entender mejor en qué se usa y a quién beneficia.",
   "clasificaciones": [
     {
       "id": "funcional",

@@ -1,7 +1,7 @@
 <template>
   <section class="distribucion" v-if="datos">
     <h2 class="titulo">{{ datos.titulo }}</h2>
-    <p class="descripcion">{{ datos.descripcion }}</p>
+    <p class="descripcion" v-html="datos.descripcion"></p>
 
     <div class="contenido">
       <!-- Botones de clasificación -->
@@ -97,7 +97,7 @@ function cambiarClasificacion(idx) {
    CLICK EN UNA BARRA
 ========================================= */
 
-const activo = ref(2) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
+const activo = ref(0) // "¿En qué se gasta?" activo por defecto (coincide con imagen)
 const detalleActivo = ref();
 const barraActiva = ref(0);
 function handleClickBarra(idx) {
