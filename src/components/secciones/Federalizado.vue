@@ -21,8 +21,8 @@
             <ViewSVG />
         </div>
         <div class="texto-bajo">
-            <p>{{ datos.footer1 }}</p>
-            <p>{{ datos.footer2 }}</p>
+            <!-- <p>{{ datos.footer1 }}</p>
+            <p>{{ datos.footer2 }}</p> -->
         </div>
     </section>
 </template>
@@ -52,7 +52,6 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 
 .texto-medio {
     text-align: center;
-    font-size: 1.1rem;
     line-height: 1.6;
     color: #000000;
     margin: 0.5rem 0;
@@ -63,7 +62,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
     font-size: 0.9rem;
     line-height: 1.1;
     color: #000000;
-    margin: 0.5rem 0;
+    margin: 1.5rem 0;
 }
 
 /* ── Monto Principal (Grande) ── */
@@ -169,10 +168,9 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 /* ── Footer ── */
 .footer-text {
     text-align: center;
-    font-size: 0.95rem;
     color: #000000;
     line-height: 1.6;
-    margin-top: 2rem;
+    margin-top: 0rem;
     padding-top: 1.5rem;
 }
 
@@ -185,6 +183,7 @@ import BarraInversion from './Inversion/BarraInversion.vue';
     color: #555;
     font-size: 1.2rem;
     font-weight: 600;
+    margin: 3rem 0;
 }
 
 /* ═══════════════════════════════════════

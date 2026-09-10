@@ -47,7 +47,6 @@ import BarraInversion from './Inversion/BarraInversion.vue';
 
 .texto-medio {
   text-align: center;
-  font-size: 1.1rem;
   line-height: 1.6;
   color: #222;
   margin: 0.5rem 0;

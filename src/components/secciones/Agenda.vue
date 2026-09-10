@@ -126,7 +126,7 @@ function abrirModalODS(burbuja) {
         return
     }
     console.log(contenidoODS);
-    
+
     modal.open(contenidoODS)
 }
 </script>
@@ -174,7 +174,6 @@ function abrirModalODS(burbuja) {
 
 .textos p {
     margin: 0;
-    font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
     color: #ffffff;
@@ -188,7 +187,6 @@ function abrirModalODS(burbuja) {
 
 .columna p {
     margin: 0;
-    font-size: 1.05rem;
     line-height: 1.7;
     text-align: justify;
     color: #ffffff;
