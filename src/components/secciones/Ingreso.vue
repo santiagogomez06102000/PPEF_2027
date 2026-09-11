@@ -1,9 +1,10 @@
 <template>
   <section class="ingreso">
-    <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <div class="flex flex-col lg:flex-row items-center justify-between">
+    <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between mt-0 lg:mt-[12rem]">
       <div>
+            <h2 class="titulo">{{ datos.titulo }}</h2>
+
         <p class="intro">{{ datos.intro }}</p>
 
         <div class="monto-wrapper">
@@ -13,7 +14,7 @@
 
         <p class="descripcion">{{ datos.descripcion }}</p>
       </div>
-      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[25dvw]" />
+      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[25dvw] mb-[3rem] " />
     </div>
 
     <div class="acordeon">
@@ -159,7 +160,6 @@ const toggle = (idx) => {
 .titulo {
   text-align: center;
   color: #00b4d8;
-  margin-top: 12rem;
   margin-bottom: 1.2rem;
   font-family: 'Noto Sans Black', sans-serif;
 }
