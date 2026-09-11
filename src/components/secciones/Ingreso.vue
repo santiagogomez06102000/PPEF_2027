@@ -1,7 +1,7 @@
 <template>
   <section class="ingreso">
 
-    <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between mt-0 lg:mt-[12rem]">
+    <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-[8rem] lg:items-end justify-between mt-0 lg:mt-[12rem] mb-[3rem]">
       <div>
             <h2 class="titulo">{{ datos.titulo }}</h2>
 
@@ -14,7 +14,7 @@
 
         <p class="descripcion">{{ datos.descripcion }}</p>
       </div>
-      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[25dvw] mb-[3rem] " />
+      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[22dvw] mb-[3rem] " />
     </div>
 
     <div class="acordeon">
