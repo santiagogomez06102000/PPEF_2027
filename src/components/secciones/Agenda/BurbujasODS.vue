@@ -12,6 +12,10 @@
                     {{ burbuja.texto }}
                 </span>
 
+                <span v-if="Number(burbuja.cumplidas) <= 5" class="ods__numero">
+                    {{ burbuja.id }}
+                </span>
+
                 <!-- Imagen -->
                 <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono"
                     :class="{
@@ -762,6 +766,13 @@ onUnmounted(() => {
 
     line-height: 1.15;
 
+}
+
+.ods__numero {
+    display: block;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
 }
 
 
