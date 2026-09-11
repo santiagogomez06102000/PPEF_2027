@@ -5,6 +5,7 @@
     {
       "id": "funcional",
       "pregunta": "¿Para qué se gasta?",
+      "img":"secciones/distribucionGasto/para_que.png",
       "subtitulo": "Clasificación funcional",
       "barras": [
         {
@@ -203,6 +204,7 @@
     {
       "id": "administrativa",
       "pregunta": "¿Quién gasta?",
+      "img":"secciones/distribucionGasto/quien.png",
       "subtitulo": "Clasificación administrativa",
       "barras": [
         {
@@ -468,6 +470,7 @@
     {
       "id": "economica",
       "pregunta": "¿En qué se gasta?",
+      "img":"secciones/distribucionGasto/en_que.png",
       "subtitulo": "Clasificación económica",
       "barras": [
         {

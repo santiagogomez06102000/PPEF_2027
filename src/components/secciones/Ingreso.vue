@@ -2,14 +2,19 @@
   <section class="ingreso">
     <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <p class="intro">{{ datos.intro }}</p>
+    <div class="flex flex-col lg:flex-row items-center justify-between">
+      <div>
+        <p class="intro">{{ datos.intro }}</p>
 
-    <div class="monto-wrapper">
-      <p class="monto">{{ datos.monto }}</p>
-      <p class="unidad">{{ datos.unidad }}</p>
+        <div class="monto-wrapper">
+          <p class="monto">{{ datos.monto }}</p>
+          <p class="unidad">{{ datos.unidad }}</p>
+        </div>
+
+        <p class="descripcion">{{ datos.descripcion }}</p>
+      </div>
+      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[25dvw]" />
     </div>
-
-    <p class="descripcion">{{ datos.descripcion }}</p>
 
     <div class="acordeon">
 
