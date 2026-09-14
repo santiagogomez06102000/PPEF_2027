@@ -8,8 +8,13 @@
       <div class="botones">
         <button v-for="(cat, idx) in datos.clasificaciones" :key="cat.id" class="boton-clasificacion"
           :class="{ activo: activo === idx }" @click="cambiarClasificacion(idx)">
-          <span class="pregunta">{{ cat.pregunta }}</span>
-          <span class="subtitulo">{{ cat.subtitulo }}</span>
+          <div class="flex gap-3 items-center justify-start">
+            <img v-if="cat.img" :src="baseUrl + cat.img" :alt="cat.pregunta" class="w-[4rem]" />
+            <div class="flex flex-col">
+              <span class="pregunta">{{ cat.pregunta }}</span>
+              <span class="subtitulo">{{ cat.subtitulo }}</span>
+            </div>
+          </div>
         </button>
       </div>
       <div class="w-full flex justify-end lg:hidden " v-if="detalleActivo">
@@ -45,6 +50,7 @@ import Detalle from './DistribucionGasto/Detalle.vue'
 import ArrowLeft from '../utils/Icons/ArrowLeft.vue'
 
 import { fetchPublicJson } from '../utils/utils'
+import { baseUrl } from './Inversion/mapController.js'
 
 const datos = ref()
 

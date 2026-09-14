@@ -1,15 +1,21 @@
 <template>
   <section class="ingreso">
-    <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <p class="intro">{{ datos.intro }}</p>
+    <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-[8rem] lg:items-end justify-between mt-0 lg:mt-[12rem] mb-[3rem]">
+      <div>
+            <h2 class="titulo">{{ datos.titulo }}</h2>
 
-    <div class="monto-wrapper">
-      <p class="monto">{{ datos.monto }}</p>
-      <p class="unidad">{{ datos.unidad }}</p>
+        <p class="intro">{{ datos.intro }}</p>
+
+        <div class="monto-wrapper">
+          <p class="monto">{{ datos.monto }}</p>
+          <p class="unidad">{{ datos.unidad }}</p>
+        </div>
+
+        <p class="descripcion">{{ datos.descripcion }}</p>
+      </div>
+      <img :src="`${baseUrl + 'secciones/ingreso/ingresos.png'}`" class="w-[50dvw] lg:w-[22dvw] mb-[3rem] " />
     </div>
-
-    <p class="descripcion">{{ datos.descripcion }}</p>
 
     <div class="acordeon">
 
@@ -154,7 +160,6 @@ const toggle = (idx) => {
 .titulo {
   text-align: center;
   color: #00b4d8;
-  margin-top: 12rem;
   margin-bottom: 1.2rem;
   font-family: 'Noto Sans Black', sans-serif;
 }

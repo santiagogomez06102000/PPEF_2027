@@ -3,19 +3,19 @@
     "titulo": "Descarga, utiliza y comparte las bases de datos del Proyecto de Presupuesto de Egresos de la Federación 2027.",
     "datos": [
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/PPEF_2027.xlsx",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/AC01_ACP_PPEF_2027.xlsx",
         "tipo": "xlsx",
         "titulo": "XLSX",
         "img": "datosAbiertos/down_xlsx.png"
       },
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/PPEF_2027.csv",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/AC01_PPEF_2027.csv",
         "tipo": "csv",
         "titulo": "CSV",
         "img": "datosAbiertos/down_csv.png"
       },
       {
-        "url": "/work/models/PTP/programas/ppef2020/diccionario_presupuesto.xlsx",
+        "url": "#",
         "tipo": "diccionario",
         "titulo": "Diccionario de datos",
         "img": "datosAbiertos/down_diccionario.png"
@@ -43,10 +43,10 @@
     "titulo": "Vinculación de Programas presupuestarios PPEF a Objetivos de Desarrollo Sostenible (ODS)",
     "datos": [
       {
-        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2026.xlsx",
-        "tipo": "xlsx",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/Vinculacion_ODS-Pp_PPEF2027.csv",
+        "tipo": "csv",
         "titulo": "ODS",
-        "img": "datosAbiertos/down_xlsx.png"
+        "img": "datosAbiertos/down_csv.png"
       }
     ]
   }
