@@ -5180,8 +5180,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 15,
+   "ENTIDAD_REAL": "México"
  },
  {
    "CVE_CARTERA": "10071320003",
@@ -5234,8 +5234,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 15,
+   "ENTIDAD_REAL": "México"
  },
  {
    "CVE_CARTERA": "1206HHE0001",
@@ -5612,8 +5612,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "1218T4L0026",
@@ -5720,8 +5720,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "1318T4M0052",
@@ -5990,8 +5990,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "14132160017",
@@ -6044,8 +6044,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "14071320011",
@@ -6314,8 +6314,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "14132160016",
@@ -6530,8 +6530,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2652TYY0190",
@@ -7826,8 +7826,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2652TYY0057",
@@ -13064,8 +13064,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 6,
+   "ENTIDAD_REAL": "Colima"
  },
  {
    "CVE_CARTERA": "2016B000055",
@@ -15008,8 +15008,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 20,
+   "ENTIDAD_REAL": "Oaxaca"
  },
  {
    "CVE_CARTERA": "2216B000020",
@@ -23108,8 +23108,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 26,
+   "ENTIDAD_REAL": "Sonora"
  },
  {
    "CVE_CARTERA": "2652TYY0062",
@@ -24296,8 +24296,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 12,
+   "ENTIDAD_REAL": "Guerrero"
  },
  {
    "CVE_CARTERA": "2652TYY0301",
@@ -24674,8 +24674,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 28,
+   "ENTIDAD_REAL": "Tamaulipas"
  },
  {
    "CVE_CARTERA": "2652TYY0217",
@@ -27644,8 +27644,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 30,
+   "ENTIDAD_REAL": "Veracruz de Ignacio de la Llave"
  },
  {
    "CVE_CARTERA": "2451GYN0005",
@@ -28670,8 +28670,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 30,
+   "ENTIDAD_REAL": "Veracruz de Ignacio de la Llave"
  },
  {
    "CVE_CARTERA": "2413J3L0001",
@@ -30344,8 +30344,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 12,
+   "ENTIDAD_REAL": "Guerrero"
  },
  {
    "CVE_CARTERA": "2653TVV0138",
@@ -32666,8 +32666,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2513KDN0024",
@@ -33908,8 +33908,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "25132200002",
@@ -33962,8 +33962,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2607HXA0008",
@@ -35798,8 +35798,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2636D000005",
@@ -37256,8 +37256,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2653TVV0107",
@@ -44060,8 +44060,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2652TYY0092",
@@ -45896,8 +45896,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "En Proceso de Modificación / En Proceso de Captura",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "25131180001",
@@ -45950,8 +45950,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "2618TON0001",
@@ -47786,8 +47786,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 28,
+   "ENTIDAD_REAL": "Tamaulipas"
  },
  {
    "CVE_CARTERA": "2606G1H0002",
@@ -50216,8 +50216,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "26092100005",
@@ -50594,8 +50594,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 9,
+   "ENTIDAD_REAL": "Ciudad de México"
  },
  {
    "CVE_CARTERA": "26071320002",
@@ -50648,8 +50648,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 15,
+   "ENTIDAD_REAL": "México"
  },
  {
    "CVE_CARTERA": "2613KDN0009",
@@ -50810,8 +50810,8 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 30,
+   "ENTIDAD_REAL": "Veracruz de Ignacio de la Llave"
  },
  {
    "CVE_CARTERA": "2609JZO0002",
@@ -54698,7 +54698,7 @@
    "OTROS": 0,
    "CICLO": 2027,
    "ESTATUS_OPERACION": "Vigente",
-   "ID_ENTIDAD_REAL": null,
-   "ENTIDAD_REAL": ""
+   "ID_ENTIDAD_REAL": 23,
+   "ENTIDAD_REAL": "Quintana Roo"
  }
 ]
