@@ -205,7 +205,6 @@ function crearCapaProyectos(
 }
 function agruparPorEstado(proyectos: Proyecto[]): Map<number, Proyecto[]> {
   const grupos = new Map<number, Proyecto[]>()
-    console.log(proyectos.length);
 
   for (const proyecto of proyectos) {
     const estado = Number(proyecto.ID_ENTIDAD_REAL)
@@ -226,7 +225,6 @@ function agruparPorEstado(proyectos: Proyecto[]): Map<number, Proyecto[]> {
 
     grupos.get(estado)!.push(proyecto)
   }
-  console.log(grupos);
   
   return grupos
 }

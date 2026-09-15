@@ -13,7 +13,6 @@ async function obtenerDatos() {
     
     datos.value = respuesta
     datosFiltrados.value = respuesta
-    console.log(construirRamos(respuesta));
     
   }
 }
