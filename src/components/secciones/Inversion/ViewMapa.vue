@@ -13,7 +13,26 @@ async function obtenerDatos() {
     
     datos.value = respuesta
     datosFiltrados.value = respuesta
+    console.log(construirRamos(respuesta));
+    
   }
+}
+function construirRamos(proyectos: Proyecto[]) {
+  const ramos = new Map<number, string>()
+
+  for (const proyecto of proyectos) {
+    if (!ramos.has(proyecto.ID_RAMO)) {
+      ramos.set(
+        proyecto.ID_RAMO,
+        proyecto.DESCRIPCION_RAMO
+      )
+    }
+  }
+
+  return Array.from(ramos, ([id_ramo, ramo]) => ({
+    ramo,
+    id_ramo,
+  }))
 }
 const props = defineProps<Props>();
 interface Props{
@@ -62,7 +81,6 @@ export interface Filtros {
     <div
       class="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-start gap-8"
     >
-      <FiltrosMapa :filtrar="filtrarDatos" class="hidden" />
       <div class="flex-1 w-full h-full rounded-xl shadow-xl overflow-hidden relative ">
         <FiltroRamos @filtrar="filtrarRamos"/>
         <Mapa :proyectos="datosFiltrados" />

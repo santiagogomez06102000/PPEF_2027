@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { fetchPublicJson } from '@/components/utils/utils';
-import { ramoColores } from './mapController';
 import { RamoInterface } from './FiltrosMapa.vue';
 import { onMounted, ref, watch } from 'vue';
 import ChevronDown from '@/components/utils/Icons/ChevronDown.vue';
@@ -82,7 +81,7 @@ watch(
         <button type="button" v-if="ramos" v-for="ramo in ramos" :key="ramo.id_ramo"
             class=" boton-ramo rounded-full px-2 py-2 shadow "
             :class="{ 'seleccionado': seleccionados.includes(ramo.id_ramo) }" :style="{
-                '--color-borde': ramoColores.get(ramo.id_ramo)
+                '--color-borde': ramo.color || '#555555'
             }" @click="handleClickRamo(ramo.id_ramo)">{{ ramo.ramo }}</button>
     </section>
 </template>
@@ -130,6 +129,7 @@ watch(
 @media (min-width:1024px) {
     .contenedor {
         max-height: calc(100% - 5rem);
+        overflow: auto;
     }
 }
 </style>

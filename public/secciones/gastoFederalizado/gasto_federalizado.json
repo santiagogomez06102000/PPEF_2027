@@ -1,13 +1,13 @@
 {
   "titulo": "Gasto federalizado",
   "pre_monto": "Son los recursos que el Gobierno de México transfiere a las entidades y municipios, para 2027 se prevé:",
-  "monto_total": "$2,937,472.4*",
+  "monto_total": "$3,048,223.2*",
   "unidad_total": "millones de pesos",
   "post_monto": "Se segmenta por diferentes conceptos:",
   "bloques": [
     {
       "tipo": "estandar",
-      "porcentaje": 53,
+      "porcentaje": 51,
       "descripcion": "Participaciones federales",
       "monto": "$1,547,607.9",
       "unidad": "millones de pesos",
@@ -16,9 +16,9 @@
     },
     {
       "tipo": "estandar",
-      "porcentaje": 41,
+      "porcentaje": 40,
       "descripcion": "Aportaciones federales",
-      "monto": "$1,197,187.70",
+      "monto": "$1,231,894.6",
       "unidad": "millones de pesos",
       "color": "#00a1cd",
       "posicion": "top"
@@ -27,7 +27,7 @@
       "tipo": "mascota",
       "porcentaje": 5,
       "descripcion": "Convenios",
-      "monto": "$163,015.90",
+      "monto": "$163,015.9",
       "unidad": "millones de pesos",
       "color": "#afe4d0",
       "ocultar": true,
@@ -36,9 +36,9 @@
     },
     {
       "tipo": "mascota",
-      "porcentaje": 1,
+      "porcentaje": 4,
       "descripcion": "Subsidios",
-      "monto": "$29,660.90",
+      "monto": "$105,704.8",
       "unidad": "millones de pesos",
       "color": "#68e1ca",
       "ocultar": true,

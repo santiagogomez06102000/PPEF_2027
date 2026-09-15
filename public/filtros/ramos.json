@@ -1,50 +1,72 @@
 [
   {
     "ramo": "CFE",
-    "id_ramo": 53
-  },
-  {
-    "ramo": "Economía",
-    "id_ramo": 10
-  },
-  {
-    "ramo": "Energía",
-    "id_ramo": 18
-  },
-  {
-    "ramo": "Hacienda",
-    "id_ramo": 6
-  },
-  {
-    "ramo": "IMSS",
-    "id_ramo": 50
-  },
-  {
-    "ramo": "ISSSTE",
-    "id_ramo": 51
-  },
-  {
-    "ramo": "Marina",
-    "id_ramo": 13
-  },
-  {
-    "ramo": "No sectorizadas",
-    "id_ramo": 47
+    "id_ramo": 53,
+    "color": "#99cc66"
   },
   {
     "ramo": "PEMEX",
-    "id_ramo": 52
-  },
-  {
-    "ramo": "Salud",
-    "id_ramo": 12
+    "id_ramo": 52,
+    "color": "#e2282b"
   },
   {
     "ramo": "SEMARNAT",
-    "id_ramo": 16
+    "id_ramo": 16,
+    "color": "#19bcb9"
+  },
+  {
+    "ramo": "IMSS",
+    "id_ramo": 50,
+    "color": "#006253"
+  },
+  {
+    "ramo": "Defensa",
+    "id_ramo": 7,
+    "color": "#C85A9E"
+  },
+  {
+    "ramo": "Anticorrupción y Buen Gobierno",
+    "id_ramo": 27,
+    "color": "#7A9E3A"
+  },
+  {
+    "ramo": "Marina",
+    "id_ramo": 13,
+    "color": "#386ab3"
+  },
+  {
+    "ramo": "Energía",
+    "id_ramo": 18,
+    "color": "#19bcb9"
+  },
+  {
+    "ramo": "ISSSTE",
+    "id_ramo": 51,
+    "color": "#611232"
   },
   {
     "ramo": "SICT",
-    "id_ramo": 9
+    "id_ramo": 9,
+    "color": "#e883af"
+  },
+  {
+    "ramo": "Hacienda",
+    "id_ramo": 6,
+    "color": "#835da8"
+  },
+  {
+    "ramo": "Agricultura",
+    "id_ramo": 8,
+    "color": "#D6B43C"
+  },
+  {
+    "ramo": "Economía",
+    "id_ramo": 10,
+    "color": "#C46A4A"
+  },
+  {
+    "ramo": "Seguridad",
+    "id_ramo": 36,
+    "color": "#304B78"
   }
 ]
