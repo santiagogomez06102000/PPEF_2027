@@ -12,8 +12,8 @@ export function initMap(mapaContainer: Ref<HTMLElement | null>): L.Map | null {
     zoom: 5,
     minZoom,
     maxZoom,
-    //maxBounds: mexicoBounds,
-    //maxBoundsViscosity: 0.5,
+    maxBounds: mexicoBounds,
+    maxBoundsViscosity: 0.5,
     scrollWheelZoom: false,
     zoomControl: true,
   });
@@ -157,7 +157,7 @@ export function initMapDetalle(
 }
 
 // Límites geográficos de México
-export const mexicoBounds = L.latLngBounds([14.5, -118.5], [32.8, -86.5]);
+export const mexicoBounds = L.latLngBounds([10, -125], [37, -80]);
 
 export const minZoom = 5;
 export const maxZoom = 18;
@@ -233,35 +233,6 @@ export function removeGeoJsonFromMap(
     map.removeLayer(layer);
   }
 }
-
-export const clasificacionesColores = [
-  "#6c4f84",
-  "#d7000b",
-  "#ffc500",
-  "#666666",
-  "#0082b3",
-  "#00743c",
-  "#c01361",
-  "#8e4139",
-  "#009b8f",
-  "#09465b",
-  "#ff5600",
-  "#8bcc14",
-];
-export const ramoColores = new Map([
-  [53, "#99cc66"],
-  [10, "#9E9E9E"],
-  [18, "#19bcb9"],
-  [47, "#f8a24b"],
-  [6, "#835da8"],
-  [9, "#e883af"],
-  [51, "#611232"],
-  [50, "#006253"],
-  [13, "#386ab3"],
-  [16, "#19bcb9"],
-  [52, "#e2282b"],
-  [12, "#66ccff"],
-]);
 
 
 export const entidadesFederativas:Entidad_federativaInterface[] = [];

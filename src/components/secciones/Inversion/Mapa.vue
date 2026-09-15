@@ -3,10 +3,10 @@ import { onMounted, ref, shallowRef, watch } from 'vue'
 import L from 'leaflet'
 //@ts-ignore
 import 'leaflet/dist/leaflet.css'
-import { entidadesFederativas, initMap, mexicoBounds, ramoColores } from './mapController'
-import { formatearMoneda } from '@/components/utils/utils';
+import { entidadesFederativas, initMap, mexicoBounds } from './mapController'
+import { fetchPublicJson, formatearMoneda } from '@/components/utils/utils';
 import Mexico from '@/components/utils/Icons/Mexico.vue';
-
+import { RamoInterface } from './FiltrosMapa.vue';
 const props = defineProps<Props>()
 const mapa = shallowRef<L.Map | null>(null)
 const renderer = L.canvas()
@@ -18,10 +18,11 @@ const estiloBase = {
   color: 'rgb(255, 255, 255)'
 }
 const mapaContainer = ref(null)
+const ramos = ref<RamoInterface[] | null>();
 onMounted(() => {
 
   mapa.value = initMap(mapaContainer)
-
+  
   if (!mapa.value) {
     return
   }
@@ -65,6 +66,9 @@ onMounted(() => {
     }
 
   })
+})
+onMounted(async()=>{
+  ramos.value = await fetchPublicJson('/filtros/ramos.json')
 })
 let capaProyectos: L.FeatureGroup | null = null
 let capaEstados: L.FeatureGroup | null = null
@@ -117,32 +121,32 @@ function crearCapaProyectos(
   for (const proyecto of proyectos) {
 
     if (
-      proyecto.LATITUD == null ||
-      proyecto.LONGITUD == null ||
-      Number.isNaN(proyecto.LATITUD) ||
-      Number.isNaN(proyecto.LONGITUD)
+      proyecto.LATITUD_INICIAL == null ||
+      proyecto.LONGITUD_INICIAL == null ||
+      Number.isNaN(proyecto.LATITUD_INICIAL) ||
+      Number.isNaN(proyecto.LONGITUD_INICIAL)
     ) {
       continue
     }
 
     const marker = L.circleMarker(
       [
-        proyecto.LATITUD,
-        proyecto.LONGITUD
+        proyecto.LATITUD_INICIAL,
+        proyecto.LONGITUD_INICIAL
       ],
       {
         renderer,
         ...estiloBase,
-        fillColor: ramoColores.get(
-          proyecto.ID_RAMO
-        ),
+        fillColor: ramos.value?.find(
+          rm=>rm.id_ramo===proyecto.ID_RAMO
+        )?.color || "#555555",
       }
     )
 
     marker.bindPopup(`
       <div class="flex flex-col gap-2 text-[11px]">
 
-        <h6 class="text-gray-500">
+        <h6 class="text-gray-500 min-w-[20rem]">
           ${proyecto.NOMBRE_PPI}
         </h6>
 
@@ -203,24 +207,25 @@ function agruparPorEstado(proyectos: Proyecto[]): Map<number, Proyecto[]> {
   const grupos = new Map<number, Proyecto[]>()
 
   for (const proyecto of proyectos) {
+    const estado = Number(proyecto.ID_ENTIDAD_REAL)
     if (
-      proyecto.LATITUD == null ||
-      proyecto.LONGITUD == null ||
-      Number.isNaN(proyecto.LATITUD) ||
-      Number.isNaN(proyecto.LONGITUD)
+      proyecto.LATITUD_INICIAL == null ||
+      proyecto.LONGITUD_INICIAL == null ||
+      Number.isNaN(proyecto.LATITUD_INICIAL) ||
+      Number.isNaN(proyecto.LONGITUD_INICIAL) ||
+      isNaN(estado)
     ) {
       continue
     }
+    
 
-    const estado = proyecto.ID_ENTIDAD_FEDERATIVA
-
-    if (!grupos.has(estado)) {
+    if ( !grupos.has(estado)) {
       grupos.set(estado, [])
     }
 
     grupos.get(estado)!.push(proyecto)
   }
-
+  
   return grupos
 }
 function crearClusterEstado(
@@ -232,8 +237,8 @@ function crearClusterEstado(
   const latLngs = proyectos.map(
     proyecto =>
       L.latLng(
-        proyecto.LATITUD!,
-        proyecto.LONGITUD!
+        proyecto.LATITUD_INICIAL!,
+        proyecto.LONGITUD_INICIAL!
       )
   )
 
@@ -263,7 +268,7 @@ function crearCapaEstados(
   proyectos: Proyecto[],
   map: L.Map,
 ): L.FeatureGroup {
-
+  
   const capaEstados = L.featureGroup()
 
   const grupos =
@@ -324,6 +329,8 @@ function crearIconoEstado(
 
     iconAnchor: [40, 40],
   })
+  
+  
 }
 function crearConicGradient(
   proyectos: Proyecto[]
@@ -350,7 +357,7 @@ function crearConicGradient(
   for (const [ramo, cantidad] of conteo) {
 
     const color =
-      ramoColores.get(ramo) ?? "#9E9E9E"
+      ramos.value?.find(r=> r.id_ramo===ramo)?.color || "#555555"
 
     const grados =
       (cantidad / total) * 360
@@ -393,10 +400,12 @@ export interface Proyecto {
   DESCRIPCION_TIPO_PPI: string
   DESCRIPCION_PPI: string
   LOCALIZACION: string
-  ID_ENTIDAD_FEDERATIVA: number
+  ID_ENTIDAD_FEDERATIVA: number | string
   ENTIDAD_FEDERATIVA: string
-  LATITUD: number | null
-  LONGITUD: number | null
+  LATITUD_INICIAL: number | null
+  LONGITUD_INICIAL: number | null
+  LATITUD_FINAL: number | null
+  LONGITUD_FINAL: number | null
   FECHA_INICIO_CAL_FF: string
   FECHA_FIN_CAL_FF: string
   ANIOS_HE: number | null
@@ -431,10 +440,11 @@ export interface Proyecto {
   OTROS: number | null
   CICLO: number | null
   ESTATUS_OPERACION: string
+  ID_ENTIDAD_REAL:number | null
 }
 </script>
 <template>
-  <div ref="mapaContainer" class="w-full h-full min-h-[90dvh] lg:min-h-[70dvh] "></div>
+  <div ref="mapaContainer" class="w-full h-full min-h-[90dvh] lg:min-h-[80dvh] "></div>
   <div class="absolute top-3 right-3 z-1000 flex flex-col">
       <button
         type="button"

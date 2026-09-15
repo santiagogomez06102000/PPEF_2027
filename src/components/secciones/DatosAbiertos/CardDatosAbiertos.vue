@@ -23,7 +23,8 @@ const imagen = computed(() => {
 <template>
     <a class="card-datos-abiertos" :class="{
         'card-datos-abiertos--azul': idx % 2 === 0,
-        'card-datos-abiertos--verde': idx % 2 !== 0
+        'card-datos-abiertos--verde': idx % 2 !== 0,
+        'desactivado':card.url.length<1
     }" :href="props.card.url" target="_blank" rel="noopener noreferrer" :title="card.titulo">
 
         <!-- IMAGEN -->
@@ -43,6 +44,9 @@ const imagen = computed(() => {
 /* =========================================================
    CARD
    ========================================================= */
+   .desactivado{
+  pointer-events: none;
+}
 
 .card-datos-abiertos {
     width: 100%;

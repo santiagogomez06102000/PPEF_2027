@@ -79,6 +79,7 @@ export interface Entidad_federativaInterface {
 export interface RamoInterface {
   id_ramo: number
   ramo: string
+  color?:string
 }
 interface EjecutorInterface {
   id_ur: string
