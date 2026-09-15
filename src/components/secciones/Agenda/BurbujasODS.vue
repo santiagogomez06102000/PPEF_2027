@@ -85,6 +85,8 @@ const contenedor = ref(null)
 
 let simulation = null
 let resizeObserver = null
+let intersectionObserver = null
+let animacionEjecutada = false
 
 
 // =============================================
@@ -268,12 +270,62 @@ function calcularTamanos(ancho) {
 
 }
 
+function prepararBurbujasEnCentro() {
+
+    if (!contenedor.value || !burbujas.length) {
+        return
+    }
+
+    const ancho =
+        contenedor.value.clientWidth
+
+    const alto =
+        contenedor.value.clientHeight
+
+    if (!ancho || !alto) {
+        return
+    }
+
+    calcularTamanos(ancho)
+
+    const centroX =
+        ancho / 2
+
+    const centroY =
+        alto / 2
+
+    burbujas.forEach((burbuja, index) => {
+
+        // Pequeña distribución circular inicial
+        // para evitar que estén exactamente
+        // una encima de otra.
+        const angulo =
+            (index / burbujas.length) *
+            Math.PI *
+            2
+
+        const distancia = 15
+
+        burbuja.x =
+            centroX +
+            Math.cos(angulo) *
+            distancia
+
+        burbuja.y =
+            centroY +
+            Math.sin(angulo) *
+            distancia
+
+        burbuja.fx = null
+        burbuja.fy = null
+    })
+}
 
 // =============================================
 // CREAR DISTRIBUCIÓN
 // =============================================
 
-function crearDistribucion() {
+function crearDistribucion(desdeCentro = false) {
 
     if (!contenedor.value) {
         return
@@ -311,44 +363,48 @@ function crearDistribucion() {
     // POSICIONES INICIALES
     // =========================================
 
-    burbujas.forEach(burbuja => {
+    burbujas.forEach((burbuja, index) => {
 
         burbuja.fx = null
         burbuja.fy = null
 
+        if (desdeCentro) {
 
-        burbuja.x =
+            // Todas comienzan muy cerca del centro.
+            // El pequeño desplazamiento evita que tengan
+            // exactamente las mismas coordenadas.
+            const angulo =
+                (index / burbujas.length) *
+                Math.PI *
+                2
 
-            centroX
+            const distanciaInicial =
+                10 + Math.random() * 20
 
-            +
+            burbuja.x =
+                centroX +
+                Math.cos(angulo) *
+                distanciaInicial
 
-            (Math.random() - 0.5)
+            burbuja.y =
+                centroY +
+                Math.sin(angulo) *
+                distanciaInicial
 
-            *
+        } else {
 
-            ancho
+            burbuja.x =
+                centroX +
+                (Math.random() - 0.5) *
+                ancho *
+                0.4
 
-            *
-
-            0.4
-
-
-        burbuja.y =
-
-            centroY
-
-            +
-
-            (Math.random() - 0.5)
-
-            *
-
-            alto
-
-            *
-
-            0.4
+            burbuja.y =
+                centroY +
+                (Math.random() - 0.5) *
+                alto *
+                0.4
+        }
 
     })
 
@@ -408,59 +464,36 @@ function crearDistribucion() {
         burbujas
     )
 
-
-        // Atracción horizontal
-
         .force(
-
             'x',
-
             forceX(
                 centroX
             )
                 .strength(0.055)
-
         )
 
-
-        // Atracción vertical
-
         .force(
-
             'y',
-
             forceY(
                 centroY
             )
                 .strength(0.055)
-
         )
 
-
-        // Evitar que las burbujas se encimen
-
         .force(
-
             'collision',
-
             forceCollide()
-
                 .radius(
                     burbuja =>
                         burbuja.radio + 7
                 )
-
-                .strength(1)
-
-                .iterations(4)
-
+                .strength(.3)
+                .iterations(2)
         )
 
-
         .alpha(1)
-
-        .alphaDecay(0.025)
-
+        .alphaDecay(0.021)
+        .velocityDecay(0.32)
 
         .on(
             'tick',
@@ -472,39 +505,20 @@ function crearDistribucion() {
                         const margen =
                             burbuja.radio + 4
 
-
-                        /*
-                            Evita que salgan
-                            del contenedor.
-                        */
-
                         burbuja.x = Math.max(
-
                             margen,
-
                             Math.min(
-
                                 ancho - margen,
-
                                 burbuja.x
-
                             )
-
                         )
 
-
                         burbuja.y = Math.max(
-
                             margen,
-
                             Math.min(
-
                                 alto - margen,
-
                                 burbuja.y
-
                             )
-
                         )
 
                     }
@@ -599,24 +613,90 @@ onMounted(async () => {
 
     await nextTick()
 
-    crearDistribucion()
+    if (!contenedor.value) {
+        return
+    }
 
+    // Las mostramos desde el principio
+    // agrupadas en el centro.
+    prepararBurbujasEnCentro()
+
+    // =============================================
+    // OBSERVAR ENTRADA AL VIEWPORT
+    // =============================================
+
+    intersectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                const entry = entries[0]
+
+                if (
+                    entry.isIntersecting &&
+                    !animacionEjecutada
+                ) {
+
+                    animacionEjecutada = true
+
+                    // Las burbujas empiezan juntas
+                    // y D3 las distribuye.
+                    crearDistribucion(true)
+
+                    // Solo queremos hacer
+                    // la animación una vez.
+                    intersectionObserver.unobserve(
+                        contenedor.value
+                    )
+                }
+
+            },
+            {
+                threshold: 0.45
+            }
+        )
+
+    intersectionObserver.observe(
+        contenedor.value
+    )
+
+
+    // =============================================
+    // RESPONSIVE
+    // =============================================
+
+    let anchoAnterior = 0
 
     resizeObserver =
         new ResizeObserver(() => {
+
+            if (!animacionEjecutada) {
+                return
+            }
+
+            const anchoActual =
+                contenedor.value?.clientWidth || 0
+
+            // Evita ejecutar por pequeños cambios internos
+            if (
+                Math.abs(
+                    anchoActual - anchoAnterior
+                ) < 10
+            ) {
+                return
+            }
+
+            anchoAnterior = anchoActual
 
             crearDistribucion()
 
         })
 
+    anchoAnterior =
+        contenedor.value.clientWidth
 
-    if (contenedor.value) {
-
-        resizeObserver.observe(
-            contenedor.value
-        )
-
-    }
+    resizeObserver.observe(
+        contenedor.value
+    )
 
 })
 
@@ -631,9 +711,12 @@ onUnmounted(() => {
         simulation.stop()
     }
 
-
     if (resizeObserver) {
         resizeObserver.disconnect()
+    }
+
+    if (intersectionObserver) {
+        intersectionObserver.disconnect()
     }
 
 })
