@@ -8,7 +8,7 @@
     {
       "id": "impuestos",
       "titulo": "Impuestos",
-      "monto": "$ 6,263,886 millones de pesos",
+      "monto": "$6,263,886.8 millones de pesos",
       "contenido": [
         "<b>Definición:</b> contribuciones establecidas en ley que deben pagar las personas físicas y morales que se encuentran en la situación jurídica o de hecho prevista por la misma ley.",
         "<b>Ejemplo:</b> el Impuesto sobre la Renta (ISR), que es el pago que hacen las personas por los ingresos que reciben, como sueldos y salarios, y que también deben cubrir las empresas por las ganancias que obtienen."
@@ -70,8 +70,8 @@
     },
     {
       "id": "transferencias",
-      "titulo": "Transferencias, asignaciones, subsidios y subvenciones y pensiones y jubilaciones",
-      "monto": "$210,774 millones de pesos",
+      "titulo": "Transferencias, asignaciones, subsidios y subvenciones, y pensiones y jubilaciones",
+      "monto": "$210,774.0 millones de pesos",
       "contenido": [
         "<b>Definición:</b> recursos que reciben los entes públicos como parte de su política económica y social, de acuerdo con las estrategias y prioridades de desarrollo para el sostenimiento y desempeño de sus actividades.",
         "<b>Ejemplo:</b> ingresos por transferencias de recursos del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo."
