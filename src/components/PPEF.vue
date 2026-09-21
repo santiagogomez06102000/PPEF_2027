@@ -1,63 +1,62 @@
 <template>
   <section class="hero" v-if="datos">
-    <div class="hero-content">
+    <div class=" w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
 
-      <!-- ========================================
+      <div class=" flex-1">
+        <!-- ========================================
            1. TÍTULO
       ========================================= -->
-      <div class="hero-title">
-        <h1 class="titulo-principal">
-          <span class="linea">
-            Paquete Económico 2027
-          </span>
-        </h1>
+        <div class="hero-title">
+          <h1 class="titulo-principal">
+            <span class="linea">
+              Paquete Económico 2027
+            </span>
+          </h1>
+        </div>
+
+        <!-- ========================================
+           3. DATOS
+      ========================================= -->
+        <div class="hero-info">
+
+          <div class="bloque-datos">
+            <p class="etiqueta">
+              {{ datos.subtituloGasto }}
+            </p>
+
+            <p class="monto">
+              {{ datos.monto }}
+            </p>
+
+            <p class="unidad">
+              {{ datos.unidad }}
+            </p>
+          </div>
+
+
+          <div class="bloque-crecimiento">
+            <p class="porcentaje">
+              {{ datos.crecimiento }}
+            </p>
+
+            <p class="comparativa">
+              {{ datos.comparativa }}
+            </p>
+
+            <p class="nota">
+              {{ datos.nota }}
+            </p>
+          </div>
+
+        </div>
       </div>
-
-
       <!-- ========================================
            2. MASCOTA
       ========================================= -->
       <div class="hero-image">
-        <Mascota :mascota="datos.mascota.indice" :ancho="datos.mascota.ancho" :alto="datos.mascota.alto" />
+        <img :src="`${baseUrl}secciones/PPEF/XIUH.${image}`" alt="XIUH" @mouseenter="image = 'gif'"
+          @mouseleave="image = 'png'" />
       </div>
-
-
-      <!-- ========================================
-           3. DATOS
-      ========================================= -->
-      <div class="hero-info">
-
-        <div class="bloque-datos">
-          <p class="etiqueta">
-            {{ datos.subtituloGasto }}
-          </p>
-
-          <p class="monto">
-            {{ datos.monto }}
-          </p>
-
-          <p class="unidad">
-            {{ datos.unidad }}
-          </p>
-        </div>
-
-
-        <div class="bloque-crecimiento">
-          <p class="porcentaje">
-            {{ datos.crecimiento }}
-          </p>
-
-          <p class="comparativa">
-            {{ datos.comparativa }}
-          </p>
-
-          <p class="nota">
-            {{ datos.nota }}
-          </p>
-        </div>
-
-      </div>
-
     </div>
   </section>
 </template>
@@ -66,8 +65,10 @@
 import { onMounted, ref } from 'vue'
 import { fetchPublicJson } from './utils/utils.js';
 import Mascota from './utils/Mascota.vue'
+import { baseUrl } from './secciones/Inversion/mapController.js';
 
 const datos = ref(null)
+const image = ref('png')
 
 onMounted(async () => {
   datos.value = await fetchPublicJson(
@@ -120,7 +121,7 @@ onMounted(async () => {
 
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   color: #ffffff;
 }
@@ -133,10 +134,8 @@ onMounted(async () => {
 
   font-size: clamp(2.8rem, 4vw, 4.5rem);
 
-  line-height: 1.05;
-  letter-spacing: -0.02em;
 
-  text-align: right;
+  text-align: left;
 }
 
 .titulo-principal .linea {
@@ -149,7 +148,6 @@ onMounted(async () => {
 ======================================== */
 
 .hero-image {
-  width: 100%;
   min-width: 0;
 
   display: flex;
@@ -160,7 +158,6 @@ onMounted(async () => {
 .hero-image :deep(img) {
   display: block;
 
-  width: 100%;
   max-width: 450px;
 
   height: auto;
@@ -184,6 +181,7 @@ onMounted(async () => {
   gap: 2.5rem;
 
   color: #ffffff;
+  margin-top: 1rem;
 }
 
 .bloque-datos {
@@ -264,7 +262,6 @@ onMounted(async () => {
 ========================================================== */
 
 .hero-image {
-  width: 100%;
 
   display: flex;
 
@@ -284,7 +281,7 @@ onMounted(async () => {
   display: block;
 
   width: 100%;
-  max-width: 450px;
+  max-width: 600px;
 
   height: auto;
 
@@ -334,7 +331,7 @@ onMounted(async () => {
    RESPONSIVE <= 1024px
 ========================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 
   .hero {
     min-height: auto;
