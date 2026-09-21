@@ -14,12 +14,12 @@
     {
       "id": "oct-31",
       "fecha": "31 de octubre",
-      "descripcion": "La Cámara de Senadores deber aprobar la Ley de Ingresos a más tardar en esta fecha."
+      "descripcion": "La Cámara de Senadores debe aprobar la ILIF a más tardar en esta fecha."
     },
     {
       "id": "nov-15",
       "fecha": "15 de noviembre",
-      "descripcion": "Fecha límite para que la Cámara de Diputados apruebe el Presupuesto de Egresos de la Federación."
+      "descripcion": "Fecha límite para que la Cámara de Diputados apruebe el Proyecto de Presupuesto de Egresos de la Federación (PPEF)."
     }
   ],
   "textoFinal": "Al finalizar este proceso, la Iniciativa se convierte en la Ley de Ingresos de la Federación (LIF) y el Proyecto se convierte en el Presupuesto de Egresos de la Federación (PEF)."
