@@ -8,22 +8,24 @@
             <div class="ods__burbuja-contenido">
 
                 <!-- Nombre del ODS -->
-                <span v-if="Number(burbuja.cumplidas) > 5" class="ods__texto">
+                <span v-if="obtenerPorcentajeCumplimiento(burbuja) > 0.49" class="ods__texto">
                     {{ burbuja.texto }}
                 </span>
 
-                <span v-if="Number(burbuja.cumplidas) <= 5" class="ods__numero">
+                <!-- Número del ODS -->
+                <span v-if="obtenerPorcentajeCumplimiento(burbuja) <= 0.49" class="ods__numero">
                     {{ burbuja.id }}
                 </span>
 
                 <!-- Imagen -->
                 <img v-if="burbuja.imagen" :src="getImagen(burbuja.imagen)" :alt="burbuja.texto" class="ods__icono"
                     :class="{
-                        'ods__icono--solo': Number(burbuja.cumplidas) <= 5
+                        'ods__icono--solo':
+                            obtenerPorcentajeCumplimiento(burbuja) <= 0.49
                     }" />
 
-                <!-- Tooltip: solamente para burbujas sin título -->
-                <span v-if="Number(burbuja.cumplidas) <= 5" class="ods__tooltip">
+                <!-- Tooltip solamente para burbujas sin título -->
+                <span v-if="obtenerPorcentajeCumplimiento(burbuja) <= 0.49" class="ods__tooltip">
                     {{ burbuja.texto }}
                 </span>
 
@@ -163,35 +165,28 @@ const burbujas = reactive(
 
 )
 
+function obtenerPorcentajeCumplimiento(burbuja) {
+    if (!burbuja.metas || burbuja.metas <= 0) {
+        return 0
+    }
+
+    return burbuja.cumplidas / burbuja.metas
+}
 
 // =============================================
 // CALCULAR TAMAÑO
 // =============================================
 
 function calcularTamanos(ancho) {
-
     if (!burbujas.length) {
         return
     }
 
-
-    const valores = burbujas.map(
-        item => item.cumplidas
-    )
-
-
-    const minimo =
-        Math.min(...valores)
-
-    const maximo =
-        Math.max(...valores)
-
-
     /*
-        La escala reduce las burbujas
-        en pantallas pequeñas.
+        Escala responsive.
+        Reduce el tamaño general de las burbujas
+        cuando la pantalla es más pequeña.
     */
-
     const escalaPantalla = Math.max(
         0.60,
         Math.min(
@@ -200,74 +195,54 @@ function calcularTamanos(ancho) {
         )
     )
 
-
     const diametroMinimo =
-        110 * escalaPantalla
+        90 * escalaPantalla
 
     const diametroMaximo =
-        220 * escalaPantalla
-
+        190 * escalaPantalla
 
     burbujas.forEach(burbuja => {
 
-        let porcentaje = 0
+        /*
+            Porcentaje de cumplimiento.
 
+            Ejemplos:
+            8 / 8   = 1.00 = 100%
+            7 / 8   = 0.875 = 87.5%
+            15 / 19 = 0.789 = 78.9%
+        */
+        const porcentajeCumplimiento =
+            burbuja.metas > 0
+                ? burbuja.cumplidas / burbuja.metas
+                : 0
 
-        if (maximo !== minimo) {
+        /*
+            Limitamos el valor entre 0 y 1
+            por seguridad.
+        */
+        const porcentaje = Math.max(
+            0,
+            Math.min(
+                1,
+                porcentajeCumplimiento
+            )
+        )
 
-            porcentaje =
-
-                (
-                    Math.sqrt(
-                        burbuja.cumplidas
-                    )
-
-                    -
-
-                    Math.sqrt(
-                        minimo
-                    )
-                )
-
-                /
-
-                (
-                    Math.sqrt(
-                        maximo
-                    )
-
-                    -
-
-                    Math.sqrt(
-                        minimo
-                    )
-                )
-
-        }
-
-
+        /*
+            0%   -> diámetro mínimo
+            100% -> diámetro máximo
+        */
         burbuja.diametro =
-
-            diametroMinimo
-
-            +
-
-            porcentaje
-
-            *
-
+            diametroMinimo +
+            porcentaje *
             (
-                diametroMaximo
-                -
+                diametroMaximo -
                 diametroMinimo
             )
 
-
         burbuja.radio =
             burbuja.diametro / 2
-
     })
-
 }
 
 function prepararBurbujasEnCentro() {
@@ -414,15 +389,21 @@ function crearDistribucion(desdeCentro = false) {
     // =========================================
 
     const burbujaPrincipal =
-
         [...burbujas]
+            .sort((a, b) => {
 
-            .sort(
-                (a, b) =>
-                    b.cumplidas
-                    -
-                    a.cumplidas
-            )[0]
+                const porcentajeA =
+                    a.metas > 0
+                        ? a.cumplidas / a.metas
+                        : 0
+
+                const porcentajeB =
+                    b.metas > 0
+                        ? b.cumplidas / b.metas
+                        : 0
+
+                return porcentajeB - porcentajeA
+            })[0]
 
 
     /*
