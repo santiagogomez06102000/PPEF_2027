@@ -15,16 +15,19 @@ export interface Tarjeta {
     descripcion: string;
     img: string;
     lista?: string[];
+    padding?:string;
 }
 </script>
 <template>
     <div class="rounded-4xl card-xiuh flex flex-col items-center justify-start text-white p-8">
         <h3 v-html="card.titulo"></h3>
         <div class="flex items-start justify-between gap-4">
-            <img :src="`${baseUrl}${card.img}`" :alt="card.titulo" class="w-[8rem]" />
+            <img :src="`${baseUrl}${card.img}`" :alt="card.titulo" class="w-[8rem]" :style="{
+                padding:card.padding ?? 0
+            }" />
             <div>
                 <p v-html="card.descripcion" class="card-descripcion"></p>
-                <div v-if="card.lista" class=" flex items-start justify-end">
+                <div v-if="card.lista" class=" flex items-start justify-end me-16">
                     <ul class=" w-auto">
                         <li v-for="item in card.lista" :key="item" v-html="item"></li>
                     </ul>
