@@ -5,7 +5,7 @@
     {
       "id": "funcional",
       "pregunta": "¿Para qué se gasta?",
-      "img":"secciones/distribucionGasto/para_que.png",
+      "img": "secciones/distribucionGasto/para_que.png",
       "subtitulo": "Clasificación funcional",
       "barras": [
         {
@@ -204,80 +204,80 @@
     {
       "id": "administrativa",
       "pregunta": "¿Quién gasta?",
-      "img":"secciones/distribucionGasto/quien.png",
+      "img": "secciones/distribucionGasto/quien.png",
       "subtitulo": "Clasificación administrativa",
       "barras": [
         {
           "id": "control-directo",
           "nombre": "Entidades de control directo y empresas públicas del estado",
-          "total": "$3,201,259.1",
-          "porcentajeTotal": 33,
+          "total": "$3,425,471.20",
+          "porcentajeTotal": 38,
           "tendencia": "▼",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "Instituto Mexicano del Seguro Social",
               "ramoCorto": "R50",
-              "monto": "$1,590,308.7",
-              "porcentaje": 49.7,
+              "monto": "$1,803,009.10",
+              "porcentaje": 53,
               "tendencia": "▲"
-            },
-            {
-              "ramo": "Comisión Federal de Electricidad",
-              "ramoCorto": "R53",
-              "monto": "$554,567.5",
-              "porcentaje": 17.3,
-              "tendencia": "▼"
             },
             {
               "ramo": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado",
               "ramoCorto": "R51",
-              "monto": "$539,020.8",
-              "porcentaje": 16.8,
-              "tendencia": "▼"
+              "monto": "$571,592.30",
+              "porcentaje": 17,
+              "tendencia": "▲"
             },
             {
               "ramo": "Petróleos Mexicanos",
               "ramoCorto": "R52",
-              "monto": "$517,362.1",
-              "porcentaje": 16.2,
-              "tendencia": "▲"
+              "monto": "$527,121.90",
+              "porcentaje": 15,
+              "tendencia": "▼"
+            },
+            {
+              "ramo": "Comisión Federal de Electricidad",
+              "ramoCorto": "R53",
+              "monto": "$523,747.90",
+              "porcentaje": 15,
+              "tendencia": "▼"
             }
           ]
         },
         {
           "id": "ramos-generales",
           "nombre": "Ramos generales",
-          "total": "$2,836,246.2",
-          "porcentajeTotal": 37,
+          "total": "$3,055,055.70",
+          "porcentajeTotal": 34,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "R19 Aportaciones a Seguridad Social",
               "ramoCorto": "R19",
-              "monto": "$1,541,518.7",
+              "monto": "$1,661,007.90",
               "porcentaje": 54,
               "tendencia": "▲"
             },
             {
               "ramo": "R33 Aportaciones Federales para Entidades Federativas y Municipios",
               "ramoCorto": "R33",
-              "monto": "$1,041,892.9",
+              "monto": "$1,136,351.60",
               "porcentaje": 37,
               "tendencia": "▲"
             },
             {
               "ramo": "R23 Provisiones Salariales y Económicas",
               "ramoCorto": "R23",
-              "monto": "$167,652.2",
-              "porcentaje": 6,
-              "tendencia": "▲"
+              "monto": "$162,153.20",
+              "porcentaje": 5,
+              "tendencia": "▼"
             },
             {
               "ramo": "R25 Previsiones y Aportaciones para los Sistemas de Educación Básica, Normal, Tecnológica y de Adultos",
               "ramoCorto": "R25",
-              "monto": "$85,182.4",
+              "monto": "$95,543.00",
               "porcentaje": 3,
               "tendencia": "▲"
             }
@@ -409,59 +409,59 @@
         {
           "id": "ramos-autonomos",
           "nombre": "Ramos autónomos",
-          "total": "$164,427.7",
+          "total": "$170,340.40",
           "porcentajeTotal": 2,
           "tendencia": "▲",
-          "respecto": "Respecto a 2025",
+          "respecto": "Respecto a 2026",
           "segmentos": [
             {
               "ramo": "Poder Judicial",
               "ramoCorto": null,
-              "monto": "$85,960.20",
-              "porcentaje": 52.28,
+              "monto": "$72,264.70",
+              "porcentaje": 42,
               "tendencia": "-"
             },
             {
               "ramo": "Instituto Nacional Electoral",
               "ramoCorto": null,
-              "monto": "$22,837.20",
-              "porcentaje": 13.89,
-              "tendencia": "▼"
+              "monto": "$42,274.50",
+              "porcentaje": 25,
+              "tendencia": "▲"
             },
             {
               "ramo": "Fiscalía General de la República",
               "ramoCorto": null,
-              "monto": "$21,059.40",
-              "porcentaje": 12.81,
+              "monto": "$20,893.60",
+              "porcentaje": 12,
               "tendencia": "-"
             },
             {
               "ramo": "Poder Legislativo",
               "ramoCorto": null,
-              "monto": "$17,529.10",
-              "porcentaje": 10.66,
+              "monto": "$17,931.00",
+              "porcentaje": 11,
               "tendencia": "▼"
             },
             {
               "ramo": "Información Nacional Estadística y Geográfica",
               "ramoCorto": null,
-              "monto": "$11,807.50",
-              "porcentaje": 7.18,
+              "monto": "$11,816.00",
+              "porcentaje": 7,
               "tendencia": "▼"
             },
             {
               "ramo": "Tribunal Federal de Justicia Administrativa",
               "ramoCorto": null,
-              "monto": "$3,400.00",
-              "porcentaje": 2.07,
-              "tendencia": "▲"
+              "monto": "$3,509.70",
+              "porcentaje": 2,
+              "tendencia": "-"
             },
             {
               "ramo": "Comisión Nacional de los Derechos Humanos",
               "ramoCorto": null,
-              "monto": "$1,834.30",
-              "porcentaje": 1.12,
-              "tendencia": "▲"
+              "monto": "$1,650.90",
+              "porcentaje": 1,
+              "tendencia": "▼"
             }
           ]
         }
@@ -470,7 +470,7 @@
     {
       "id": "economica",
       "pregunta": "¿En qué se gasta?",
-      "img":"secciones/distribucionGasto/en_que.png",
+      "img": "secciones/distribucionGasto/en_que.png",
       "subtitulo": "Clasificación económica",
       "barras": [
         {
