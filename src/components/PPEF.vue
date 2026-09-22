@@ -59,12 +59,16 @@
     </div>
 
   </section>
-  <section class="w-full flex flex-col items-center justify-center contenedor-xiuh"
-    ref="contenedorXiuh">
-    <article class="ver-mas w-full  flex-col xl:flex-row gap-4 transition transition-all duration-300 ease" :class="{
+  <section class="w-full flex flex-col items-center justify-center contenedor-xiuh" ref="contenedorXiuh">
+    <article class="ver-mas w-full  grid grid-cols-12 gap-x-4 gap-y-8 transition transition-all duration-300 ease" :class="{
       'activo': verMas,
     }">
-      <Tarjetas_XIUH :card="card" v-for="card in xiuh" :key="card.titulo" />
+      <Tarjetas_XIUH :card="card" v-for="card in xiuh" :key="card.titulo" class="col-span-12 xl:col-span-4" />
+      <div class="bg-[#52889f] text-white rounded-4xl p-8 text-center col-span-12 xl:col-span-6 xl:col-start-4">
+        <h3>Mi misión es contigo</h3>
+        <p style="color: white; margin-bottom: 0; text-align: center;">Te acompañaré a explorar y entender la información del <strong>Paquete Económico</strong> de manera sencilla
+          y clara. <strong><i>Juntos exploraremos:</i></strong></p>
+      </div>
     </article>
     <button type="button" class="text-white cursor-pointer 
           flex flex-col items-center justify-center" :class="{ 'animate-bounce ': !verMas }" @click="verMas = !verMas">
@@ -84,7 +88,7 @@ import Tarjetas_XIUH from './Tarjetas_XIUH.vue';
 const verMas = ref(false);
 const datos = ref(null)
 const xiuh = ref(null);
-const contenedorXiuh=ref(null);
+const contenedorXiuh = ref(null);
 onMounted(async () => {
   datos.value = await fetchPublicJson(
     "/secciones/PPEF/paquete.json"
@@ -92,7 +96,7 @@ onMounted(async () => {
   xiuh.value = await fetchPublicJson("/secciones/PPEF/xiuh.json")
 });
 const handleClickOutside = (event) => {
-  const target = event.target 
+  const target = event.target
 
   if (
     contenedorXiuh.value &&
@@ -555,27 +559,24 @@ onUnmounted(() => {
 
 
 .ver-mas {
-  display: flex;
   max-height: 0px;
   overflow-y: auto;
   margin-bottom: 1rem;
 }
 
 .ver-mas.activo {
-  display: flex;
-  max-height: 100dvh;
-}
-@media (min-width:1280px){
-  .ver-mas {
-  display: flex;
-  max-height: 0px;
-  overflow-y: hidden;
-  margin-bottom: 1rem;
+  max-height: 200dvh;
 }
 
-.ver-mas.activo {
-  display: flex;
-  max-height: 300px;
-}
+@media (min-width:1280px) {
+  .ver-mas {
+    max-height: 0px;
+    overflow-y: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .ver-mas.activo {
+    max-height: 200dvh;
+  }
 }
 </style>

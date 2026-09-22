@@ -39,7 +39,6 @@ export interface Tarjeta {
 <style scoped>
 .card-xiuh {
     background-color: #52889f;
-    flex: 1;
 }
 
 .card-descripcion {
