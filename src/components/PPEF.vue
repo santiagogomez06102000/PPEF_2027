@@ -67,7 +67,7 @@
       <div class="bg-[#52889f] text-white rounded-4xl p-8 text-center col-span-12 xl:col-span-6 xl:col-start-4">
         <h3>Mi misión es contigo</h3>
         <p style="color: white; margin-bottom: 0; text-align: center;">Te acompañaré a explorar y entender la información del <strong>Paquete Económico</strong> de manera sencilla
-          y clara. <strong><i>Juntos exploraremos:</i></strong></p>
+          y clara. <strong><i>Juntos exploraremos</i></strong></p>
       </div>
     </article>
     <button type="button" class="text-white cursor-pointer 
