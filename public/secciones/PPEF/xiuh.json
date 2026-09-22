@@ -1,0 +1,19 @@
+ [
+    {
+      "titulo": "Mi nombre",
+      "descripcion": "Proviene de xihuitl, palabra náhuatl asociada con el turquesa, la vegetación y el ciclo del tiempo.",
+      "img": "secciones/PPEF/1_XIUH.png"
+    },
+    {
+      "titulo": "Soy mexicano",
+      "descripcion": "Endémico de México. Estoy en peligro de extinción, protegerme es proteger a nuestro país.",
+      "img": "secciones/PPEF/2_XIUH.png"
+    },
+    {
+      "titulo": "Vivo en los bosques",
+      "descripcion": "Al sur de la Sierra Madre Oriental, en los estados de",
+      "img": "secciones/PPEF/3_XIUH.png",
+      "lista": ["Puebla", "Veracruz", "Oaxaca"]
+    }
+  ]
+

@@ -1,80 +1,115 @@
 <template>
   <section class="hero" v-if="datos">
-    <div class=" w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div class="hero-content">
 
-      <div class=" flex-1">
-        <!-- ========================================
+      <!-- ========================================
            1. TÍTULO
       ========================================= -->
-        <div class="hero-title">
-          <h1 class="titulo-principal">
-            <span class="linea">
-              Paquete Económico 2027
-            </span>
-          </h1>
-        </div>
+      <div class="hero-title">
+        <h1 class="titulo-principal">
+          <span class="linea">
+            Paquete Económico 2027
+          </span>
+        </h1>
+      </div>
 
-        <!-- ========================================
+
+      <div class="hero-image">
+        <img :src="`${baseUrl}secciones/PPEF/XIUH.png`" alt="XIUH" class="xiuh" />
+        <img :src="`${baseUrl}secciones/PPEF/soy_XIUH.png`" alt="Soy XIUH" class="w-[50%]" />
+      </div>
+
+
+      <!-- ========================================
            3. DATOS
       ========================================= -->
-        <div class="hero-info">
+      <div class="hero-info">
 
-          <div class="bloque-datos">
-            <p class="etiqueta">
-              {{ datos.subtituloGasto }}
-            </p>
+        <div class="bloque-datos">
+          <p class="etiqueta">
+            {{ datos.subtituloGasto }}
+          </p>
 
-            <p class="monto">
-              {{ datos.monto }}
-            </p>
+          <p class="monto">
+            {{ datos.monto }}
+          </p>
 
-            <p class="unidad">
-              {{ datos.unidad }}
-            </p>
-          </div>
-
-
-          <div class="bloque-crecimiento">
-            <p class="porcentaje">
-              {{ datos.crecimiento }}
-            </p>
-
-            <p class="comparativa">
-              {{ datos.comparativa }}
-            </p>
-
-            <p class="nota">
-              {{ datos.nota }}
-            </p>
-          </div>
-
+          <p class="unidad">
+            {{ datos.unidad }}
+          </p>
         </div>
+
+
+        <div class="bloque-crecimiento">
+          <p class="porcentaje">
+            {{ datos.crecimiento }}
+          </p>
+
+          <p class="comparativa">
+            {{ datos.comparativa }}
+          </p>
+
+          <p class="nota">
+            {{ datos.nota }}
+          </p>
+        </div>
+
       </div>
-      <!-- ========================================
-           2. MASCOTA
-      ========================================= -->
-      <div class="hero-image">
-        <img :src="`${baseUrl}secciones/PPEF/XIUH.${image}`" alt="XIUH" @mouseenter="image = 'gif'"
-          @mouseleave="image = 'png'" />
-      </div>
+
     </div>
+
+  </section>
+  <section class="w-full flex flex-col items-center justify-center contenedor-xiuh"
+    ref="contenedorXiuh">
+    <article class="ver-mas w-full  flex-col xl:flex-row gap-4 transition transition-all duration-300 ease" :class="{
+      'activo': verMas,
+    }">
+      <Tarjetas_XIUH :card="card" v-for="card in xiuh" :key="card.titulo" />
+    </article>
+    <button type="button" class="text-white cursor-pointer 
+          flex flex-col items-center justify-center" :class="{ 'animate-bounce ': !verMas }" @click="verMas = !verMas">
+      <ChevronDobleDown class="text-3xl transition transition-all duration-300 ease"
+        :class="{ 'rotate-180': verMas }" />
+      <span class="transition transition-all duration-300 ease" :class="{ 'opacity-0': verMas }">Conóceme</span>
+    </button>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { fetchPublicJson } from './utils/utils.js';
-import Mascota from './utils/Mascota.vue'
 import { baseUrl } from './secciones/Inversion/mapController.js';
-
+import ChevronDobleDown from './utils/Icons/ChevronDobleDown.vue';
+import Tarjetas_XIUH from './Tarjetas_XIUH.vue';
+const verMas = ref(false);
 const datos = ref(null)
-const image = ref('png')
-
+const xiuh = ref(null);
+const contenedorXiuh=ref(null);
 onMounted(async () => {
   datos.value = await fetchPublicJson(
     "/secciones/PPEF/paquete.json"
   );
+  xiuh.value = await fetchPublicJson("/secciones/PPEF/xiuh.json")
 });
+const handleClickOutside = (event) => {
+  const target = event.target 
+
+  if (
+    contenedorXiuh.value &&
+    !contenedorXiuh.value.contains(target)
+  ) {
+    verMas.value = false
+  }
+}
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
+
+
 </script>
 
 <style scoped>
@@ -82,7 +117,6 @@ onMounted(async () => {
   position: relative;
 
   width: 100%;
-  min-height: 70dvh;
 
   display: flex;
   align-items: center;
@@ -90,7 +124,7 @@ onMounted(async () => {
 
   padding: 3rem;
   box-sizing: border-box;
-
+  padding-bottom: 1rem;
   overflow: visible;
 }
 
@@ -121,7 +155,7 @@ onMounted(async () => {
 
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
 
   color: #ffffff;
 }
@@ -134,8 +168,10 @@ onMounted(async () => {
 
   font-size: clamp(2.8rem, 4vw, 4.5rem);
 
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 
-  text-align: left;
+  text-align: right;
 }
 
 .titulo-principal .linea {
@@ -148,16 +184,19 @@ onMounted(async () => {
 ======================================== */
 
 .hero-image {
+  width: 100%;
   min-width: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
-.hero-image :deep(img) {
+.hero-image.xiuh {
   display: block;
 
+  width: 100%;
   max-width: 450px;
 
   height: auto;
@@ -181,7 +220,6 @@ onMounted(async () => {
   gap: 2.5rem;
 
   color: #ffffff;
-  margin-top: 1rem;
 }
 
 .bloque-datos {
@@ -262,6 +300,7 @@ onMounted(async () => {
 ========================================================== */
 
 .hero-image {
+  width: 100%;
 
   display: flex;
 
@@ -277,11 +316,11 @@ onMounted(async () => {
   evita que pueda romper el grid.
 */
 
-.hero-image :deep(img) {
+.hero-image.xiuh {
   display: block;
 
   width: 100%;
-  max-width: 600px;
+  max-width: 450px;
 
   height: auto;
 
@@ -321,7 +360,7 @@ onMounted(async () => {
   }
 
 
-  .hero-image :deep(img) {
+  .hero-image.xiuh {
     max-width: 360px;
   }
 
@@ -331,7 +370,7 @@ onMounted(async () => {
    RESPONSIVE <= 1024px
 ========================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
 
   .hero {
     min-height: auto;
@@ -453,7 +492,7 @@ onMounted(async () => {
   }
 
 
-  .hero-image :deep(img) {
+  .hero-image.xiuh {
     width: min(70vw, 550px);
     max-width: 550px;
 
@@ -508,9 +547,35 @@ onMounted(async () => {
   }
 
 
-  .hero-image :deep(img) {
+  .hero-image.xiuh {
     width: min(90vw, 450px);
   }
 
+}
+
+
+.ver-mas {
+  display: flex;
+  max-height: 0px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.ver-mas.activo {
+  display: flex;
+  max-height: 100dvh;
+}
+@media (min-width:1280px){
+  .ver-mas {
+  display: flex;
+  max-height: 0px;
+  overflow-y: hidden;
+  margin-bottom: 1rem;
+}
+
+.ver-mas.activo {
+  display: flex;
+  max-height: 300px;
+}
 }
 </style>
