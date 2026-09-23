@@ -26,16 +26,22 @@
     "titulo": "Conoce los Anexos transversales contemplados en el PPEF 2027.",
     "datos": [
       {
-        "url": "",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/XLSX/anexos_transversales_ppef2027.xlsx",
         "tipo": "xlsx",
         "titulo": "XLSX",
         "img": "datosAbiertos/down_xlsx.png"
       },
       {
-        "url": "",
+        "url": "/work/models/PTP/DatosAbiertos/Bases_de_datos_presupuesto/CSV/anexos_transversales_ppef2027.csv",
         "tipo": "csv",
         "titulo": "CSV",
         "img": "datosAbiertos/down_csv.png"
+      },
+      {
+        "url": "/work/models/PTP/DatosAbiertos/Diccionarios/Diccionario_Datos_AT_PPEF2027.csv",
+        "tipo": "diccionario",
+        "titulo": "Diccionario de datos",
+        "img": "datosAbiertos/down_diccionario.png"
       }
     ]
   },
