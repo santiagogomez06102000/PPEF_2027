@@ -60,9 +60,10 @@
 
   </section>
   <section class="w-full flex flex-col items-center justify-center contenedor-xiuh" ref="contenedorXiuh">
-    <article class="ver-mas w-full  grid grid-cols-12 gap-x-4 gap-y-8 transition transition-all duration-300 ease" :class="{
-      'activo': verMas,
-    }">
+    <article class="ver-mas w-full  grid grid-cols-12 gap-x-4 gap-y-8 transition transition-all duration-300 ease"
+      :class="{
+        'activo': verMas,
+      }">
       <Tarjetas_XIUH :card="card" v-for="card in xiuh" :key="card.titulo" class="col-span-12 xl:col-span-4" />
       <div class="bg-[#52889f] text-white rounded-4xl p-8 text-center col-span-12 xl:col-span-6 xl:col-start-4">
         <h3>Mi misión es contigo</h3>

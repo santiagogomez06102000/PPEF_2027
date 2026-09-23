@@ -210,7 +210,7 @@
         {
           "id": "control-directo",
           "nombre": "Entidades de control directo y empresas públicas del estado",
-          "total": "$3,425,471.20",
+          "total": "$3,425,471.2",
           "porcentajeTotal": 38,
           "tendencia": "▼",
           "respecto": "Respecto a 2026",
@@ -218,28 +218,28 @@
             {
               "ramo": "Instituto Mexicano del Seguro Social",
               "ramoCorto": "R50",
-              "monto": "$1,803,009.10",
+              "monto": "$1,803,009.1",
               "porcentaje": 53,
               "tendencia": "▲"
             },
             {
               "ramo": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado",
               "ramoCorto": "R51",
-              "monto": "$571,592.30",
+              "monto": "$571,592.3",
               "porcentaje": 17,
               "tendencia": "▲"
             },
             {
               "ramo": "Petróleos Mexicanos",
               "ramoCorto": "R52",
-              "monto": "$527,121.90",
+              "monto": "$527,121.9",
               "porcentaje": 15,
               "tendencia": "▼"
             },
             {
               "ramo": "Comisión Federal de Electricidad",
               "ramoCorto": "R53",
-              "monto": "$523,747.90",
+              "monto": "$523,747.9",
               "porcentaje": 15,
               "tendencia": "▼"
             }
@@ -248,7 +248,7 @@
         {
           "id": "ramos-generales",
           "nombre": "Ramos generales",
-          "total": "$3,055,055.70",
+          "total": "$3,055,055.7",
           "porcentajeTotal": 34,
           "tendencia": "▲",
           "respecto": "Respecto a 2026",
@@ -256,28 +256,28 @@
             {
               "ramo": "R19 Aportaciones a Seguridad Social",
               "ramoCorto": "R19",
-              "monto": "$1,661,007.90",
+              "monto": "$1,661,007.9",
               "porcentaje": 54,
               "tendencia": "▲"
             },
             {
               "ramo": "R33 Aportaciones Federales para Entidades Federativas y Municipios",
               "ramoCorto": "R33",
-              "monto": "$1,136,351.60",
+              "monto": "$1,136,351.6",
               "porcentaje": 37,
               "tendencia": "▲"
             },
             {
               "ramo": "R23 Provisiones Salariales y Económicas",
               "ramoCorto": "R23",
-              "monto": "$162,153.20",
+              "monto": "$162,153.2",
               "porcentaje": 5,
               "tendencia": "▼"
             },
             {
               "ramo": "R25 Previsiones y Aportaciones para los Sistemas de Educación Básica, Normal, Tecnológica y de Adultos",
               "ramoCorto": "R25",
-              "monto": "$95,543.00",
+              "monto": "$95,543.0",
               "porcentaje": 3,
               "tendencia": "▲"
             }
@@ -409,7 +409,7 @@
         {
           "id": "ramos-autonomos",
           "nombre": "Ramos autónomos",
-          "total": "$170,340.40",
+          "total": "$170,340.4",
           "porcentajeTotal": 2,
           "tendencia": "▲",
           "respecto": "Respecto a 2026",
@@ -417,49 +417,49 @@
             {
               "ramo": "Poder Judicial",
               "ramoCorto": null,
-              "monto": "$72,264.70",
+              "monto": "$72,264.7",
               "porcentaje": 42,
               "tendencia": "-"
             },
             {
               "ramo": "Instituto Nacional Electoral",
               "ramoCorto": null,
-              "monto": "$42,274.50",
+              "monto": "$42,274.5",
               "porcentaje": 25,
               "tendencia": "▲"
             },
             {
               "ramo": "Fiscalía General de la República",
               "ramoCorto": null,
-              "monto": "$20,893.60",
+              "monto": "$20,893.6",
               "porcentaje": 12,
               "tendencia": "-"
             },
             {
               "ramo": "Poder Legislativo",
               "ramoCorto": null,
-              "monto": "$17,931.00",
+              "monto": "$17,931.0",
               "porcentaje": 11,
               "tendencia": "▼"
             },
             {
               "ramo": "Información Nacional Estadística y Geográfica",
               "ramoCorto": null,
-              "monto": "$11,816.00",
+              "monto": "$11,816.0",
               "porcentaje": 7,
               "tendencia": "▼"
             },
             {
               "ramo": "Tribunal Federal de Justicia Administrativa",
               "ramoCorto": null,
-              "monto": "$3,509.70",
+              "monto": "$3,509.7",
               "porcentaje": 2,
               "tendencia": "-"
             },
             {
               "ramo": "Comisión Nacional de los Derechos Humanos",
               "ramoCorto": null,
-              "monto": "$1,650.90",
+              "monto": "$1,650.9",
               "porcentaje": 1,
               "tendencia": "▼"
             }
