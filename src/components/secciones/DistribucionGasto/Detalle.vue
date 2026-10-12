@@ -51,47 +51,42 @@ interface Segmento {
         </h6>
         <h6 v-html="`${detalle.total} - ${detalle.respecto}`" class="col-span-12 text-[#757575] text-sm"></h6>
         <span class="text-[#757575] col-span-12 text-right" v-html="subtitulo"></span>
-        <div class="hidden md:grid grid-cols-24 col-span-12">
-            <span class="col-span-5 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold" title="%">% del
-                total</span>
-            <span class="col-span-3 truncate px-2 text-[#0a5a45] text-center bg-[#f5f2ed] font-bold"
-                title="Variación">Variación</span>
-            <span class="col-span-8 truncate px-2  text-[#0a5a45] bg-[#f5f2ed] font-bold"
-                title="Desagregado">Desagregado</span>
-            <span class="col-span-8 truncate px-2 text-[#0a5a45] text-end bg-[#f5f2ed] font-bold"
-                title="2027">2027</span>
-        </div>
-        <div class="hidden md:grid grid-cols-24 col-span-12 gap-0" v-for="(row, i) in detalle.segmentos">
-            <span class="col-span-5  px-2 truncate text-center text-white bg-[var(--color-porcentaje)]" :style="{
-                '--color-porcentaje': colores[i]
-            }" :title="row.porcentaje.toString()" v-html="row.porcentaje"></span>
-            <span class="col-span-3 text-center truncate px-2 text-[var(--color-flecha)]" v-html="row.tendencia" :style="{
-                '--color-flecha': row.tendencia === '▲' ? '#2a9d8f' : row.tendencia === '▼' ? '#e63946' : '#888888'
-            }"></span>
-            <span class="col-span-8 px-2  text-black truncate " v-html="row.ramo" :title="row.ramo"></span>
-            <span class="col-span-8 px-2 text-end text-black truncate" :title="row.monto" v-html="row.monto"></span>
-
-
-        </div>
-        <!--MOBILE-->
-        <div class="grid grid-cols-1 text-white md:hidden col-span-6 gap-2 bg-[var(--color-porcentaje)] px-2 py-1"
-            v-for="(row, i) in detalle.segmentos" :style="{
-                '--color-porcentaje': colores[i]
-            }">
-            <div class="font-bold text-lg" v-html="row.ramo"></div>
-            <div v-html="row.monto"></div>
-            <div v-html="row.porcentaje + '%'"></div>
-            <div v-html="row.tendencia" class="text-outline" :style="{
-                '--color-flecha': row.tendencia === '▲' ? '#2a9d8f' : row.tendencia === '▼' ? '#e63946' : '#888888'
-            }"></div>
-
-
-
-        </div>
-        <div class="col-span-12 pt-3 text-xs" v-if="detalle.nota" v-html="detalle.nota">
-
-        </div>
-
+        <table class="col-span-12">
+            <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 12%" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <td class="text-[#0a5a45] text-center bg-[#f5f2ed] font-bold px-2">% del total</td>
+                    <td class="text-[#0a5a45] text-center bg-[#f5f2ed] font-bold px-2">Variación</td>
+                    <td class="text-[#0a5a45] text-center bg-[#f5f2ed] font-bold px-2">Desagregado</td>
+                    <td class="text-[#0a5a45] text-end bg-[#f5f2ed] font-bold    px-2">2027</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(fila, i) in detalle.segmentos" :key="i">
+                    <td class="px-2 text-center text-white " :style="{
+                        backgroundColor: colores[i]
+                    }">{{ fila.porcentaje }}</td>
+                    <td class="px-2 text-center " :style="{
+                        color: fila.tendencia === '▲' ? '#2a9d8f' : fila.tendencia === '▼' ? '#e63946' : '#888888'
+                    }">{{
+                        fila.tendencia }}</td>
+                    <td class="px-2 text-center text-black ">{{ fila.ramo }}</td>
+                    <td class="px-2 text-end text-black ">{{ fila.monto }}</td>
+                </tr>
+            </tbody>
+            <tfoot v-if="detalle.nota">
+                <tr>
+                    <td colspan="4" class="pt-3 text-xs">
+                        {{ detalle.nota }}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </section>
 
 </template>
